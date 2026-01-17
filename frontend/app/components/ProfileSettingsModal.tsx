@@ -160,7 +160,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
 
                 {loading ? (
                     <div>Loading...</div>
-                ) : (
+                ) : (<>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
                         {/* Status Banner */}
@@ -260,199 +260,200 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                         <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#6b7280' }}>
                             Your key is stored securely and used only for your account. You can generate one at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'underline' }}>Google AI Studio</a>.
                         </p>
+
                     </div>
 
-                        {/* Feature Management */}
-                <div style={{ borderTop: '1px solid #eee', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem' }}>
-                        Feature Management
-                    </h3>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem', background: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
-                        <div>
-                            <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#1f2937' }}>Enable Story Clustering</div>
-                            <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Automatically group related articles into evolving stories.</div>
-                        </div>
-                        <div className="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
-                            <input
-                                type="checkbox"
-                                name="toggle"
-                                id="toggle-stories"
-                                checked={enableStories}
-                                onChange={e => setEnableStories(e.target.checked)}
-                                className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
-                                style={{
-                                    right: enableStories ? '0' : 'auto',
-                                    left: enableStories ? 'auto' : '0',
-                                    borderColor: enableStories ? '#3b82f6' : '#d1d5db'
-                                }}
-                            />
-                            <label
-                                htmlFor="toggle-stories"
-                                onClick={() => setEnableStories(!enableStories)}
-                                className={`toggle-label block overflow-hidden h-6 rounded-full cursor-pointer ${enableStories ? 'bg-blue-500' : 'bg-gray-300'}`}
-                            ></label>
+                    {/* Feature Management */}
+                    <div style={{ borderTop: '1px solid #eee', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem' }}>
+                            Feature Management
+                        </h3>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem', background: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+                            <div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#1f2937' }}>Enable Story Clustering</div>
+                                <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Automatically group related articles into evolving stories.</div>
+                            </div>
+                            <div className="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
+                                <input
+                                    type="checkbox"
+                                    name="toggle"
+                                    id="toggle-stories"
+                                    checked={enableStories}
+                                    onChange={e => setEnableStories(e.target.checked)}
+                                    className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+                                    style={{
+                                        right: enableStories ? '0' : 'auto',
+                                        left: enableStories ? 'auto' : '0',
+                                        borderColor: enableStories ? '#3b82f6' : '#d1d5db'
+                                    }}
+                                />
+                                <label
+                                    htmlFor="toggle-stories"
+                                    onClick={() => setEnableStories(!enableStories)}
+                                    className={`toggle-label block overflow-hidden h-6 rounded-full cursor-pointer ${enableStories ? 'bg-blue-500' : 'bg-gray-300'}`}
+                                ></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Email Configuration Section */}
-                <div style={{ borderTop: '1px solid #eee', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem' }}>
-                        Email Server (SMTP) Configuration
-                    </h3>
+                    {/* Email Configuration Section */}
+                    <div style={{ borderTop: '1px solid #eee', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem' }}>
+                            Email Server (SMTP) Configuration
+                        </h3>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-                        <div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                    SMTP Host
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="smtp.gmail.com"
+                                    value={smtpHost}
+                                    onChange={(e) => setSmtpHost(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                    }}
+                                />
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                    Port
+                                </label>
+                                <input
+                                    type="number"
+                                    placeholder="587"
+                                    value={smtpPort}
+                                    onChange={(e) => setSmtpPort(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                    }}
+                                />
+                            </div>
+                        </div>
+
+                        <div style={{ marginBottom: '1rem' }}>
                             <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                SMTP Host
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="smtp.gmail.com"
-                                value={smtpHost}
-                                onChange={(e) => setSmtpHost(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
-                            />
-                        </div>
-                        <div>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                Port
-                            </label>
-                            <input
-                                type="number"
-                                placeholder="587"
-                                value={smtpPort}
-                                onChange={(e) => setSmtpPort(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
-                            />
-                        </div>
-                    </div>
-
-                    <div style={{ marginBottom: '1rem' }}>
-                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                            SMTP User (Email)
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="you@gmail.com"
-                            value={smtpUser}
-                            onChange={(e) => setSmtpUser(e.target.value)}
-                            style={{
-                                width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                border: '1px solid #d1d5db', fontSize: '0.9rem'
-                            }}
-                        />
-                    </div>
-
-                    <div style={{ marginBottom: '1rem' }}>
-                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                            SMTP Password / App Password
-                        </label>
-                        <input
-                            type="password"
-                            placeholder="••••••••••••"
-                            value={smtpPassword}
-                            onChange={(e) => setSmtpPassword(e.target.value)}
-                            style={{
-                                width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                border: '1px solid #d1d5db', fontSize: '0.9rem'
-                            }}
-                        />
-                    </div>
-
-                    <div>
-                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                            From Email (Optional)
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Leave blank to use SMTP User"
-                            value={smtpFromEmail}
-                            onChange={(e) => setSmtpFromEmail(e.target.value)}
-                            style={{
-                                width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                border: '1px solid #d1d5db', fontSize: '0.9rem'
-                            }}
-                        />
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.25rem' }}>
-                        <div>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                Sender Name
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="e.g. AI Analyst"
-                                value={smtpSenderName}
-                                onChange={(e) => setSmtpSenderName(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
-                            />
-                        </div>
-                        <div>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                Reply-To Email
+                                SMTP User (Email)
                             </label>
                             <input
                                 type="email"
-                                placeholder="replies@example.com"
-                                value={smtpReplyTo}
-                                onChange={(e) => setSmtpReplyTo(e.target.value)}
+                                placeholder="you@gmail.com"
+                                value={smtpUser}
+                                onChange={(e) => setSmtpUser(e.target.value)}
                                 style={{
                                     width: '100%', padding: '0.625rem', borderRadius: '6px',
                                     border: '1px solid #d1d5db', fontSize: '0.9rem'
                                 }}
                             />
                         </div>
-                    </div>
-                </div>
 
-                {error && (
-                    <div style={{ color: '#dc2626', fontSize: '0.875rem', background: '#fef2f2', padding: '0.5rem', borderRadius: '4px' }}>
-                        {error}
+                        <div style={{ marginBottom: '1rem' }}>
+                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                SMTP Password / App Password
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="••••••••••••"
+                                value={smtpPassword}
+                                onChange={(e) => setSmtpPassword(e.target.value)}
+                                style={{
+                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                }}
+                            />
+                        </div>
+
+                        <div>
+                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                From Email (Optional)
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Leave blank to use SMTP User"
+                                value={smtpFromEmail}
+                                onChange={(e) => setSmtpFromEmail(e.target.value)}
+                                style={{
+                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                }}
+                            />
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.25rem' }}>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                    Sender Name
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. AI Analyst"
+                                    value={smtpSenderName}
+                                    onChange={(e) => setSmtpSenderName(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                    }}
+                                />
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                    Reply-To Email
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="replies@example.com"
+                                    value={smtpReplyTo}
+                                    onChange={(e) => setSmtpReplyTo(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </div>
+
+                    {error && (
+                        <div style={{ color: '#dc2626', fontSize: '0.875rem', background: '#fef2f2', padding: '0.5rem', borderRadius: '4px' }}>
+                            {error}
+                        </div>
+                    )}
+
+                    {success && (
+                        <div style={{ color: '#059669', fontSize: '0.875rem', background: '#ecfdf5', padding: '0.5rem', borderRadius: '4px' }}>
+                            {success}
+                        </div>
+                    )}
+
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1rem' }}>
+                        <button
+                            onClick={onClose}
+                            style={{
+                                padding: '0.625rem 1rem', borderRadius: '6px', border: '1px solid #d1d5db',
+                                background: 'white', color: '#374151', fontWeight: 500, cursor: 'pointer'
+                            }}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            onClick={handleSave}
+                            disabled={saving}
+                            style={{
+                                padding: '0.625rem 1rem', borderRadius: '6px', border: 'none',
+                                background: '#2563eb', color: 'white', fontWeight: 500, cursor: 'pointer',
+                                opacity: saving ? 0.7 : 1
+                            }}
+                        >
+                            {saving ? 'Saving...' : 'Save Settings'}
+                        </button>
+                    </div>
+                </>
                 )}
-
-                {success && (
-                    <div style={{ color: '#059669', fontSize: '0.875rem', background: '#ecfdf5', padding: '0.5rem', borderRadius: '4px' }}>
-                        {success}
-                    </div>
-                )}
-
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1rem' }}>
-                    <button
-                        onClick={onClose}
-                        style={{
-                            padding: '0.625rem 1rem', borderRadius: '6px', border: '1px solid #d1d5db',
-                            background: 'white', color: '#374151', fontWeight: 500, cursor: 'pointer'
-                        }}
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        onClick={handleSave}
-                        disabled={saving}
-                        style={{
-                            padding: '0.625rem 1rem', borderRadius: '6px', border: 'none',
-                            background: '#2563eb', color: 'white', fontWeight: 500, cursor: 'pointer',
-                            opacity: saving ? 0.7 : 1
-                        }}
-                    >
-                        {saving ? 'Saving...' : 'Save Settings'}
-                    </button>
-                </div>
             </div>
-                )}
         </div>
-        </div >
     );
 }

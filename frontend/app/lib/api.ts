@@ -337,6 +337,31 @@ export async function updateUserProfile(data: { google_api_key?: string; full_na
     return res.json();
 }
 
+
+export async function validateAIKey(key: string): Promise<{ status: 'valid' | 'invalid', message?: string }> {
+    const headers = await getAuthHeaders();
+    try {
+        const res = await fetchWithAuth(`${API_URL}/users/validate-key`, {
+            method: 'POST',
+            headers: {
+                ...headers,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ key })
+        });
+
+        if (!res.ok) {
+            // Check for 422 or other errors
+            const errorData = await res.json().catch(() => ({}));
+            return { status: 'invalid', message: errorData.message || 'Validation failed' };
+        }
+
+        return res.json();
+    } catch (e: any) {
+        return { status: 'invalid', message: e.message || 'Network error' };
+    }
+}
+
 // Stories / Clustering
 export interface Story {
     id: string;
