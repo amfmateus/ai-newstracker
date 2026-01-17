@@ -6,6 +6,10 @@ from sqlalchemy.orm import sessionmaker
 # Default to SQLite for local development, switch to Postgres via ENV in production
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./news_aggregator.db")
 
+# Fix for Railway/Heroku: SQLAlchemy requires 'postgresql://', but environment sometimes provides 'postgres://'
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 connect_args = {}
 if SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
