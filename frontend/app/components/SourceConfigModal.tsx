@@ -65,7 +65,8 @@ export default function SourceConfigModal({ source, onClose, onUpdate }: SourceC
         }}>
             <div style={{
                 background: '#fff', padding: '2rem', borderRadius: '12px', width: '500px', maxWidth: '95%',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                maxHeight: '90vh', overflowY: 'auto'
             }}>
                 <h3 style={{ marginTop: 0, marginBottom: '1.5rem', color: '#333' }}>Configure Source</h3>
 
