@@ -94,7 +94,7 @@ class AIService:
                 logger.error(f"Failed to configure AI: {e}")
                 self.enabled = False
 
-    async def analyze_article(self, title: str, text: str, topic_focus: str = "Economics, Trade, Politics, or Finance", model_name: str = "gemini-2.0-flash-lite", custom_prompt: str = None, debug_logger: Any = None) -> Dict[str, Any]:
+    async def analyze_article(self, title: str, text: str, topic_focus: str = "Economics, Trade, Politics, or Finance", model_name: str = "gemini-1.5-flash", custom_prompt: str = None, debug_logger: Any = None) -> Dict[str, Any]:
         if not self.enabled:
             return {}
 
@@ -102,7 +102,7 @@ class AIService:
         
         # Ensure model is valid
         if not model_name:
-            model_name = "gemini-2.0-flash-lite"
+            model_name = "gemini-1.5-flash"
             
         try:
             # Format prompt with provided context

@@ -232,17 +232,17 @@ class SystemConfig(Base):
     min_relevance_score = Column(Integer, default=50)
     content_topic_focus = Column(String, default="Economics, Trade, Politics, or Finance") # Default prompt focus
     
-    analysis_model = Column(String, default='gemini-2.0-flash-lite')
+    analysis_model = Column(String, default='gemini-1.5-flash')
     analysis_prompt = Column(Text, nullable=True)
     
-    clustering_model = Column(String, default='gemini-2.0-flash-lite')
+    clustering_model = Column(String, default='gemini-1.5-flash')
     clustering_prompt = Column(Text, nullable=True)
     
-    report_model = Column(String, default='gemini-2.0-flash-lite')
+    report_model = Column(String, default='gemini-1.5-flash')
     report_prompt = Column(Text, nullable=True)
 
     # 5. Dynamic PDF Crawler
-    pdf_crawl_model = Column(String, default='gemini-2.0-flash-lite')
+    pdf_crawl_model = Column(String, default='gemini-1.5-flash')
     pdf_crawl_prompt = Column(Text, nullable=True)
 
     # 5. Story Generation
