@@ -100,9 +100,9 @@ class AIService:
 
         raw_prompt = custom_prompt if custom_prompt else DEFAULT_ANALYSIS_PROMPT
         
-        # Ensure model is valid
         if not model_name:
-            model_name = "gemini-1.5-flash"
+            logger.error("No AI model configured for analysis.")
+            return {}
             
         try:
             # Format prompt with provided context
