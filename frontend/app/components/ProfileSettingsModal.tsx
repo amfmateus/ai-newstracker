@@ -20,10 +20,6 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
     const [fullName, setFullName] = useState('');
 
     // SMTP Settings State
-    const [smtpHost, setSmtpHost] = useState('');
-    const [smtpPort, setSmtpPort] = useState('587');
-    const [smtpUser, setSmtpUser] = useState('');
-    const [smtpPassword, setSmtpPassword] = useState('');
     const [smtpFromEmail, setSmtpFromEmail] = useState('');
     const [smtpSenderName, setSmtpSenderName] = useState('');
     const [smtpReplyTo, setSmtpReplyTo] = useState('');
@@ -71,10 +67,6 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
             // Load System Settings (SMTP)
             const settingsData = await fetchSettings();
             if (settingsData) {
-                setSmtpHost(settingsData.smtp_host || '');
-                setSmtpPort(settingsData.smtp_port?.toString() || '587');
-                setSmtpUser(settingsData.smtp_user || '');
-                setSmtpPassword(settingsData.smtp_password || '');
                 setSmtpFromEmail(settingsData.smtp_from_email || '');
                 setSmtpSenderName(settingsData.smtp_sender_name || '');
                 setSmtpSenderName(settingsData.smtp_sender_name || '');
@@ -110,10 +102,6 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
 
             // Save Settings
             const settingsUpdate: any = {
-                smtp_host: smtpHost,
-                smtp_port: parseInt(smtpPort) || 587,
-                smtp_user: smtpUser,
-                smtp_password: smtpPassword,
                 smtp_from_email: smtpFromEmail,
                 smtp_sender_name: smtpSenderName,
                 smtp_reply_to: smtpReplyTo,
@@ -190,8 +178,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                             </div>
                         </div>
 
-                        {/* SMTP Warning Banner */}
-                        {(!smtpHost || !smtpUser) && !resendApiKey && (
+                        {/* Email NOT Configured Warning */}
+                        {!resendApiKey && (
                             <div style={{
                                 padding: '1rem',
                                 borderRadius: '8px',
@@ -205,7 +193,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                                         Email Features Disabled
                                     </div>
                                     <div style={{ fontSize: '0.875rem', color: '#b45309' }}>
-                                        Configure SMTP settings below to enable report emailing.
+                                        Configure Resend API Key below to enable report emailing.
                                     </div>
                                 </div>
                             </div>
