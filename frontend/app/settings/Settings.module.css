@@ -15,6 +15,15 @@
     /* Prevent body scroll double bars */
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        overflow: auto;
+        /* Allow full page scroll on mobile */
+        height: auto;
+    }
+}
+
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
