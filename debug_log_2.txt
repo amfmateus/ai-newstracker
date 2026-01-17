@@ -1,0 +1,6 @@
+
+[read_sources] User: amfmateus@gmail.com (a6ceef49-e398-4cb1-9303-2c69d8ed27ff)
+
+[read_articles] User: amfmateus@gmail.com (a6ceef49-e398-4cb1-9303-2c69d8ed27ff)
+  Source IDs: None
+  Min Relevance: None

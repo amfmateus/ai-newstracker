@@ -1,0 +1,509 @@
+.container {
+    padding: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+.btnCreate {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btnCreate:hover {
+    background: #1f2937;
+    transform: translateY(-2px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.cardName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.activePromptBadge {
+    background: #f0f9ff;
+    color: #0369a1;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 1px solid #bae6fd;
+}
+
+.cardDesc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cardStats {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.cardActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.cardActions button {
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+}
+
+.cardActions button:hover {
+    color: #000;
+}
+
+.cardActions .btnDelete {
+    color: #ef4444;
+}
+
+.cardActions .btnDelete:hover {
+    color: #dc2626;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    background: white;
+    width: 90%;
+    max-width: 650px;
+    max-height: 90vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalLarge {
+    max-width: 1000px;
+    height: 85vh;
+}
+
+.modalHeader {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modalSubtitle {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0.25rem 0 0 0;
+}
+
+.modalHeader button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: color 0.2s;
+}
+
+.modalHeader button:hover {
+    color: #111;
+}
+
+.modalBody {
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.formGroup input,
+.formGroup textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.formGroup textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.inputHint {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.inputHint code {
+    background: #f3f4f6;
+    padding: 1px 4px;
+    border-radius: 4px;
+    color: #3b82f6;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #f3f4f6;
+    margin: 0.5rem 0;
+}
+
+.advancedPromptControl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    gap: 1rem;
+}
+
+.advancedPromptInfo h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.advancedPromptInfo p {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.btnAdvanced {
+    white-space: nowrap;
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnAdvanced:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.btnAdvancedActive {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+.promptStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0369a1;
+    background: #f0f9ff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #bae6fd;
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #0ea5e9;
+}
+
+.btnClearPrompt {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 0.7rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btnClearPrompt:hover {
+    color: #374151;
+}
+
+.promptGuide {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.guideHeader h3 {
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+    color: #0f172a;
+}
+
+.guideHeader p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0 0 1.25rem 0;
+}
+
+.variableGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.variableItem {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #334155;
+}
+
+.variableItem code {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 2px 4px;
+    border-radius: 6px;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+.citationAlert {
+    font-size: 0.8rem;
+    background: #fffbeb;
+    color: #92400e;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #fde68a;
+}
+
+.codeArea {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    font-size: 0.9rem !important;
+    background: #0f172a !important;
+    color: #f1f5f9 !important;
+    border: 1px solid #1e293b !important;
+    flex: 1;
+    min-height: 400px !important;
+    padding: 1.5rem !important;
+    line-height: 1.6 !important;
+}
+
+.headingsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.headingItem {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.headingItem input {
+    flex: 1;
+}
+
+.headingItem button {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    padding: 0 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.btnAddHeading {
+    margin-top: 0.5rem;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    padding: 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #4b5563;
+    transition: all 0.2s;
+}
+
+.btnAddHeading:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.modalFooter {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: #fff;
+}
+
+.btnCancel {
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnCancel:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.btnSave {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btnSave:hover {
+    background: #1f2937;
+    transform: translateY(-1px);
+}
+
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: #6b7280;
+}

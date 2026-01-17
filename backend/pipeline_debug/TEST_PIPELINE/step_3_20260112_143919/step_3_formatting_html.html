@@ -1,0 +1,435 @@
+
+            <html>
+            <head>
+                <style>
+                    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+                    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.report-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 2rem;
+}
+
+.report-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.main-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #4b5563;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.summary-box {
+    background: #f9fafb;
+    border-left: 4px solid #2563eb;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.summary-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.summary-box p {
+    margin: 0;
+    color: #374151;
+    font-size: 1.05rem;
+}
+
+.findings-section {
+    background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+    border-left: 4px solid #3b82f6;
+    padding: 1.75rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.findings-section h2 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e40af;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+}
+
+.findings-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.findings-section li {
+    color: #1e40af;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 1.75rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.findings-section li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+
+.section-title {
+    color: #111827;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+h1.section-title { font-size: 1.875rem; color: #1e40af; border-bottom: 1px solid #f3f4f6; padding-bottom: 0.5rem; }
+h2.section-title { font-size: 1.5rem; color: #1e3a8a; }
+h3.section-title { font-size: 1.25rem; color: #1e3a8a; }
+h4.section-title { font-size: 1.125rem; color: #1e3a8a; }
+
+.section-body {
+    margin-bottom: 1.5rem;
+    color: #374151;
+}
+
+.subsections {
+    margin-left: 1.5rem;
+    border-left: 1px solid #f3f4f6;
+    padding-left: 1.5rem;
+}
+
+.references-section {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 2px solid #111827;
+}
+
+.refs-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2rem;
+}
+
+.ref-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ref-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+    background: #ffffff;
+}
+
+.ref-item:hover {
+    background: #f8fafc;
+}
+
+.ref-number {
+    font-weight: 700;
+    color: #2563eb;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.ref-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ref-article-title {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.ref-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+}
+
+/* Citations in text are rendered as links in superscript */
+sup a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+sup a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+                </style>
+            </head>
+            <body>
+                
+
+<div class="report-container">
+    <header class="report-header">
+        <h1 class="main-title">Minimum Wage Hike Sparks Housing Debates and Economic Policy Focus</h1>
+        
+        <div class="summary-box">
+            <span class="summary-label">EXECUTIVE SUMMARY</span>
+            <p>The Colombian government is proposing regulations to de-link housing prices from minimum wage increases, aiming to protect homebuyers and promote transparency in the sector<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001" target="_blank" style="text-decoration: none; color: #2563eb;">1</a>, <a href="https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528" target="_blank" style="text-decoration: none; color: #2563eb;">2</a>, <a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb;">3</a>]</span>. This move, however, has generated debate among experts and political figures regarding potential impacts on housing supply and affordability<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104" target="_blank" style="text-decoration: none; color: #2563eb;">4</a>, <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" style="text-decoration: none; color: #2563eb;">5</a>]</span>. Simultaneously, the recent 23% increase in the minimum wage is expected to affect various sectors, including restaurants and property management fees, leading to discussions about cost adjustments and potential business impacts<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086" target="_blank" style="text-decoration: none; color: #2563eb;">6</a>, <a href="https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/" target="_blank" style="text-decoration: none; color: #2563eb;">7</a>, <a href="https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/" target="_blank" style="text-decoration: none; color: #2563eb;">8</a>]</span>.</p>
+        </div>
+
+    </header>
+    
+    <div class="report-content">
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title">Housing Policy and Minimum Wage Adjustments</h1>
+        <div class="section-body">
+            The Colombian government has introduced a draft decree aimed at de-linking the pricing of Social Interest Housing (VIS) from the minimum wage, a measure intended to protect buyers and ensure price transparency<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001" target="_blank" style="text-decoration: none; color: #2563eb;">1</a>, <a href="https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528" target="_blank" style="text-decoration: none; color: #2563eb;">2</a>]</span>. This policy shift, which proposes setting VIS prices in Colombian pesos and caps the maximum value, has ignited debate regarding its potential to influence housing supply, prices, and overall market viability<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb;">3</a>]</span>. While proponents argue it prevents abuses against vulnerable populations and enhances transparency<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/" target="_blank" style="text-decoration: none; color: #2563eb;">9</a>]</span>, critics suggest it might lead to reduced supply and higher costs, particularly for lower-income families<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104" target="_blank" style="text-decoration: none; color: #2563eb;">4</a>, <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" style="text-decoration: none; color: #2563eb;">5</a>]</span>. Concerns also arise regarding the treatment of existing contracts signed before the potential decree's implementation<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089" target="_blank" style="text-decoration: none; color: #2563eb;">10</a>]</span>.
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title">Economic Impact of Minimum Wage Increase</h1>
+        <div class="section-body">
+            The recent 23% increase in the minimum wage for 2026 is projected to have widespread economic repercussions across various sectors. Restaurants, in particular, are anticipating significant cost pressures, leading to potential closures, menu adjustments, and layoffs due to increased payroll expenses<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/" target="_blank" style="text-decoration: none; color: #2563eb;">8</a>, <a href="https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/" target="_blank" style="text-decoration: none; color: #2563eb;">11</a>]</span>. Similarly, property management companies in residential complexes are warning of potential increases in administration fees as contracts are often indexed to the minimum wage<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/" target="_blank" style="text-decoration: none; color: #2563eb;">7</a>]</span>. This has prompted government warnings to condo owners about how these fee adjustments should be managed, emphasizing inflation as a primary factor for increases<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016" target="_blank" style="text-decoration: none; color: #2563eb;">12</a>]</span>. The debate extends to whether companies should raise salaries for employees earning above the minimum wage, considering labor laws and economic realities<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086" target="_blank" style="text-decoration: none; color: #2563eb;">6</a>]</span>.
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title">Inflationary Trends and Economic Performance</h1>
+        <div class="section-body">
+            Colombia's annual inflation rate closed 2025 at 5.10%, a figure virtually unchanged from the previous year, with a monthly inflation rate of 0.27% recorded in December [[Ref:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]]. This contrasts with the OECD's general inflation rate, which stood at 3.9% in November, largely influenced by decreased food prices [[Ref:019ef0ce-01c2-4585-92e0-7e3353c4049b]]. The price of food and energy experienced varied changes, with food prices declining while energy prices saw a slight increase [[Ref:019ef0ce-01c2-4585-92e0-7e3353c4049b]]. In a separate report, coffee, tea, cocoa, sweets, and meat were identified as food items with the most significant price increases in 2025, contributing substantially to food inflation due to climate change and rising commodity prices [[Ref:37f6510d-86d3-4f66-914e-e1cce4fb2a9d]]. The Colombian peso has shown volatility in early 2026, influenced by external factors and US inflation data [[Ref:5d6bfb0b-29af-47de-b014-cd946d437863]]. However, there are expectations that the peso could strengthen mid-January due to rising oil prices and attractive investment rates [[Ref:67293c83-df6b-4168-af7f-a0aaa7754447]].
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title">Political and Diplomatic Engagements</h1>
+        <div class="section-body">
+            Minister of Defense Pedro Sánchez is undertaking a three-day tour of the United States to discuss advancements in drug control and strengthen bilateral alliances [[Ref:0424c8c0-a5f7-4a46-9331-738ef87ecb6d]]. This diplomatic engagement occurs amidst ongoing discussions about potential joint US-Colombia actions against the ELN [[Ref:1da207ca-a952-408f-8f66-0a3d3bd05f75]]. Meanwhile, political figures have criticized President Petro's administration over various issues, including a controversial 10 billion peso contract for his defense, alleged political pressures on RTVC contractors, and decisions regarding the transfer of criminal leaders to Barranquilla [[Ref:05dd817c-3a8c-4117-8114-351253092a67]][[Ref:34ecc796-116b-49a5-8a9d-92cbf39df528]][[Ref:47c1bae6-f870-4c5e-a631-69917280514a]]<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/" target="_blank" style="text-decoration: none; color: #2563eb;">13</a>, <a href="https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-le-halo-las-orejas-al-presidente-al-cuestionar-sus-alianzas-de-izquierda-lea-bien-petro/" target="_blank" style="text-decoration: none; color: #2563eb;">14</a>, <a href="https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/" target="_blank" style="text-decoration: none; color: #2563eb;">15</a>, <a href="https://www.infobae.com/colombia/2026/01/12/de-la-espriella-se-despacho-contra-petro-por-ordenar-traslado-de-cabecillas-de-grupos-criminales-a-barranquilla-vil-e-infame/" target="_blank" style="text-decoration: none; color: #2563eb;">16</a>, <a href="https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/" target="_blank" style="text-decoration: none; color: #2563eb;">17</a>, <a href="https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-y-su-hijo-juan-jose-lafaurie-se-burlaron-de-petro-en-redes-sociales-para-presidente-tampoco-sirve/" target="_blank" style="text-decoration: none; color: #2563eb;">18</a>]</span>. Political figures also expressed concerns over potential electoral motives behind government personnel changes prior to the Law of Guarantees taking effect.
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title">International Relations and Economic Trends</h1>
+        <div class="section-body">
+            In international affairs, the US presidential candidate Donald Trump continues to express interest in acquiring Greenland, despite Denmark's refusal to sell, a move that has drawn strong reactions regarding the potential end of NATO should it involve force [[Ref:6374a9d0-7b6c-4cce-a69a-1e8df3799f66]][[Ref:c191c1a2-1355-4063-b7ec-ab092abeb245]]. Discussions on international trade and investment have also surfaced, with improved diplomatic dialogue between Colombia and the US potentially leading to the elimination of tariffs on steel and aluminum [[Ref:7debef88-93e8-4ef1-80d7-fd488831d5b6]]. Furthermore, the global race for Artificial Intelligence is driving a demand for resources such as energy, chips, and minerals, reshaping geopolitical landscapes [[Ref:4b754f06-3fa9-438d-a3ea-00d721fc3bf3]].
+        </div>
+        
+        
+    </div>
+
+        
+    </div>
+
+    <footer class="references-section">
+        <h3 class="refs-title">References</h3>
+        <ul class="ref-list">
+        
+            <li id="ref-0efea05a-a950-4a24-a476-69786837741a" class="ref-item">
+                <span class="ref-number">[1]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">MinVivienda published draft decree so that VIS are not indexed to the minimum wage</span>
+                    <a href="https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001" target="_blank" class="ref-link">https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001</a>
+                </div>
+            </li>
+        
+            <li id="ref-4cd41845-7a5d-4f49-896e-db2b9127cdf4" class="ref-item">
+                <span class="ref-number">[2]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Government proposes selling Social Interest Housing (VIS) in pesos and not in minimum wages</span>
+                    <a href="https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528" target="_blank" class="ref-link">https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528</a>
+                </div>
+            </li>
+        
+            <li id="ref-b3fadacf-c514-4773-b34b-edbbdf66f72c" class="ref-item">
+                <span class="ref-number">[3]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">New proposal by the Petro government to de-link housing prices from salary would have significant risk</span>
+                    <a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" class="ref-link">https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/</a>
+                </div>
+            </li>
+        
+            <li id="ref-8be28d58-f18d-4b68-bd67-8b0cd601a4e6" class="ref-item">
+                <span class="ref-number">[4]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Decree on Social Interest Housing 'seems to make prices more transparent', but would generate risks</span>
+                    <a href="https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104" target="_blank" class="ref-link">https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104</a>
+                </div>
+            </li>
+        
+            <li id="ref-c569526c-d5df-4dfe-afb7-03bd5d869f11" class="ref-item">
+                <span class="ref-number">[5]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Carolina Arbeláez denies the Petro Government after controversy with Social Interest Housing projects: “Don't be fooled”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/</a>
+                </div>
+            </li>
+        
+            <li id="ref-36c7a3bc-e8c5-458e-99a2-0a64cf063efe" class="ref-item">
+                <span class="ref-number">[6]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Should companies increase the salary of those earning above the minimum in Colombia?</span>
+                    <a href="https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086" target="_blank" class="ref-link">https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086</a>
+                </div>
+            </li>
+        
+            <li id="ref-41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3" class="ref-item">
+                <span class="ref-number">[7]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro Government Warns Neighborhoods About Installment Payments for Administration After Minimum Wage Hike</span>
+                    <a href="https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/" target="_blank" class="ref-link">https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/</a>
+                </div>
+            </li>
+        
+            <li id="ref-677d8039-b38f-4caa-bf17-eea4e821795d" class="ref-item">
+                <span class="ref-number">[8]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Minimum wage and CPI shake restaurants and warn of closures, menu changes and layoffs: 'They are backing down'</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/</a>
+                </div>
+            </li>
+        
+            <li id="ref-ca5da616-ecf4-4f90-b4cf-8ad23b7cfd0a" class="ref-item">
+                <span class="ref-number">[9]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Antonio Sanguino Praised the Petro Government and Defended the Living Wage: “No More Abuses with the Housing of the Poorest”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/</a>
+                </div>
+            </li>
+        
+            <li id="ref-5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c" class="ref-item">
+                <span class="ref-number">[10]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Can your social interest housing be charged in minimum wages if you have already signed a purchase agreement or separated the property?</span>
+                    <a href="https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089" target="_blank" class="ref-link">https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089</a>
+                </div>
+            </li>
+        
+            <li id="ref-e0e09746-23f8-4184-b6f4-85e4d9753d98" class="ref-item">
+                <span class="ref-number">[11]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">The 'corrientazo', lunch that "drives crazy" millions of Colombians, could go up in price starting January 2026: "Today we negotiate"</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/</a>
+                </div>
+            </li>
+        
+            <li id="ref-97a7688e-94a8-416f-bb86-66f53ab8fde3" class="ref-item">
+                <span class="ref-number">[12]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro warned condo owners how the administration price should rise</span>
+                    <a href="https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016" target="_blank" class="ref-link">https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016</a>
+                </div>
+            </li>
+        
+            <li id="ref-52ca7064-50ca-45a9-a598-9dfbead7f1eb" class="ref-item">
+                <span class="ref-number">[13]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Katherine Miranda requested an investigation into the millionaire contract for Petro's personal defense due to his inclusion on the Clinton list</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/</a>
+                </div>
+            </li>
+        
+            <li id="ref-5f7bcd8a-e53e-47e2-9c81-339a44faffa7" class="ref-item">
+                <span class="ref-number">[14]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">María Fernanda Cabal 'tugs the ears' of the president by questioning his left-wing alliances: 'Read well, Petro'</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-le-halo-las-orejas-al-presidente-al-cuestionar-sus-alianzas-de-izquierda-lea-bien-petro/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-le-halo-las-orejas-al-presidente-al-cuestionar-sus-alianzas-de-izquierda-lea-bien-petro/</a>
+                </div>
+            </li>
+        
+            <li id="ref-b660d68d-a2e3-4ada-8695-2e986d94f93c" class="ref-item">
+                <span class="ref-number">[15]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Álvaro Uribe referred to the contract for $10 billion that the Presidency signed for Petro's defense: “They have the right to know”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/</a>
+                </div>
+            </li>
+        
+            <li id="ref-9cf0b8a5-af4a-427d-a5cb-97a0dcd39c16" class="ref-item">
+                <span class="ref-number">[16]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">De la Espriella lashed out at Petro for ordering the transfer of criminal group leaders to Barranquilla: “Vile and infamous”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/de-la-espriella-se-despacho-contra-petro-por-ordenar-traslado-de-cabecillas-de-grupos-criminales-a-barranquilla-vil-e-infame/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/de-la-espriella-se-despacho-contra-petro-por-ordenar-traslado-de-cabecillas-de-grupos-criminales-a-barranquilla-vil-e-infame/</a>
+                </div>
+            </li>
+        
+            <li id="ref-ad62d74d-c08c-4d74-b42c-195cb08592f5" class="ref-item">
+                <span class="ref-number">[17]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Mauricio Gómez Amín lashes out at Petro over possible transfer of criminal structures to Barranquilla: "Zero empathy"</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/</a>
+                </div>
+            </li>
+        
+            <li id="ref-ae68cd61-3cef-4ac0-b790-7ab5d2f6f73c" class="ref-item">
+                <span class="ref-number">[18]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">María Fernanda Cabal and her son Juan José Lafaurie mocked Petro on social media: "He's not fit to be president either"</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-y-su-hijo-juan-jose-lafaurie-se-burlaron-de-petro-en-redes-sociales-para-presidente-tampoco-sirve/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-y-su-hijo-juan-jose-lafaurie-se-burlaron-de-petro-en-redes-sociales-para-presidente-tampoco-sirve/</a>
+                </div>
+            </li>
+        
+        </ul>
+    </footer>
+</div>
+            </body>
+            </html>
+            

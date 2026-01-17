@@ -1,0 +1,147 @@
+{
+  "title": "Inflation Steady, Housing Policy Debated, Global Markets React to Fed News",
+  "subtitle": "Report automatically generated on 2026-01-12 by the Trade Section, EU Delegation to Colombia",
+  "summary": "Colombia's inflation rate closed 2025 at 5.10%, showing minimal year-on-year change, with December's monthly inflation at 0.27% [[REF:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]]. Meanwhile, the government's proposed housing policy, which aims to de-link Social Interest Housing prices from minimum wage increases and cap prices at 135 minimum monthly legal wages, has sparked significant debate regarding its economic and financial impacts [[REF:b3fadacf-c514-4773-b34b-edbbdf66f72c], [REF:c569526c-d5df-4dfe-afb7-03bd5d869f11]]. Globally, gold and silver prices surged to record highs following an investigation into the US Federal Reserve, leading to market volatility and concerns about central bank independence [[REF:f902db3f-a27a-41b3-8220-168163ddf2be], [REF:05dd817c-3a8c-4117-8114-351253092a67], [REF:50fa9426-c0f5-49b9-a7bf-adb624ec30a8], [REF:0ead46f4-dd82-4b14-a9a5-9510d2948110]].",
+  "key_findings": [
+    "Colombia's annual inflation remained stable at 5.10% by year-end 2025 [[REF:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]].",
+    "Government housing policy proposes de-linking prices from minimum wage increases [[REF:b3fadacf-c514-4773-b34b-edbbdf66f72c]].",
+    "Gold and silver prices reached record highs amid US Federal Reserve investigation [[REF:f902db3f-a27a-41b3-8220-168163ddf2be]].",
+    "New regulations aim to cap Social Interest Housing prices at approximately US$236 million [[REF:89c612ef-1c90-4326-aa81-547e5925e3b8]].",
+    "Diplomatic dialogue between Colombia and the US improved, potentially easing steel tariffs [[REF:7debef88-93e8-4ef1-80d7-fd488831d5b6]]."
+  ],
+  "sections": [
+    {
+      "title": "Inflationary Trends and Housing Policy",
+      "body": "Colombia's annual inflation rate concluded 2025 at 5.10%, showing minimal change from the previous year, with monthly inflation in December recorded at 0.27% [[REF:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]]. This stability in general inflation contrasts with specific sector discussions, particularly concerning housing policy. The government has introduced a draft decree that seeks to de-link the pricing of Social Interest Housing (VIS) from minimum wage increases, aiming instead to set a maximum price in Colombian pesos [[REF:b3fadacf-c514-4773-b34b-edbbdf66f72c], [REF:4cd41845-7a5d-4f49-896e-db2b9127cdf4]]. This proposed regulation would cap VIS prices at the equivalent of 135 minimum monthly legal wages, or approximately $236.3 million Colombian pesos, and aims to prevent automatic price adjustments tied to minimum wage hikes, thereby protecting buyers [[REF:89c612ef-1c90-4326-aa81-547e5925e3b8], [REF:0efea05a-a950-4a24-a476-69786837741a]]. The initiative has generated significant debate within the construction and political sectors regarding its potential impact on housing supply and financial viability [[REF:c569526c-d5df-4dfe-afb7-03bd5d869f11], [REF:5623f2f7-b6e7-4ba8-95cd-f59c375a6ce6]].",
+      "references": [
+        "eff8f5dc-16c2-4401-ba5e-17ecfc21d163",
+        "b3fadacf-c514-4773-b34b-edbbdf66f72c",
+        "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+        "89c612ef-1c90-4326-aa81-547e5925e3b8",
+        "0efea05a-a950-4a24-a476-69786837741a",
+        "c569526c-d5df-4dfe-afb7-03bd5d869f11",
+        "5623f2f7-b6e7-4ba8-95cd-f59c375a6ce6"
+      ]
+    },
+    {
+      "title": "Market Reactions to US Federal Reserve Investigation",
+      "body": "Global financial markets experienced volatility as gold and silver prices surged to record highs following news of an investigation into the US Federal Reserve [[REF:f902db3f-a27a-41b3-8220-168163ddf2be]]. The investigation, concerning the Federal Reserve chairman, raised concerns about the central bank's autonomy and potential political interference [[REF:50fa9426-c0f5-49b9-a7bf-adb624ec30a8], [REF:0ead46f4-dd82-4b14-a9a5-9510d2948110]]. Wall Street saw declines as intensified attacks on the Federal Reserve by President Trump created uncertainty [[REF:8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff]]. These developments occurred against a backdrop of geopolitical instability and expectations of potential interest rate cuts in the United States [[REF:0ead46f4-dd82-4b14-a9a5-9510d2948110]]. In parallel, diplomatic exchanges between Colombia and the United States have improved, potentially paving the way for the elimination of tariffs on key products such as steel and aluminum [[REF:7debef88-93e8-4ef1-80d7-fd488831d5b6]].",
+      "references": [
+        "f902db3f-a27a-41b3-8220-168163ddf2be",
+        "50fa9426-c0f5-49b9-a7bf-adb624ec30a8",
+        "0ead46f4-dd82-4b14-a9a5-9510d2948110",
+        "8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff",
+        "7debef88-93e8-4ef1-80d7-fd488831d5b6"
+      ]
+    },
+    {
+      "title": "Economic and Political Developments",
+      "body": "Amidst broader economic trends, discussions around the minimum wage and its impact continue. The price of daily meals, known as 'corrientazo', is anticipated to rise by 23% due to the minimum wage increase, prompting businesses to adjust costs [[REF:ee058b29-bf03-4c9a-874e-c7aad902aca3], [REF:e0e09746-23f8-4184-b6f4-85e4d9753d98]]. The government has also clarified that administration fee increases for residential complexes are not directly tied to the minimum wage but rather to inflation and owner assembly decisions, with President Petro urging cost control [[REF:33dedb3f-e289-47a4-ae06-ee114e033836]]. In political developments, former President Uribe and Congresswoman Katherine Miranda have called for an investigation into a controversial 10 billion peso contract signed by the presidency for President Petro's defense, questioning the transparency of state spending [[REF:34ecc796-116b-49a5-8a9d-92cbf39df528], [REF:52ca7064-50ca-45a9-a598-9dfbead7f1eb], [REF:584ccfa8-d455-4562-8dfd-c8061f5431df]].",
+      "references": [
+        "ee058b29-bf03-4c9a-874e-c7aad902aca3",
+        "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+        "33dedb3f-e289-47a4-ae06-ee114e033836",
+        "34ecc796-116b-49a5-8a9d-92cbf39df528",
+        "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+        "584ccfa8-d455-4562-8dfd-c8061f5431df"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "eff8f5dc-16c2-4401-ba5e-17ecfc21d163",
+      "title": "Colombia | Inflation ended 2025 at 5.10%, virtually unchanged from the previous year",
+      "url": "https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/"
+    },
+    {
+      "id": "b3fadacf-c514-4773-b34b-edbbdf66f72c",
+      "title": "New proposal by the Petro government to de-link housing prices from salary would have significant risk",
+      "url": "https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/"
+    },
+    {
+      "id": "c569526c-d5df-4dfe-afb7-03bd5d869f11",
+      "title": "Carolina Arbel\u00e1ez denies the Petro Government after controversy with Social Interest Housing projects: \u201cDon't be fooled\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/"
+    },
+    {
+      "id": "f902db3f-a27a-41b3-8220-168163ddf2be",
+      "title": "Gold and silver prices break records after US Federal Reserve investigation",
+      "url": "https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622/"
+    },
+    {
+      "id": "05dd817c-3a8c-4117-8114-351253092a67",
+      "title": "Paramount begins fight for Warner Bros. representation and files a lawsuit",
+      "url": "https://www.larepublica.co/globoeconomia/paramount-inicia-lucha-por-representacion-de-warner-bros-y-presenta-una-demanda-4304096/"
+    },
+    {
+      "id": "50fa9426-c0f5-49b9-a7bf-adb624ec30a8",
+      "title": "Gold and silver start the second week of 2026 with new historic prices: investigation against the Fed sent them soaring",
+      "url": "https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101/"
+    },
+    {
+      "id": "0ead46f4-dd82-4b14-a9a5-9510d2948110",
+      "title": "The spot price of gold has reached an all-time high of over US$4,600 per ounce due to investigation into Powell",
+      "url": "https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058/"
+    },
+    {
+      "id": "8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff",
+      "title": "Wall Street falls as Donald Trump attacks Fed and safe-haven demand grows",
+      "url": "https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075/"
+    },
+    {
+      "id": "7debef88-93e8-4ef1-80d7-fd488831d5b6",
+      "title": "Dialogue between Colombia and the US to boost steel tariff elimination?: These are the opportunities",
+      "url": "https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "Government proposes selling Social Interest Housing (VIS) in pesos and not in minimum wages",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528/"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "Social Interest Housing (VIS) will not be able to cost more than $236.3 million: this is established by the draft decree",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda published draft decree so that VIS are not indexed to the minimum wage",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001/"
+    },
+    {
+      "id": "5623f2f7-b6e7-4ba8-95cd-f59c375a6ce6",
+      "title": "Petro responded to Luis Felipe Henao after questioning housing policy: \u201cThe problem is called interest rate\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-luis-felipe-henao-tras-cuestionamientos-por-la-politica-de-vivienda-el-problema-se-llama-tasa-de-interes/"
+    },
+    {
+      "id": "34ecc796-116b-49a5-8a9d-92cbf39df528",
+      "title": "Criticism continues over 10 billion contract for international defense of the Government: \u00c1lvaro Uribe and Katherine Miranda ask to investigate it",
+      "url": "https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda requested an investigation into the millionaire contract for Petro's personal defense due to his inclusion on the Clinton list",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "584ccfa8-d455-4562-8dfd-c8061f5431df",
+      "title": "Colombia's Presidency awarded a $10 billion contract to defend Gustavo Petro against US sanctions",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-presidencia-de-colombia-adjudico-un-contrato-de-10000-millones-para-defender-a-gustavo-petro-ante-sanciones-estadounidenses/"
+    },
+    {
+      "id": "ee058b29-bf03-4c9a-874e-c7aad902aca3",
+      "title": "The 'corrientazo', lunch that \"drives crazy\" millions of Colombians, could go up in price starting January 2026: \"Today we negotiate\"",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "The 'corrientazo', lunch that \"drives crazy\" millions of Colombians, could go up in price starting January 2026: \"Today we negotiate\"",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "33dedb3f-e289-47a4-ae06-ee114e033836",
+      "title": "Can administration fees rise 23%? Government clarifies it doesn't depend on the minimum wage",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/pueden-subir-las-cuotas-de-administracion-un-23-gobierno-aclara-que-no-depende-del-salario-minimo-486083/"
+    }
+  ]
+}

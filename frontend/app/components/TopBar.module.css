@@ -1,0 +1,14 @@
+.subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .subtitle {
+        display: block;
+    }
+}

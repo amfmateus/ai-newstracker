@@ -1,0 +1,680 @@
+.container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 80px);
+    /* Adjust for topbar */
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+}
+
+
+.wizardContainer {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+/* Sidebar Steps Navigation */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid #e5e7eb;
+}
+
+.stepButton {
+    text-align: left;
+    padding: 1rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stepButton:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.stepButtonActive {
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.stepNumber {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.stepButtonActive .stepNumber {
+    background: #2563eb;
+    color: white;
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.stepTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Main Workspace - Centered & Spacious */
+.workspace {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Center the config */
+    overflow: hidden;
+    position: relative;
+    /* For drawer positioning context if needed */
+}
+
+.configPanel {
+    width: 100%;
+    max-width: 900px;
+    /* Spacious but readable max-width */
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2.5rem;
+    /* More breathing room */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Drawer for Test Results */
+.drawerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1040;
+    /* Below drawer (1050) but above content */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.drawerOverlayOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px;
+    max-width: 90vw;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+}
+
+.drawerOpen {
+    transform: translateX(0);
+}
+
+.drawerWide {
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Drawer Header Premium Styles */
+.drawerHeader {
+    padding: 1.5rem 1.5rem 1.5rem 5rem;
+    /* Reduced top padding to align with button */
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    min-height: 80px;
+    justify-content: center;
+}
+
+.drawerContext {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #64748b;
+    /* More subtle color */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.drawerHeadline {
+    font-size: 1.25rem;
+    /* Significantly smaller */
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+/* Header Actions */
+.headerActions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.cancelButton {
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cancelButton:hover {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.saveButton {
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #111;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.saveButton:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.primaryButton {
+    padding: 8px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 40px;
+}
+
+.primaryButton:hover {
+    background: #1d4ed8;
+}
+
+.primaryButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Configuration Display (Read-Only) */
+
+.headerTitleWrapper {
+    display: flex;
+}
+
+.drawerTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 60;
+    /* Ensure slightly above drawer header just in case */
+    background: white;
+    border: 1px solid #e2e8f0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.closeButton:hover {
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: scale(1.05);
+}
+
+.drawerContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #fff;
+}
+
+/* Flash Animation for Template Load */
+@keyframes flash {
+    0% {
+        background-color: #dbeafe;
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
+.flash {
+    animation: flash 1s ease-out;
+}
+
+/* Configuration Display (Read-Only) */
+.configDisplay {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.configRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.configRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.configLabel {
+    width: 120px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+}
+
+.configValue {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #334155;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sourceBadge {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    color: #475569;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.emptyConfig {
+    text-align: center;
+    color: #94a3b8;
+    padding: 2rem;
+    background: #f8fafc;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.input,
+.select,
+.textarea {
+    padding: 0.6rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.textarea {
+    min-height: 300px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Editable Header */
+.headerTitleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    cursor: text;
+}
+
+.headerTitleWrapper:hover {
+    background-color: #f3f4f6;
+}
+
+.editIcon {
+    opacity: 0;
+    color: #6b7280;
+    transition: opacity 0.2s;
+}
+
+.headerTitleWrapper:hover .editIcon {
+    opacity: 1;
+}
+
+/* Template Manager in Source Step */
+.templateGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    /* Increased gap */
+    margin-top: 1.5rem;
+}
+
+.templateCard {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.2s;
+    position: relative;
+    /* Context for absolute positioning */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.templateCard:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.templateCardActive {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -1px rgba(59, 130, 246, 0.06);
+}
+
+.deleteIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteIcon:hover {
+    color: #ef4444;
+    background: #fee2e2;
+}
+
+.editIcon {
+    color: #cbd5e1;
+    /* Visible but subtle by default */
+    transition: all 0.2s;
+    padding: 4px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    z-index: 5;
+    /* Ensure above other elements */
+}
+
+.editIcon:hover {
+    background: #f1f5f9;
+    color: #2563eb;
+}
+
+/* Make SVGs pass through clicks to the parent span/button */
+.editIcon svg,
+.deleteIcon svg {
+    pointer-events: none;
+}
+
+/* Ensure icons show fully on hover of parent containers */
+.templateHeader:hover .editIcon,
+.templateDescriptionWrapper:hover .editIcon {
+    color: #94a3b8;
+    /* Darker grey on hover */
+}
+
+/* Specific hover for the icon itself */
+.templateHeader .editIcon:hover,
+.templateDescriptionWrapper .editIcon:hover {
+    color: #2563eb;
+    /* Blue on direct hover */
+}
+
+.templateDescriptionWrapper {
+    position: relative;
+    cursor: text;
+}
+
+.templateHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 24px;
+    /* Make space for delete icon */
+}
+
+.templateName {
+    font-weight: 600;
+    color: #111;
+    font-size: 1rem;
+}
+
+.templateDate {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.loadTemplateBtn {
+    width: 100%;
+    margin-top: auto;
+    /* Push to bottom */
+    padding: 0.5rem;
+    background: #f8fafc;
+    /* More subtle background */
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.loadTemplateBtn:hover {
+    background: #eff6ff;
+    color: #2563eb;
+    border-color: #bfdbfe;
+}
+
+.infoBox {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.infoIcon {
+    font-size: 1.5rem;
+}
+
+/* Actions Footer */
+.actionFooter {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.primaryButton {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.primaryButton:hover {
+    background-color: #1d4ed8;
+}
+
+.runTestButton {
+    background-color: #fff;
+    color: #059669;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 1px solid #059669;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    height: 40px;
+}
+
+.runTestButton:hover {
+    background-color: #ecfdf5;
+}
+
+.previewTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.jsonPreview {
+    background: #1f2937;
+    color: #e5e7eb;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}

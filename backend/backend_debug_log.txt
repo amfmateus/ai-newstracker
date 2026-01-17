@@ -1,0 +1,15 @@
+Generating report: exp2
+Success! Dur: 16079ms, Tok: 36750/3147
+Generating report: exp 3
+Success! Dur: 9852ms, Tok: 36751/1827
+Generating report: exp 4
+Success! Dur: 26886ms, Tok: 36751/2562
+Generating report: exp 5
+Using model: gemini-3-flash-preview
+Success! Dur: 21816ms, Tok: 7024/2333
+Generating report: New Monitoring
+Using model: gemini-3-flash-preview
+Success! Dur: 21121ms, Tok: 37170/1370
+Generating report: Europe-related news
+Using model: gemini-3-flash-preview
+Success! Dur: 17873ms, Tok: 864/1793

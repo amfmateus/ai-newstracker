@@ -1,0 +1,1877 @@
+{
+  "title": "Inflation Stabilizes, Housing Policy Debated, and US-Colombia Trade Talks Advance",
+  "subtitle": "Report automatically generated on 2026-01-12 by the Trade Section, EU Delegation to Colombia",
+  "summary": "Colombia concluded 2025 with an annual inflation rate of 5.10%, showing minimal change from the previous year, as monthly inflation registered 0.27% in December. The government's proposed housing policy, which aims to de-link housing prices from minimum wage by setting a maximum value for Social Interest Housing, has sparked significant debate regarding its potential economic and financial impacts. Meanwhile, diplomatic dialogue between Colombia and the US has improved following a period of tension, potentially paving the way for the elimination of tariffs on key products like steel and aluminum, indicating a positive development in bilateral trade relations.",
+  "key_findings": [
+    "Annual inflation in Colombia ended 2025 at 5.10%, with little year-on-year change [[REF:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]].",
+    "New housing policy proposal could limit Social Interest Housing prices and impact affordability [[REF:b3fadacf-c514-4773-b34b-edbbdf66f72c]].",
+    "Improved US-Colombia dialogue may lead to steel and aluminum tariff elimination [[REF:7debef88-93e8-4ef1-80d7-fd488831d5b6]].",
+    "Gold and silver prices hit record highs following US Federal Reserve investigation [[REF:f902db3f-a27a-41b3-8220-168163ddf2be]]."
+  ],
+  "sections": [
+    {
+      "title": "Economic Performance and Inflation",
+      "body": "Colombia's annual inflation rate concluded 2025 at 5.10%, showing virtually no change from the prior year. Monthly inflation in December registered at 0.27%, slightly below analyst expectations. This stabilization occurs while the country compares its inflation trends with other OECD nations, which saw a 3.9% annual inflation rate in November, largely attributed to a decrease in food prices, although energy prices experienced a slight increase [[REF:eff8f5dc-16c2-4401-ba5e-17ecfc21d163]][[REF:019ef0ce-01c2-4585-92e0-7e3353c4049b]]. The economic landscape also sees discussions around minimum wage impacts, with a 23% increase potentially affecting the cost of daily meals and administrative fees for residential properties [[REF:6ee5696f-4a85-480e-baa5-69fc706d22cf]][[REF:41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3]].",
+      "references": [
+        "eff8f5dc-16c2-4401-ba5e-17ecfc21d163",
+        "019ef0ce-01c2-4585-92e0-7e3353c4049b",
+        "6ee5696f-4a85-480e-baa5-69fc706d22cf",
+        "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3"
+      ]
+    },
+    {
+      "title": "Housing Policy and Regulatory Adjustments",
+      "body": "The government is proposing significant changes to the Social Interest Housing (VIS) sector, aiming to price these units in Colombian pesos rather than linking them to the minimum wage [[REF:b3fadacf-c514-4773-b34b-edbbdf66f72c]][[REF:4cd41845-7a5d-4f49-896e-db2b9127cdf4]][[REF:0efea05a-a950-4a24-a476-69786837741a]]. A draft decree suggests a maximum price of approximately $236.3 million COP for VIS, with the intention of protecting buyers and preventing automatic price increases tied to the minimum wage [[REF:89c612ef-1c90-4326-aa81-547e5925e3b8]]. This proposal has generated debate, with some figures like Carolina Arbeláez expressing concern that it could reduce supply and increase prices, negatively impacting low-income families [[REF:c569526c-d5df-4dfe-afb7-03bd5d869f11]]. Minister Antonio Sanguino has defended the policy, emphasizing transparency and preventing abuses [[REF:ca5da616-ecf4-4f90-b4cf-8ad23b7cfd0a]].",
+      "references": [
+        "b3fadacf-c514-4773-b34b-edbbdf66f72c",
+        "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+        "0efea05a-a950-4a24-a476-69786837741a",
+        "89c612ef-1c90-4326-aa81-547e5925e3b8",
+        "c569526c-d5df-4dfe-afb7-03bd5d869f11",
+        "ca5da616-ecf4-4f90-b4cf-8ad23b7cfd0a"
+      ]
+    },
+    {
+      "title": "International Relations and Trade",
+      "body": "Diplomatic exchanges between Colombia and the United States have seen improvement, potentially opening avenues for trade discussions, including the elimination of tariffs on key industrial products like steel and aluminum [[REF:7debef88-93e8-4ef1-80d7-fd488831d5b6]]. This follows a period of tension, with President Petro and former President Trump engaging in communication that could foster more cordial bilateral relations. In the global economic sphere, gold and silver prices have reached historic highs, influenced by an investigation into the US Federal Reserve and geopolitical instability [[REF:f902db3f-a27a-41b3-8220-168163ddf2be]][[REF:50fa9426-c0f5-49b9-a7bf-adb624ec30a8]][[REF:0ead46f4-dd82-4b14-a9a5-9510d2948110]]. Wall Street experienced a decline amid intensified attacks on the Federal Reserve by Donald Trump, raising concerns about the central bank's independence [[REF:8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff]].",
+      "references": [
+        "7debef88-93e8-4ef1-80d7-fd488831d5b6",
+        "f902db3f-a27a-41b3-8220-168163ddf2be",
+        "50fa9426-c0f5-49b9-a7bf-adb624ec30a8",
+        "8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff"
+      ]
+    },
+    {
+      "title": "Political and Security Developments",
+      "body": "Political discourse continues to focus on government actions and pronouncements. President Petro responded to criticisms regarding the transfer of criminal leaders to Barranquilla, a decision that has also drawn criticism from Mayor Alejandro Char and presidential candidate De la Espriella, who warn of increased insecurity [[REF:05a715be-a914-40a1-ab77-5488bed125a4]][[REF:ed8e47e0-ea61-4551-ac96-d4d7c1f5cb4c]][[REF:9cf0b8a5-af4a-427d-a5cb-97a0dcd39c16]]. Political figures like Álvaro Uribe and Katherine Miranda are calling for investigations into a controversial 10 billion peso defense contract signed by the Presidency for Petro's legal defense, questioning transparency [[REF:34ecc796-116b-49a5-8a9d-92cbf39df528]][[REF:b660d68d-a2e3-4ada-8695-2e986d94f93c]][[REF:52ca7064-50ca-45a9-a598-9dfbead7f1eb]]. The ELN has proposed a \"national agreement\" to address poverty and corruption, potentially integrating these measures into the electoral process [[REF:8e058b29-bf03-4c9a-874e-c7aad902aca3]][[REF:1da207ca-a952-408f-8f66-0a3d3bd05f75]].",
+      "references": [
+        "05a715be-a914-40a1-ab77-5488bed125a4",
+        "ed8e47e0-ea61-4551-ac96-d4d7c1f5cb4c",
+        "9cf0b8a5-af4a-427d-a5cb-97a0dcd39c16",
+        "34ecc796-116b-49a5-8a9d-92cbf39df528",
+        "b660d68d-a2e3-4ada-8695-2e986d94f93c",
+        "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+        "8e058b29-bf03-4c9a-874e-c7aad902aca3",
+        "1da207ca-a952-408f-8f66-0a3d3bd05f75"
+      ]
+    },
+    {
+      "title": "Business and Investment Landscape",
+      "body": "Parque Arauco is fostering open innovation in Colombia by selecting startups for technological pilots in its Bogot\u00e1 shopping center [[REF:cf20313d-26c2-407f-8926-5d9e37d5f365]]. In the corporate world, Paramount is escalating its pursuit of Warner Bros. Discovery through director nominations and a lawsuit, intensifying a bidding war [[REF:ef6a12fb-c62c-407f-8926-5d9e37d5f365]]. Grupo Éxito has launched a back-to-school campaign, offering discounts and a wide range of products to support Colombian families [[REF:957956ed-b63b-49fb-85a0-2d24cf4c92f8]].",
+      "references": [
+        "cf20313d-26c2-407f-8926-5d9e37d5f365",
+        "ef6a12fb-c62c-407f-8926-5d9e37d5f365",
+        "957956ed-b63b-49fb-85a0-2d24cf4c92f8"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "eff8f5dc-16c2-4401-ba5e-17ecfc21d163",
+      "title": "Colombia | Inflation ended 2025 at 5.10%, virtually unchanged from the previous year",
+      "url": "https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/"
+    },
+    {
+      "id": "05a715be-a914-40a1-ab77-5488bed125a4",
+      "title": "Petro respondi\u00f3 a las cr\u00edticas de Alejandro Char por el traslado de cabecillas criminales a Barranquilla: \u201cNo s\u00e9 le olvide se\u00f1or\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-las-criticas-de-alejandro-char-por-el-traslado-de-cabecillas-criminales-a-barranquilla-no-se-le-olvide-senor/"
+    },
+    {
+      "id": "51d2fb59-8e61-453d-ad81-658f7b3b7bea",
+      "title": "Ofrecen millonaria recompensa por alias Na\u00edn, l\u00edder de las Autodefensas Conquistadoras de la Sierra Nevada: es se\u00f1alado por la masacre en Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/12/ofrecen-millonaria-recompensa-por-alias-nain-lider-de-las-autodefensas-conquistadoras-de-la-sierra-nevada-es-senalado-por-la-masacre-en-maicao-la-guajira/"
+    },
+    {
+      "id": "745adf3e-dae9-4b71-9f59-3738501c9807",
+      "title": "\u201cLos negocios se deben medir por crecimiento y no por inversi\u00f3n\u201d: la lecci\u00f3n del fallecido \u00eddolo, Yeison Jim\u00e9nez",
+      "url": "https://www.portafolio.co/negocios/empresas/los-negocios-se-deben-medir-por-crecimiento-y-no-por-inversion-la-leccion-del-fallecido-idolo-yeison-jimenez-486106"
+    },
+    {
+      "id": "b3fadacf-c514-4773-b34b-edbbdf66f72c",
+      "title": "Nueva propuesta del gobierno Petro de desindexar precios de vivienda del salario tendr\u00eda importante riesgo",
+      "url": "https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/"
+    },
+    {
+      "id": "ef6a12fb-c62c-407f-8926-5d9e37d5f365",
+      "title": "Paramount inicia lucha por representaci\u00f3n de Warner Bros. y presenta una demanda",
+      "url": "https://www.larepublica.co/globoeconomia/paramount-inicia-lucha-por-representacion-de-warner-bros-y-presenta-una-demanda-4304096"
+    },
+    {
+      "id": "0f1bc4c2-84e9-4841-86aa-3f3960353d43",
+      "title": "Qu\u00e9 arriendos en Colombia pueden subir m\u00e1s que la inflaci\u00f3n",
+      "url": "https://www.eltiempo.com/economia/finanzas-personales/que-arriendos-en-colombia-pueden-subir-mas-que-la-inflacion-3523602"
+    },
+    {
+      "id": "80388269-866b-4119-84d6-c9cc88c87b69",
+      "title": "Los puntos clave para Colombia que abordar\u00e1 el ministro Pedro S\u00e1nchez en viaje a Estados Unidos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/los-puntos-clave-para-colombia-que-abordara-el-ministro-pedro-sanchez-en-viaje-a-estados-unidos-3523616"
+    },
+    {
+      "id": "f902db3f-a27a-41b3-8220-168163ddf2be",
+      "title": "Precios del oro y de la plata baten r\u00e9cords tras investigaci\u00f3n de Reserva Federal de Estados Unidos",
+      "url": "https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622"
+    },
+    {
+      "id": "05dd817c-3a8c-4117-8114-351253092a67",
+      "title": "Denuncian presiones pol\u00edticas a contratistas de RTVC por continuidad laboral",
+      "url": "https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107"
+    },
+    {
+      "id": "019ef0ce-01c2-4585-92e0-7e3353c4049b",
+      "title": "C\u00f3mo est\u00e1 la inflaci\u00f3n en Colombia en comparaci\u00f3n con otros pa\u00edses de la Ocde, con corte a noviembre",
+      "url": "https://www.portafolio.co/economia/finanzas/como-esta-la-inflacion-en-colombia-en-comparacion-con-otros-paises-de-la-ocde-con-corte-a-noviembre-486108"
+    },
+    {
+      "id": "c569526c-d5df-4dfe-afb7-03bd5d869f11",
+      "title": "Carolina Arbel\u00e1ez desmiente al Gobierno Petro tras pol\u00e9mica con los proyectos de Vivienda de Inter\u00e9s Social: \u201cNo se dejen enga\u00f1ar\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/"
+    },
+    {
+      "id": "5623f2f7-b6e7-4ba8-95cd-f59c375a6ce6",
+      "title": "Petro respondi\u00f3 a Luis Felipe Henao tras cuestionamientos por la pol\u00edtica de vivienda: \u201cEl problema se llama tasa de inter\u00e9s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-luis-felipe-henao-tras-cuestionamientos-por-la-politica-de-vivienda-el-problema-se-llama-tasa-de-interes/"
+    },
+    {
+      "id": "ed8e47e0-ea61-4551-ac96-d4d7c1f5cb4c",
+      "title": "Alejandro Char se fue contra Gustavo Petro por traslado de cabecillas criminales a Barranquilla: advirti\u00f3 aumento de inseguridad en carnavales",
+      "url": "https://www.infobae.com/colombia/2026/01/12/alejandro-char-se-fue-contra-gustavo-petro-por-traslado-de-cabecillas-criminales-a-barranquilla-advirtio-aumento-de-inseguridad-en-carnavales/"
+    },
+    {
+      "id": "ad06c2cf-51c1-4c38-9e8e-0a79e9a7403f",
+      "title": "Paro agr\u00edcola y av\u00edcola en C\u00e1queza: productores bloquean la v\u00eda al Llano por crisis y bajos precios",
+      "url": "https://www.infobae.com/colombia/2026/01/12/paro-agricola-y-avicola-en-caqueza-productores-bloquean-la-via-al-llano-por-crisis-y-bajos-precios/"
+    },
+    {
+      "id": "37f6510d-86d3-4f66-914e-e1cce4fb2a9d",
+      "title": "Estos son los alimentos (que consumen d\u00eda a d\u00eda) que m\u00e1s subieron de precio durante el 2025",
+      "url": "https://www.portafolio.co/economia/finanzas/estos-son-los-alimentos-que-consumen-dia-a-dia-que-mas-subieron-de-precio-durante-el-486105"
+    },
+    {
+      "id": "fda9884b-860e-4b5e-9efa-50513e4c7309",
+      "title": "El papa Le\u00f3n XIV recibi\u00f3 a la l\u00edder opositora venezolana Mar\u00eda Corina Machado",
+      "url": "https://www.larepublica.co/globoeconomia/el-papa-leon-xiv-recibe-a-la-lider-opositora-venezolana-maria-corina-machado-4304077"
+    },
+    {
+      "id": "50fa9426-c0f5-49b9-a7bf-adb624ec30a8",
+      "title": "Oro y plata empiezan segunda semana del 2026 con nuevos precios hist\u00f3ricos: investigaci\u00f3n contra la Fed los dispar\u00f3",
+      "url": "https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101"
+    },
+    {
+      "id": "8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff",
+      "title": "Wall Street cae mientras Donald Trump ataca a la Fed y crece la b\u00fasqueda de refugio",
+      "url": "https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075"
+    },
+    {
+      "id": "34ecc796-116b-49a5-8a9d-92cbf39df528",
+      "title": "Siguen las cr\u00edticas por contrato de 10.000 millones para la defensa internacional del Gobierno: \u00c1lvaro Uribe y Katherine Miranda piden investigarlo",
+      "url": "https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608"
+    },
+    {
+      "id": "7debef88-93e8-4ef1-80d7-fd488831d5b6",
+      "title": "\u00bfDi\u00e1logo entre Colombia y EE.UU. impulsar\u00eda eliminaci\u00f3n de aranceles al acero?: Estas son las oportunidades",
+      "url": "https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/"
+    },
+    {
+      "id": "16e82e47-e670-48c8-93b6-51f93c9b3fe3",
+      "title": "Sheinbaum convers\u00f3 con Trump sobre seguridad, narcotr\u00e1fico, comercio e inversiones",
+      "url": "https://www.larepublica.co/globoeconomia/sheinbaum-converso-con-trump-sobre-seguridad-narcotrafico-comercio-e-inversiones-4304072"
+    },
+    {
+      "id": "cf20313d-26d7-405a-8dfb-5840cff1d364",
+      "title": "Parque Arauco impulsa innovaci\u00f3n abierta en Colombia con pilotos tecnol\u00f3gicos en centro comercial de Bogot\u00e1",
+      "url": "https://www.portafolio.co/negocios/comercio/parque-arauco-impulsa-innovacion-abierta-en-colombia-con-pilotos-tecnologicos-en-centro-comercial-parque-la-colina-486098"
+    },
+    {
+      "id": "606ae47f-93e6-4c6b-a9dd-6e0ec4c67ca8",
+      "title": "Migraci\u00f3n Colombia entreg\u00f3 a Ecuador al exconcejal Miguel Morocho, buscado por tentativa de homicidio",
+      "url": "https://www.eltiempo.com/justicia/delitos/migracion-colombia-entrego-a-ecuador-al-exconcejal-miguel-morocho-buscado-por-tentativa-de-homicidio-3523603"
+    },
+    {
+      "id": "8e058b29-bf03-4c9a-874e-c7aad902aca3",
+      "title": "ELN propone un \u201cacuerdo nacional\u201d para superar el conflicto en Colombia: en qu\u00e9 consiste",
+      "url": "https://www.infobae.com/colombia/2026/01/12/eln-propone-un-acuerdo-nacional-para-superar-el-conflicto-en-colombia-en-que-consiste/"
+    },
+    {
+      "id": "9cf0b8a5-af4a-427d-a5cb-97a0dcd39c16",
+      "title": "De la Espriella se despach\u00f3 contra Petro por ordenar traslado de cabecillas de grupos criminales a Barranquilla: \u201cVil e infame\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/de-la-espriella-se-despacho-contra-petro-por-ordenar-traslado-de-cabecillas-de-grupos-criminales-a-barranquilla-vil-e-infame/"
+    },
+    {
+      "id": "0424c8c0-a5f7-4a46-9331-738ef87ecb6d",
+      "title": "Ministro de Defensa inicia gira por Estados Unidos, previo visita de Gustavo Petro: se reunir\u00e1 con altos funcionarios de Donald Trump",
+      "url": "https://www.infobae.com/colombia/2026/01/12/ministro-de-defensa-inicia-gira-por-estados-unidos-previo-visita-de-gustavo-petro-se-reunira-con-altos-funcionarios-de-donald-trump/"
+    },
+    {
+      "id": "4b655503-bafa-4250-a0a0-6610903d34b8",
+      "title": "D\u00eda de la Familia en Colombia 2026: \u00bfhasta cu\u00e1ndo tiene para pedirlo, seg\u00fan nueva ley?",
+      "url": "https://www.eltiempo.com/economia/finanzas-personales/dia-de-la-familia-en-colombia-2026-hasta-cuando-tiene-para-pedirlo-segun-nueva-ley-3523598"
+    },
+    {
+      "id": "5132170a-b4c7-4912-9325-655dff08a5eb",
+      "title": "Carlos Carrillo, director de la UNGRD, dice que Angie Rodr\u00edguez nombr\u00f3 'amigos y hasta primos' en el Fondo de Adaptaci\u00f3n",
+      "url": "https://www.eltiempo.com/politica/gobierno/carlos-carrillo-director-de-la-ungrd-dice-que-angie-rodriguez-del-dapre-nombro-amigos-y-hasta-primos-en-fondo-de-adaptacion-3523597"
+    },
+    {
+      "id": "501437db-e450-4001-bacd-500075ba691b",
+      "title": "Venezuela asegur\u00f3 que durante estos d\u00edas han sido excarcelados 116 detenidos",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-aseguro-que-durante-estos-dias-han-sido-excarcelados-116-detenidos-4304068"
+    },
+    {
+      "id": "42e2b4d3-49e0-4dd7-95ea-970660cb74d4",
+      "title": "Italia intensificar\u00e1 sus relaciones con Venezuela tras la liberaci\u00f3n de otros dos italianos",
+      "url": "https://www.larepublica.co/globoeconomia/italia-intensificara-sus-relaciones-con-venezuela-tras-la-liberacion-de-otros-dos-italianos-4304065"
+    },
+    {
+      "id": "1e04c4ff-a613-4842-aac0-24e0bb2be1b9",
+      "title": "Ministerio de Salud proyecta aumento de n\u00f3mina por $59.403 millones en medio de la crisis del sistema",
+      "url": "https://www.portafolio.co/economia/gobierno/ministerio-de-salud-proyecta-aumento-de-nomina-por-59-403-millones-en-medio-de-la-crisis-del-sistema-486096"
+    },
+    {
+      "id": "62ffd942-2f11-4e7e-913f-01ab3da2ff37",
+      "title": "As\u00ed fue el operativo entre Colombia y Paraguay para capturar a alias Ganadero, narco que se escond\u00eda en hacienda del Tolima",
+      "url": "https://www.eltiempo.com/justicia/delitos/asi-fue-el-operativo-entre-colombia-y-paraguay-para-capturar-a-narco-que-se-escondia-en-hacienda-del-tolima-3523594"
+    },
+    {
+      "id": "ccae00b5-222d-4889-b154-3b46a5327404",
+      "title": "Brasil paga sueldos europeos y es el nuevo destino favorito de los futbolistas colombianos",
+      "url": "https://www.valoraanalitik.com/brasil-paga-sueldos-europeos-y-es-nuevo-destino-favorito-de-futbolistas-colombianos/"
+    },
+    {
+      "id": "db55d1e8-07eb-4fbc-947b-7224e9c6e31a",
+      "title": "Migraci\u00f3n Colombia report\u00f3 normalidad en los pasos fronterizos con Venezuela",
+      "url": "https://www.larepublica.co/economia/migracion-colombia-reporto-normalidad-en-los-pasos-fronterizos-con-venezuela-4304020"
+    },
+    {
+      "id": "6ee5696f-4a85-480e-baa5-69fc706d22cf",
+      "title": "El corrientazo subir\u00e1 por aumento del 23% del m\u00ednimo, seg\u00fan Juan Daniel Oviedo",
+      "url": "https://www.infobae.com/colombia/2026/01/12/prepare-el-bolsillo-el-corrientazo-subira-por-aumento-del-23-del-minimo-segun-juan-daniel-oviedo/"
+    },
+    {
+      "id": "0ead46f4-dd82-4b14-a9a5-9510d2948110",
+      "title": "El oro supera por primera vez el valor de US$4.600 la onza por investigaci\u00f3n a Powell",
+      "url": "https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058"
+    },
+    {
+      "id": "0a5f8926-b547-4232-9d87-48c2c6423d46",
+      "title": "Las cuatro advertencias sobre el sistema energ\u00e9tico que el siguiente presidente deber\u00e1 tener como prioridad tras la salida de Gustavo Petro",
+      "url": "https://www.infobae.com/colombia/2026/01/12/las-cuatro-advertencias-sobre-el-sistema-energetico-que-el-siguiente-presidente-debera-tener-como-prioridad-tras-la-salida-de-gustavo-petro/"
+    },
+    {
+      "id": "5e17663b-0805-4d91-91c0-3081125c2930",
+      "title": "Registradur\u00eda radicar\u00e1 reforma en el Congreso para impedir que ciudadanos \u2018regalen\u2019 firmas a candidatos: solo podr\u00e1n apoyar a uno",
+      "url": "https://www.infobae.com/colombia/2026/01/12/registraduria-radicara-reforma-en-el-congreso-para-impedir-que-ciudadanos-regalen-firmas-a-candidatos-solo-podran-apoyar-a-uno/"
+    },
+    {
+      "id": "84ba266b-698d-455e-a321-ca5b077ea4ff",
+      "title": "Colombia: cotizaci\u00f3n de apertura del euro hoy 12 de enero de EUR a COP",
+      "url": "https://www.infobae.com/colombia/2026/01/12/colombia-cotizacion-de-apertura-del-euro-hoy-12-de-enero-de-eur-a-cop/"
+    },
+    {
+      "id": "1d5dc239-af1e-408c-98a7-11afc05d3606",
+      "title": "Juan Carlos Pinz\u00f3n critic\u00f3 a Gustavo Petro por situaci\u00f3n diplom\u00e1tica con Estados Unidos: \u201cPerrito faldero\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/juan-carlos-pinzon-critico-a-gustavo-petro-por-situacion-diplomatica-con-estados-unidos-perrito-faldero/"
+    },
+    {
+      "id": "456aaf70-3c25-40b4-9786-cf61db052889",
+      "title": "Se acab\u00f3 el receso judicial y vienen las primeras demandas contra varios decretos del Gobierno Petro: cu\u00e1les son",
+      "url": "https://www.infobae.com/colombia/2026/01/12/se-acabo-el-receso-judicial-y-vienen-las-primeras-demandas-contra-varios-decretos-del-gobierno-petro-cuales-son/"
+    },
+    {
+      "id": "1da207ca-a952-408f-8f66-0a3d3bd05f75",
+      "title": "Ante posibles acciones conjuntas de EE.UU. y Colombia para combatirlo, Eln rompe silencio proponiendo un 'acuerdo nacional'",
+      "url": "https://www.eltiempo.com/politica/proceso-de-paz/ante-posibles-acciones-conjuntas-de-ee-uu-y-colombia-para-combatirlo-eln-rompe-silencio-proponiendo-un-acuerdo-nacional-3523592"
+    },
+    {
+      "id": "c191c1a2-1355-4063-b7ec-ab092abeb245",
+      "title": "Comisario europeo de Defensa dice que toma de Groenlandia ser\u00eda fin de la Otan",
+      "url": "https://www.larepublica.co/globoeconomia/comisario-europeo-de-defensa-dice-que-toma-de-groenlandia-por-eeuu-seria-fin-de-la-otan-4304055"
+    },
+    {
+      "id": "4b754f06-3fa9-438d-a3ea-00d721fc3bf3",
+      "title": "La carrera por la IA: la disputa global por energ\u00eda, chips y minerales",
+      "url": "https://www.valoraanalitik.com/la-carrera-por-la-ia-un-terreno-donde-tambien-se-disputan-los-recursos/"
+    },
+    {
+      "id": "7047dadd-03b6-4df5-b123-9c3603f84128",
+      "title": "De la Espriella, Cepeda, Fajardo, Pinz\u00f3n y Valencia lideran encuesta de AtlasIntel",
+      "url": "https://www.portafolio.co/economia/gobierno/de-la-espriella-cepeda-fajardo-pinzon-y-valencia-lideran-encuesta-de-atlasintel-486063"
+    },
+    {
+      "id": "ca5da616-ecf4-4f90-b4cf-8ad23b7cfd0a",
+      "title": "Antonio Sanguino sac\u00f3 pecho por el Gobierno Petro y defendi\u00f3 el salario vital: \u201cNo m\u00e1s abusos con la vivienda de los m\u00e1s pobres\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/"
+    },
+    {
+      "id": "b660d68d-a2e3-4ada-8695-2e986d94f93c",
+      "title": "\u00c1lvaro Uribe se refiri\u00f3 al contrato por $10.000 millones que firm\u00f3 Presidencia para la defensa de Petro: \u201cTienen derecho a saber\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/"
+    },
+    {
+      "id": "8e076aa7-f73f-422d-b59e-ebd61d71d87c",
+      "title": "Valor de apertura del d\u00f3lar en Colombia este 12 de enero de USD a COP",
+      "url": "https://www.infobae.com/colombia/2026/01/12/valor-de-apertura-del-dolar-en-colombia-este-12-de-enero-de-usd-a-cop/"
+    },
+    {
+      "id": "910a16b9-1bab-40e2-ba77-830564daae4a",
+      "title": "Los pa\u00edses latinos con los salarios m\u00ednimos m\u00e1s altos en 2026: en qu\u00e9 posici\u00f3n est\u00e1 Colombia",
+      "url": "https://www.portafolio.co/economia/finanzas/los-paises-latinos-con-los-salarios-minimos-mas-altos-en-2026-en-que-posicion-esta-colombia-485973"
+    },
+    {
+      "id": "5d6bfb0b-29af-47de-b014-cd946d437863",
+      "title": "El d\u00f3lar en Colombia en los pr\u00f3ximos d\u00edas: \u00bfconsolidar\u00e1 la desvalorizaci\u00f3n del 15% del 2025 o se fortalecer\u00e1?",
+      "url": "https://www.portafolio.co/economia/finanzas/el-dolar-en-colombia-en-los-proximos-dias-consolidara-la-desvalorizacion-del-15-del-2025-o-se-fortalecera-485558"
+    },
+    {
+      "id": "85e68dff-842a-4bf6-95ad-34298d798c3a",
+      "title": "Ingrid Betancourt cuestion\u00f3 a Gustavo Petro por su silencio sobre represi\u00f3n a mujeres en Ir\u00e1n: \u201c\u00bfAcaso no merecen que coja el meg\u00e1fono?\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/ingrid-betancourt-cuestiono-a-gustavo-petro-por-su-silencio-sobre-represion-a-mujeres-en-iran-acaso-no-merecen-que-coja-el-megafono/"
+    },
+    {
+      "id": "67293c83-df6b-4168-af7f-a0aaa7754447",
+      "title": "Precio del d\u00f3lar en Colombia: qu\u00e9 pasar\u00e1 con la moneda a mitad de enero y por qu\u00e9 podr\u00eda verse favorecido el peso colombiano",
+      "url": "https://www.infobae.com/colombia/2026/01/12/precio-del-dolar-en-colombia-que-pasara-con-la-moneda-a-mitad-de-enero-y-por-que-podria-verse-favorecido-el-peso-colombiano/"
+    },
+    {
+      "id": "1800a97c-e1a3-43d9-b752-99250ec13c7e",
+      "title": "Gustavo Petro record\u00f3 a Yeison Jim\u00e9nez tras su muerte y destac\u00f3 especial petici\u00f3n que le hizo el artista: \u201cSeguir\u00e9 ese camino\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/gustavo-petro-recordo-a-yeison-jimenez-tras-su-muerte-y-destaco-especial-peticion-que-le-hizo-el-artista-seguire-ese-camino/"
+    },
+    {
+      "id": "31231d74-f9a6-4418-853f-8d64df1dc6b9",
+      "title": "Conoce cu\u00e1les son las pel\u00edculas favoritas que se roban la atenci\u00f3n del p\u00fablico en Prime Video Colombia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/las-peliculas-favoritas-del-publico-en-prime-video-colombia/"
+    },
+    {
+      "id": "ae68cd61-3cef-4ac0-b790-7ab5d2f6f73c",
+      "title": "Mar\u00eda Fernanda Cabal y su hijo Juan Jos\u00e9 Lafaurie se burlaron de Petro en redes sociales: \u201cPara presidente tampoco sirve\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/maria-fernanda-cabal-y-su-hijo-juan-jose-lafaurie-se-burlaron-de-petro-en-redes-sociales-para-presidente-tampoco-sirve/"
+    },
+    {
+      "id": "31b807a1-b24c-4753-a2fb-fcb976e12bf8",
+      "title": "Qui\u00e9nes son los colombianos que salen del pa\u00eds, a qu\u00e9 se dedican y cu\u00e1ntas remesas llegan de ellos",
+      "url": "https://www.portafolio.co/economia/finanzas/quienes-son-los-colombianos-que-salen-del-pais-a-que-se-dedican-y-cuantas-remesas-llegan-de-ellos-485052"
+    },
+    {
+      "id": "f2ad71fc-2e67-4082-a9dc-6cdea1f3a4c4",
+      "title": "\u201cLa historia es oscura desde 2018\u201d: Hay advertencias para Colombia con Mon\u00f3meros y por las que EE. UU. evitar\u00eda su adquisici\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-es-oscura-desde-2018-hay-advertencias-para-colombia-con-monomeros-y-por-las-que-ee-uu-evitaria-su-adquisicion/"
+    },
+    {
+      "id": "aa66e08c-b7b9-4b5e-8441-323d9b5962c1",
+      "title": "Petro desminti\u00f3 que las nuevas reglas de las viviendas VIS fueran resultado del aumento del salario m\u00ednimo: \u201cAberraci\u00f3n econ\u00f3mica\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/petro-desmintio-que-las-nuevas-reglas-de-las-viviendas-vis-fueran-resultado-del-aumento-del-salario-minimo-aberracion-economica/"
+    },
+    {
+      "id": "c55b4112-fffc-404c-91ab-0e53adc9bdc2",
+      "title": "Yeison Jim\u00e9nez era uno de los artistas m\u00e1s cotizados: cu\u00e1nto cobraba por concierto y por qu\u00e9 se quejaba del pago de impuestos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/yeison-jimenez-era-uno-de-los-artistas-mas-cotizados-cuanto-cobraba-por-concierto-y-por-que-se-quejaba-del-pago-de-impuestos/"
+    },
+    {
+      "id": "4bd043e1-1acc-4739-af72-baf5097788a6",
+      "title": "Centro Democr\u00e1tico defendi\u00f3 a Uribe en medio de la pol\u00e9mica por los \u201cbodegueros\u201d, en la que se meti\u00f3 Petro: \u201cSe siente muy orgulloso\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/12/centro-democratico-defendio-a-uribe-en-medio-de-la-polemica-por-los-bodegueros-en-la-que-se-metio-petro-se-siente-muy-orgulloso/"
+    },
+    {
+      "id": "957956ed-b63b-49fb-85a0-2d24cf4c92f8",
+      "title": "Grupo \u00c9xito presenta portafolio de productos y descuentos para temporada escolar",
+      "url": "https://www.valoraanalitik.com/grupo-exito-temporada-escolar/"
+    },
+    {
+      "id": "02bfd861-b416-4749-b866-a5ce9d5d5b80",
+      "title": "Reportan ataque armado a una subestaci\u00f3n de Polic\u00eda en Norte de Santander: habr\u00eda un uniformado herido",
+      "url": "https://www.infobae.com/colombia/2026/01/11/reporta-ataque-armado-a-una-subestacion-de-policia-en-norte-de-santander-habria-un-uniformado-herido/"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo-en-2026-estaria-entre-55-y-60-dolares-que-afectaria-el-valor-del-crudo-486087"
+    },
+    {
+      "id": "36c7a3bc-e8c5-458e-99a2-0a64cf063efe",
+      "title": "\u00bfDeben las empresas aumentar el salario a quienes ganan m\u00e1s del m\u00ednimo en Colombia?",
+      "url": "https://www.portafolio.co/economia/empleo/deben-las-empresas-aumentar-el-salario-a-quienes-ganan-mas-del-minimo-en-colombia-486086"
+    },
+    {
+      "id": "77f5c0fe-4186-4ff6-b7f9-8ccce8a0139c",
+      "title": "Gobierno Petro dio pistas sobre las nuevas reglas que habr\u00e1 para que la vivienda no suba con el aumento del salario m\u00ednimo",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gobierno-petro-dio-pistas-sobre-las-nuevas-reglas-que-habra-para-que-la-vivienda-no-suba-con-el-aumento-del-salario-minimo/"
+    },
+    {
+      "id": "47c1bae6-f870-4c5e-a631-69917280514a",
+      "title": "Abogado y acad\u00e9mico opin\u00f3 sobre pol\u00e9mico contrato por $10.000 millones que firm\u00f3 Petro para su defensa en Lista Clinton: \u201cLa chequera del Estado\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/abogado-y-academico-opino-sobre-polemico-contrato-por-10000-millones-que-firmo-petro-para-su-defensa-en-lista-clinton-la-chequera-del-estado/"
+    },
+    {
+      "id": "da37d1f8-0df8-469b-aac6-c51cea2352f3",
+      "title": "Confirmaron la captura de exconcejal ecuatoriano cuando intentaba huir hacia Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/capturan-a-exconcejal-rodriguez-de-ecuador-cuando-intentaba-huir-hacia-venezuela-4303996"
+    },
+    {
+      "id": "2e1d839c-fdfe-4d01-928d-7266b3da02d5",
+      "title": "La historia detr\u00e1s del acuerdo entre EPM y la sociedad de Hidroituango que liber\u00f3 dividendos anticipados para Antioquia",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-historia-detras-del-acuerdo-entre-epm-y-la-sociedad-de-hidroituango-que-libero-dividendos-anticipados-para-antioquia/"
+    },
+    {
+      "id": "e6a81692-cdce-44c9-b160-ab004e6bba05",
+      "title": "Carlos Fernando Gal\u00e1n anunci\u00f3 avance en obra clave para el Metro: \u201cTerminamos el puente vehicular de la Primera de Mayo\u2033",
+      "url": "https://www.infobae.com/colombia/2026/01/11/carlos-fernando-galan-anuncio-avance-en-obra-clave-para-el-metro-terminamos-el-puente-vehicular-de-la-primera-de-mayo/"
+    },
+    {
+      "id": "dd336b7b-e0a2-4691-ac94-0269ad4a14a4",
+      "title": "La Contralor\u00eda hall\u00f3 da\u00f1o fiscal de $1.800 millones en bienes administrados por la SAE en Medell\u00edn: habr\u00eda falla en los contratos",
+      "url": "https://www.infobae.com/colombia/2026/01/11/la-contraloria-hallo-dano-fiscal-de-1800-millones-en-bienes-administrados-por-la-sae-en-medellin-habria-falla-en-los-contratos/"
+    },
+    {
+      "id": "07d8b6b2-ce6b-47c4-9217-30b32fb41cb1",
+      "title": "En respuesta a Paloma Valencia, Petro destac\u00f3 la reducci\u00f3n de homicidios y afirm\u00f3 que supera cifras de los gobiernos de Uribe",
+      "url": "https://www.infobae.com/colombia/2026/01/11/en-respuesta-a-paloma-valencia-petro-destaco-la-reduccion-de-homicidios-y-afirmo-que-supera-cifras-de-los-gobiernos-de-uribe/"
+    },
+    {
+      "id": "f78d7f7b-cdae-4351-8e35-04c8df6ad8d0",
+      "title": "Capturan en Santa Marta a un ciudadano suizo requerido por narcotr\u00e1fico en Espa\u00f1a: ten\u00eda circular roja de Interpol",
+      "url": "https://www.infobae.com/colombia/2026/01/11/capturan-en-santa-marta-a-un-ciudadano-suizo-requerido-por-narcotrafico-en-espana-tenia-circular-roja-de-interpol/"
+    },
+    {
+      "id": "07175cb8-7f4a-4a79-b948-4fbd35b6683b",
+      "title": "Gustavo Petro respondi\u00f3 a exviceministro del Interior tras acusaci\u00f3n de \u201carrodillarse\u201d ante Trump: \u201cYo dej\u00e9 las armas\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/gustavo-petro-respondio-a-exviceministro-del-interior-tras-acusacion-de-arrodillarse-ante-trump-yo-deje-las-armas/"
+    },
+    {
+      "id": "7c94cac2-107e-4893-b4ba-0422cc44dce5",
+      "title": "Modelo colombiana es se\u00f1alada por mover fondos del narcotr\u00e1fico cercanos a 3 millones de d\u00f3lares: detalles de la investigaci\u00f3n",
+      "url": "https://www.infobae.com/colombia/2026/01/11/modelo-colombiana-es-senalada-por-mover-fondos-del-narcotrafico-cercanos-a-3-millones-de-dolares-detalles-de-la-investigacion/"
+    },
+    {
+      "id": "1f358384-c91e-4eeb-8090-7bd0d584388b",
+      "title": "Qui\u00e9n es alias El Bendito Menor, el vocero de paz que estar\u00eda involucrado en la masacre de Maicao, La Guajira",
+      "url": "https://www.infobae.com/colombia/2026/01/11/quien-es-alias-el-bendito-menor-el-vocero-de-paz-que-estaria-involucrado-en-la-masacre-de-maicao-la-guajira/"
+    },
+    {
+      "id": "c2fbe8f8-445c-429a-b405-52954b81a440",
+      "title": "Han salido m\u00e1s de 586.433 veh\u00edculos de Bogot\u00e1 desde el pasado viernes 9 de enero",
+      "url": "https://www.larepublica.co/economia/han-salido-mas-de-586-433-vehiculos-de-bogota-desde-el-pasado-viernes-9-de-enero-4303984"
+    },
+    {
+      "id": "2ea70d5d-c9fd-409f-81e0-209b38d64941",
+      "title": "Venezuela afirma que el pa\u00eds est\u00e1 en calma despu\u00e9s de que EE.UU. lanzara advertencias",
+      "url": "https://www.larepublica.co/globoeconomia/venezuela-afirma-que-el-pais-esta-en-calma-despues-de-que-ee-uu-renueva-la-advertencia-de-viaje-4303991"
+    },
+    {
+      "id": "46b56993-3456-4dbf-988c-4f84e03dc227",
+      "title": "Las 10 rutas de bus m\u00e1s usadas por los viajeros en Puente de Reyes de 2025",
+      "url": "https://www.valoraanalitik.com/rutas-de-bus-mas-usadas-puente-reyes-2025/"
+    },
+    {
+      "id": "1a806a4d-a820-4257-b88d-7e8679190474",
+      "title": "Capturan en Aguachica, Cesar, a presunto integrante del Eln por ataque a base militar que dej\u00f3 7 soldados muertos",
+      "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/capturan-en-aguachica-cesar-a-presunto-integrante-del-eln-por-ataque-a-base-militar-que-dejo-7-soldados-muertos-3523515"
+    },
+    {
+      "id": "13f0c62b-eaf6-403a-9009-663b7d8a72fd",
+      "title": "Ministro de Educaci\u00f3n respondi\u00f3 a Juan Daniel Oviedo para defender al presidente: \u201cLos precios se convierten en un instrumento de poder\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/ministro-de-educacion-respondio-a-juan-daniel-oviedo-para-defender-al-presidente-los-precios-se-convierten-en-un-instrumento-de-poder/"
+    },
+    {
+      "id": "4dbf60ea-6ae0-4c12-900e-ce30984c020c",
+      "title": "Daniel Brice\u00f1o explic\u00f3 por qu\u00e9 aspirar\u00e1 a la C\u00e1mara y no al Senado y se mostr\u00f3 optimista con votaci\u00f3n que saque el Centro Democr\u00e1tico",
+      "url": "https://www.infobae.com/colombia/2026/01/11/daniel-briceno-explico-por-que-aspirara-a-la-camara-y-no-al-senado-y-se-mostro-optimista-con-votacion-que-saque-el-centro-democratico/"
+    },
+    {
+      "id": "6470dd31-7cf3-4a1c-80d2-6b9025df3b1f",
+      "title": "Dieron inicio oficial a las obras de la autopista elevada de Gran Asunci\u00f3n, en Paraguay",
+      "url": "https://www.larepublica.co/globoeconomia/dieron-inicio-oficial-a-las-obras-de-la-autopista-elevada-de-gran-asuncion-4304021"
+    },
+    {
+      "id": "c1eebe1d-5916-4964-b455-64dae6dd091c",
+      "title": "La presidenta hondure\u00f1a, Xiomara Castro, solicita reuni\u00f3n con presidente Trump",
+      "url": "https://www.larepublica.co/globoeconomia/la-presidenta-hondurena-xiomara-castro-ordena-recuento-de-votos-y-solicita-reunion-con-trump-4304030"
+    },
+    {
+      "id": "61663850-99f7-4838-8168-dc5f870226cc",
+      "title": "Enrique G\u00f3mez arremeti\u00f3 contra Petro y su abogado en EE. UU. tras conocerse monto de su defensa para buscar salida de Lista Clinton: \u201cRateros\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/enrique-gomez-arremetio-contra-petro-y-su-abogado-en-ee-uu-tras-conocerse-monto-de-su-defensa-para-buscar-salida-de-lista-clinton-rateros/"
+    },
+    {
+      "id": "e0e09746-23f8-4184-b6f4-85e4d9753d98",
+      "title": "El corrientazo, almuerzo que \u201cdesvara\u201d a millones de colombianos, subir\u00eda de precio desde enero de 2026: \u201cHoy negociamos\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/"
+    },
+    {
+      "id": "6e913357-adb1-4721-a63e-a7a8f6f20f11",
+      "title": "El Mundial 2026 ser\u00e1 el m\u00e1s tecnol\u00f3gico de la historia: As\u00ed entra la IA al f\u00fatbol",
+      "url": "https://www.valoraanalitik.com/el-mundial-2026-sera-mas-tecnologico-historia-asi-entra-la-ia-al-futbol/"
+    },
+    {
+      "id": "97a7688e-94a8-416f-bb86-66f53ab8fde3",
+      "title": "Petro advirti\u00f3 a propietarios de conjuntos c\u00f3mo debe subir el precio de la administraci\u00f3n",
+      "url": "https://www.larepublica.co/economia/petro-advirtio-a-propietarios-de-conjuntos-como-debe-subir-el-precio-de-la-administracion-4304016"
+    },
+    {
+      "id": "5ed7dcc0-2f9c-446b-8a25-d261945edb05",
+      "title": "Premio millonario: el extra que recibi\u00f3 Jhon Dur\u00e1n tras salir campe\u00f3n de la Supercopa de Turqu\u00eda con Fenerbahce",
+      "url": "https://www.infobae.com/colombia/deportes/2026/01/11/premio-millonario-el-extra-que-recibio-jhon-duran-tras-salir-campeon-de-la-supercopa-de-turquia-con-fenerbahce/"
+    },
+    {
+      "id": "52ca7064-50ca-45a9-a598-9dfbead7f1eb",
+      "title": "Katherine Miranda pidi\u00f3 una investigaci\u00f3n al millonario contrato para la defensa personal de Petro ante su inclusi\u00f3n en la lista Clinton",
+      "url": "https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/"
+    },
+    {
+      "id": "677d8039-b38f-4caa-bf17-eea4e821795d",
+      "title": "Salario m\u00ednimo e IPC sacuden a los restaurantes y advierten cierres, cambios de men\u00fa y despidos: \u201cSe est\u00e1n echando para atr\u00e1s\u201d",
+      "url": "https://www.infobae.com/colombia/2026/01/11/salario-minimo-e-ipc-sacuden-a-los-restaurantes-y-advierten-cierres-cambios-de-menu-y-despidos-se-estan-echando-para-atras/"
+    },
+    {
+      "id": "505a053a-2674-47f5-af6b-0c56e2d4d295",
+      "title": "Brasil anunci\u00f3 que devolver\u00e1 la representaci\u00f3n diplom\u00e1tica argentina en Venezuela",
+      "url": "https://www.larepublica.co/globoeconomia/brasil-devolvera-la-representacion-diplomatica-argentina-en-venezuela-4304012"
+    },
+    {
+      "id": "5e880fe1-b0b7-4dcc-9dca-5c8aea3c969c",
+      "title": "\u00bfLe pueden cobrar su Vivienda de Inter\u00e9s Social en salarios m\u00ednimos si ya firm\u00f3 compraventa o separ\u00f3 el inmueble?",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/le-pueden-cobrar-su-vivienda-de-interes-social-en-salarios-minimos-si-ya-firmo-compraventa-o-separo-el-inmueble-486089"
+    },
+    {
+      "id": "90b1bf68-f387-473d-aebc-f2528c13983b",
+      "title": "Tome nota: los s\u00ed y los no de los gastos con el d\u00f3lar a $3.700",
+      "url": "https://www.valoraanalitik.com/los-si-y-los-no-de-los-gastos-con-el-dolar-a-3-700/"
+    },
+    {
+      "id": "4cd41845-7a5d-4f49-896e-db2b9127cdf4",
+      "title": "El Gobierno propone vender la Vivienda de Inter\u00e9s Social (VIS) en pesos y no en salarios m\u00ednimos",
+      "url": "https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528"
+    },
+    {
+      "id": "89c612ef-1c90-4326-aa81-547e5925e3b8",
+      "title": "La Vivienda de Inter\u00e9s Social (VIS) no podr\u00e1 costar m\u00e1s de $236,3 millones: as\u00ed lo establece borrador de decreto",
+      "url": "https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088"
+    },
+    {
+      "id": "41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3",
+      "title": "Gobierno Petro advierte a conjuntos sobre pagos en cuotas de administraci\u00f3n tras alza del salario m\u00ednimo",
+      "url": "https://www.valoraanalitik.com/gobierno-petro-advierte-a-conjuntos-sobre-pagos-en-cuotas-de-administracion-tras-alza-del-salario-minimo/"
+    },
+    {
+      "id": "0efea05a-a950-4a24-a476-69786837741a",
+      "title": "MinVivienda public\u00f3 borrador de decreto para que VIS no est\u00e9n indexadas al m\u00ednimo",
+      "url": "https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001"
+    },
+    {
+      "id": "4db8d69c-62e3-4325-a18c-d9a7e95bc9dd",
+      "title": "El precio del barril de petr\u00f3leo en 2026 estar\u00eda entre 55 y 60 d\u00f3lares: qu\u00e9 afectar\u00eda el valor del crudo",
+      "url": "https://www.portafolio.co/negocios/industrias/el-precio-del-barril-de-petroleo

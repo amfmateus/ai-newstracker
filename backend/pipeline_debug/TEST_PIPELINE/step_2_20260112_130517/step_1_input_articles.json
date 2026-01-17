@@ -1,0 +1,70 @@
+[
+  {
+    "id": "004efeb3-6c09-4a29-91d5-46422d3c306c",
+    "title": "La Superintendencia Financiera pone a disposición simulador para calcular el Soat",
+    "translated_title": "Financial Superintendence Makes SOAT Calculator Available",
+    "url": "https://www.larepublica.co/finanzas/la-superintendencia-financiera-pone-a-disposicion-simulador-para-calcular-el-soat-4301405",
+    "content": "La Superintendencia Financiera reveló a finales de diciembre las nuevas tarifas que aplicarán para el Seguro Obligatorio de Accidentes de Tránsito, Soat, para este año. Además de las recomendaciones lanzadas por la entidad para no caer en estafas, lanzó recientemente un simulador que sirve como herramienta para prever el pago. Para acceder al simulador se debe entrar a la página de la Superfinanciera y seleccionar la categoría del vehículo. También hay que digitar el modelo del vehículo tal y como aparece en la tarjeta de propiedad. La entidad recordó que el Soat \"es un Seguro Obligatorio para todos los vehículos automotores que transiten por el territorio nacional, que ampara los daños corporales que se causen a las personas en accidentes de tránsito\".",
+    "ai_summary": "Colombia's Financial Superintendence has launched a new online simulator to help vehicle owners calculate their Mandatory Traffic Accident Insurance (SOAT) payments for the year, alongside new rate information and scam prevention tips.",
+    "published_at": "2026-01-06T19:01:57",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "FINANCIAL_SUPERINTENDENCE",
+      "SOAT",
+      "COLOMBIA",
+      "INSURANCE",
+      "CALCULATOR"
+    ],
+    "entities": [
+      "SOAT",
+      "FINANCIAL_SUPERINTENDENCE"
+    ]
+  },
+  {
+    "id": "010c63de-47ce-4d09-87b9-4231c6246b0f",
+    "title": "Juan Fernando Cristo convoca a candidatos presidenciales para hacer declaración conjunta en defensa de la soberanía nacional",
+    "translated_title": "Juan Fernando Cristo convenes presidential candidates to make a joint declaration in defense of national sovereignty",
+    "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/juan-fernando-cristo-convoca-a-candidatos-presidenciales-tras-amenazas-de-intervencion-militar-de-ee-uu-3522422",
+    "content": "Juan Fernando Cristo convoca a candidatos presidenciales para hacer declaración conjunta en defensa de la soberanía nacional",
+    "ai_summary": "Juan Fernando Cristo has called for presidential candidates to issue a joint statement defending national sovereignty.",
+    "published_at": "2026-01-07T13:20:07",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "POLITICS",
+      "PRESIDENTIAL_CANDIDATES",
+      "SOVEREIGNTY",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "JUAN_FERNANDO_CRISTO"
+    ]
+  },
+  {
+    "id": "0120918b-2b51-4dab-998a-39c29bb601b8",
+    "title": "Who Is Cilia Flores, Maduro’s Wife, and Why Was She Captured Alongside Him?",
+    "translated_title": "Who Is Cilia Flores, Maduro’s Wife, and Why Was She Captured Alongside Him?",
+    "url": "https://www.nytimes.com/2026/01/03/world/americas/cilia-flores-maduro-wife-venezuela.html",
+    "content": "Operating largely from the shadows, Ms. Flores, the first lady of Venezuela, helped consolidate Mr. Maduro’s rule while controlling the judiciary and amassing wealth through corruption, experts say.",
+    "ai_summary": "Cilia Flores, Venezuela's first lady, is described as a powerful figure operating from the shadows who helped consolidate her husband Maduro's rule through control of the judiciary and corruption.",
+    "published_at": "2026-01-03T22:48:35",
+    "source": "NYT America",
+    "sentiment": "negative",
+    "relevance": 95,
+    "tags": [
+      "VENEZUELA",
+      "MADURO",
+      "CILIA_FLORES",
+      "POLITICS",
+      "CORRUPTION"
+    ],
+    "entities": [
+      "CILIA_FLORES",
+      "VENEZUELA",
+      "MADURO"
+    ]
+  }
+]

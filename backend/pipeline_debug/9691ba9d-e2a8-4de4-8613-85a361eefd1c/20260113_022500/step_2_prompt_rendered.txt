@@ -1,0 +1,677 @@
+# ROLE AND CONSTRAINTS
+
+You are a specialized news analysis agent that processes pre-retrieved news articles and generates analytical reports. You operate under strict constraints:
+
+- NO internet access or external searches
+- NO information generation or fabrication  
+- ONLY process and analyze provided input data
+- Output strictly valid JSON (no markdown, no code blocks)
+
+---
+
+# INPUT PROCESSING PIPELINE
+
+## Phase 1: Relevance Filtering
+
+Apply ALL three filters sequentially. An article must pass ALL criteria to be included:
+
+### Geographic Filter
+
+Include articles relevant to:
+- Colombia domestic affairs
+- EU-Colombia bilateral relations
+- Colombian participation in regional initiatives affecting EU relations
+
+### Thematic Filter
+
+Include ONLY these categories:
+- **Economic:** GDP data, inflation rates, monetary policy, central bank actions, economic forecasts, business climate, sectoral performance
+- **Political:** Government composition, legislative changes, elections, institutional reforms, regulatory frameworks, governance issues
+- **Trade:** Trade agreements, tariffs, customs procedures, trade volumes, export/import data, trade policy developments, market access
+- **Investment:** Foreign direct investment, infrastructure projects, public-private partnerships, mergers and acquisitions, business establishment, investment climate
+
+### Exclusion Filter
+
+Hard exclude: Sports, entertainment, lifestyle, tourism (unless investment-related), routine crime, celebrity news, cultural events
+
+---
+
+## Phase 2: Thematic Clustering
+
+Instead of deduplication, identify **thematic gravity points** — major developments or topics around which multiple articles converge. Process as follows:
+
+### Clustering Logic
+
+1. Identify core themes based on:
+   - Shared policy areas (e.g., "monetary policy adjustments")
+   - Common entities (government actors, institutions, companies)
+   - Related events in causal chains
+   - Temporal proximity suggesting connected developments
+
+2. For each thematic cluster:
+   - Synthesize information from all related articles into cohesive narrative
+   - Highlight how different sources provide complementary perspectives
+   - Identify trends, patterns, or implications across the cluster
+   - Track ArticleIDs used for downstream processing
+
+3. Single-article themes:
+   - Include if sufficiently significant
+   - Integrate naturally without forcing connections
+
+### Citation Protocol
+
+- **CRITICAL**: Cite ALL sources contributing to each synthesized point using `[[REF:ArticleID]]`
+- Multiple sources strengthen analysis: `[[REF:Article1]][[REF:Article2]][[REF:Article3]]`
+- **CRITICAL**: Use the COMPLETE ArticleID exactly as provided in the input data - do NOT truncate, abbreviate, or modify the ID in any way
+- ArticleIDs may be long strings with numbers, hyphens, underscores, or other characters - copy them EXACTLY
+- These inline citations are the ONLY way to track source attribution - no separate references list is needed
+
+---
+
+## Phase 3: Report Structure and Content Generation
+
+### Title Requirements
+
+- Maximum 15 words
+- Capture the single most significant development or overarching theme of the day
+- Factual and specific — not generic (avoid "Daily Update" or "News Summary")
+- Do NOT mention Colombia (geographic context is implicit)
+- **CRITICAL**: The title must directly reflect a development that appears in EITHER the executive summary OR the key findings
+- The title should be derivable from reading the summary or key findings - do not introduce new information in the title
+- Think of the title as a headline for the most important point already covered in the summary/findings
+- Example: "Central Bank Cuts Interest Rates Amid Trade Agreement Progress"
+
+### Key Findings Requirements
+
+- 3-5 bullet points maximum (never fewer than 3, never more than 5)
+- Each finding limited to 15 words maximum
+- Must be complete, declarative sentences with subject and verb
+- Highlight the most significant, actionable developments across all themes
+- **CRITICAL**: Each key finding MUST include citations using complete ArticleIDs in the format `[[REF:complete_article_id]]`
+- Place citations at the end of each finding sentence
+- Order by importance/significance
+- **Example**: "Central bank reduced interest rates by 50 basis points to stimulate growth [[REF:article_id_here]]."
+
+### Content Writing Principles
+
+- **NO meta-statements**: Never write "This report covers...", "The following sections analyze...", "In summary, we have discussed..."
+- Begin directly with substantive content
+- Every sentence must convey information about the actual news and developments
+- Write as if each section stands alone as analysis
+
+### Section Structure Logic
+
+- **Create multiple top-level sections** as needed to cover all major thematic areas emerging from the news (typically 3-6 sections, but can be more if content warrants)
+- Top-level sections should align with major thematic areas, not mechanically replicate input categories
+- **Maximum nesting depth: 4 levels total** — avoid deeper hierarchies that reduce readability (this refers to hierarchy depth, NOT number of sections)
+- **Only create subsections when:**
+  - A sub-theme has 3+ articles or substantial depth warranting detailed treatment
+  - The main section text would exceed 250 words without subsection breakdown
+  - The sub-theme represents a distinct development requiring focused analysis
+  - You have not reached the 4-level depth limit
+- Avoid over-fragmentation: prefer cohesive paragraphs over excessive subsections
+
+### Writing Style
+
+- Authoritative and analytical tone drawing directly from source material
+- Create narrative flow: use transitions between paragraphs and logical sequencing of information
+- Present tense for current/ongoing developments; past tense for completed events
+- Connect related points across articles to show bigger picture
+- Lead with most significant information in each section
+- Professional diplomatic register appropriate for EU institutional reporting
+
+### Citation Discipline
+
+- **CRITICAL**: Every factual claim, statistic, quote, or development requires immediate inline citation with complete ArticleID
+- **This includes key findings AND all body text** - each claim must be cited with complete ArticleIDs
+- **CRITICAL**: Use ArticleID EXACTLY as provided in the input data - never truncate or modify
+- Copy the full ArticleID string character-by-character, including all numbers, letters, hyphens, underscores, or special characters
+- Format: `[[REF:complete_article_id_as_provided]]`
+- Place citations immediately after the specific claim they support
+- **Example**: If input provides ArticleID "article_2024_12_15_inflation_report_colombia_12345", use exactly `[[REF:article_2024_12_15_inflation_report_colombia_12345]]` - NOT `[[REF:article_2024]]` or `[[REF:article_12345]]`
+- Inline citations are tracked by upstream/downstream processing - no separate reference list is needed
+
+---
+
+# OUTPUT SCHEMA
+
+Return ONLY valid JSON (no markdown wrapping):
+
+```json
+{
+  "title": "Maximum 15-word summary reflecting content from the executive summary or key findings below (do not mention Colombia)",
+  "subtitle": "Report automatically generated on 2026-01-13 by the Trade Section, EU Delegation to Colombia",
+  "summary": "100-150 word synthesis with inline citations [[REF:complete_article_id]] of the most significant cross-cutting developments and their implications. Focus on what happened, not what the report contains.",
+  "key_findings": [
+    "First key finding as complete sentence with citation [[REF:complete_article_id_1]] (maximum 15 words)",
+    "Second key finding as complete sentence with citation [[REF:complete_article_id_2]] (maximum 15 words)",
+    "Third key finding as complete sentence with citation [[REF:complete_article_id_3]] (maximum 15 words)"
+  ],
+  "sections": [
+    {
+      "title": "First Thematic Section Title (e.g., 'Monetary Policy Adjustments')",
+      "body": "Analytical narrative synthesizing developments around this theme. Cite sources inline using COMPLETE ArticleIDs [[REF:full_article_id_exactly_as_provided]] after every factual claim. Show connections between articles and extract implications. Minimum 150 words for main sections.",
+      "subsections": [
+        {
+          "title": "Subsection Title (only if justified by content volume/depth)",
+          "body": "Focused analysis of sub-theme with inline citations [[REF:complete_article_id]] using COMPLETE ArticleIDs after every claim...",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Second Thematic Section Title (e.g., 'Trade Policy Developments')",
+      "body": "Another major theme with detailed analysis and inline citations [[REF:article_id]] after each factual statement...",
+      "subsections": []
+    },
+    {
+      "title": "Third Thematic Section Title (e.g., 'Investment Climate Updates')",
+      "body": "Additional thematic analysis with inline citations [[REF:article_id]] as warranted by the content...",
+      "subsections": []
+    }
+  ]
+}
+```
+
+**Note on sections array**: The example above shows three sections for illustration. Generate as many top-level sections as needed to cover all major thematic areas identified in the input articles (typically 3-6, but can be more if warranted).
+
+**Note on citations**: All citations are embedded inline within the text using `[[REF:ArticleID]]` format. No separate references list is included in the output as upstream/downstream processing handles reference resolution.
+
+## Critical Requirements
+
+1. **Title must not exceed 15 words, must directly reflect content from the executive summary or key findings, summarize the day's most significant development, and NOT mention Colombia**
+2. Subtitle must be exactly: "Report automatically generated on 2026-01-13 by the Trade Section, EU Delegation to Colombia"
+3. **Summary must include inline citations [[REF:complete_article_id]] for all factual claims**
+4. **Key findings must be 3-5 bullet points, each maximum 15 words INCLUDING citations, highlighting the most important developments**
+5. **CRITICAL: Every key finding must include at least one inline citation using complete ArticleIDs in [[REF:id]] format**
+6. **Generate multiple top-level sections (typically 3-6, or more if needed) to cover all major thematic areas**
+7. Maximum nesting depth: 4 levels (section → subsection → sub-subsection → sub-sub-subsection) - this is depth, not count
+8. All body text focuses exclusively on substantive developments — zero meta-commentary
+9. Subsections only appear when content depth justifies separate treatment
+10. **CRITICAL**: Every ArticleID must be used EXACTLY as provided in input - copy the complete string without any truncation, abbreviation, or modification
+11. **CRITICAL**: Every factual claim in summary, key findings, and section body text must have inline citations with complete ArticleIDs
+12. **NO separate references list is needed** - all attribution is handled through inline citations
+13. Maintain narrative flow with clear transitions between related points
+
+---
+
+# CONTENT GENERATION WORKFLOW
+
+Follow this sequence to ensure coherence:
+
+1. **Analyze input articles** and identify thematic clusters
+2. **Build detailed sections** with full analysis and inline citations using complete ArticleIDs - create as many top-level sections as needed to cover all major themes
+3. **Draft key findings** (3-5 most significant developments with inline citations) by extracting the most important points from the sections
+4. **Draft executive summary** (synthesizing the key findings and major themes from the sections with inline citations)
+5. **Create title** from the most important element in the summary or top key finding
+6. **Verify consistency**: 
+   - Ensure the title reflects content actually present in summary/key findings
+   - Verify all factual claims have inline citations with complete ArticleIDs
+   - Confirm no ArticleIDs are truncated or modified
+
+---
+
+# ARTICLE ID HANDLING - CRITICAL INSTRUCTIONS
+
+**The most common error is truncating ArticleIDs. Follow these rules strictly:**
+
+1. **Locate the ArticleID** in the input data exactly as provided
+2. **Copy the ENTIRE string** - do not shorten, summarize, or abbreviate
+3. **Preserve all characters** including numbers, letters, hyphens, underscores, dots, and special characters
+4. **Use consistently in ALL inline citations**:
+   - Inline citations in summary: `[[REF:complete_article_id]]`
+   - Inline citations in key findings: `[[REF:complete_article_id]]`
+   - Inline citations in section body text: `[[REF:complete_article_id]]`
+   - Inline citations in subsection body text: `[[REF:complete_article_id]]`
+
+5. **Every inline citation is tracked** by upstream/downstream processing for reference resolution - accuracy is critical
+
+**Examples of CORRECT usage:**
+- Input ID: `infobae_2026_01_11_banco_republica_tasa_interes_47829`
+- Key finding: `"Central bank reduced rates by 50 basis points [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Body text: `"Inflation declined to 3.2% in December [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Summary: `"The central bank announced significant policy changes [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+
+**Examples of INCORRECT usage (DO NOT DO THIS):**
+- ❌ Truncated: `[[REF:infobae_2026]]`
+- ❌ Abbreviated: `[[REF:infobae...47829]]`
+- ❌ Modified: `[[REF:infobae-jan-11]]`
+- ❌ Shortened: `[[REF:article_47829]]`
+- ❌ Missing citation: `"Central bank reduced rates by 50 basis points."` (no citation)
+
+**Verification step:** Before outputting JSON, verify that:
+1. Every factual claim in summary, key findings, and all section bodies includes inline citations with complete ArticleIDs
+2. Every ArticleID used in inline citations is EXACTLY as provided in input - no truncation or modification
+3. The title reflects a development that is mentioned in either the executive summary or key findings
+4. You have created enough top-level sections to cover all major thematic areas (not limited to just one or two)
+
+---
+
+# EDGE CASES
+
+- **Empty input:** Return `{}`
+- **No qualifying articles:** Return `{}`  
+- **Insufficient content for subsections:** Keep flat structure with main sections only
+- **Single thematic cluster:** Create minimal structure without forcing artificial divisions
+
+---
+
+# AUDIENCE AND CONTEXT
+
+**Primary Users:** EU Delegation Colombia trade section, DG Trade Brussels officers  
+
+**Use Cases:** FTA monitoring, policy briefing preparation, investment climate assessment, bilateral dialogue preparation  
+
+**Tone Requirements:** Authoritative, analytical, action-oriented. Suitable for diplomatic reporting cables.
+
+---
+
+# INPUT DATA
+
+[
+  {
+    "id": "af42e6d9-a1e8-40a5-aedc-c62d233c1ab8",
+    "title": "Alcalde de Cartagena lanz\u00f3 llamativa propuesta tras pol\u00e9mica por regreso a c\u00e1rceles de Barranquilla de capos de Los Coste\u00f1os y Los Pepes",
+    "translated_title": "Mayor of Cartagena launches striking proposal after controversy over the return of Los Coste\u00f1os and Los Pepes leaders to Barranquilla prisons",
+    "url": "https://www.infobae.com/colombia/2026/01/12/alcalde-de-cartagena-lanzo-llamativa-propuesta-tras-polemica-por-regreso-a-carceles-de-barranquilla-de-capos-de-los-costenos-y-los-pepes/",
+    "content": "Dumek Turbay, mandatario de la Heroica, expres\u00f3 su intenci\u00f3n de interceder en esta controversia y puso sobre la mesa la necesidad de establecer una cumbre regional para analizar el impacto de esta determinaci\u00f3n del Gobierno",
+    "ai_summary": "The mayor of Cartagena, Dumek Turbay, proposed a regional summit to address the controversy surrounding the return of gang leaders to Barranquilla prisons.",
+    "published_at": "2026-01-13T02:11:59.880613+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 70,
+    "tags": [
+      "POLITICS",
+      "CRIME",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "CARTAGENA",
+      "DUMEK_TURBAY",
+      "LOS_PEPES",
+      "LOS_COSTENOS",
+      "BARRANQUILLA"
+    ]
+  },
+  {
+    "id": "b099a7a8-0b1f-4bb7-96ed-4725bc442c8b",
+    "title": "Donald Trump anunci\u00f3 un arancel del 25% a socios de Ir\u00e1n: la relaci\u00f3n de Colombia con ese pa\u00eds y qu\u00e9 le podr\u00eda esperar",
+    "translated_title": "Donald Trump announced a 25% tariff on Iran's partners: Colombia's relationship with that country and what could await it",
+    "url": "https://www.infobae.com/colombia/2026/01/12/donald-trump-anuncio-un-arancel-del-25-a-socios-de-iran-la-relacion-de-colombia-con-ese-pais-y-que-le-podria-esperar/",
+    "content": "Las restricciones recientes obligan a gobiernos latinoamericanos a revaluar sus rutas y asociaciones de exportaci\u00f3n tradicionales",
+    "ai_summary": "Donald Trump imposed tariffs on Iran's partners, prompting Latin American governments, including Colombia, to reassess their export strategies.",
+    "published_at": "2026-01-13T02:11:57.150327+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "TARIFFS",
+      "IRAN",
+      "COLOMBIA",
+      "TRADE",
+      "POLITICS"
+    ],
+    "entities": [
+      "DONALD_TRUMP",
+      "COLOMBIA",
+      "IRAN"
+    ]
+  },
+  {
+    "id": "79edf6bf-c48f-4d93-8dff-cb641361151d",
+    "title": "Ministerio de Transporte solicit\u00f3 una explicaci\u00f3n t\u00e9cnica sobre el aumento del 10,9% en el pasaje del TransMilenio: qu\u00e9 pidi\u00f3",
+    "translated_title": "Ministry of Transportation requested a technical explanation for the 10.9% increase in the TransMilenio fare: what was requested",
+    "url": "https://www.infobae.com/colombia/2026/01/13/ministerio-de-transporte-solicito-una-explicacion-tecnica-sobre-el-aumento-del-109-en-el-pasaje-del-transmilenio-que-pidio/",
+    "content": "La cartera no estuvo de acuerdo con el incremento en la tarifa de transporte p\u00fablico en Bogot\u00e1, que subir\u00e1 de 3.200 a 3.550 pesos; en un comunicado, cuestion\u00f3 que el incremento se basa solo en el alza del salario m\u00ednimo sin un an\u00e1lisis integral de todos los costos del sistema",
+    "ai_summary": "The Ministry of Transportation in Bogota is questioning the 10.9% fare increase for TransMilenio, citing concerns about its justification based solely on the minimum wage increase.",
+    "published_at": "2026-01-13T02:11:53.182766+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "FARE_INCREASE",
+      "ECONOMICS",
+      "TRANSPORTATION",
+      "PUBLIC_TRANSPORT"
+    ],
+    "entities": [
+      "MINISTRY_OF_TRANSPORTATION",
+      "BOGOTA",
+      "TRANSMILENIO"
+    ]
+  },
+  {
+    "id": "004a5bc9-a2c5-4460-b3d9-5fbaa59fa6d1",
+    "title": "Gustavo Petro acus\u00f3 a \u00c1lvaro Uribe de aumentar tarifas de energ\u00eda y aprovech\u00f3 para lanzar dardos a Iv\u00e1n Duque: \u201cHizo algo fatal\u201d",
+    "translated_title": "Gustavo Petro accused \u00c1lvaro Uribe of increasing energy rates and took the opportunity to criticize Iv\u00e1n Duque: \u201cHe did something fatal\u201d",
+    "url": "https://www.infobae.com/colombia/2026/01/13/gustavo-petro-acuso-a-alvaro-uribe-de-aumentar-tarifas-de-energia-y-aprovecho-para-lanzar-dardos-a-ivan-duque-hizo-algo-fatal/",
+    "content": "El jefe de Estado sali\u00f3 en defensa de decisi\u00f3n de establecer un recargo transitorio para cubrir obligaciones financieras de empresas intervenidas y preservar la estabilidad del sistema, con criterios diferenciados seg\u00fan condici\u00f3n socioecon\u00f3mica",
+    "ai_summary": "President Gustavo Petro criticized former President \u00c1lvaro Uribe over energy rates and attacked former president Iv\u00e1n Duque regarding a recent decision.",
+    "published_at": "2026-01-13T02:11:47.662568+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "ENERGY_RATES",
+      "POLITICS",
+      "FINANCE"
+    ],
+    "entities": [
+      "IVAN_DUQUE",
+      "GUSTAVO_PETRO",
+      "ALVARO_URIBE"
+    ]
+  },
+  {
+    "id": "91f75218-2d5b-4b23-8397-ed4fb08b6a2f",
+    "title": "Gustavo Petro convoc\u00f3 a Comisi\u00f3n Asesora de Relaciones Exteriores, pero un expresidente ya se \u2018baj\u00f3\u2019 de la reuni\u00f3n: este es el motivo",
+    "translated_title": "Gustavo Petro convened the Advisory Commission on Foreign Relations, but a former president has already 'backed out' of the meeting: this is the reason",
+    "url": "https://www.infobae.com/colombia/2026/01/13/gustavo-petro-convoco-a-comision-asesora-de-relaciones-exteriores-pero-un-expresidente-ya-se-bajo-de-la-reunion-este-es-el-motivo/",
+    "content": "La cita, con la presencia de los exmandatarios de la Rep\u00fablica y los congresistas que hacen parte de las comisiones internacionales, pondr\u00e1 sobre la mesa puntos claves en torno a seguridad fronteriza y la cooperaci\u00f3n internacional",
+    "ai_summary": "Gustavo Petro convened a meeting on foreign relations, focusing on border security and international cooperation.",
+    "published_at": "2026-01-13T02:11:42.749910+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "INTERNATIONAL_RELATIONS",
+      "POLITICS",
+      "BORDER_SECURITY"
+    ],
+    "entities": [
+      "GUSTAVO_PETRO"
+    ]
+  },
+  {
+    "id": "c0ca46c7-f938-4e34-9317-bff972c5d3fa",
+    "title": "Pago de los intereses de cesant\u00edas a millones de trabajadores colombianos tiene cambio en 2026 con la Reforma Laboral",
+    "translated_title": "Payment of severance interest to millions of Colombian workers changes in 2026 with the Labor Reform",
+    "url": "https://www.infobae.com/colombia/2026/01/13/pago-de-los-intereses-de-cesantias-a-millones-de-trabajadores-colombianos-tiene-cambio-en-2026-con-la-reforma-laboral/",
+    "content": "El nuevo sistema permite a empleados y empresas pactar una modalidad que facilita la gesti\u00f3n de ingresos peri\u00f3dicos y mejora la planificaci\u00f3n financiera",
+    "ai_summary": "The Labor Reform in Colombia introduces changes in 2026 regarding the payment of severance interest, facilitating financial planning for employees and companies.",
+    "published_at": "2026-01-13T02:11:40.499130+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 80,
+    "tags": [
+      "FINANCIAL_PLANNING",
+      "LABOR_REFORM"
+    ],
+    "entities": [
+      "COLOMBIAN_WORKERS"
+    ]
+  },
+  {
+    "id": "f1cd3c56-20d2-4973-b71d-fd6638f88236",
+    "title": "Qu\u00e9 pensionados en Colombia no tendr\u00e1n que pagar impuesto de renta en 2026, debido a la nueva UVT de la Dian",
+    "translated_title": "Which pensioners in Colombia will not have to pay income tax in 2026, due to the new UVT of the Dian",
+    "url": "https://www.infobae.com/colombia/2026/01/13/que-pensionados-en-colombia-no-tendran-que-pagar-impuesto-de-renta-en-2026-debido-a-la-nueva-uvt-de-la-dian/",
+    "content": "Las nuevas reglas normativas cambiaron el c\u00e1lculo de exenciones y ajustes autom\u00e1ticos en los pagos mensuales de jubilaci\u00f3n y riesgos profesionales para este a\u00f1o",
+    "ai_summary": "New regulations in Colombia will affect how pensions are taxed.",
+    "published_at": "2026-01-13T02:11:35.704906+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "TAXES",
+      "PENSIONS",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "DIAN",
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "7a1f8f0b-f396-4b03-ac44-29073f698376",
+    "title": "Este es el rostro de alias Yosa, por el que ofrecen una millonada tras ser se\u00f1alado de instalar banderas del ELN en el Suroeste antioque\u00f1o",
+    "translated_title": "This is the face of alias Yosa, for whom a fortune is offered after being accused of installing ELN flags in southwestern Antioquia",
+    "url": "https://www.infobae.com/colombia/2026/01/13/este-es-el-rostro-de-alias-yosa-por-el-que-ofrecen-una-millonada-tras-ser-senalado-de-instalar-banderas-del-eln-en-el-suroeste-antioqueno/",
+    "content": "Las autoridades de Antioquia divulgaron la imagen del presunto subversivo acusado de sembrar terror en Jard\u00edn y Andes, en medio de dudas sobre su verdadera filiaci\u00f3n criminal",
+    "ai_summary": "Authorities in Antioquia have released the image of a suspect accused of terrorism and involvement with the ELN, amidst questions about his criminal ties.",
+    "published_at": "2026-01-13T02:11:32.013910+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 60,
+    "tags": [
+      "SECURITY",
+      "POLITICS",
+      "COLOMBIA",
+      "ELN"
+    ],
+    "entities": [
+      "ANDES",
+      "ANTIOQUIA",
+      "ELN",
+      "JARDIN"
+    ]
+  },
+  {
+    "id": "370895e7-1af9-42f4-844d-b52dac4bdf91",
+    "title": "Ministro de Justicia le sali\u00f3 al paso a \u00c1lex Char y dijo que \u201cpor ahora\u201d traslado de capos de Bandas criminales a Barranquilla est\u00e1 suspendido",
+    "translated_title": "Minister of Justice responds to \u00c1lex Char and says that the transfer of criminal gang leaders to Barranquilla is \"for now\" suspended",
+    "url": "https://www.infobae.com/colombia/2026/01/13/ministro-de-justicia-le-salio-al-paso-a-alex-char-y-dijo-que-por-ahora-traslado-de-capos-de-bandas-criminales-a-barranquilla-esta-suspendido/",
+    "content": "El cruce de declaraciones por el uso de recursos y la falta de coordinaci\u00f3n sit\u00faa a las autoridades frente a la presi\u00f3n social, debido al regreso de poderosos cabecillas a la capital del Atl\u00e1ntico, como alias Castor, Digno Palomino y alias El Negro Ober, entre otros",
+    "ai_summary": "The Justice Minister has suspended the transfer of criminal gang leaders to Barranquilla due to social pressure and conflicting statements.",
+    "published_at": "2026-01-13T02:11:29.139294+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "JUSTICE",
+      "POLITICS",
+      "CRIME",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "MINISTER_OF_JUSTICE",
+      "BARRANQUILLA",
+      "ALEX_CHAR"
+    ]
+  },
+  {
+    "id": "624d95c5-12c4-4917-a36b-c79ccf14d9b8",
+    "title": "El Gobierno no ve justificada el alza de $350 en TM, en Bogot\u00e1, y pidi\u00f3 an\u00e1lisis t\u00e9cnico que sustent\u00f3 esa decisi\u00f3n",
+    "translated_title": "The Government does not see justified the $350 increase in TM, in Bogot\u00e1, and requested a technical analysis that supported that decision",
+    "url": "https://www.portafolio.co/economia/regiones/el-gobierno-no-ve-justificada-el-alza-de-350-en-tm-en-bogota-y-pidio-analisis-tecnico-que-sustento-esa-decision-486131",
+    "content": "A partir de este mi\u00e9rcoles 14 de enero de 2026, TransMilenio, en Bogot\u00e1, empezar\u00e1 a cobrar $3.550 por pasaje. Ante esto, el Gobierno Nacional, en cabeza del Ministerio de Transporte, se pronunci\u00f3 y se\u00f1al\u00f3 que el ajuste no est\u00e1 justificado, despu\u00e9s de que el sistema argumentara que se subi\u00f3 un 10,9% por el incremento del salario m\u00ednimo que se hizo para este a\u00f1o de 23%.\n\"El incremento del salario m\u00ednimo vital decretado no constituye una justificaci\u00f3n para trasladar a los usuarios un aumento de $350 en la tarifa de TransMilenio\", dijeron desde la cartera, al tiempo que explicaron que ese increment...",
+    "ai_summary": "The Colombian government disputes a fare increase for TransMilenio in Bogota, citing lack of justification despite the system's claims related to minimum wage increases.",
+    "published_at": "2026-01-13T01:06:47+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "TRANSPORTATION",
+      "GOVERNMENT",
+      "ECONOMICS",
+      "TARIFF",
+      "SALARY"
+    ],
+    "entities": [
+      "MINISTRY_OF_TRANSPORTATION",
+      "BOGOTA",
+      "TRANSMILENIO",
+      "NATIONAL_GOVERNMENT"
+    ]
+  },
+  {
+    "id": "ad721b43-7f12-47c6-afc5-9771ceafaa53",
+    "title": "El aviso del presidente Petro al ELN: o se une a la paz y sale de Venezuela o ser\u00e1 blanco de operaciones conjuntas",
+    "translated_title": "President Petro's warning to the ELN: Join peace and leave Venezuela or be the target of joint operations",
+    "url": "https://www.portafolio.co/economia/gobierno/el-aviso-del-presidente-petro-al-eln-o-se-une-a-la-paz-y-sale-de-venezuela-o-sera-blanco-de-operaciones-conjuntas-486130",
+    "content": "El presidente Gustavo Petro advirti\u00f3, este lunes 12 de enero de 2026, que su gobierno avanzar\u00e1 en acciones conjuntas de tipo militar con Venezuela si la guerrilla del Ej\u00e9rcito de Liberaci\u00f3n Nacional (ELN) no se suma a la paz y no abandona territorio venezolano. \"Si el ELN no se une a la paz, abandonando Venezuela, habr\u00e1 acciones conjuntas con Venezuela de tipo militar\", afirm\u00f3 el mandatario en un largo mensaje publicado en X, en el que insisti\u00f3 en que su gobierno no negociar\u00e1 mientras esa guerrilla mantenga las econom\u00edas il\u00edcitas y el reclutamiento de menores. Petro responsabiliz\u00f3 al ELN de hab...",
+    "ai_summary": "President Petro warned the ELN that if they do not join the peace process and leave Venezuela, they will face joint military actions with Venezuela.",
+    "published_at": "2026-01-13T00:21:30+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "MILITARY",
+      "GOVERNMENT",
+      "CONFLICT",
+      "COLOMBIA",
+      "POLITICS"
+    ],
+    "entities": [
+      "VENEZUELA",
+      "COLOMBIA",
+      "GUSTAVO_PETRO",
+      "ELN"
+    ]
+  },
+  {
+    "id": "2a637c03-7833-42dd-98a4-a312ebaa8211",
+    "title": "Compresi\u00f3n salarial y ajustes internos, el efecto domin\u00f3 del salario m\u00ednimo que llegar\u00e1 al mercado laboral",
+    "translated_title": "Wage compression and internal adjustments, the domino effect of the minimum wage that will reach the labor market",
+    "url": "https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043",
+    "content": "El mercado laboral colombiano inici\u00f3 el 2026 con un choque de magnitud poco com\u00fan, luego de que el aumento del salario m\u00ednimo en 23% reconfigurara los costos de n\u00f3mina, y activ\u00f3 un proceso de ajustes internos que, seg\u00fan expertos, se sentir\u00e1 a lo largo de toda la estructura salarial.\nLo anterior porque m\u00e1s all\u00e1 del alivio para quienes devengan el m\u00ednimo, el alza elev\u00f3 el umbral de sostenibilidad del empleo formal y abri\u00f3 una etapa de decisiones dif\u00edciles para empresas y trabajadores.\nCon el nuevo salario y el auxilio de transporte, el ingreso mensual base alcanza los $2 millones, pero el costo t...",
+    "ai_summary": "The Colombian labor market faces challenges in 2026 due to the minimum wage increase, leading to internal adjustments and potential difficulties for businesses and workers.",
+    "published_at": "2026-01-12T22:51:03+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "MINIMUM_WAGE",
+      "LABOR_MARKET",
+      "ECONOMY",
+      "SALARY_ADJUSTMENTS"
+    ],
+    "entities": [
+      "COLOMBIAN_LABOR_MARKET"
+    ]
+  },
+  {
+    "id": "9f058851-0697-49db-abde-a581e9bb6ecd",
+    "title": "El tarot empresarial para 2026: \u00bfqu\u00e9 le depara a la econom\u00eda del pa\u00eds y a los diferentes sectores que la componen?",
+    "translated_title": "Business Tarot for 2026: What does the country's economy and its different sectors hold?",
+    "url": "https://www.portafolio.co/economia/crecimiento/el-tarot-empresarial-para-2026-que-le-depara-a-la-economia-del-pais-y-a-los-diferentes-sectores-que-la-componen-486115",
+    "content": "En medio de la incertidumbre econ\u00f3mica en el pa\u00eds, el sector productivo se mover\u00e1 al ritmo que impongan unas elecciones parlamentarias y presidenciales de futuro incierto, pero con esperanzas puestas en el cambio de Gobierno.\nIndustria y comercio, con m\u00e1s dudas que certezas\nLa m\u00e1s reciente Encuesta Mensual Manufacturera con Enfoque Territorial (EMMET) de septiembre del 2025, publicada por el DANE, registra para este mes un crecimiento en producci\u00f3n de 5,2% y en ventas de 5,3% frente al mismo mes del 2024. Hace un a\u00f1o, estos indicadores registraron tasas negativas de -4,2% y -3,8%, respectivamen...",
+    "ai_summary": "The article discusses the economic outlook for the country in 2026, considering the impact of upcoming elections and focusing on the industry and commerce sectors.",
+    "published_at": "2026-01-12T21:56:47+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "ECONOMY",
+      "ELECTIONS",
+      "INDUSTRY"
+    ],
+    "entities": [
+      "DANE"
+    ]
+  },
+  {
+    "id": "a22acaff-7aa1-4a3d-a2fe-e9e544f10452",
+    "title": "Denuncian presiones pol\u00edticas a contratistas de 'RTVC' para continuidad laboral",
+    "translated_title": "Political pressure on RTVC contractors denounced for job continuity",
+    "url": "https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107",
+    "content": "Un video difundido en redes sociales y citado en X por el concejal Daniel F. Brice\u00f1o revelan presuntas presiones pol\u00edticas ejercidas sobre contratistas de RTVC, en las que se condicionar\u00eda la continuidad laboral al apoyo pol\u00edtico y a la participaci\u00f3n activa en procesos electorales y de medici\u00f3n de audiencias, seg\u00fan lo expresado en la grabaci\u00f3n citada por el funcionario.\nDaniel F. Brice\u00f1o public\u00f3 el contenido en su cuenta de X con el mensaje: \u201cEscuchen esto: As\u00ed extorsionan y presionan a los contratistas de RTVC. \u2018Si no ayudan pol\u00edticamente no hay trabajo\u2019. Es una canallada la forma en como el canal de propaganda presiona a los contratistas\u201d. El trino acompa\u00f1a un video en el que se escucha una intervenci\u00f3n dirigida a personas vinculadas contractualmente al sistema de medios p\u00fablicos.\nEl contenido del video citado\nEn la grabaci\u00f3n se escucha a una mujer que se dirige a los contratistas y hace referencia directa a la situaci\u00f3n laboral y a la duraci\u00f3n de los contratos. \u201cY hoy le\u00eda esta ma\u00f1a...",
+    "ai_summary": "A video reveals alleged political pressure on RTVC contractors, conditioning job security on political support and participation.",
+    "published_at": "2026-01-12T18:47:34+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "RTVC",
+      "POLITICAL_PRESSURE",
+      "CONTRACTORS",
+      "POLITICS",
+      "CORRUPTION"
+    ],
+    "entities": [
+      "DANIEL_F_BRICENO",
+      "RTVC"
+    ]
+  },
+  {
+    "id": "8ee9047a-339c-4222-b65a-d14ad5ccfeff",
+    "title": "Archivada la investigaci\u00f3n del apag\u00f3n en Espa\u00f1a y Portugal al no ver indicios de sabotaje",
+    "translated_title": "Investigation into blackout in Spain and Portugal closed after no evidence of sabotage found",
+    "url": "https://www.portafolio.co/economia/infraestructura/archivada-la-investigacion-del-apagon-en-espana-y-portugal-al-no-ver-indicios-de-sabotaje-486112",
+    "content": "La investigaci\u00f3n abierta por el apag\u00f3n el\u00e9ctrico ocurrido en la pen\u00ednsula ib\u00e9rica el 28 de abril de 2025 fue archivada este lunes por el juez de la Audiencia Nacional espa\u00f1ola Jos\u00e9 Luis Calama tras determinar que no existe \"un m\u00ednimo indicio\" de que se tratase de un \"sabotaje terrorista\" Un d\u00eda despu\u00e9s del apag\u00f3n que sorprendi\u00f3 a la Espa\u00f1a peninsular y Portugal y que dej\u00f3 sin suministro el\u00e9ctrico, durante horas, a millones de ciudadanos, el magistrado Calama -que esa semana estaba de guardia- acord\u00f3 abrir una investigaci\u00f3n por si pudiese tratarse de ciberterrorismo. Pero tras meses de investiga...",
+    "ai_summary": "The investigation into the 2025 blackout in Spain and Portugal was closed due to lack of evidence of sabotage.",
+    "published_at": "2026-01-12T18:31:27+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 60,
+    "tags": [
+      "BLACKOUT",
+      "ELECTRICITY",
+      "SPAIN",
+      "INVESTIGATION",
+      "PORTUGAL"
+    ],
+    "entities": [
+      "JOSE_LUIS_CALAMA",
+      "SPAIN",
+      "PORTUGAL"
+    ]
+  },
+  {
+    "id": "5b6421ce-5129-49fb-a4ff-6d60407f595e",
+    "title": "C\u00f3mo est\u00e1 la inflaci\u00f3n en Colombia en comparaci\u00f3n con otros pa\u00edses de la Ocde, con corte a noviembre",
+    "translated_title": "How is inflation in Colombia compared to other OECD countries, as of November",
+    "url": "https://www.portafolio.co/economia/finanzas/como-esta-la-inflacion-en-colombia-en-comparacion-con-otros-paises-de-la-ocde-con-corte-a-noviembre-486108",
+    "content": "La inflaci\u00f3n interanual en el conjunto de la Organizaci\u00f3n para la Cooperaci\u00f3n y el Desarrollo Econ\u00f3mico (Ocde) se qued\u00f3 en el 3,9 % en noviembre, lo que supone un claro descenso desde septiembre, el \u00faltimo mes para el que hay datos completos comparables, y eso esencialmente gracias a los alimentos.\nEn concreto, la inflaci\u00f3n interanual de los alimentos baj\u00f3 al 4% en noviembre, un punto porcentual menos que en septiembre, destac\u00f3 este lunes la Ocde.\nPor el contrario, los precios de la energ\u00eda se encarecieron m\u00e1s, concretamente un 3,5% en doce meses en noviembre, frente al 3,1% en septiembre.\nLa inflaci\u00f3n general entre octubre y noviembre se mantuvo estable en 17 de los 37 pa\u00edses miembros para los que hay cifras disponibles de los dos meses, mientras que baj\u00f3 en 13 y \u00fanicamente se increment\u00f3 en 7.\nCosta Rica fue en noviembre (una vez m\u00e1s) el \u00fanico miembro de la Ocde con una inflaci\u00f3n negativa (-0,4%), al mismo nivel que en octubre.\nEntre los otros pa\u00edses latinoamericanos, se mantuvo sin c...",
+    "ai_summary": "OECD inflation decreased to 3.9% in November, with food prices lowering inflation while energy prices increased, and Costa Rica having negative inflation.",
+    "published_at": "2026-01-12T16:40:45+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "ENERGY_PRICES",
+      "INFLATION",
+      "OECD",
+      "ECONOMY",
+      "FOOD_PRICES"
+    ],
+    "entities": [
+      "COSTA_RICA",
+      "OECD",
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "a4d13076-a52d-4e41-8a01-46275a15dc5d",
+    "title": "Estos son los alimentos (que consumen d\u00eda a d\u00eda) que m\u00e1s subieron de precio durante el 2025",
+    "translated_title": "These are the foods (that are consumed daily) that rose the most in price during 2025",
+    "url": "https://www.portafolio.co/economia/finanzas/estos-son-los-alimentos-que-consumen-dia-a-dia-que-mas-subieron-de-precio-durante-el-486105",
+    "content": "El caf\u00e9, el t\u00e9, el cacao, los dulces y la carne son los alimentos que m\u00e1s se encarecieron en 2025 debido en parte al cambio clim\u00e1tico, y han llegado a contabilizar m\u00e1s del 50% de la tasa de inflaci\u00f3n anual de los alimentos los \u00faltimos meses, seg\u00fan el Banco Central Europeo (BCE).\nLa fuerte subida de los precios de materias primas alimenticias es una causa importante del encarecimiento de los alimentos y refleja el clima extremo y el cambio clim\u00e1tico, as\u00ed como otros factores estructurales, dicen los economistas del BCE en un art\u00edculo del pr\u00f3ximo bolet\u00edn econ\u00f3mico, publicado este lunes.",
+    "ai_summary": "In 2025, coffee, tea, cocoa, sweets, and meat prices surged due to climate change, significantly contributing to the annual food inflation rate, as reported by the European Central Bank.",
+    "published_at": "2026-01-12T16:24:10+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "EUROPEAN_CENTRAL_BANK",
+      "ECONOMICS",
+      "INFLATION",
+      "CLIMATE_CHANGE",
+      "FOOD_PRICES"
+    ],
+    "entities": [
+      "EUROPEAN_CENTRAL_BANK"
+    ]
+  },
+  {
+    "id": "e18ec143-d191-4047-ab4b-acda923ac265",
+    "title": "Ministerio de Salud proyecta aumento de n\u00f3mina por $59.403 millones en medio de la crisis del sistema",
+    "translated_title": "Ministry of Health projects increase in payroll by $59.403 million amid system crisis",
+    "url": "https://www.portafolio.co/economia/gobierno/ministerio-de-salud-proyecta-aumento-de-nomina-por-59-403-millones-en-medio-de-la-crisis-del-sistema-486096",
+    "content": "En medio de la crisis que atraviesa el sistema de salud, el Ministerio de Salud y Protecci\u00f3n Social confirm\u00f3 que avanza en un proceso de reorganizaci\u00f3n institucional que contempla la creaci\u00f3n de 442 nuevos cargos por formalizaci\u00f3n laboral, con un costo anual proyectado de $59.403 millones para 2026. La informaci\u00f3n fue entregada en respuesta a un derecho de petici\u00f3n elevado por el representante a la C\u00e1mara Andr\u00e9s Forero, del Partido Centro Democr\u00e1tico. De acuerdo con el documento, el Ministerio se\u00f1al\u00f3 que \u201cel an\u00e1lisis de carga laboral determin\u00f3 la necesidad de llevar a cabo un ejercicio de prior...",
+    "ai_summary": "The Ministry of Health plans to increase its payroll by $59.403 million by 2026 amid a crisis in the health system, involving the creation of 442 new jobs.",
+    "published_at": "2026-01-12T15:05:51+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "GOVERNMENT_SPENDING",
+      "ECONOMY",
+      "HEALTHCARE"
+    ],
+    "entities": [
+      "MINISTRY_OF_HEALTH",
+      "ANDRES_FORERO"
+    ]
+  }
+]
