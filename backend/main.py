@@ -701,40 +701,30 @@ import os
 
 @app.get("/settings")
 def get_settings(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    config = db.query(SystemConfig).filter(SystemConfig.user_id == current_user.id).first()
-    if not config:
-        # Auto-create if missing for this user
-        config = SystemConfig(
-            user_id=current_user.id,
-            first_crawl_lookback_hours=24,
-            min_text_length=200,
-            default_crawl_interval_mins=15
-        )
-        db.add(config)
-        db.commit()
-        db.refresh(config)
-    
-    # Prefill with Environment Variables if not set in DB (for UI convenience)
-    # The user might be running with ENV vars but hasn't saved them to DB yet.
-    if not config.smtp_host and os.getenv("SMTP_HOST"):
-        config.smtp_host = os.getenv("SMTP_HOST")
-    if not config.smtp_port and os.getenv("SMTP_PORT"):
-        try:
-            config.smtp_port = int(os.getenv("SMTP_PORT"))
-        except:
-            pass
-    if not config.smtp_user and os.getenv("SMTP_USER"):
-        config.smtp_user = os.getenv("SMTP_USER")
-    if not config.smtp_password and os.getenv("SMTP_PASS"):
-        config.smtp_password = os.getenv("SMTP_PASS")
-    if not config.smtp_from_email and os.getenv("SMTP_FROM"):
-        config.smtp_from_email = os.getenv("SMTP_FROM")
-    if not config.smtp_sender_name and os.getenv("SMTP_SENDER_NAME"):
-        config.smtp_sender_name = os.getenv("SMTP_SENDER_NAME")
-    if not config.smtp_reply_to and os.getenv("SMTP_REPLY_TO"):
-        config.smtp_reply_to = os.getenv("SMTP_REPLY_TO")
-
-    return config
+    try:
+        config = db.query(SystemConfig).filter(SystemConfig.user_id == current_user.id).first()
+        if not config:
+            # Auto-create if missing for this user
+            config = SystemConfig(
+                user_id=current_user.id,
+                first_crawl_lookback_hours=24,
+                min_text_length=200,
+                default_crawl_interval_mins=15
+            )
+            db.add(config)
+            db.commit()
+            db.refresh(config)
+        
+        # Legacy SMTP Env Var injection removed.
+        # We only return what is in the DB.
+        
+        return schemas.SettingsSchema.model_validate(config)
+    except Exception as e:
+        import traceback
+        trace = traceback.format_exc()
+        with open("debug_log_2.txt", "a") as f:
+             f.write(f"\n[get_settings] ERROR: {str(e)}\n{trace}\n")
+        raise HTTPException(status_code=500, detail=f"Settings Load Error: {str(e)}")
 
 import schemas
 
