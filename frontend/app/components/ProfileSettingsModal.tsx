@@ -303,91 +303,24 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                     {/* Email Configuration Section */}
                     <div style={{ borderTop: '1px solid #eee', paddingTop: '1.25rem', marginTop: '0.5rem' }}>
                         <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem' }}>
-                            Email Server (SMTP) Configuration
+                            Email Configuration
                         </h3>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-                            <div>
-                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                    SMTP Host
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="smtp.gmail.com"
-                                    value={smtpHost}
-                                    onChange={(e) => setSmtpHost(e.target.value)}
-                                    style={{
-                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                    }}
-                                />
+                        <div style={{ marginBottom: '1.5rem', background: '#eff6ff', padding: '1rem', borderRadius: '8px', border: '1px solid #dbeafe' }}>
+                            <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem', fontWeight: 600, color: '#2563eb' }}>Resend API Key</label>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                                Required for sending emails. Get one at <a href="https://resend.com/api-keys" target="_blank" rel="noreferrer" style={{ color: '#2563eb' }}>resend.com</a>.
                             </div>
-                            <div>
-                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                    Port
-                                </label>
-                                <input
-                                    type="number"
-                                    placeholder="587"
-                                    value={smtpPort}
-                                    onChange={(e) => setSmtpPort(e.target.value)}
-                                    style={{
-                                        width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                        border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                    }}
-                                />
-                            </div>
-                        </div>
-
-                        <div style={{ marginBottom: '1rem' }}>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                SMTP User (Email)
-                            </label>
-                            <input
-                                type="email"
-                                placeholder="you@gmail.com"
-                                value={smtpUser}
-                                onChange={(e) => setSmtpUser(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
-                            />
-                        </div>
-
-                        <div style={{ marginBottom: '1rem' }}>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                SMTP Password / App Password
-                            </label>
                             <input
                                 type="password"
-                                placeholder="••••••••••••"
-                                value={smtpPassword}
-                                onChange={(e) => setSmtpPassword(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
+                                placeholder="re_1234..."
+                                value={resendApiKey}
+                                onChange={(e) => setResendApiKey(e.target.value)}
+                                style={{ width: '100%', padding: '0.5rem', borderRadius: '6px', border: '1px solid #d1d5db', fontFamily: 'monospace' }}
                             />
                         </div>
 
-                        <div>
-                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                                From Email (Optional)
-                            </label>
-                            <input
-                                type="email"
-                                placeholder="Leave blank to use SMTP User"
-                                value={smtpFromEmail}
-                                onChange={(e) => setSmtpFromEmail(e.target.value)}
-                                style={{
-                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
-                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
-                                }}
-                            />
-                        </div>
-
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.25rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                             <div>
                                 <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
                                     Sender Name
@@ -420,17 +353,22 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                             </div>
                         </div>
 
-                        <div style={{ borderTop: '1px solid #eee', paddingTop: '1rem', marginTop: '0.5rem' }}>
-                            <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem', fontWeight: 600, color: '#2563eb' }}>Resend API Key (Optional)</label>
-                            <div style={{ fontSize: '0.75rem', color: '#666', marginBottom: '0.5rem' }}>
-                                Or use Resend instead of SMTP. If set, this overrides SMTP settings. <a href="https://resend.com/api-keys" target="_blank" rel="noreferrer" style={{ color: '#2563eb' }}>Get Key &rarr;</a>
+                        <div style={{ marginTop: '1rem' }}>
+                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
+                                From Email (Optional)
+                            </label>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                                Must be a domain verified in Resend. Leave blank to use default (onboarding@resend.dev).
                             </div>
                             <input
-                                type="password"
-                                placeholder="re_1234..."
-                                value={resendApiKey}
-                                onChange={(e) => setResendApiKey(e.target.value)}
-                                style={{ width: '100%', padding: '0.5rem', borderRadius: '6px', border: '1px solid #d1d5db', fontFamily: 'monospace' }}
+                                type="email"
+                                placeholder="news@yourdomain.com"
+                                value={smtpFromEmail}
+                                onChange={(e) => setSmtpFromEmail(e.target.value)}
+                                style={{
+                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                    border: '1px solid #d1d5db', fontSize: '0.9rem'
+                                }}
                             />
                         </div>
                     </div>
