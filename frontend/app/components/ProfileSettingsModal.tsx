@@ -27,6 +27,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
     const [smtpFromEmail, setSmtpFromEmail] = useState('');
     const [smtpSenderName, setSmtpSenderName] = useState('');
     const [smtpReplyTo, setSmtpReplyTo] = useState('');
+    const [resendApiKey, setResendApiKey] = useState('');
 
     const [enableStories, setEnableStories] = useState(false);
 
@@ -76,7 +77,9 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                 setSmtpPassword(settingsData.smtp_password || '');
                 setSmtpFromEmail(settingsData.smtp_from_email || '');
                 setSmtpSenderName(settingsData.smtp_sender_name || '');
+                setSmtpSenderName(settingsData.smtp_sender_name || '');
                 setSmtpReplyTo(settingsData.smtp_reply_to || '');
+                setResendApiKey(settingsData.resend_api_key || '');
 
                 // Story Toggle
                 setEnableStories(settingsData.enable_stories === true);
@@ -114,7 +117,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                 smtp_from_email: smtpFromEmail,
                 smtp_sender_name: smtpSenderName,
                 smtp_reply_to: smtpReplyTo,
-                enable_stories: enableStories
+                enable_stories: enableStories,
+                resend_api_key: resendApiKey
             };
 
             await updateSettings(settingsUpdate);
@@ -187,7 +191,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                         </div>
 
                         {/* SMTP Warning Banner */}
-                        {(!smtpHost || !smtpUser) && (
+                        {(!smtpHost || !smtpUser) && !resendApiKey && (
                             <div style={{
                                 padding: '1rem',
                                 borderRadius: '8px',
@@ -414,6 +418,20 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                                     }}
                                 />
                             </div>
+                        </div>
+
+                        <div style={{ borderTop: '1px solid #eee', paddingTop: '1rem', marginTop: '0.5rem' }}>
+                            <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem', fontWeight: 600, color: '#2563eb' }}>Resend API Key (Optional)</label>
+                            <div style={{ fontSize: '0.75rem', color: '#666', marginBottom: '0.5rem' }}>
+                                Or use Resend instead of SMTP. If set, this overrides SMTP settings. <a href="https://resend.com/api-keys" target="_blank" rel="noreferrer" style={{ color: '#2563eb' }}>Get Key &rarr;</a>
+                            </div>
+                            <input
+                                type="password"
+                                placeholder="re_1234..."
+                                value={resendApiKey}
+                                onChange={(e) => setResendApiKey(e.target.value)}
+                                style={{ width: '100%', padding: '0.5rem', borderRadius: '6px', border: '1px solid #d1d5db', fontFamily: 'monospace' }}
+                            />
                         </div>
                     </div>
 

@@ -215,6 +215,7 @@ class SystemConfig(Base):
     smtp_from_email = Column(String, nullable=True)
     smtp_sender_name = Column(String, nullable=True)
     smtp_reply_to = Column(String, nullable=True)
+    resend_api_key = Column(String, nullable=True)
 
     # 1. General Crawling
     first_crawl_lookback_hours = Column(Integer, default=24)
