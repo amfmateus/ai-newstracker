@@ -581,7 +581,7 @@ export async function fetchAutocompleteEntities(q: string): Promise<string[]> {
 export async function fetchAIModels(): Promise<Array<{ id: string, name: string }>> {
     const headers = await getAuthHeaders();
     // Use the new endpoint
-    const res = await fetchWithAuth(`${API_URL}/pipeline/models`, { headers });
+    const res = await fetchWithAuth(`${API_URL}/api/ai/models`, { headers });
     if (!res.ok) return [];
     return res.json();
 }

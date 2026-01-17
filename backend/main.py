@@ -759,9 +759,14 @@ def list_ai_models(current_user: User = Depends(get_current_user)):
              # Note: logic might differ slightly, but usually filter by capability.
              # For now, let's just grab gemini models.
              if "gemini" in m.name.lower() or "flash" in m.name.lower():
-                 supported_models.append(m.name.replace("models/", ""))
+                 mid = m.name.replace("models/", "")
+                 supported_models.append({
+                     "id": mid,
+                     "name": m.display_name or mid
+                 })
                  
-        return sorted(list(set(supported_models)))
+        # Sort by name
+        return sorted(supported_models, key=lambda x: x['name'])
     except Exception as e:
         import logging
         logger = logging.getLogger(__name__)
