@@ -749,6 +749,9 @@ async def update_settings(settings: schemas.SettingsUpdate, db: Session = Depend
         data = settings.dict(exclude_unset=True)
         with open("debug_log_2.txt", "a") as f:
             f.write(f"\n[update_settings] Updating with data: {data}\n")
+            if "resend_api_key" in data:
+                 masked_key = data['resend_api_key'][:4] + "..." if data['resend_api_key'] else "None"
+                 f.write(f"  -> Found resend_api_key: {masked_key}\n")
             
         for key, value in data.items():
             if hasattr(config, key):
