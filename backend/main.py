@@ -44,6 +44,13 @@ scheduler_service = SchedulerService()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
+    try:
+        from update_schema_resend import migrate
+        logger.info("Running schema migration...")
+        migrate()
+    except Exception as e:
+        logger.error(f"Migration failed: {e}")
+
     Base.metadata.create_all(bind=engine)
     # scheduler_service.start() # No longer used, moved to Celery
     yield
