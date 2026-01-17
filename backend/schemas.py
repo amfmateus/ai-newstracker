@@ -36,11 +36,7 @@ class SystemConfigUpdate(BaseModel):
     pdf_crawl_model: Optional[str] = None
     pdf_crawl_prompt: Optional[str] = None
 
-    # SMTP
-    smtp_host: Optional[str] = None
-    smtp_port: Optional[int] = None
-    smtp_user: Optional[str] = None
-    smtp_password: Optional[str] = None
+    # SMTP (Identity only)
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
     smtp_sender_name: Optional[str] = None
@@ -174,11 +170,7 @@ class SettingsSchema(BaseModel):
     pdf_crawl_model: str
     pdf_crawl_prompt: Optional[str] = None
 
-    # SMTP
-    smtp_host: Optional[str] = None
-    smtp_port: Optional[int] = None
-    smtp_user: Optional[str] = None
-    smtp_password: Optional[str] = None
+    # SMTP (Identity only)
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
     smtp_sender_name: Optional[str] = None
