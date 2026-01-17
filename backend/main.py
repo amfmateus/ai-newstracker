@@ -33,6 +33,7 @@ from report_generator import ReportGenerator
 from pdf_service import generate_pdf
 from email_service import send_report_email
 import pipeline_endpoints
+from ai_service import AIService
 
 from contextlib import asynccontextmanager
 from scheduler_service import SchedulerService
@@ -193,6 +194,25 @@ def read_users_me(current_user: User = Depends(get_current_user)):
     }
 
 from pydantic import BaseModel
+class KeyValidationRequest(BaseModel):
+    key: str
+
+@app.post("/users/validate-key")
+async def validate_user_key(request: KeyValidationRequest, current_user: User = Depends(get_current_user)):
+    """
+    Validates a Gemini API Key by attempting to list models with it.
+    """
+    try:
+        # We don't need to actually use the key for anything other than checking if it works
+        # So we just instantiate the service with it and try to list models.
+        service = AIService(api_key=request.key)
+        # Verify it works by making a lightweight call
+        service.list_models()
+        return {"status": "valid"}
+    except Exception as e:
+        # In a real app we might want to log the specific error
+        return {"status": "invalid", "message": str(e)}
+
 class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
     full_name: Optional[str] = None
