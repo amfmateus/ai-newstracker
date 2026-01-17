@@ -252,7 +252,7 @@ export default function SettingsPage() {
                                         <div className={styles.formGroup}>
                                             <label className={styles.label}>Analysis Model</label>
                                             <select
-                                                value={settings.analysis_model || 'gemini-2.0-flash-lite'}
+                                                value={settings.analysis_model || 'gemini-1.5-flash'}
                                                 onChange={e => handleChange('analysis_model', e.target.value)}
                                                 className={styles.select}
                                             >
@@ -302,7 +302,7 @@ export default function SettingsPage() {
                                     <div className={styles.formGroup}>
                                         <label className={styles.label}>Extraction Model</label>
                                         <select
-                                            value={settings.pdf_crawl_model || 'gemini-2.0-flash-lite'}
+                                            value={settings.pdf_crawl_model || 'gemini-1.5-flash'}
                                             onChange={e => handleChange('pdf_crawl_model', e.target.value)}
                                             className={styles.select}
                                         >
@@ -340,7 +340,7 @@ export default function SettingsPage() {
                                         <div className={styles.formGroup}>
                                             <label className={styles.label}>Clustering Model</label>
                                             <select
-                                                value={settings.clustering_model || 'gemini-2.0-flash-lite'}
+                                                value={settings.clustering_model || 'gemini-1.5-flash'}
                                                 onChange={e => handleChange('clustering_model', e.target.value)}
                                                 className={styles.select}
                                             >

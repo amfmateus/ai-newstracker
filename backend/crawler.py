@@ -403,13 +403,18 @@ HTML Content:
             analysis_model = self.sys_config.analysis_model if self.sys_config else "gemini-2.0-flash-lite"
             analysis_prompt = self.sys_config.analysis_prompt if self.sys_config else None
             
-            ai_data = await self.ai.analyze_article(
-                headline, 
-                snippet, 
-                topic_focus,
-                model_name=analysis_model,
-                custom_prompt=analysis_prompt
-            )
+            try:
+                ai_data = await self.ai.analyze_article(
+                    headline, 
+                    snippet, 
+                    topic_focus,
+                    model_name=analysis_model,
+                    custom_prompt=analysis_prompt
+                )
+            except Exception as ai_err:
+                logger.error(f"AI Analysis failed for {headline}: {ai_err}")
+                if on_progress: await on_progress(f"AI Failed: {ai_err}", {"status": "error"})
+                ai_data = {}
             
             # Relevance Check
             min_relevance = self._get_config(source, 'min_relevance', 50)
