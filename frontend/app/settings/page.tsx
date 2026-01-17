@@ -255,13 +255,19 @@ export default function SettingsPage() {
                                     <div className={styles.grid}>
                                         <div className={styles.formGroup}>
                                             <label className={styles.label}>Analysis Model</label>
-                                            <select
-                                                value={settings.analysis_model || 'gemini-1.5-flash'}
-                                                onChange={e => handleChange('analysis_model', e.target.value)}
-                                                className={styles.select}
-                                            >
-                                                {availableModels.map(m => <option key={m} value={m}>{m}</option>)}
-                                            </select>
+                                            {availableModels.length > 0 ? (
+                                                <select
+                                                    value={settings.analysis_model || 'gemini-1.5-flash'}
+                                                    onChange={e => handleChange('analysis_model', e.target.value)}
+                                                    className={styles.select}
+                                                >
+                                                    {availableModels.map(m => <option key={m} value={m}>{m}</option>)}
+                                                </select>
+                                            ) : (
+                                                <div className="text-sm text-red-500 mt-1 border border-red-200 bg-red-50 p-2 rounded">
+                                                    ⚠️ No models found. Check your API Key or connection.
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                     <details style={{ marginTop: '1.5rem' }}>
