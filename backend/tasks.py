@@ -51,6 +51,7 @@ def check_scheduled_clustering():
     """
     db: Session = SessionLocal()
     try:
+        logger.info("Checking scheduled clustering...")
         now = datetime.now(timezone.utc)
         
         # Get all users with an API Key (clustering needs it)
@@ -100,7 +101,8 @@ def check_scheduled_crawls():
     """
     db: Session = SessionLocal()
     try:
-        now = datetime.now()
+        logger.info("Checking scheduled crawls...")
+        now = datetime.now(timezone.utc)
         
         # Get all active or error sources (retry errors at normal interval)
         sources = db.query(Source).filter(Source.status.in_(['active', 'error'])).all()
@@ -179,6 +181,7 @@ def check_scheduled_pipelines():
     """
     db: Session = SessionLocal()
     try:
+        logger.info("Checking scheduled pipelines...")
         now = datetime.now(timezone.utc)
         
         # 1. Find due pipelines (including those never run)
