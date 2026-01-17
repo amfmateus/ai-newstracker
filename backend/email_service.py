@@ -271,10 +271,7 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
             logger.error("Resend library not installed but API key found.")
         except Exception as e:
              logger.error(f"Resend Method Failed: {e}")
-             # Fallback to SMTP? Or fail? 
-             # Let's try to proceed to SMTP as fallback if configured, otherwise raise
-             if not (host and user):
-                 raise e
+             raise e
     
     # FALLBACK: SMTP
     if host and user:
