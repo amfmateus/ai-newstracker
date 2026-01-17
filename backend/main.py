@@ -155,10 +155,16 @@ async def cors_middleware(request: Request, call_next):
         response = JSONResponse(content={"detail": str(e), "type": type(e).__name__}, status_code=500)
         
     origin = request.headers.get("origin")
-    if origin:
-        response.headers["Access-Control-Allow-Origin"] = origin
+    allowed_origin = os.getenv("FRONTEND_URL", "*") 
+    
+    # If FRONTEND_URL is set, strict check. If *, allow all (dev mode fallback)
+    if allowed_origin == "*" or origin == allowed_origin:
+        response.headers["Access-Control-Allow-Origin"] = origin if origin else "*"
     else:
-        response.headers["Access-Control-Allow-Origin"] = "*"
+        # If strict mode and origin doesn't match, technically we should block or not set header.
+        # But for debugging, let's log it.
+        logger.warning(f"CORS Mismatch: Origin={origin} vs Allowed={allowed_origin}")
+        # We won't set the header, which blocks the browser.
         
     response.headers["Access-Control-Allow-Methods"] = "*"
     response.headers["Access-Control-Allow-Headers"] = "*"
