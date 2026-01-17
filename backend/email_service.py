@@ -1,6 +1,5 @@
 import markdown
 import logging
-import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
@@ -8,11 +7,8 @@ import re
 
 logger = logging.getLogger(__name__)
 
-# For now, we mock email sending if no credentials are provided
-SMTP_HOST = os.getenv("SMTP_HOST")
-SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
-SMTP_USER = os.getenv("SMTP_USER")
-SMTP_PASS = os.getenv("SMTP_PASS")
+# Mock email sending if no credentials are provided
+# Legacy SMTP support removed. Only Resend API is supported.
 SMTP_FROM = os.getenv("SMTP_FROM", "reports@example.com")
 
 def generate_email_html(report, references):
@@ -96,12 +92,7 @@ import mimetypes
 def send_report_email(to_email, report, references, config=None, subject=None, attachment_path=None):
     html_content = generate_email_html(report, references)
     
-    # Use config if provided, else fallback to env vars (or defaults)
-    # Uses (config or {}).get(...) or ENV to ensure that if config exists but key is missing, we still fallback
-    host = (config or {}).get("smtp_host") or SMTP_HOST
-    port = int((config or {}).get("smtp_port") or SMTP_PORT)
-    user = (config or {}).get("smtp_user") or SMTP_USER
-    password = (config or {}).get("smtp_password") or SMTP_PASS
+    # Configuration
     from_email = (config or {}).get("smtp_from_email") or SMTP_FROM
 
     msg = MIMEMultipart("mixed") if attachment_path else MIMEMultipart("alternative")
@@ -273,16 +264,10 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
              logger.error(f"Resend Method Failed: {e}")
              raise e
     
-    # FALLBACK: SMTP
-    # SMTP DISABLED BY CONFIGURATION
-    if host and user:
-        logger.error("SMTP Configuration found but SMTP is disabled. Please configure Resend API Key.")
-        if not resend_api_key:
-             raise ValueError("Resend API Key is missing and SMTP is disabled.")
-             
-    else:
-        # Mock
-        print(f"[MOCK EMAIL] To: {to_email} | CC: {cc_list} | Subject: {msg['Subject']}")
-        # print(html_content) # Too verbose
-        return {"status": "mock_sent"}
+    # If Resend logic didn't return, we fallback to mock
+    # because SMTP is removed.
+    
+    # Mock
+    print(f"[MOCK EMAIL] To: {to_email} | CC: {cc_list} | Subject: {msg['Subject']}")
+    return {"status": "mock_sent"}
 

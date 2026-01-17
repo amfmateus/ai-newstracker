@@ -1023,10 +1023,7 @@ class PipelineExecutor:
                 sys_config_map = {}
                 if sys_config:
                     sys_config_map = {
-                        "smtp_host": sys_config.smtp_host,
-                        "smtp_port": sys_config.smtp_port,
-                        "smtp_user": sys_config.smtp_user,
-                        "smtp_password": sys_config.smtp_password,
+                        # Host/Port/User/Pass removed - SMTP Disabled
                         "smtp_from_email": sys_config.smtp_from_email,
                         "smtp_sender_name": sys_config.smtp_sender_name,
                         "smtp_reply_to": sys_config.smtp_reply_to,
