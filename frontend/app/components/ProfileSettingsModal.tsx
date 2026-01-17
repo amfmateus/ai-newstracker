@@ -129,9 +129,9 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
             display: 'flex', alignItems: 'center', justifyContent: 'center'
         }}>
             <div style={{
-                background: 'white', borderRadius: '12px',
-                width: '500px', maxWidth: '90%',
-                padding: '2rem', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                background: '#fff', padding: '2rem', borderRadius: '12px', width: '550px', maxWidth: '95%',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                maxHeight: '90vh', overflowY: 'auto'
             }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
                     <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#111827' }}>Profile Settings</h2>
