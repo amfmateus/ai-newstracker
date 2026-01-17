@@ -1,0 +1,43 @@
+{
+  "title": "Economic Outlook Mixed Amid Minimum Wage Hike and Housing Policy Shifts",
+  "subtitle": "Report automatically generated on 2026-01-12 by the Trade Section, EU Delegation to Colombia",
+  "summary": "Colombia's economy faces a complex outlook as the government implements a significant 23% minimum wage increase for 2026, impacting labor costs and potentially contributing to inflation across various sectors, including restaurants and administration fees for housing complexes [[REF:51560711-334c-410f-a8ee-760d0d16291f]][[REF:36c7a3bc-e8c5-458e-99a2-0a64cf063efe]][[REF:41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3]][[REF:677d8039-b38f-4caa-bf17-eea4e821795d]][[REF:12cd82d2-4ec1-49da-9c0f-6102d05ac521]]. In parallel, new government decrees aim to de-index Social Interest Housing (VIS) prices from the minimum wage and cap their maximum cost, seeking to protect homebuyers from automatic price hikes [[REF:0efea05a-a950-4a24-a476-69786837741a]][[REF:4cd41845-7a5d-4f49-896e-db2b9127cdf4]][[REF:89c612ef-1c90-4326-aa81-547e5925e3b8]]. Economic experts provide mixed forecasts for 2026, with predictions on interest rates and inflation influencing investment decisions [[REF:1b637b3c-d466-48a2-962a-41a80a660f9f]].",
+  "key_findings": [
+    "Minimum wage increased by 23%, impacting labor costs and inflation concerns [[REF:51560711-334c-410f-a8ee-760d0d16291f]]",
+    "Government moves to de-index housing prices from minimum wage increases [[REF:0efea05a-a950-4a24-a476-69786837741a]]",
+    "Experts predict varied economic performance for 2026, citing interest rate and inflation data [[REF:1b637b3c-d466-48a2-962a-41a80a660f9f]]",
+    "Restaurants face potential closures due to rising costs from minimum wage and CPI impacts [[REF:677d8039-b38f-4caa-bf17-eea4e821795d]]"
+  ],
+  "sections": [
+    {
+      "title": "Economic Policy and Minimum Wage Adjustments",
+      "body": "The Colombian government has enacted a significant 23% increase in the minimum wage for 2026, a move that is expected to have wide-ranging effects across the economy [[REF:51560711-334c-410f-a8ee-760d0d16291f]]. This adjustment is projected to increase payroll costs for businesses, with sectors like restaurants warning of potential closures, menu changes, and layoffs due to these elevated expenses [[REF:677d8039-b38f-4caa-bf17-eea4e821795d]]. Administration fees for residential complexes are also expected to rise, as many service contracts are tied to the minimum wage [[REF:12cd82d2-4ec1-49da-9c0f-6102d05ac521]][[REF:41ad1eb0-e4b6-41dc-8799-0fc4d2a38cb3]][[REF:97a7688e-94a8-416f-bb86-66f53ab8fde3]]. President Gustavo Petro has urged property owner assemblies to base administration fee increases on inflation rather than solely on the minimum wage, cautioning against unjustified hikes [[REF:97a7688e-94a8-416f-bb86-66f53ab8fde3]]. In response to concerns about housing affordability, the Ministry of Housing has published a draft decree to prevent Social Interest Housing (VIS) from being indexed to the minimum wage, requiring prices to be set in Colombian pesos and establishing a maximum price limit to protect buyers [[REF:0efea05a-a950-4a24-a476-69786837741a]][[REF:4cd41845-7a5d-4f49-896e-db2b9127cdf4]][[REF:89c612ef-1c90-4326-aa81-547e5925e3b8]][[REF:77f5c0be-4186-4a07-b6c5-0dd06a6f550e]][[REF:93a38ab5-31f6-44b5-b4ea-e2f2e2d763e5]].",
+      "subsections": []
+    },
+    {
+      "title": "Economic Forecasts and Expert Opinions",
+      "body": "Colombian economic experts surveyed by Fedesarrollo offer a mixed outlook for 2026, with projections indicating that interest rates are expected to end the year at 9.25% and be at 9.50% in the first quarter [[REF:1b637b3c-d466-48a2-962a-41a80a660f9f]]. These forecasts influence investment decisions and are shaped by inflation trends and broader economic indicators [[REF:1b637b3c-d466-48a2-962a-41a80a660f9f]][[REF:475caf6f-7738-446a-9650-5c516a0651fd]]. The overall economic sentiment suggests a period of adjustments and potential challenges for consumers and businesses alike [[REF:475caf6f-7738-446a-9650-5c516a0651fd]].",
+      "subsections": []
+    },
+    {
+      "title": "Government Finance and Contract Scrutiny",
+      "body": "Concerns have been raised regarding government financial operations, particularly a controversial 10 billion peso contract awarded for President Petro's international legal defense, which has drawn criticism from political figures citing potential misuse of state funds [[REF:584ccfa8-d455-4562-8dfd-c8061f5431df]][[REF:47c1bae6-f870-4c5e-a631-69917280514a]][[REF:52ca7064-50ca-45a9-a598-9dfbead7f1eb]][[REF:61663850-99f7-4838-8168-dc5f870226cc]]. The Comptroller's Office has also identified fiscal damage amounting to $1.8 billion in assets managed by the SAE in Medellín, pointing to potential flaws in contracts and unauthorized asset usage [[REF:dd336b7b-e0a2-4691-ac94-0269ad4a14a4]]. Separately, Treasury Bills (TES) have become a focal point due to public debate over alleged anomalies and unusually high interest rates in recent debt operations handled by the Ministry of Finance [[REF:556e1dab-290f-4773-ad4f-152666a55615]].",
+      "subsections": []
+    },
+    {
+      "title": "International Relations and Security",
+      "body": "Colombia's Minister of Defense emphasized that strengthening relations with the United States is crucial for more effective action against drug trafficking [[REF:261befe7-e6be-41fc-a542-f1ddc70d2422]]. Discussions also touched upon the security implications for Colombia stemming from the indefinite presence of the US in Venezuela [[REF:5765ea66-dafc-4bd3-9a9e-82ab81860454]]. The US, Venezuela, and Colombia are reportedly coordinating a joint military operation against the ELN in Venezuelan territory, incorporating surveillance and monitoring measures [[REF:44f116e2-ddcf-43dc-b240-f220af093a78]]. In diplomatic developments, Venezuelan opposition leader Juan Guaidó criticized Colombian President Gustavo Petro's stance on US actions following Nicolás Maduro's capture, accusing him of hypocrisy [[REF:d7d5fce9-4fdf-4ba9-b94e-006a702fb2f1]]. The Colombian Foreign Minister noted shared interests with the US concerning Venezuela's well-being [[REF:d3e899d6-caef-45e3-b040-4c7fabe984a5]].",
+      "subsections": []
+    },
+    {
+      "title": "Trade and Infrastructure",
+      "body": "The Panama Canal is slated for an expansion project with an investment of up to US$8.5 billion, aiming to bolster its position as a global trade hub [[REF:120603f5-dc79-426e-8112-cd22b041bfee]]. International e-commerce leaders like Amazon, Shopee, Temu, and Shein continue to dominate global online retail, attracting massive user bases [[REF:c18ace4e-eea0-4455-b25d-dccbae0ac0d3]]. Navitrans is focusing on its 2026 strategy, highlighting the role of Chinese brands like Foton in the cargo transportation sector and seeking to enhance competitiveness in the Colombian market [[REF:f5b191c8-645f-4ddb-ab71-b589c1791d9d]].",
+      "subsections": []
+    },
+    {
+      "title": "Domestic Political and Legal Developments",
+      "body": "The upcoming Colombian congressional elections on March 8th are being described as potentially under a \"terrorist siege,\" with concerns raised about the financing of government candidates and the need for congressional support and a strong US relationship [[REF:1c27a6a8-62e5-4dd1-a4aa-d460b7dd0516]]. The Supreme Court has issued new guidelines to expand protection for pre-pensioners, preventing dismissals [[REF:03f10ce7-e799-4b91-a4d5-864ae5ca4976]]. A VAT cartel investigation has led to 11 arrests in a raid against shell companies [[REF:1c5f5b10-4ce9-445d-85f5-881087819afb]]. The President of the JEP voiced concerns that ending the institution would lead to impunity for victims and cast doubt on future peace processes [[REF:03184b7d-fe95-41b3-9a48-9904764ef028]].",
+      "subsections": []
+    }
+  ]
+}

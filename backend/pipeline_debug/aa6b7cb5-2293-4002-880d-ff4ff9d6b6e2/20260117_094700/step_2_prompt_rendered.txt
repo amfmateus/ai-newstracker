@@ -1,0 +1,1307 @@
+# ROLE AND CONSTRAINTS
+
+You are a specialized news analysis agent that processes pre-retrieved news articles and generates analytical reports. You operate under strict constraints:
+
+- NO internet access or external searches
+- NO information generation or fabrication  
+- ONLY process and analyze provided input data
+- Output strictly valid JSON (no markdown, no code blocks)
+
+---
+
+# INPUT PROCESSING PIPELINE
+
+## Phase 1: Relevance Filtering
+
+Apply ALL three filters sequentially. An article must pass ALL criteria to be included:
+
+### Geographic Filter
+
+Include articles relevant to:
+- Colombia domestic affairs
+- EU-Colombia bilateral relations
+- Colombian participation in regional initiatives affecting EU relations
+
+### Thematic Filter
+
+Include ONLY these categories:
+- **Economic:** GDP data, inflation rates, monetary policy, central bank actions, economic forecasts, business climate, sectoral performance
+- **Political:** Government composition, legislative changes, elections, institutional reforms, regulatory frameworks, governance issues
+- **Trade:** Trade agreements, tariffs, customs procedures, trade volumes, export/import data, trade policy developments, market access
+- **Investment:** Foreign direct investment, infrastructure projects, public-private partnerships, mergers and acquisitions, business establishment, investment climate
+
+### Exclusion Filter
+
+Hard exclude: Sports, entertainment, lifestyle, tourism (unless investment-related), routine crime, celebrity news, cultural events
+
+---
+
+## Phase 2: Thematic Clustering
+
+Instead of deduplication, identify **thematic gravity points** — major developments or topics around which multiple articles converge. Process as follows:
+
+### Clustering Logic
+
+1. Identify core themes based on:
+   - Shared policy areas (e.g., "monetary policy adjustments")
+   - Common entities (government actors, institutions, companies)
+   - Related events in causal chains
+   - Temporal proximity suggesting connected developments
+
+2. For each thematic cluster:
+   - Synthesize information from all related articles into cohesive narrative
+   - Highlight how different sources provide complementary perspectives
+   - Identify trends, patterns, or implications across the cluster
+   - Track ArticleIDs used for downstream processing
+
+3. Single-article themes:
+   - Include if sufficiently significant
+   - Integrate naturally without forcing connections
+
+### Citation Protocol
+
+- **CRITICAL**: Cite ALL sources contributing to each synthesized point using `[[REF:ArticleID]]`
+- Multiple sources strengthen analysis: `[[REF:Article1]][[REF:Article2]][[REF:Article3]]`
+- **CRITICAL**: Use the COMPLETE ArticleID exactly as provided in the input data - do NOT truncate, abbreviate, or modify the ID in any way
+- ArticleIDs may be long strings with numbers, hyphens, underscores, or other characters - copy them EXACTLY
+- These inline citations are the ONLY way to track source attribution - no separate references list is needed
+
+---
+
+## Phase 3: Report Structure and Content Generation
+
+### Title Requirements
+
+- Maximum 15 words
+- Capture the single most significant development or overarching theme of the day
+- Factual and specific — not generic (avoid "Daily Update" or "News Summary")
+- Do NOT mention Colombia (geographic context is implicit)
+- **CRITICAL**: The title must directly reflect a development that appears in EITHER the executive summary OR the key findings
+- The title should be derivable from reading the summary or key findings - do not introduce new information in the title
+- Think of the title as a headline for the most important point already covered in the summary/findings
+- Example: "Central Bank Cuts Interest Rates Amid Trade Agreement Progress"
+
+### Key Findings Requirements
+
+- 3-5 bullet points maximum (never fewer than 3, never more than 5)
+- Each finding limited to 15 words maximum
+- Must be complete, declarative sentences with subject and verb
+- Highlight the most significant, actionable developments across all themes
+- **CRITICAL**: Each key finding MUST include citations using complete ArticleIDs in the format `[[REF:complete_article_id]]`
+- Place citations at the end of each finding sentence
+- Order by importance/significance
+- **Example**: "Central bank reduced interest rates by 50 basis points to stimulate growth [[REF:article_id_here]]."
+
+### Content Writing Principles
+
+- **NO meta-statements**: Never write "This report covers...", "The following sections analyze...", "In summary, we have discussed..."
+- Begin directly with substantive content
+- Every sentence must convey information about the actual news and developments
+- Write as if each section stands alone as analysis
+
+### Section Structure Logic
+
+- **Create multiple top-level sections** as needed to cover all major thematic areas emerging from the news (typically 3-6 sections, but can be more if content warrants)
+- Top-level sections should align with major thematic areas, not mechanically replicate input categories
+- **Maximum nesting depth: 4 levels total** — avoid deeper hierarchies that reduce readability (this refers to hierarchy depth, NOT number of sections)
+- **Only create subsections when:**
+  - A sub-theme has 3+ articles or substantial depth warranting detailed treatment
+  - The main section text would exceed 250 words without subsection breakdown
+  - The sub-theme represents a distinct development requiring focused analysis
+  - You have not reached the 4-level depth limit
+- Avoid over-fragmentation: prefer cohesive paragraphs over excessive subsections
+
+### Writing Style
+
+- Authoritative and analytical tone drawing directly from source material
+- Create narrative flow: use transitions between paragraphs and logical sequencing of information
+- Present tense for current/ongoing developments; past tense for completed events
+- Connect related points across articles to show bigger picture
+- Lead with most significant information in each section
+- Professional diplomatic register appropriate for EU institutional reporting
+
+### Citation Discipline
+
+- **CRITICAL**: Every factual claim, statistic, quote, or development requires immediate inline citation with complete ArticleID
+- **This includes key findings AND all body text** - each claim must be cited with complete ArticleIDs
+- **CRITICAL**: Use ArticleID EXACTLY as provided in the input data - never truncate or modify
+- Copy the full ArticleID string character-by-character, including all numbers, letters, hyphens, underscores, or special characters
+- Format: `[[REF:complete_article_id_as_provided]]`
+- Place citations immediately after the specific claim they support
+- **Example**: If input provides ArticleID "article_2024_12_15_inflation_report_colombia_12345", use exactly `[[REF:article_2024_12_15_inflation_report_colombia_12345]]` - NOT `[[REF:article_2024]]` or `[[REF:article_12345]]`
+- Inline citations are tracked by upstream/downstream processing - no separate reference list is needed
+
+---
+
+# OUTPUT SCHEMA
+
+Return ONLY valid JSON (no markdown wrapping):
+
+```json
+{
+  "title": "Maximum 15-word summary reflecting content from the executive summary or key findings below (do not mention Colombia)",
+  "subtitle": "Report automatically generated on 2026-01-17 by the Trade Section, EU Delegation to Colombia",
+  "summary": "100-150 word synthesis with inline citations [[REF:complete_article_id]] of the most significant cross-cutting developments and their implications. Focus on what happened, not what the report contains.",
+  "key_findings": [
+    "First key finding as complete sentence with citation [[REF:complete_article_id_1]] (maximum 15 words)",
+    "Second key finding as complete sentence with citation [[REF:complete_article_id_2]] (maximum 15 words)",
+    "Third key finding as complete sentence with citation [[REF:complete_article_id_3]] (maximum 15 words)"
+  ],
+  "sections": [
+    {
+      "title": "First Thematic Section Title (e.g., 'Monetary Policy Adjustments')",
+      "body": "Analytical narrative synthesizing developments around this theme. Cite sources inline using COMPLETE ArticleIDs [[REF:full_article_id_exactly_as_provided]] after every factual claim. Show connections between articles and extract implications. Minimum 150 words for main sections.",
+      "subsections": [
+        {
+          "title": "Subsection Title (only if justified by content volume/depth)",
+          "body": "Focused analysis of sub-theme with inline citations [[REF:complete_article_id]] using COMPLETE ArticleIDs after every claim...",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Second Thematic Section Title (e.g., 'Trade Policy Developments')",
+      "body": "Another major theme with detailed analysis and inline citations [[REF:article_id]] after each factual statement...",
+      "subsections": []
+    },
+    {
+      "title": "Third Thematic Section Title (e.g., 'Investment Climate Updates')",
+      "body": "Additional thematic analysis with inline citations [[REF:article_id]] as warranted by the content...",
+      "subsections": []
+    }
+  ]
+}
+```
+
+**Note on sections array**: The example above shows three sections for illustration. Generate as many top-level sections as needed to cover all major thematic areas identified in the input articles (typically 3-6, but can be more if warranted).
+
+**Note on citations**: All citations are embedded inline within the text using `[[REF:ArticleID]]` format. No separate references list is included in the output as upstream/downstream processing handles reference resolution.
+
+## Critical Requirements
+
+1. **Title must not exceed 15 words, must directly reflect content from the executive summary or key findings, summarize the day's most significant development, and NOT mention Colombia**
+2. Subtitle must be exactly: "Report automatically generated on 2026-01-17 by the Trade Section, EU Delegation to Colombia"
+3. **Summary must include inline citations [[REF:complete_article_id]] for all factual claims**
+4. **Key findings must be 3-5 bullet points, each maximum 15 words INCLUDING citations, highlighting the most important developments**
+5. **CRITICAL: Every key finding must include at least one inline citation using complete ArticleIDs in [[REF:id]] format**
+6. **Generate multiple top-level sections (typically 3-6, or more if needed) to cover all major thematic areas**
+7. Maximum nesting depth: 4 levels (section → subsection → sub-subsection → sub-sub-subsection) - this is depth, not count
+8. All body text focuses exclusively on substantive developments — zero meta-commentary
+9. Subsections only appear when content depth justifies separate treatment
+10. **CRITICAL**: Every ArticleID must be used EXACTLY as provided in input - copy the complete string without any truncation, abbreviation, or modification
+11. **CRITICAL**: Every factual claim in summary, key findings, and section body text must have inline citations with complete ArticleIDs
+12. **NO separate references list is needed** - all attribution is handled through inline citations
+13. Maintain narrative flow with clear transitions between related points
+
+---
+
+# CONTENT GENERATION WORKFLOW
+
+Follow this sequence to ensure coherence:
+
+1. **Analyze input articles** and identify thematic clusters
+2. **Build detailed sections** with full analysis and inline citations using complete ArticleIDs - create as many top-level sections as needed to cover all major themes
+3. **Draft key findings** (3-5 most significant developments with inline citations) by extracting the most important points from the sections
+4. **Draft executive summary** (synthesizing the key findings and major themes from the sections with inline citations)
+5. **Create title** from the most important element in the summary or top key finding
+6. **Verify consistency**: 
+   - Ensure the title reflects content actually present in summary/key findings
+   - Verify all factual claims have inline citations with complete ArticleIDs
+   - Confirm no ArticleIDs are truncated or modified
+
+---
+
+# ARTICLE ID HANDLING - CRITICAL INSTRUCTIONS
+
+**The most common error is truncating ArticleIDs. Follow these rules strictly:**
+
+1. **Locate the ArticleID** in the input data exactly as provided
+2. **Copy the ENTIRE string** - do not shorten, summarize, or abbreviate
+3. **Preserve all characters** including numbers, letters, hyphens, underscores, dots, and special characters
+4. **Use consistently in ALL inline citations**:
+   - Inline citations in summary: `[[REF:complete_article_id]]`
+   - Inline citations in key findings: `[[REF:complete_article_id]]`
+   - Inline citations in section body text: `[[REF:complete_article_id]]`
+   - Inline citations in subsection body text: `[[REF:complete_article_id]]`
+
+5. **Every inline citation is tracked** by upstream/downstream processing for reference resolution - accuracy is critical
+
+**Examples of CORRECT usage:**
+- Input ID: `infobae_2026_01_11_banco_republica_tasa_interes_47829`
+- Key finding: `"Central bank reduced rates by 50 basis points [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Body text: `"Inflation declined to 3.2% in December [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Summary: `"The central bank announced significant policy changes [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+
+**Examples of INCORRECT usage (DO NOT DO THIS):**
+- ❌ Truncated: `[[REF:infobae_2026]]`
+- ❌ Abbreviated: `[[REF:infobae...47829]]`
+- ❌ Modified: `[[REF:infobae-jan-11]]`
+- ❌ Shortened: `[[REF:article_47829]]`
+- ❌ Missing citation: `"Central bank reduced rates by 50 basis points."` (no citation)
+
+**Verification step:** Before outputting JSON, verify that:
+1. Every factual claim in summary, key findings, and all section bodies includes inline citations with complete ArticleIDs
+2. Every ArticleID used in inline citations is EXACTLY as provided in input - no truncation or modification
+3. The title reflects a development that is mentioned in either the executive summary or key findings
+4. You have created enough top-level sections to cover all major thematic areas (not limited to just one or two)
+
+---
+
+# EDGE CASES
+
+- **Empty input:** Return `{}`
+- **No qualifying articles:** Return `{}`  
+- **Insufficient content for subsections:** Keep flat structure with main sections only
+- **Single thematic cluster:** Create minimal structure without forcing artificial divisions
+
+---
+
+# AUDIENCE AND CONTEXT
+
+**Primary Users:** EU Delegation Colombia trade section, DG Trade Brussels officers  
+
+**Use Cases:** FTA monitoring, policy briefing preparation, investment climate assessment, bilateral dialogue preparation  
+
+**Tone Requirements:** Authoritative, analytical, action-oriented. Suitable for diplomatic reporting cables.
+
+---
+
+# INPUT DATA
+
+[
+  {
+    "id": "41c88927-fa21-4ea0-9a0c-38df4a372fbc",
+    "title": "Machado adopta un nuevo enfoque para ganar el respaldo de Trump en Venezuela",
+    "translated_title": "Machado adopts a new approach to win Trump's backing in Venezuela",
+    "url": "https://www.larepublica.co/globoeconomia/machado-adopta-un-nuevo-enfoque-para-ganar-el-respaldo-de-trump-en-venezuela-4307209",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nSu ofensiva en la Casa Blanca es parte de un esfuerzo recalibrado para recuperar la narrativa sobre la transformaci\u00f3n del pa\u00eds\nLa ofensiva de encanto de Mar\u00eda Corina Machado en la Casa Blanca de Trump, completa con una brillante medalla Nobel en un marco elegante, es parte de un esfuerzo recalibrado por parte de la l\u00edder de la oposici\u00f3n de Venezuela para recuperar la narrativa sobre la transformaci\u00f3n del pa\u00eds.\nEn v\u00edsperas de su reuni\u00f3n del jueves, el presidente Donald Trump elogi\u00f3 tibiamente a Machado: \"una mujer muy agradable\". Pero dej\u00f3 claro que no cre\u00eda que tuviera lo necesario para dirigir un pa\u00eds cuyo l\u00edder hab\u00eda sido repentinamente arrebatado por las fuerzas estadounidenses.\nMachado se gan\u00f3 su favor esta semana, en parte al coincidir t\u00e1citamente con \u00e9l, reconociendo que es necesario un per\u00edodo de transici\u00f3n antes de que la democracia pueda regresar a Venezuela. Atr\u00e1s quedaron sus exigencias de qu...",
+    "ai_summary": "Mar\u00eda Corina Machado is recalibrating her approach to gain Donald Trump's support for Venezuela's transformation by acknowledging the need for a transition period.",
+    "published_at": "2026-01-17T14:33:46",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "US_POLICY",
+      "POLITICS",
+      "TRANSFORMATION",
+      "INTERNATIONAL_RELATIONS",
+      "VENEZUELA"
+    ],
+    "entities": [
+      "VENEZUELA",
+      "US",
+      "MARIA_CORINA_MACHADO",
+      "DONALD_TRUMP"
+    ]
+  },
+  {
+    "id": "8c4442a2-443c-4954-b4dc-455b70dd2c18",
+    "title": "Posible freno de la Corte y rebeli\u00f3n de gobernadores ponen en vilo recaudo de emergencia econ\u00f3mica",
+    "translated_title": "Possible court freeze and rebellion of governors jeopardize economic emergency collection",
+    "url": "https://www.eltiempo.com/justicia/cortes/posible-freno-de-la-corte-y-rebelion-de-gobernadores-ponen-en-vilo-recaudo-de-emergencia-economica-3524921",
+    "content": "Posible freno de la Corte y rebeli\u00f3n de gobernadores ponen en vilo recaudo de emergencia econ\u00f3mica",
+    "ai_summary": "A potential court ruling and the defiance of governors are creating uncertainty around the collection of funds related to an economic emergency.",
+    "published_at": "2026-01-17T14:18:45",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "ECONOMICS",
+      "GOVERNORS",
+      "COURT",
+      "EMERGENCY"
+    ],
+    "entities": [
+      "COURT",
+      "GOVERNORS"
+    ]
+  },
+  {
+    "id": "61322ac3-3c5c-4daa-9e77-8dc8b2417392",
+    "title": "Presidente Gustavo Petro reacciona a las alertas de la Contralor\u00eda sobre el nuevo modelo de pasaportes: 'El cuarto mejor del mundo'",
+    "translated_title": "President Gustavo Petro reacts to the Comptroller's Office alerts about the new passport model: 'The fourth best in the world'",
+    "url": "https://www.eltiempo.com/politica/gobierno/presidente-gustavo-petro-reacciona-a-las-alertas-de-la-contraloria-sobre-el-nuevo-modelo-de-pasaportes-el-cuarto-mejor-del-mundo-3524837",
+    "content": "En este portal utilizamos datos de navegaci\u00f3n / cookies propias y de terceros para gestionar el portal, elaborar informaci\u00f3n estad\u00edstica, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a trav\u00e9s del an\u00e1lisis de la navegaci\u00f3n. Si contin\u00faa navegando, usted estar\u00e1 aceptando esta utilizaci\u00f3n. Puede conocer c\u00f3mo deshabilitarlas u obtener m\u00e1s informaci\u00f3n\naqu\u00ed\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "President Gustavo Petro responded to Comptroller's Office alerts regarding the new passport model, asserting it is the 'fourth best in the world'.",
+    "published_at": "2026-01-17T14:17:35",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "PASSPORTS",
+      "POLITICS",
+      "PUBLIC_ADMINISTRATION",
+      "TECHNOLOGY",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "GUSTAVO_PETRO",
+      "EL_TIEMPO"
+    ]
+  },
+  {
+    "id": "c5fb8dd3-d92e-41de-a71f-0fc2d42781ed",
+    "title": "M\u00e9xico respondi\u00f3 a las exigencia de EE.UU. sobre la lucha contra el narcotr\u00e1fico",
+    "translated_title": "Mexico responded to US demands on the fight against drug trafficking",
+    "url": "https://www.larepublica.co/globoeconomia/mexico-respondio-a-las-exigencia-de-ee-uu-sobre-la-lucha-contra-el-narcotrafico-4307206",
+    "content": "Claudia Sheinbaum le record\u00f3 a Trump que \"el consumo est\u00e1 all\u00e1\" y que este problema no puede resolverse solo desde M\u00e9xico\nLa presidenta mexicana, Claudia Sheinbaum, respondi\u00f3 a las exigencias de Estados Unidos sobre la lucha contra el narcotr\u00e1fico, recordando que \"el consumo est\u00e1 all\u00e1\" y que este problema no puede resolverse solo desde M\u00e9xico.\n\"No puede pensarse que este problema del cruce de drogas se puede resolver de este lado de la frontera. Esta crisis de consumo que tienen all\u00e1 tiene que atenderse desde una perspectiva de salud p\u00fablica, campa\u00f1as preventivas, educaci\u00f3n. Porque el consumo est\u00e1 all\u00e1\", remarc\u00f3 la presidenta de M\u00e9xico.\nSheinbaum asegur\u00f3 que desconoce las motivaciones de Washington para exigir \"resultados concretos y verificables\" de su lucha contra las drogas cuando en realidad las propias autoridades estadounidenses han destacado en otras ocasiones las operaciones y decomisos que han ...",
+    "ai_summary": "Mexican President Claudia Sheinbaum responded to US demands regarding drug trafficking by stating that the problem stems from consumption in the US and requires a public health approach, not just border enforcement.",
+    "published_at": "2026-01-17T14:09:47",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "HEALTH_POLICY",
+      "INTERNATIONAL_RELATIONS",
+      "DRUG_TRAFFICKING",
+      "MEXICO",
+      "UNITED_STATES"
+    ],
+    "entities": [
+      "WASHINGTON",
+      "CLAUDIA_SHEINBAUM",
+      "MEXICO",
+      "TRUMP",
+      "UNITED_STATES"
+    ]
+  },
+  {
+    "id": "ecf08810-9111-45da-8d66-5ca12eef7df8",
+    "title": "La emergencia econ\u00f3mica, en vilo por posible freno de la Corte Constitucional y rebeli\u00f3n de gobernadores",
+    "translated_title": "Economic emergency in suspense due to possible halt by the Constitutional Court and rebellion of governors",
+    "url": "https://www.eltiempo.com/justicia/cortes/la-emergencia-economica-en-vilo-por-posible-freno-de-la-corte-constitucional-y-rebelion-de-gobernadores-3524936",
+    "content": "La emergencia econ\u00f3mica, en vilo por posible freno de la Corte Constitucional y rebeli\u00f3n de gobernadores",
+    "ai_summary": "The economic emergency is at risk due to a potential block by the Constitutional Court and dissent from governors.",
+    "published_at": "2026-01-17T13:57:29",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "CONSTITUTIONAL_COURT",
+      "POLITICS",
+      "ECONOMICS",
+      "GOVERNORS",
+      "EMERGENCY"
+    ],
+    "entities": [
+      "CONSTITUTIONAL_COURT"
+    ]
+  },
+  {
+    "id": "86f59204-3d22-4053-836d-87b99e4f667a",
+    "title": "Musk reclama a OpenAI y Microsoft una indemnizaci\u00f3n de hasta US$134.000 millones",
+    "translated_title": "Musk reclaims from OpenAI and Microsoft compensation of up to US$134 billion",
+    "url": "https://www.larepublica.co/globoeconomia/musk-reclama-a-openai-y-microsoft-una-indemnizacion-de-hasta-us-134-000-millones-4307203",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nQuiere que le paguen da\u00f1os y perjuicios por sus afirmaciones de que la empresa de IA generativa lo defraud\u00f3 al abandonar sus ra\u00edces sin fines de lucro\nElon Musk quiere que OpenAI Inc. y Microsoft le paguen da\u00f1os y perjuicios que oscilan entre US$79 y US$134 mil millones por sus afirmaciones de que la empresa de inteligencia artificial generativa lo defraud\u00f3 al abandonar sus ra\u00edces sin fines de lucro y asociarse con el gigante del software.\nEl abogado de Musk detall\u00f3 la solicitud de da\u00f1os en una presentaci\u00f3n judicial el viernes, un d\u00eda despu\u00e9s de que un juez federal rechazara una oferta final de OpenAI y Microsoft para evitar un juicio por jurado programado para fines de abril en Oakland, California.\nCitando c\u00e1lculos de un experto testigo en econom\u00eda financiera, C. Paul Wazzan , la presentaci\u00f3n dice que Musk tiene derecho a una parte de la valoraci\u00f3n actual de US$500 mil millones de OpenAI despu\u00e9s de hab...",
+    "ai_summary": "Elon Musk is seeking between US$79 billion and US$134 billion in damages from OpenAI and Microsoft, alleging the generative AI company defrauded him by abandoning its non-profit mission and partnering with Microsoft.",
+    "published_at": "2026-01-17T13:49:58",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "TECHNOLOGY",
+      "LAWSUIT",
+      "ARTIFICIAL_INTELLIGENCE",
+      "INVESTMENT",
+      "FINANCE"
+    ],
+    "entities": [
+      "C_PAUL_WAZZAN",
+      "OPENAI_INC",
+      "ELON_MUSK",
+      "OAKLAND",
+      "MICROSOFT",
+      "CALIFORNIA"
+    ]
+  },
+  {
+    "id": "755e73b1-b51f-4504-a846-61ac97c8e43c",
+    "title": "\u00c1lex Saab sale del gabinete tras fusi\u00f3n de ministerios anunciada por Delcy Rodr\u00edguez",
+    "translated_title": "Alex Saab leaves the cabinet after ministry merger announced by Delcy Rodr\u00edguez",
+    "url": "https://www.larepublica.co/globoeconomia/alex-saab-sale-del-gabinete-tras-fusion-de-ministerios-anunciada-por-delcy-rodriguez-4307199",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nEl anuncio lo hizo la presidenta encargada en su cuenta de Telegram, donde expres\u00f3 su agradecimiento a Saab por \"su labor al servicio de la patria\"\nEn las \u00faltimas horas se conoci\u00f3 que Delcy Rodr\u00edguez, presidenta encargada de Venezuela, Delcy Rodr\u00edguez, fusion\u00f3 el Ministerio de Industrias y Producci\u00f3n Nacional con el de Comercio Nacional, lo que significa que sac\u00f3 del gabinete al empresario \u00c1lex Saab, colaborador cercano del presidente Nicol\u00e1s Maduro.\nEl anuncio lo hizo en su cuenta de Telegram, donde expres\u00f3 su agradecimiento a Saab por \"su labor al servicio de la Patria\" y asegur\u00f3 que \"asumir\u00e1 nuevas responsabilidades\".\nEl pol\u00e9mico Saab hab\u00eda sido designado por Maduro al frente del Ministerio de Industrias y Producci\u00f3n Nacional en octubre de 2024. Antes del nombramiento se desempe\u00f1aba como presidente del Centro Internacional de Inversi\u00f3n Productiva de Venezuela.\nEl barranquillero de origen liban\u00e9s fue ...",
+    "ai_summary": "Venezuelan acting president Delcy Rodr\u00edguez has merged two ministries, removing \u00c1lex Saab from his cabinet position, who will assume new responsibilities.",
+    "published_at": "2026-01-17T13:28:56",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "TRADE",
+      "INVESTMENT",
+      "GOVERNMENT",
+      "CABINET"
+    ],
+    "entities": [
+      "NICOLAS_MADURO",
+      "ALEX_SAAB",
+      "MINISTRY_OF_INDUSTRIES_AND_NATIONAL_PRODUCTION",
+      "CENTRO_INTERNACIONAL_DE_INVERSION_PRODUCTIVA_DE_VENEZUELA",
+      "MINISTRY_OF_NATIONAL_TRADE",
+      "DELCY_RODRIGUEZ",
+      "TELEGRAM"
+    ]
+  },
+  {
+    "id": "f47223cd-bef3-4a50-9bce-f50e2ff87f41",
+    "title": "Gremio de la construcci\u00f3n advierte riesgos jur\u00eddicos y de acceso por decreto que busca desindexar la vivienda VIS",
+    "translated_title": "Construction guild warns of legal and access risks due to decree seeking to de-index affordable housing",
+    "url": "https://www.eltiempo.com/economia/sectores/gremio-de-la-construccion-advierte-riesgos-juridicos-y-de-acceso-por-decreto-que-busca-desindexar-la-vivienda-vis-3524369",
+    "content": "Gremio de la construcci\u00f3n advierte riesgos jur\u00eddicos y de acceso por decreto que busca desindexar la vivienda VIS\n'La medida introduce un control artificial de precios y desconoce el marco legal vigente', asegura Camacol.",
+    "ai_summary": "The construction guild warns that a decree aiming to de-index affordable housing poses legal and access risks by introducing artificial price controls that disregard current legal frameworks.",
+    "published_at": "2026-01-17T13:17:23",
+    "source": "El Tiempo Economia",
+    "sentiment": "negative",
+    "relevance": 85,
+    "tags": [
+      "HOUSING",
+      "ECONOMICS",
+      "REGULATION",
+      "DECREE",
+      "CONSTRUCTION"
+    ],
+    "entities": [
+      "CAMACOL"
+    ]
+  },
+  {
+    "id": "0cafae39-4277-4a15-b72c-1c66b9b51cc5",
+    "title": "Marcela Mel\u00e9ndez es la nueva directora de Fedesarrollo",
+    "translated_title": "Marcela Mel\u00e9ndez is the new director of Fedesarrollo",
+    "url": "https://www.eltiempo.com/economia/sectores/marcela-melendez-es-la-nueva-directora-de-fedesarrollo-3524540",
+    "content": "Marcelo Mel\u00e9ndez es la nueva directora de Fedesarrollo",
+    "ai_summary": "Marcela Mel\u00e9ndez has been appointed as the new director of Fedesarrollo.",
+    "published_at": "2026-01-17T13:16:24",
+    "source": "El Tiempo Economia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "PUBLIC_POLICY",
+      "ECONOMICS",
+      "GOVERNANCE",
+      "INSTITUTION"
+    ],
+    "entities": [
+      "MARCELA_MELENDEZ",
+      "FEDESARROLLO"
+    ]
+  },
+  {
+    "id": "f8255cae-62af-4a1c-b331-81660086b681",
+    "title": "Peque\u00f1os negocios comienzan el a\u00f1o bajo presi\u00f3n: as\u00ed les golpea el aumento del 23 % del m\u00ednimo, los mayores recargos y la menor jornada",
+    "translated_title": "Small businesses start the year under pressure: this is how the 23% increase in the minimum wage, higher surcharges, and shorter working hours affect them",
+    "url": "https://www.eltiempo.com/economia/sectores/pequenos-negocios-comienzan-el-ano-bajo-presion-asi-les-golpea-el-aumento-del-23-del-minimo-los-mayores-recargos-y-la-menor-jornada-3523831",
+    "content": "Peque\u00f1os negocios comienzan el a\u00f1o bajo presi\u00f3n: as\u00ed les golpea el aumento del 23 % del m\u00ednimo, los mayores recargos y la menor jornada",
+    "ai_summary": "Small businesses are facing significant pressure at the start of the year due to a 23% increase in the minimum wage, rising surcharges, and reduced working hours.",
+    "published_at": "2026-01-17T13:15:52",
+    "source": "El Tiempo Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "BUSINESS_COSTS",
+      "LABOR_COSTS",
+      "ECONOMIC_PRESSURE",
+      "MINIMUM_WAGE",
+      "SMALL_BUSINESS"
+    ],
+    "entities": [
+      "MINIMUM_WAGE"
+    ]
+  },
+  {
+    "id": "aa0fbbb6-01e9-40e4-80f9-d6baae248bcb",
+    "title": "Estos son los nuevos precios de 80 peajes en v\u00edas principales de Colombia: algunos aumentos superan el 5,10 % de la inflaci\u00f3n",
+    "translated_title": "These are the new prices for 80 toll booths on Colombia's main roads: some increases exceed 5.10% inflation",
+    "url": "https://www.eltiempo.com/economia/sectores/estos-son-los-nuevos-precios-de-80-peajes-en-vias-principales-de-colombia-algunos-aumentos-superan-el-5-10-de-la-inflacion-3524868",
+    "content": "Estos son los nuevos precios de 80 peajes en v\u00edas principales de Colombia: algunos aumentos superan el 5,10 % de la inflaci\u00f3n\nLos nuevos precios comenzaron a cobrarse desde este viernes. Tambi\u00e9n subi\u00f3 la tarifa que pagan los conductores al Fondo de Seguridad Vial (Fosevi).\nEl Placer (Rumichaca-Pasto): $ 20.900\nCisneros (V\u00edas del Nus): $ 29.400\nAburr\u00e1 (Autopistas Mar 1): $ 27.300\nMachet\u00e1 (Transversal del Sisga): $ 20.400\nEl Carmen (Puerta de Hierro-Cruz del Viso): $ 15.000\nLa Pintada (Pac\u00edfico 2): $ 23.900\nFusca (Accesos Norte): $ 15.200\nAndes (Accesos Norte): $ 15.200\nUnisabana (Accesos Norte): N/A\nSupia (Pac\u00edfico 3): $ 17.600\nPuerto Berr\u00edo (Autopista R\u00edo Magdalena 2): $ 15.000\nBoquer\u00f3n I (Bogot\u00e1 - Villavicencio): $ 20.800\nBoquer\u00f3n II (Bogot\u00e1 - Villavicencio): $ 20.800\nNaranjal (Bogot\u00e1 - Villavicencio): $ 17.800\nLa Apartada (C\u00f3rdoba): $ 19.700\nManguitos (C\u00f3rdoba):",
+    "ai_summary": "The article details the new prices for 80 toll booths on major Colombian roads, noting that some increases surpass the 5.10% inflation rate and also mentioning an increase in the Fosevi tariff.",
+    "published_at": "2026-01-17T09:30:00",
+    "source": "El Tiempo Economia",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "TRANSPORTATION",
+      "ECONOMY",
+      "TOLL_RATES",
+      "INFLATION",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "FOSEVI",
+      "ACCESOS_NORTE",
+      "NUS",
+      "SISGA",
+      "PACIFICO_2",
+      "BOGOTA",
+      "PUERTA_DE_HIERRO",
+      "PACIFICO_3",
+      "RIO_MAGDALENA_2",
+      "CRUZ_DEL_VISO",
+      "VILLAVICENCIO",
+      "CORDOBA",
+      "PASTO",
+      "AUTOPITAS_MAR_1",
+      "RUMICHACA"
+    ]
+  },
+  {
+    "id": "16cf9ee3-4463-4fa7-be40-ca30b9041b8d",
+    "title": "Un militar fue asesinado por ataque de drones explosivos del Eln contra el Ej\u00e9rcito Nacional en el Catatumbo: 4 m\u00e1s permanecen heridos",
+    "translated_title": "A soldier was killed by an explosive drone attack by the ELN against the National Army in Catatumbo: 4 more remain injured",
+    "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/un-militar-fue-asesinado-por-ataque-de-drones-explosivos-del-eln-contra-el-ejercito-nacional-en-el-catatumbo-4-mas-permanecen-heridos-3524924",
+    "content": "Un militar fue asesinado por ataque de drones explosivos del Eln contra el Ej\u00e9rcito Nacional en el Catatumbo: 4 m\u00e1s permanecen heridos",
+    "ai_summary": "An explosive drone attack by the ELN against the National Army in Catatumbo resulted in the death of one soldier and injuries to four others.",
+    "published_at": "2026-01-17T07:11:14",
+    "source": "El Tiempo Justicia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "ELN",
+      "DRONE",
+      "MILITARY",
+      "ATTACK",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "NATIONAL_ARMY",
+      "ELN",
+      "CATATUMBO"
+    ]
+  },
+  {
+    "id": "3f5d4f15-bf97-4d12-9b8e-2d6b7b39e35d",
+    "title": "Educaci\u00f3n superior: sin di\u00e1logo no hay futuro",
+    "translated_title": "Higher education: without dialogue there is no future",
+    "url": "https://www.larepublica.co/analisis/p-harold-castilla-devoz-2912463/educacion-superior-sin-dialogo-no-hay-futuro-4307081",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nEl a\u00f1o 2026 comienza con una paradoja inquietante para la educaci\u00f3n superior en Colombia y en el mundo: nunca se le ha exigido tanto y nunca se le ha cuidado tan poco. Las Instituciones de educaci\u00f3n Superior (IES) est\u00e1n llamadas a ser motores de movilidad social, espacios de pensamiento cr\u00edtico, nodos de innovaci\u00f3n y puentes para el di\u00e1logo en sociedades fragmentadas. Sin embargo, hoy operan en medio de tensiones financieras, presiones pol\u00edticas, fragilidad institucional y un contexto global cada vez m\u00e1s polarizado. En Colombia, la educaci\u00f3n superior p\u00fablica sigue atrapada en una tensi\u00f3n estructural de financiamiento. Los recursos no crecen al ritmo de las demandas, de la inflaci\u00f3n ni de la complejidad de la misi\u00f3n universitaria. Con una inflaci\u00f3n que cerr\u00f3 en 5,10 %, la llamada canasta educativa (costos operativos, bienestar, investigaci\u00f3n, infraestructura, conectividad y talento humano) se encarece de...",
+    "ai_summary": "Higher education in Colombia faces significant challenges in 2026 due to underfunding and institutional fragility, despite its crucial role in social mobility and innovation.",
+    "published_at": "2026-01-17T05:04:28",
+    "source": "La Republica",
+    "sentiment": "negative",
+    "relevance": 85,
+    "tags": [
+      "POLITICS",
+      "ECONOMICS",
+      "FINANCING",
+      "COLOMBIA",
+      "HIGHER_EDUCATION"
+    ],
+    "entities": [
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "38d58fcf-b2f0-4c3c-a062-6674adb1c44c",
+    "title": "Coherencia en pol\u00edticas",
+    "translated_title": "Coherence in policies",
+    "url": "https://www.larepublica.co/analisis/gustavo-moreno-montalvo-2565659/coherencia-en-politicas-4307088",
+    "content": "Las pol\u00edticas p\u00fablicas deben ser coherentes: sus procesos deben engranar en forma adecuada para asegurar el uso eficiente de recursos escasos y lograr los resultados deseados. El estado debe atender el gasto b\u00e1sico de funcionamiento, que incluye servicios de legislador y justicia, seguridad, salud, educaci\u00f3n y protecci\u00f3n a estamentos muy vulnerables. La administraci\u00f3n debe estudiar en forma sistem\u00e1tica los procesos de todas las ramas del poder p\u00fablico, proponer ajustes en los procesos del legislador y la justicia, y ajustar los procesos propios y su estructura. La eficiencia logra mejores resultados y libera recursos para inversi\u00f3n p\u00fablica. El gasto discrecional exige evaluaci\u00f3n con m\u00e9todos uniformes para establecer costo y beneficio. La inversi\u00f3n se debe escoger tras evaluar un conjunto amplio de oportunidades y ordenarlas, con reglas inteligentes para establecer prioridades: los efectos deben ser sost...",
+    "ai_summary": "Public policies require coherence in their processes to ensure efficient resource use and achieve desired outcomes, with the administration needing to systematically study and adjust public sector operations for better results and increased public investment.",
+    "published_at": "2026-01-17T05:03:21",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "PUBLIC_SPENDING",
+      "INVESTMENT",
+      "PUBLIC_POLICY",
+      "RESOURCE_ALLOCATION",
+      "GOVERNMENT_EFFICIENCY"
+    ],
+    "entities": [
+      "ADMINISTRATION",
+      "LEGISLATOR",
+      "EDUCATION",
+      "JUSTICE",
+      "SECURITY",
+      "HEALTH",
+      "STATE"
+    ]
+  },
+  {
+    "id": "10b39ae5-d34a-4b42-a610-967dd2f1826a",
+    "title": "Mercadeo en 2026 (1)",
+    "translated_title": "Marketing in 2026 (1)",
+    "url": "https://www.larepublica.co/analisis/carlos-fernando-villa-gomez-400403/mercadeo-en-2026-1-4307055",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nCada comienzo de a\u00f1o se piensa en los hechos y logros del que termin\u00f3 y en los prop\u00f3sitos y retos para el nuevo, siempre deseando lo mejor. Y obviamente, la gente de mercadeo hace lo propio, confiando poder lograr lo m\u00e1ximo en el que inicia.\n2026 ser\u00e1 otro a\u00f1o pleno de an\u00e1lisis, estudios, prop\u00f3sitos y retos; otros 12 meses que viviremos llenos de pol\u00edtica (a\u00f1o electoral), paliativos que generar\u00e1 el deporte (Copa mundo principalmente), el proceso venezolano que mucho tiene que ver con el del desgobierno que terminar\u00e1 pronto, gracias a Dios, y que esperamos sea de forma pac\u00edfica, y m\u00e1s, lo cual har\u00e1 que la mezcla de las variables tenga que adaptarse a las diferentes circunstancias que influenciar\u00e1n el comportamiento de los mercados, sumado a lo que sucede en otros pa\u00edses. Sin dudas, ser\u00e1 un a\u00f1o de mucha acci\u00f3n mercadol\u00f3gica.\nEl manejo de las comunicaciones de mercadeo ser\u00e1 el que m\u00e1s retos generar\u00e1 princi...",
+    "ai_summary": "The article discusses the upcoming year 2026 as a period of significant challenges and opportunities for marketing professionals, influenced by political events, sports, and global economic factors.",
+    "published_at": "2026-01-17T05:03:14",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "2026",
+      "MARKETING",
+      "ECONOMY",
+      "SPORTS"
+    ],
+    "entities": [
+      "WORLD_CUP",
+      "VENEZUELA"
+    ]
+  },
+  {
+    "id": "be521a2d-4546-474a-b70d-954bd04d1e43",
+    "title": "Se mueve la geopol\u00edtica del petr\u00f3leo",
+    "translated_title": "The geopolitics of oil moves",
+    "url": "https://www.larepublica.co/analisis/amylkar-d-acosta-m-557896/se-mueve-la-geopolitica-del-petroleo-4307062",
+    "content": "MI SELECCI\u00d3N DE NOTICIAS\nNoticias personalizadas, de acuerdo a sus temas de inter\u00e9s\nPara nadie es un secreto que Venezuela posee las mayores reservas de petr\u00f3leo del mundo, cifradas, seg\u00fan la Agencia Internacional de Energ\u00eda (AIE), en 304.000 millones de barriles, por encima de Arabia Saudita, que cuenta, con 267.000 millones e Ir\u00e1n con 209.000 millones. Su producci\u00f3n de crudo, a trav\u00e9s de la estatal petrolera Pdvsa, alcanz\u00f3 su punto m\u00e1s alto en 1997 con 3,45 millones de barriles/d\u00eda, participando con 17% de la oferta global. El a\u00f1o anterior a la asunci\u00f3n del poder por parte de Hugo Ch\u00e1vez Fr\u00edas (1998) la producci\u00f3n de crudo en Venezuela rondaba los 3 millones de barriles/d\u00eda.\nEntre 2010 y 2020 los precios del crudo oscilaron entre los US$111,25 en 2011 y US$41,96 en 2020. El Gobierno de Ch\u00e1vez se prolong\u00f3 hasta su muerte en 2013, per\u00edodo este en jauja para su administraci\u00f3n, gracias a los altos precios del crudo, lo que le permiti\u00f3 ejercer una activa diplomacia del petr\u00f3leo, mediante ...",
+    "ai_summary": "The article discusses Venezuela's position as having the world's largest oil reserves, its historical production levels, and the impact of oil prices on its government's diplomacy.",
+    "published_at": "2026-01-17T05:03:10",
+    "source": "La Republica",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "OIL_RESERVES",
+      "ENERGY_GEOPOLITICS",
+      "PDVSA",
+      "OIL_PRICES",
+      "OIL_PRODUCTION"
+    ],
+    "entities": [
+      "IRAN",
+      "SAUDI_ARABIA",
+      "INTERNATIONAL_ENERGY_AGENCY",
+      "PDVSA",
+      "IEA",
+      "HUGO_CHAVEZ_FRIAS",
+      "VENEZUELA"
+    ]
+  },
+  {
+    "id": "a747a95d-a6cb-4480-96e4-ec5017394923",
+    "title": "Expresidente \u00c1lvaro Uribe lanz\u00f3 duras cr\u00edticas ante pr\u00f3xima reuni\u00f3n entre presidente Gustavo Petro y Donald Trump: 'Petro y Cepeda, aliados de Maduro'",
+    "translated_title": "Former President \u00c1lvaro Uribe launched harsh criticism ahead of the upcoming meeting between President Gustavo Petro and Donald Trump: 'Petro and Cepeda, allies of Maduro'",
+    "url": "https://www.eltiempo.com/politica/partidos-politicos/expresidente-alvaro-uribe-lanzo-duras-criticas-ante-la-proxima-reunion-entre-presidente-gustavo-petro-y-trump-petro-y-cepeda-aliados-de-maduro-3524819",
+    "content": "Ya tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "Former Colombian President \u00c1lvaro Uribe criticized President Gustavo Petro's upcoming meeting with Donald Trump, labeling Petro and Cepeda as allies of Maduro.",
+    "published_at": "2026-01-17T04:58:22",
+    "source": "El Tiempo Politica",
+    "sentiment": "negative",
+    "relevance": 85,
+    "tags": [
+      "POLITICS",
+      "CRITICISM",
+      "INTERNATIONAL_RELATIONS",
+      "PRESIDENCY",
+      "ELECTIONS"
+    ],
+    "entities": [
+      "ALVARO_URIBE",
+      "DONALD_TRUMP",
+      "GUSTAVO_PETRO",
+      "CEPCA",
+      "MADURO"
+    ]
+  },
+  {
+    "id": "5d7dbef3-edb5-472c-8144-433850143cc8",
+    "title": "Resultados de Loter\u00eda del Risaralda: estos son los n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero",
+    "translated_title": "Risaralda Lottery Results: These Are the Winning Numbers from Today's Latest Draw on Friday, January 16",
+    "url": "https://www.eltiempo.com/economia/finanzas-personales/resultados-de-loteria-del-risaralda-estos-son-los-numeros-ganadores-del-ultimo-sorteo-de-hoy-viernes-16-de-enero-3524885",
+    "content": "Resultados de Loter\u00eda del Risaralda: estos son los n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero\nVea el plan de premios y siga EN VIVO la transmisi\u00f3n del sorteo de esta noche.\nActualizado:\nLoter\u00eda del Risaralda: resultados del sorteo del viernes, 16 de enero de 2026\n- 1 premio \u201cEl Gordo de la Risaralda\u201d de 300 millones de pesos\n- 1 premio \u201c\u00c1ngel de la Suerte\u201d de 200 millones de pesos\n- 1 premio \u201cMula Millonaria\u201d de 150 millones de pesos\n- 1 premio \u201cMilagro Millonario\u201d de 80 millones de pesos\n- 3 premios \u201cGuaca de Oro\u201d de 60 millones de pesos\n- 5 premios \u201cCofre de Diamantes\u201d de 50 millones de pesos\n- 3 premios \u201cTr\u00e9bol de la Fortuna\u201d de 40 millones de pesos\n- 5 premios \u201cDe Perla\u201d de 35 millones de pesos\n- 11 premios \u201cCosecha Millonaria\u201d de 30 millones de pesos\n\u00bfC\u00f3mo reclamar los premios de la Loter\u00eda del Risaralda?\n- Para premios menores, puede reclamar en los puntos de venta autorizados presentando su billete y su documento de identidad.\n- Para premios mayores, ...",
+    "ai_summary": "The Risaralda Lottery announced the winning numbers for its January 16th draw, detailing various prize tiers ranging from 300 million to 30 million pesos.",
+    "published_at": "2026-01-17T04:25:07",
+    "source": "El Tiempo Economia",
+    "sentiment": "neutral",
+    "relevance": 70,
+    "tags": [
+      "RISARALDA",
+      "LOTTERY",
+      "WINNING_NUMBERS",
+      "PRIZES",
+      "FINANCE"
+    ],
+    "entities": [
+      "GUACA_DE_ORO",
+      "DE_PERLA",
+      "RISARALDA",
+      "EL_GORDO_DE_LA_RISARALDA",
+      "MULA_MILLONARIA",
+      "ANGEL_DE_LA_SUERTE",
+      "TREBOL_DE_LA_FORTUNA",
+      "COSECHA_MILLONARIA",
+      "MILAGRO_MILLONARIO",
+      "COFRE_DE_DIAMANTES"
+    ]
+  },
+  {
+    "id": "6292844f-46ce-4af1-82dc-2f277b660620",
+    "title": "Resultados Loter\u00eda de Medell\u00edn: n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero",
+    "translated_title": "Medell\u00edn Lottery Results: winning numbers from today's last draw, Friday, January 16",
+    "url": "https://www.eltiempo.com/economia/finanzas-personales/resultados-loteria-de-medellin-numeros-ganadores-del-ultimo-sorteo-de-hoy-viernes-16-de-enero-3524901",
+    "content": "Resultados Loter\u00eda de Medell\u00edn: n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero\nVea los resultados, plan de premios y siga EN VIVO los sorteos de esta noche.\nActualizado:\nResultados Loter\u00eda de Medell\u00edn: resultados del sorteo del viernes, 16 de enero de 2025\n- 2 secos de 1.000 millones de pesos cada uno\n- 2 secos de 700 millones de pesos\n- 2 secos de 500 millones de pesos\n- 6 secos de 100 millones de pesos\n- 7 secos de 50 millones de pesos\n- 10 secos de 20 millones de pesos\n- 15 secos de 10 millones de pesos\n\u00bfC\u00f3mo reclamar el premio de la Loter\u00eda de Medell\u00edn?\n- El billete original en perfecto estado\n- Su documento de identidad\n- Copia del RUT (si el valor supera los montos exigidos para retenci\u00f3n)\n- Una cuenta bancaria activa en caso de que desee que el premio sea consignado\nSigue toda la informaci\u00f3n de Econom\u00eda en Facebook y Twitter, o en nuestra newsletter semanal.",
+    "ai_summary": "The article provides the winning numbers and prize details for the Medell\u00edn Lottery draw on January 16, 2025, along with instructions on how to claim winnings.",
+    "published_at": "2026-01-17T04:08:19",
+    "source": "El Tiempo Economia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "ECONOMY",
+      "LOTTERY",
+      "PRIZES",
+      "COLOMBIA",
+      "FINANCE"
+    ],
+    "entities": [
+      "RUT",
+      "MEDELLIN_LOTTERY"
+    ]
+  },
+  {
+    "id": "b1069760-0dbd-4f57-80cd-42bdda058b47",
+    "title": "Resultados Loter\u00eda de Santander: n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero",
+    "translated_title": "Santander Lottery Results: winning numbers from today's last draw Friday, January 16",
+    "url": "https://www.eltiempo.com/economia/finanzas-personales/resultados-loteria-de-santander-numeros-ganadores-del-ultimo-sorteo-de-hoy-viernes-16-de-enero-3524907",
+    "content": "Resultados Loter\u00eda de Santander: n\u00fameros ganadores del \u00faltimo sorteo de hoy viernes 16 de enero\nSiga EN VIVO el sorteo de esta noche y vea si gan\u00f3 alg\u00fan premio.\nActualizado:\nLoter\u00eda del Santander: resultados del sorteo del viernes, 20 de junio de 2025\n- 1 seco de 3000 millones de pesos.\n- 5 secos de 100 millones de pesos cada uno.\n- 15 secos de 50 millones de pesos cada uno.\n- 20 secos de 20 millones de pesos cada uno.\n- 30 secos de 10 millones de pesos.\n- 40 secos de 5 millones de pesos.\n\u00bfC\u00f3mo reclamo el premio mayor de la Loter\u00eda de Santander?\nSiga toda la informaci\u00f3n de Econom\u00eda en Facebook y Twitter, o en nuestra newsletter semanal.\nReg\u00edstrate en nuestros boletines y recibe noticias en tu correo seg\u00fan tus intereses. Mantente informado con lo que realmente te importa.\nS\u00edguenos en GOOGLE NEWS. Mantente siempre actualizado con las \u00faltimas noticias coberturas historias y an\u00e1lisis dire...",
+    "ai_summary": "The article announces the winning numbers for the Santander Lottery draw on January 16, listing various prize amounts and providing information on how to claim winnings.",
+    "published_at": "2026-01-17T04:04:07",
+    "source": "El Tiempo Economia",
+    "sentiment": "neutral",
+    "relevance": 65,
+    "tags": [
+      "ECONOMY",
+      "LOTTERY",
+      "WINNING_NUMBERS",
+      "COLOMBIA",
+      "FINANCE"
+    ],
+    "entities": [
+      "SANTANDER_LOTTERY",
+      "GOOGLE_NEWS"
+    ]
+  },
+  {
+    "id": "fa40e246-2ec9-4aab-b7af-516295696a02",
+    "title": "Autoridades aeron\u00e1uticas emiten aviso de precauci\u00f3n por posibles afectaciones en espacio a\u00e9reo colombiano",
+    "translated_title": "Aeronautical authorities issue cautionary notice for possible disruptions in Colombian airspace",
+    "url": "https://www.portafolio.co/economia/infraestructura/autoridades-aeronauticas-emiten-aviso-de-precaucion-por-posibles-afectaciones-en-espacio-aereo-colombiano-486457",
+    "content": "La Autoridad Aeron\u00e1utica de Colombia inform\u00f3 este viernes, 16 de enero, que, por un Notam (o sea un aviso) de la Administraci\u00f3n Federal de Aviaci\u00f3n de los Estados Unidos, en el que se advierte sobre la necesidad de ejercer precauci\u00f3n ante posibles afectaciones a los Sistemas Globales de Navegaci\u00f3n Satelital (GNSS) durante las diferentes fases del vuelo, en zonas espec\u00edficas se\u00f1aladas en dicha comunicaci\u00f3n. Ello, espec\u00edficamente, indic\u00f3 la FAA (por sus siglas en ingl\u00e9s) en \u00e1reas sobre el oc\u00e9ano Pac\u00edfico dentro de la Regi\u00f3n de Informaci\u00f3n de Vuelo (FIR) de Bogot\u00e1 (SKED), debido a actividades militares e interferencias de GNSS. La entidad norteamericana sostuvo en su comunicaci\u00f3n oficial que \"existen riesgos potenciales para las aeronaves en todas las altitudes, incluso durante el sobrevuelo y las fases de llegada y salida del vuelo\". Por su parte, las empresas que realizan vuelos internacionales o que operan en las \u00e1reas geogr\u00e1ficas mencionadas son plenamente conocedoras de la situaci\u00f3n ...",
+    "ai_summary": "Colombian aeronautical authorities issued a cautionary notice regarding potential disruptions to satellite navigation systems in specific areas over the Pacific Ocean due to military activities and interference.",
+    "published_at": "2026-01-17T01:11:20",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "SAFETY",
+      "NAVIGATION",
+      "AIRSPACE",
+      "TECHNOLOGY",
+      "AVIATION"
+    ],
+    "entities": [
+      "PACIFIC_OCEAN",
+      "BOGOTA",
+      "FAA",
+      "GNSS",
+      "FEDERAL_AVIATION_ADMINISTRATION",
+      "COLOMBIA",
+      "UNITED_STATES"
+    ]
+  },
+  {
+    "id": "aec48865-6b7b-4986-bb69-889ab933dc32",
+    "title": "Prorrogan por un a\u00f1o m\u00e1s el principio de oportunidad a Day V\u00e1squez, principal testigo contra Nicol\u00e1s Petro",
+    "translated_title": "Principle of opportunity extended for another year for Day V\u00e1squez, key witness against Nicol\u00e1s Petro",
+    "url": "https://www.eltiempo.com/justicia/delitos/prorrogan-por-un-ano-mas-el-principio-de-oportunidad-a-day-vasquez-principal-testigo-contra-nicolas-petro-3524780",
+    "content": "Prorrogan por un a\u00f1o m\u00e1s el principio de oportunidad a Day V\u00e1squez, principal testigo contra Nicol\u00e1s Petro.",
+    "ai_summary": "The principle of opportunity for Day V\u00e1squez, the key witness in a case against Nicol\u00e1s Petro, has been extended for an additional year.",
+    "published_at": "2026-01-17T00:14:08",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "INVESTIGATION",
+      "WITNESS",
+      "LAW",
+      "CORRUPTION"
+    ],
+    "entities": [
+      "NICOLAS_PETRO",
+      "DAY_VASQUEZ"
+    ]
+  },
+  {
+    "id": "afbb2e88-18e9-414d-b061-232f4b022c60",
+    "title": "La nueva materia que se dictar\u00e1 en los colegios p\u00fablicos desde 2026... tiene que ver con idiomas",
+    "translated_title": "The new subject to be taught in public schools from 2026... has to do with languages",
+    "url": "https://www.portafolio.co/economia/regiones/nueva-materia-en-colegios-publicos-desde-2026-ayudara-a-los-estudiantes-a-conseguir-empleo-486448",
+    "content": "El aprendizaje del idioma alem\u00e1n comenzar\u00e1 a tener un lugar m\u00e1s relevante en la educaci\u00f3n p\u00fablica colombiana gracias a una alianza estrat\u00e9gica entre el Ministerio de Educaci\u00f3n con entidades alemanas que busca ampliar las oportunidades acad\u00e9micas y laborales de los estudiantes.La iniciativa fue formalizada mediante la firma de unMemorando de Entendimiento entre el Ministerio de Educaci\u00f3n, la Embajada de la Rep\u00fablica Federal de Alemania y el Goethe-Institut, con el objetivo de ofrecer a miles de j\u00f3venes una formaci\u00f3n ling\u00fc\u00edstica con est\u00e1ndares internacionales y una proyecci\u00f3n educativa de alcanc...",
+    "ai_summary": "A new initiative between Colombia's Ministry of Education and German entities, including the Goethe-Institut, will introduce German language learning in public schools starting in 2026 to enhance students' academic and career prospects.",
+    "published_at": "2026-01-16T23:40:47",
+    "source": "Portafolio Economia",
+    "sentiment": "positive",
+    "relevance": 60,
+    "tags": [
+      "GERMAN_LANGUAGE",
+      "EDUCATION",
+      "GOETHE_INSTITUT",
+      "COLOMBIA",
+      "EUROPEAN_UNION"
+    ],
+    "entities": [
+      "MINISTRY_OF_EDUCATION",
+      "GOETHE_INSTITUT",
+      "EMBASSY_OF_THE_FEDERAL_REPUBLIC_OF_GERMANY"
+    ]
+  },
+  {
+    "id": "bff5dcc0-7681-41aa-964b-58e5e959c7fa",
+    "title": "Los aspectos econ\u00f3micos que marcar\u00edan la agenda colombiana en 2026 y que m\u00e1s alerta generan",
+    "translated_title": "The economic aspects that would mark the Colombian agenda in 2026 and generate the most alarm",
+    "url": "https://www.portafolio.co/economia/crecimiento/los-aspectos-economicos-que-marcarian-la-agenda-colombiana-en-2026-y-que-mas-alerta-generan-486440",
+    "content": "Los aspectos econ\u00f3micos que marcar\u00edan la agenda colombiana en 2026 y que m\u00e1s alerta generan\nDesde AmCham Colombia creen que es 'urgente una pol\u00edtica econ\u00f3mica coherente y responsable'.\nEditor digital PortafolioActualizado:\nLos riesgos de la econom\u00eda colombiana para 2026\n- Crecimiento econ\u00f3mico: \"Crecemos, pero sin piso. En lo corrido de 2025 (ene\u2013sep), el PIB creci\u00f3 2,8%. Es positivo, pero insuficiente para cerrar brechas y sostener empleo formal sin m\u00e1s inversi\u00f3n y productividad\".\n- Panorama fiscal en la l\u00ednea roja: \"El Gobierno proyecta un d\u00e9ficit de 7,1% del PIB en 2025. Eso encarece la deuda, reduce el margen para inversi\u00f3n social y aumenta la vulnerabilidad\".\n- Recaudo y una caja floja: \"Si suben costos y crece la informalidad, entran menos impuestos y menos aportes a salud y pensi\u00f3n. Resultado: m\u00e1s d\u00e9ficit y ajustes dolorosos (recortes o m\u00e1s impuestos)\".\n- La inversi\u00f3n es el motor y necesita confianza: \"La IED est\u00e1 estancada. 9.160 millones de d\u00f3lares a septiembre de 2025 vs. 9.6...",
+    "ai_summary": "The Colombian economy faces significant risks in 2026, including insufficient growth, a worrying fiscal deficit, declining tax revenue, and stagnant foreign investment, prompting calls for urgent economic policy reform.",
+    "published_at": "2026-01-16T23:37:34",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 95,
+    "tags": [
+      "FISCAL_POLICY",
+      "GROWTH",
+      "ECONOMY",
+      "INVESTMENT",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "COLOMBIA",
+      "AMCHAM_COLOMBIA"
+    ]
+  },
+  {
+    "id": "5160f773-e285-45c5-b558-0276ab0ea8ba",
+    "title": "El Catatumbo cumple un a\u00f1o del 'drama prolongado' en medio de enfrentamiento entre guerrillas",
+    "translated_title": "El Catatumbo marks one year of 'prolonged drama' amid clash between guerrillas",
+    "url": "https://www.portafolio.co/economia/regiones/el-catatumbo-cumple-un-ano-del-drama-prolongado-en-medio-de-enfrentamiento-entre-guerrillas-486443",
+    "content": "Un a\u00f1o despu\u00e9s de que la guerrilla del Ej\u00e9rcito de Liberaci\u00f3n Nacional (ELN) iniciara una guerra contra el Frente 33 de las disidencias de las Farc por el control del Catatumbo, que deja cerca de un centenar de muertos y m\u00e1s de 100.000 personas desplazadas, la crisis sigue sin soluci\u00f3n, mientras el Ej\u00e9rcito asegura que ha reforzado su presencia en esa zona.\nAs\u00ed lo advirti\u00f3 este viernes la relatora especial de\nNaciones Unidas sobre los derechos humanos de los\ndesplazados internos, Paula Gaviria, quien se\u00f1al\u00f3 que la\nregi\u00f3n atraviesa un \"drama prolongado\".\n\"Es necesario\nreflexionar y actuar, cuand...",
+    "ai_summary": "A year-long conflict between ELN and Farc dissidents over control of Catatumbo has resulted in a prolonged humanitarian crisis with significant casualties and displacement, according to a UN official.",
+    "published_at": "2026-01-16T22:59:19",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 70,
+    "tags": [
+      "DISPLACEMENT",
+      "CONFLICT",
+      "GUERRILLA",
+      "COLOMBIA",
+      "HUMAN_RIGHTS"
+    ],
+    "entities": [
+      "NACIONES_UNIDAS",
+      "FRENTE_33",
+      "ELN",
+      "PAULA_GAVIRIA",
+      "EJERCITO_DE_LIBERACION_NACIONAL",
+      "CATATUMBO",
+      "FARC"
+    ]
+  },
+  {
+    "id": "3085fec1-e1cc-4a5e-a328-388424b9582f",
+    "title": "\u00bfEs viable jur\u00eddicamente que los departamentos no acaten la emergencia econ\u00f3mica decretada por el Gobierno?",
+    "translated_title": "Is it legally viable for departments not to comply with the economic emergency decreed by the Government?",
+    "url": "https://www.portafolio.co/economia/gobierno/es-viable-juridicamente-que-los-departamentos-no-acaten-la-emergencia-economica-decretada-por-el-gobierno-486425",
+    "content": "La decisi\u00f3n de gobernadores de al menos 17 departamentos de no aplicar el decreto de Emergencia Econ\u00f3mica expedido por el presidente Gustavo Petro abri\u00f3 un intenso debate nacional: \u00bfes jur\u00eddicamente viable que las autoridades territoriales se aparten de una norma con fuerza de ley?\nEntre quienes han respaldado esta postura, al advertir una posible inconstitucionalidad y una afectaci\u00f3n a la autonom\u00eda territorial, se encuentran las gobernadoras del Tolima, Adriana Magali Matiz, y del Valle del Cauca, Dilian Francisca Toro; as\u00ed como los gobernadores Andr\u00e9s Juli\u00e1n Rend\u00f3n, de Antioquia y Erasmo Zuleta...",
+    "ai_summary": "Governors from at least 17 Colombian departments are questioning the legal viability of President Gustavo Petro's economic emergency decree, sparking a national debate on territorial autonomy and constitutional challenges.",
+    "published_at": "2026-01-16T22:49:48",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "POLITICS",
+      "ECONOMICS",
+      "LAW",
+      "EMERGENCY_DECREE",
+      "GOVERNANCE"
+    ],
+    "entities": [
+      "ANDRES_JULIAN_RENDON",
+      "VALLE_DEL_CAUCA",
+      "ANTIOQUIA",
+      "GUSTAVO_PETRO",
+      "ERASMO_ZULETA",
+      "TOLIMA",
+      "ADRIANA_MAGALI_MATIZ",
+      "DILIAN_FRANCISCA_TORO"
+    ]
+  },
+  {
+    "id": "6d39915d-4082-4820-a078-5e00434f37e1",
+    "title": "Mintransporte actualiza el SICE-TAC con nuevas variables de costos para el transporte de carga: As\u00ed quedar\u00e1",
+    "translated_title": "Ministry of Transport updates SICE-TAC with new cost variables for freight transport: This is how it will be",
+    "url": "https://www.portafolio.co/economia/finanzas/mintransporte-actualiza-el-sice-tac-con-nuevas-variables-de-costos-para-el-transporte-de-carga-asi-quedara-486433",
+    "content": "El Ministerio de Transporte avanza en la actualizaci\u00f3n del Sistema de Informaci\u00f3n de Costos Eficientes para el Transporte Automotor de Carga (SICE-TAC), con la incorporaci\u00f3n progresiva de nuevas variables econ\u00f3micas que inciden directamente en la operaci\u00f3n del sector.\nDesde este fin de semana, la herramienta comienza a reflejar el nuevo salario m\u00ednimo y el precio del combustible, mientras que en las pr\u00f3ximas semanas se sumar\u00e1n los peajes y los costos fijos, como parte de un proceso t\u00e9cnico que se desarrollar\u00e1 durante enero y que ser\u00e1 presentado a los transportadores en una reuni\u00f3n programada pa...",
+    "ai_summary": "The Ministry of Transport is updating the SICE-TAC system with new economic variables like minimum wage, fuel price, tolls, and fixed costs to reflect changes in freight transport operations.",
+    "published_at": "2026-01-16T22:49:33",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "TRANSPORT",
+      "ECONOMICS",
+      "FUEL_PRICE",
+      "UPDATE",
+      "COSTS"
+    ],
+    "entities": [
+      "SICE_TAC",
+      "MINISTRY_OF_TRANSPORT"
+    ]
+  },
+  {
+    "id": "b987219e-560d-4f29-a0c0-7bced3ab71ac",
+    "title": "Las ganancias del sistema financiero hasta noviembre de 2025 subieron el 8%",
+    "translated_title": "Financial system profits rose 8% through November 2025",
+    "url": "https://www.portafolio.co/negocios/empresas/las-ganancias-del-sistema-financiero-hasta-noviembre-de-2025-subieron-el-486431",
+    "content": "Las utilidades del conjunto del sistema financiero se ubicaron en $122 billones, monto superior al registrado en noviembre de 2024, periodo en el que estas registraron $112,9 billones, es decir registraron un incremento del 8%.\nLos Establecimientos de\nCr\u00e9dito (EC) reportaron utilidades por $14,4 billones, seguidos por\nlas aseguradoras que alcanzaron $3,6 billones, las Instituciones\nOficiales Especiales (IOE) con $3,2 billones, las Administradoras de\nFondos de Pensiones (AFP) con $1,3 billones, las sociedades\nfiduciarias con $857.200 millones, los proveedores de infraestructura\ncon $481.000 mill...",
+    "ai_summary": "The financial system's profits increased by 8% to $122 trillion by November 2025, compared to $112.9 trillion in November 2024.",
+    "published_at": "2026-01-16T22:39:23",
+    "source": "Portafolio Negocios",
+    "sentiment": "positive",
+    "relevance": 95,
+    "tags": [
+      "PROFITS",
+      "ECONOMICS",
+      "FINANCIAL_SYSTEM",
+      "INVESTMENT",
+      "FINANCE"
+    ],
+    "entities": [
+      "PENSION_FUND_ADMINISTRATORS",
+      "CREDIT_INSTITUTIONS",
+      "INSURERS",
+      "FINANCIAL_SYSTEM",
+      "SPECIAL_OFFICIAL_INSTITUTIONS"
+    ]
+  },
+  {
+    "id": "2e4b24c7-99dc-418c-8f49-12f0d64964a5",
+    "title": "V\u00e9lez por la ma\u00f1ana | Andr\u00e9s Juli\u00e1n Rend\u00f3n, gobernador de Antioquia, habl\u00f3 de la 'rebeli\u00f3n' contra la emergencia econ\u00f3mica decretada por el Gobierno",
+    "translated_title": "V\u00e9lez in the morning | Andr\u00e9s Juli\u00e1n Rend\u00f3n, governor of Antioquia, spoke about the 'rebellion' against the economic emergency decreed by the Government",
+    "url": "https://www.eltiempo.com/politica/partidos-politicos/velez-por-la-manana-andres-julian-rendon-gobernador-de-antioquia-hablo-de-la-rebelion-contra-la-emergencia-economica-decretada-por-el-gobierno-3524765",
+    "content": "En este portal utilizamos datos de navegaci\u00f3n / cookies propias y de terceros para gestionar el portal, elaborar informaci\u00f3n estad\u00edstica, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a trav\u00e9s del an\u00e1lisis de la navegaci\u00f3n. Si contin\u00faa navegando, usted estar\u00e1 aceptando esta utilizaci\u00f3n. Puede conocer c\u00f3mo deshabilitarlas u obtener m\u00e1s informaci\u00f3n\naqu\u00ed\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "Andr\u00e9s Juli\u00e1n Rend\u00f3n, governor of Antioquia, discusses a 'rebellion' against the economic emergency decreed by the Government.",
+    "published_at": "2026-01-16T22:09:05",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "REBELLION",
+      "POLITICS",
+      "GOVERNMENT_POLICY",
+      "GOVERNOR",
+      "EMERGENCY_DECREE"
+    ],
+    "entities": [
+      "ANTIOQUIA",
+      "GOVERNMENT",
+      "ANDRES_JULIAN_RENDON"
+    ]
+  },
+  {
+    "id": "506c70c6-337d-4d57-9b00-7e6b79bfa220",
+    "title": "Compras inteligentes: c\u00f3mo ahorrar hasta un 50% aprovechando las rebajas de enero",
+    "translated_title": "Smart shopping: how to save up to 50% by taking advantage of January sales",
+    "url": "https://www.portafolio.co/mis-finanzas/ahorro/compras-inteligentes-como-ahorrar-hasta-un-50-aprovechando-las-rebajas-de-enero-486438",
+    "content": "Enero, tradicionalmente considerado un mes de baja actividad comercial, se ha transformado en una de las temporadas de ofertas m\u00e1s relevantes del a\u00f1o. De acuerdo con un an\u00e1lisis de Fenalco Bogot\u00e1 Cundinamarca, seis de cada diez establecimientos (60%) ofrecen descuentos y promociones durante este periodo, impulsando el consumo y convirti\u00e9ndolo en una oportunidad estrat\u00e9gica para los ciudadanos que buscan optimizar su presupuesto tras los gastos de fin de a\u00f1o. \u201cHoy en d\u00eda, enero se ha transformado en una gran oportunidad tanto para los comerciantes como para los ciudadanos, con descuentos que sup...",
+    "ai_summary": "January has transitioned into a significant sales season, with a majority of businesses offering discounts to boost post-holiday consumer spending and provide budget optimization opportunities.",
+    "published_at": "2026-01-16T21:45:41",
+    "source": "Portafolio Finanzas",
+    "sentiment": "positive",
+    "relevance": 75,
+    "tags": [
+      "CONSUMER_SPENDING",
+      "JANUARY",
+      "DISCOUNTS",
+      "ECONOMICS",
+      "SALES"
+    ],
+    "entities": [
+      "FENALCO_BOGOTA_CUNDINAMARCA"
+    ]
+  },
+  {
+    "id": "bf5ffbc8-31f3-4a96-a395-7755c08b2478",
+    "title": "Compras inteligentes: c\u00f3mo ahorrar hasta un 50% aprovechando las rebajas de enero",
+    "translated_title": "Smart shopping: how to save up to 50% by taking advantage of January sales",
+    "url": "https://www.portafolio.co/mis-finanzas/ahorro/compras-inteligentes-como-ahorrar-hasta-un-50-aprovechando-las-rebajas-de-enero-486438",
+    "content": "Enero, tradicionalmente considerado un mes de baja actividad comercial, se ha transformado en una de las temporadas de ofertas m\u00e1s relevantes del a\u00f1o. De acuerdo con un an\u00e1lisis de Fenalco Bogot\u00e1 Cundinamarca, seis de cada diez establecimientos (60%) ofrecen descuentos y promociones durante este periodo, impulsando el consumo y convirti\u00e9ndolo en una oportunidad estrat\u00e9gica para los ciudadanos que buscan optimizar su presupuesto tras los gastos de fin de a\u00f1o. \u201cHoy en d\u00eda, enero se ha transformado en una gran oportunidad tanto para los comerciantes como para los ciudadanos, con descuentos que sup...",
+    "ai_summary": "January sales have become a significant opportunity for both consumers and merchants, with many establishments offering discounts to boost post-holiday spending.",
+    "published_at": "2026-01-16T21:45:41",
+    "source": "Portafolio Economia",
+    "sentiment": "positive",
+    "relevance": 85,
+    "tags": [
+      "JANUARY",
+      "DISCOUNTS",
+      "SALES",
+      "BUDGET",
+      "CONSUMPTION"
+    ],
+    "entities": [
+      "FENALCO_BOGOTA_CUNDINAMARCA"
+    ]
+  },
+  {
+    "id": "a07b6325-7535-486a-bb41-1ce00c2f635a",
+    "title": "Un a\u00f1o de la \u2018Operaci\u00f3n Catatumbo\u2019: as\u00ed fue la ejecuci\u00f3n de casi medio bill\u00f3n de pesos para atender la crisis",
+    "translated_title": "One year of 'Operation Catatumbo': this was the execution of almost half a trillion pesos to address the crisis",
+    "url": "https://www.eltiempo.com/justicia/conflicto-y-narcotrafico/un-ano-de-la-operacion-catatumbo-asi-fue-la-ejecucion-de-casi-medio-billon-de-pesos-para-atender-la-crisis-3524803",
+    "content": "Un a\u00f1o de la \u2018Operaci\u00f3n Catatumbo\u2019: as\u00ed fue la ejecuci\u00f3n de casi medio bill\u00f3n de pesos para atender la crisis",
+    "ai_summary": "The article reviews the execution of nearly half a trillion pesos in 'Operation Catatumbo' one year after its launch to address a crisis.",
+    "published_at": "2026-01-16T21:21:19",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "PUBLIC_SPENDING",
+      "OPERATION_CATATUMBO",
+      "ONE_YEAR_REVIEW",
+      "CRISIS_MANAGEMENT",
+      "GOVERNMENT_ACCOUNTABILITY"
+    ],
+    "entities": [
+      "OPERATION_CATATUMBO"
+    ]
+  },
+  {
+    "id": "81747f0c-160a-424c-9754-6aea833ae5a4",
+    "title": "Presidente Petro no tendr\u00eda facultades de cambiar los criterios para fijar el salario m\u00ednimo, seg\u00fan nueva demanda",
+    "translated_title": "President Petro would not have powers to change the criteria for setting the minimum wage, according to a new lawsuit",
+    "url": "https://www.portafolio.co/economia/gobierno/presidente-petro-no-tendria-facultades-de-cambiar-los-criterios-para-fijar-el-salario-minimo-segun-nueva-demanda-486429",
+    "content": "Heimy Blanco Navarro, gerente de litigios de la firma de abogados Chapman Wilches, radic\u00f3 una nueva acci\u00f3n de nulidad con la que busca tumbar el decreto 1469 del 29 de diciembre de 2025, que define el incremento de 23% del salario m\u00ednimo en Colombia para el 2026.\nSeg\u00fan la demandante, el Gobierno del presidente Gustavo Petro no tuvo en cuenta los criterios de ley para fijar el ajuste salarial, los cuales est\u00e1n establecido en el art\u00edculo 8 de la Ley 278 de 1996.\nSeg\u00fan esta norma, se deben tener en cuenta la meta de inflaci\u00f3n 2026 fijada por el Banco de la Rep\u00fablica (3%), la productividad fijada p...",
+    "ai_summary": "A legal challenge has been filed against a decree increasing Colombia's minimum wage by 23% for 2026, alleging that the government did not follow legal criteria for setting the adjustment.",
+    "published_at": "2026-01-16T21:06:51",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 95,
+    "tags": [
+      "LEGAL_CHALLENGE",
+      "ECONOMY",
+      "MINIMUM_WAGE",
+      "INFLATION",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "HEMY_BLANCO_NAVARRO",
+      "GUSTAVO_PETRO",
+      "BANK_OF_THE_REPUBLIC",
+      "CHAPMAN_WILCHES"
+    ]
+  },
+  {
+    "id": "6512240e-fa2f-4d3e-9c99-8a62c94f2b17",
+    "title": "Procuradur\u00eda abre indagaci\u00f3n por millonario contrato con firma jur\u00eddica que asesora a Petro en EE. UU.",
+    "translated_title": "Prosecutor's Office opens investigation into millionaire contract with law firm advising Petro in the US.",
+    "url": "https://www.portafolio.co/economia/gobierno/procuraduria-abre-indagacion-por-millonario-contrato-con-firma-juridica-que-asesora-a-petro-en-ee-uu-486432",
+    "content": "La Procuradur\u00eda colombiana (Ministerio P\u00fablico) abri\u00f3 una indagaci\u00f3n para establecer si hay responsabilidad disciplinaria en un contrato de asesor\u00eda jur\u00eddica internacional suscrito por la Presidencia con la firma que defiende al presidente Gustavo Petro, en Estados Unidos, tras su inclusi\u00f3n en la llamada \"Lista Clinton\".\nEl contrato, que asciende a 10.000 millones de pesos (unos 2,7 millones de d\u00f3lares), fue firmado el pasado 9 de enero por el Departamento Administrativo de la Presidencia de la Rep\u00fablica (Dapre) con la firma Amadeus Consultancy Limited, para \"la prestaci\u00f3n de servicios profesio...",
+    "ai_summary": "The Colombian Prosecutor's Office is investigating a multi-million dollar contract awarded by the Presidency to a law firm defending President Gustavo Petro in the US.",
+    "published_at": "2026-01-16T21:01:37",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "INVESTIGATION",
+      "PRESIDENCY",
+      "LEGAL_ADVICE",
+      "FINANCE",
+      "CONTRACT"
+    ],
+    "entities": [
+      "PROCURADURIA",
+      "AMADEUS_CONSULTANCY_LIMITED",
+      "CLINTON_LIST",
+      "DAPRE",
+      "GUSTAVO_PETRO",
+      "COLOMBIA",
+      "UNITED_STATES",
+      "DEPARTMENTO_ADMINISTRATIVO_DE_LA_PRESIDENCIA_DE_LA_REPUBLICA"
+    ]
+  },
+  {
+    "id": "26c45c89-6fc3-4236-a80c-43be1518e6b3",
+    "title": "La hacienda de la Virgen del Cobre fue entregada a campesinos del Urab\u00e1: as\u00ed es el predio en el que delinqu\u00eda a la sombra el empresariado paramilitar",
+    "translated_title": "The Hacienda of the Virgen del Cobre was handed over to peasants from Urab\u00e1: this is the property where paramilitary businessmen committed crimes in the shadows",
+    "url": "https://www.eltiempo.com/justicia/investigacion/la-virgen-del-cobre-fue-entregada-a-manos-campesinas-del-uraba-asi-es-el-predio-en-el-que-delinquia-a-la-sombra-el-empresariado-paramilitar-3524791",
+    "content": "La hacienda de la Virgen del Cobre fue entregada a campesinos del Urab\u00e1: as\u00ed es el predio en el que delinqu\u00eda a la sombra el empresariado paramilitar",
+    "ai_summary": "The Hacienda of the Virgen del Cobre has been transferred to Urab\u00e1 peasants, revealing a property previously used for illicit activities by paramilitary businessmen.",
+    "published_at": "2026-01-16T20:49:02",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "PARAMILITARY",
+      "CRIME",
+      "AGRICULTURE",
+      "LAND_REFORM",
+      "URABA"
+    ],
+    "entities": [
+      "VIRGEN_DEL_COBRE",
+      "URABA"
+    ]
+  },
+  {
+    "id": "cda509cc-49cf-4d83-9581-b5f94b2c1fa1",
+    "title": "Las claves del concepto de la Sala de Consulta del Consejo de Estado sobre la UPC y las deudas del sistema de salud",
+    "translated_title": "The keys to the State Council's Consultation Chamber's concept on the UPC and the health system's debts",
+    "url": "https://www.eltiempo.com/justicia/cortes/las-claves-del-concepto-de-la-sala-de-consulta-del-consejo-de-estado-sobre-la-upc-y-las-deudas-del-sistema-de-salud-3524751",
+    "content": "En este portal utilizamos datos de navegaci\u00f3n / cookies propias y de terceros para gestionar el portal, elaborar informaci\u00f3n estad\u00edstica, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a trav\u00e9s del an\u00e1lisis de la navegaci\u00f3n. Si contin\u00faa navegando, usted estar\u00e1 aceptando esta utilizaci\u00f3n. Puede conocer c\u00f3mo deshabilitarlas u obtener m\u00e1s informaci\u00f3n\naqu\u00ed\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "The article discusses the State Council's Consultation Chamber's key concepts regarding the UPC and debts within the health system, while also including website usage notices and subscription prompts.",
+    "published_at": "2026-01-16T20:32:14",
+    "source": "El Tiempo Justicia",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "CONSULTATION_CHAMBER",
+      "HEALTH_SYSTEM",
+      "HEALTHCARE_DEBT",
+      "STATE_COUNCIL",
+      "UPC"
+    ],
+    "entities": [
+      "STATE_COUNCIL",
+      "EL_TIEMPO"
+    ]
+  },
+  {
+    "id": "14586ea4-4c17-44e2-888c-d7571765507b",
+    "title": "Mapfre renueva su imagen en este 2026 como parte de su transformaci\u00f3n empresarial",
+    "translated_title": "Mapfre renews its image in 2026 as part of its business transformation",
+    "url": "https://www.portafolio.co/negocios/empresas/mapfre-renueva-su-imagen-en-este-2026-como-parte-de-su-transformacion-486426",
+    "content": "Mapfre anunci\u00f3 recientemente la renovaci\u00f3n de su marca como parte de un proceso que busca alinear su proyecci\u00f3n externa con la profunda transformaci\u00f3n que ha vivido la compa\u00f1\u00eda en los \u00faltimos a\u00f1os.\nLa aseguradora present\u00f3 al p\u00fablico una nueva identidad visual que mantiene la esencia y el legado de una organizaci\u00f3n con m\u00e1s de 90 a\u00f1os de historia, pero que apuesta por una imagen m\u00e1s moderna, cercana y coherente con su estrategia de innovaci\u00f3n y crecimiento en un entorno cada vez m\u00e1s digital\nSeg\u00fan inform\u00f3 la compa\u00f1\u00eda, la marca es un activo estrat\u00e9gico que permitir\u00e1 conectar con audiencias m\u00e1s amplias y transmitir de manera m\u00e1s clara su actividad en los distintos mercados y unidades de negocio.\nEl redise\u00f1o incluye una evoluci\u00f3n del ic\u00f3nico color rojo, ahora m\u00e1s vibrante y decidido, un logo del tr\u00e9bol renovado, m\u00e1s actual y atractivo, y el uso de min\u00fasculas, un recurso gr\u00e1fico que busca proyectar mayor cercan\u00eda y accesibilidad\nLa renovaci\u00f3n responde a los cambios que ha experimentado Mapfre...",
+    "ai_summary": "Mapfre is renewing its brand identity with a more modern and accessible image to align with its digital transformation and growth strategy.",
+    "published_at": "2026-01-16T20:06:31",
+    "source": "Portafolio Negocios",
+    "sentiment": "positive",
+    "relevance": 65,
+    "tags": [
+      "DIGITAL_TRANSFORMATION",
+      "BUSINESS_STRATEGY",
+      "REBRANDING",
+      "INNOVATION",
+      "BRANDING"
+    ],
+    "entities": [
+      "MAPFRE"
+    ]
+  },
+  {
+    "id": "97ffdaa5-676d-4166-b2fa-7ac00f5fd58b",
+    "title": "Presidente del Senado, Lidio Garc\u00eda, cuestiona el recorte del presupuesto para el Congreso: 'Pone en riesgo su funcionamiento'",
+    "translated_title": "President of the Senate, Lidio Garc\u00eda, questions the budget cut for Congress: 'It puts its functioning at risk'",
+    "url": "https://www.eltiempo.com/politica/congreso/presidente-del-senado-lidio-garcia-cuestiona-el-recorte-del-presupuesto-para-el-congreso-pone-en-riesgo-su-funcionamiento-3524783",
+    "content": "El Presidente del Senado, Lidio Garc\u00eda, cuestion\u00f3 el recorte presupuestal que se planea para el Congreso de la Rep\u00fablica, advirtiendo que esto podr\u00eda poner en riesgo el funcionamiento de la corporaci\u00f3n. \"No podemos permitir que se ponga en riesgo el funcionamiento del Congreso\", afirm\u00f3 Garc\u00eda durante una entrevista. El senador se\u00f1al\u00f3 que el presupuesto asignado a la corporaci\u00f3n es fundamental para el desarrollo de sus funciones legislativas y de control pol\u00edtico. \"Un Congreso debilitado, financieramente hablando, es un Congreso que no podr\u00e1 responder a las demandas de la ciudadan\u00eda\", a\u00f1adi\u00f3. Garc\u00eda hizo un llamado a la reflexi\u00f3n a los diferentes sectores del gobierno para que reconsideren esta medida y busquen alternativas que permitan mantener la autonom\u00eda y la capacidad operativa del parlamento.",
+    "ai_summary": "The President of the Senate, Lidio Garc\u00eda, expressed concern that proposed budget cuts for Congress could jeopardize its operational capacity and ability to serve the citizenry.",
+    "published_at": "2026-01-16T19:40:18",
+    "source": "El Tiempo Politica",
+    "sentiment": "negative",
+    "relevance": 85,
+    "tags": [
+      "BUDGET_CUT",
+      "POLITICS",
+      "SENATE",
+      "CONGRESS",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "CONGRESS_OF_THE_REPUBLIC",
+      "LIDIO_GARCIA"
+    ]
+  },
+  {
+    "id": "f3bf5802-03ca-442c-85c4-ff7d6115cca1",
+    "title": "Desacuerdo entre dos bandos hizo inviable el ingreso de Daniel Palacios a la 'Gran consulta': 'No puede convertirse en la consulta de la derecha'",
+    "translated_title": "Disagreement between two factions made Daniel Palacios' entry into the 'Gran consulta' unviable: 'It cannot become the right-wing consultation'",
+    "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/desacuerdos-entre-candidatos-hicieron-inviable-el-ingreso-de-daniel-palacios-a-la-gran-consulta-no-puede-convertirse-en-la-consulta-de-la-derecha-3524730",
+    "content": "En este portal utilizamos datos de navegaci\u00f3n / cookies propias y de terceros para gestionar el portal, elaborar informaci\u00f3n estad\u00edstica, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a trav\u00e9s del an\u00e1lisis de la navegaci\u00f3n. Si contin\u00faa navegando, usted estar\u00e1 aceptando esta utilizaci\u00f3n. Puede conocer c\u00f3mo deshabilitarlas u obtener m\u00e1s informaci\u00f3n\naqu\u00ed\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "A disagreement between two factions prevented Daniel Palacios from participating in the 'Gran consulta', with one faction arguing it would become a right-wing consultation.",
+    "published_at": "2026-01-16T18:01:36",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "CONSULTATION",
+      "RIGHT_WING",
+      "POLITICAL_PARTIES",
+      "DISAGREEMENT"
+    ],
+    "entities": [
+      "DANIEL_PALACIOS"
+    ]
+  },
+  {
+    "id": "f70d8c9b-5d59-4d4d-98ce-76e02ae513cc",
+    "title": "Rafaela Cort\u00e9s, gobernadora del Meta, habla sobre la 'rebeli\u00f3n' por el decreto de emergencia econ\u00f3mica: 'Afecta las finanzas de los departamentos'",
+    "translated_title": "Rafaela Cort\u00e9s, governor of Meta, speaks about the 'rebellion' over the economic emergency decree: 'It affects the finances of the departments'",
+    "url": "https://www.eltiempo.com/politica/partidos-politicos/rafaela-cortes-gobernadora-del-meta-habla-sobre-la-rebelion-por-el-decreto-de-emergencia-economica-afecta-las-finanzas-de-los-departamentos-3524741",
+    "content": "En este portal utilizamos datos de navegaci\u00f3n / cookies propias y de terceros para gestionar el portal, elaborar informaci\u00f3n estad\u00edstica, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a trav\u00e9s del an\u00e1lisis de la navegaci\u00f3n. Si contin\u00faa navegando, usted estar\u00e1 aceptando esta utilizaci\u00f3n. Puede conocer c\u00f3mo deshabilitarlas u obtener m\u00e1s informaci\u00f3n\naqu\u00ed\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesi\u00f3n con ella y no te pierdas de todos los beneficios que tenemos para t\u00ed. Iniciar sesi\u00f3n\n\u00a1Hola! Parece que has alcanzado tu l\u00edmite diario de 3 b\u00fasquedas en nuestro chat bot como usuario registrado.\n\u00bfQuieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripci\u00f3n que se adapte a tus preferencias y accede a \u00a1contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. \ud83c\udf1f\n\u00a1Hola! Haz excedido el m\u00e1ximo de peticiones mensuales.\nPara m\u00e1s informaci\u00f3n continua nave...",
+    "ai_summary": "Rafaela Cort\u00e9s, governor of Meta, expresses concern that the economic emergency decree negatively impacts departmental finances, leading to a 'rebellion'.",
+    "published_at": "2026-01-16T17:29:01",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "DEPARTMENTS",
+      "POLITICS",
+      "GOVERNOR",
+      "EMERGENCY_DECREE",
+      "FINANCE"
+    ],
+    "entities": [
+      "RAFAELA_CORTES",
+      "META"
+    ]
+  },
+  {
+    "id": "d2e7ef79-10dc-4fbc-901b-6e0f924b8c81",
+    "title": "La Supersociedades somete a control al Deportivo Pereira: \u00bfqu\u00e9 viene para el club del FPC?",
+    "translated_title": "Supersociedades places Deportivo Pereira under control: what comes next for the FPC club?",
+    "url": "https://www.portafolio.co/negocios/empresas/la-supersociedades-somete-a-control-al-deportivo-pereira-que-viene-para-el-club-del-fpc-486403",
+    "content": "La Superintendencia de Sociedades inform\u00f3, este viernes 16 de enero, que, tras adelantar una actuaci\u00f3n administrativa, decidi\u00f3 someter a control al equipo de f\u00fatbol profesional colombiano Deportivo Pereira.\nLa decisi\u00f3n se fundament\u00f3 \"en el art\u00edculo 85 de\nla Ley 222 de 1995. Esta medida obedece a la verificaci\u00f3n de una situaci\u00f3n\ncr\u00edtica de orden jur\u00eddico, contable y administrativo, que hace necesario\naplicar el m\u00e1ximo grado de supervisi\u00f3n previsto por la ley para proteger la\nestabilidad de la empresa\", reza el comunicado emitido por la entidad.\nEn Colombia, que la Supersociedades someta a contro...",
+    "ai_summary": "The Superintendency of Companies has placed the Colombian football club Deportivo Pereira under control due to critical legal, accounting, and administrative issues to ensure its stability.",
+    "published_at": "2026-01-16T17:18:04",
+    "source": "Portafolio Negocios",
+    "sentiment": "neutral",
+    "relevance": 85,
+    "tags": [
+      "SPORTS_FINANCE",
+      "ECONOMIC_STABILITY",
+      "REGULATION",
+      "FOOTBALL_CLUB",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "COLOMBIA",
+      "SUPERINTENDENCIA_DE_SOCIEDADES",
+      "LEY_222_DE_1995",
+      "DEPORTIVO_PEREIRA"
+    ]
+  },
+  {
+    "id": "c315dc81-7d18-4f2d-80b1-7c7bb22367b8",
+    "title": "Desinformaci\u00f3n e inteligencia artificial, la gran amenaza para las empresas en Colombia de cara al 2026",
+    "translated_title": "Disinformation and artificial intelligence, the great threat to companies in Colombia looking ahead to 2026",
+    "url": "https://www.portafolio.co/negocios/empresas/desinformacion-e-inteligencia-artificial-la-gran-amenaza-para-las-empresas-en-colombia-de-cara-al-486401",
+    "content": "En Colombia, el riesgo que m\u00e1s inquieta a las empresas ya no se limita a un ataque inform\u00e1tico convencional, sino a un fen\u00f3meno m\u00e1s amplio y dif\u00edcil de controlar por cuenta de la combinaci\u00f3n entre inteligencia artificial y desinformaci\u00f3n, que m\u00e1s all\u00e1 de afectaciones econ\u00f3micas, puede generar distorsiones de mercado y afectaciones a la reputaci\u00f3n de las organizaciones.\nAs\u00ed lo demuestra el Bar\u00f3metro de Riesgos 2026 de Allianz Commercial, que muestra un cambio de jerarqu\u00eda que no es menor para la gesti\u00f3n corporativa, porque por primera vez la IA ocupa el primer lugar del ranking nacional, con 48%...",
+    "ai_summary": "The combination of artificial intelligence and disinformation is identified as the primary threat to companies in Colombia, surpassing conventional cyber attacks and posing risks to market stability and corporate reputation.",
+    "published_at": "2026-01-16T16:29:49",
+    "source": "Portafolio Negocios",
+    "sentiment": "neutral",
+    "relevance": 95,
+    "tags": [
+      "DISINFORMATION",
+      "CYBERSECURITY",
+      "ARTIFICIAL_INTELLIGENCE",
+      "RISK_MANAGEMENT",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "ALLIANZ_COMMERCIAL"
+    ]
+  }
+]

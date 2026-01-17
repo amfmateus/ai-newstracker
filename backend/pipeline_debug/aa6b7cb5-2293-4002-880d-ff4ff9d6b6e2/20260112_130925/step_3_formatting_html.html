@@ -1,0 +1,957 @@
+
+            <html>
+            <head>
+                <style>
+                    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+                    /* Web-only CSS - DO NOT use for email */
+/* This file enhances the template when viewed in browsers */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F9FAFB;
+    font-family: 'Inter', 'Arial', 'Verdana', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Container - Enhanced for Web */
+.report-container {
+    max-width: 650px;
+    margin: 32px auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* EC-Compliant Header */
+.report-header {
+    padding: 40px 40px 24px 40px;
+    border-bottom: 3px solid #0E47CB;
+    background-color: #FFFFFF;
+}
+
+.main-title {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0E47CB;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 18px;
+    color: #666666;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Executive Summary Box */
+.summary-box {
+    background-color: #F0F4FA;
+    border-left: 4px solid #0E47CB;
+    padding: 20px 24px;
+    margin: 24px 40px;
+}
+
+.summary-label {
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0E47CB;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.summary-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Key Findings Section */
+.findings-section {
+    background-color: #EFF6FF;
+    border-left: 4px solid #FFCC00;
+    padding: 20px 24px;
+    margin: 0 40px 32px 40px;
+}
+
+.findings-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #004494;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.findings-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.findings-section li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #004494;
+    font-weight: 500;
+}
+
+.findings-section li:last-child {
+    margin-bottom: 0;
+}
+
+.findings-section li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0E47CB;
+}
+
+/* Content Sections */
+.report-content {
+    padding: 0 40px 32px 40px;
+}
+
+.report-section {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    margin: 24px 0 12px 0;
+    font-weight: 700;
+    color: #0E47CB;
+    line-height: 1.3;
+}
+
+/* Hierarchical Section Titles */
+.level-1 > .section-title {
+    font-size: 24px;
+    color: #0E47CB;
+    border-bottom: 2px solid #F3F4F6;
+    padding-bottom: 8px;
+}
+
+.level-2 > .section-title {
+    font-size: 20px;
+    color: #004494;
+}
+
+.level-3 > .section-title {
+    font-size: 18px;
+    color: #004494;
+}
+
+.level-4 > .section-title {
+    font-size: 16px;
+    color: #004494;
+}
+
+/* Section Body */
+.section-body {
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.section-body p {
+    margin: 0 0 12px 0;
+}
+
+.section-body p:last-child {
+    margin-bottom: 0;
+}
+
+.section-body ul,
+.section-body ol {
+    margin: 0 0 12px 0;
+    padding-left: 24px;
+}
+
+.section-body li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+/* Subsections */
+.subsections {
+    padding-left: 24px;
+    border-left: 2px solid #F3F4F6;
+}
+
+/* References Section */
+.references-section {
+    padding: 32px 40px 40px 40px;
+    border-top: 3px solid #0E47CB;
+}
+
+.refs-title {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0E47CB;
+}
+
+.ref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ref-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #FAFBFC;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.ref-item:hover {
+    background-color: #F0F4FA;
+}
+
+.ref-number {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0E47CB;
+    min-width: 28px;
+}
+
+.ref-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ref-article-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    line-height: 1.4;
+}
+
+.ref-link {
+    font-size: 13px;
+    color: #0E47CB;
+    text-decoration: none;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.ref-link:hover {
+    color: #004494;
+    text-decoration: underline;
+}
+
+/* In-text Citations */
+sup a {
+    color: #0E47CB;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+sup a:hover {
+    color: #004494;
+    text-decoration: underline;
+}
+
+/* Links in Body Text */
+a {
+    color: #0E47CB;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #004494;
+}
+
+a:focus {
+    outline: 2px solid #FFCC00;
+    outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 700px) {
+    .report-container {
+        margin: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .report-header {
+        padding: 40px 24px 24px 24px;
+    }
+    
+    .report-content,
+    .references-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .summary-box,
+    .findings-section {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+    
+    .level-1 > .section-title {
+        font-size: 22px;
+    }
+    
+    .level-2 > .section-title {
+        font-size: 18px;
+    }
+    
+    .level-3 > .section-title {
+        font-size: 16px;
+    }
+    
+    .subsections {
+        padding-left: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .report-container {
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .main-title {
+        font-size: 24px;
+    }
+    
+    .ref-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #FFFFFF;
+    }
+    
+    .report-container {
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    .ref-item {
+        page-break-inside: avoid;
+    }
+    
+    .report-section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .summary-box,
+    .findings-section {
+        border-left-width: 6px;
+    }
+    
+    a:focus {
+        outline-width: 3px;
+    }
+}
+                </style>
+            </head>
+            <body>
+                
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Inflation Steady, Housing Policy Debated, Global Markets React to Fed News</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        body { margin: 0; padding: 0; width: 100% !important; }
+        a { color: #0E47CB; text-decoration: underline; }
+        a:hover { color: #004494; }
+        sup a { color: #0E47CB; font-weight: 700; text-decoration: none; }
+        sup a:hover { text-decoration: underline; }
+        
+        @media only screen and (max-width: 600px) {
+            .main-title { font-size: 28px !important; line-height: 1.2 !important; }
+            .subtitle { font-size: 16px !important; }
+            .content-wrapper { padding: 16px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F9FAFB; font-family: 'Arial', 'Verdana', sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; background-color: #F9FAFB;">
+        <tr>
+            <td align="center" style="padding: 32px 16px;">
+                <table role="presentation" width="650" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; max-width: 650px; width: 100%; background-color: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    
+                    <!-- Header Section -->
+                    <tr>
+                        <td style="padding: 40px 40px 24px 40px; border-bottom: 3px solid #0E47CB;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                <tr>
+                                    <td>
+                                        <h1 class="main-title" style="margin: 0 0 8px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 32px; font-weight: 700; color: #0E47CB; line-height: 1.2;">Inflation Steady, Housing Policy Debated, Global Markets React to Fed News</h1>
+                                        
+                                        <p class="subtitle" style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 18px; color: #666666; font-style: italic; line-height: 1.4;">Report automatically generated on 2026-01-12 by the Trade Section, EU Delegation to Colombia</p>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Executive Summary -->
+                    <tr>
+                        <td style="padding: 24px 40px 24px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #F0F4FA; border-left: 4px solid #0E47CB;">
+                                <tr>
+                                    <td style="padding: 20px 24px;">
+                                        <p style="margin: 0 0 8px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 11px; font-weight: 700; color: #0E47CB; letter-spacing: 0.08em; text-transform: uppercase;">Executive Summary</p>
+                                        <p style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">Colombia's inflation rate closed 2025 at 5.10%, showing minimal year-on-year change, with December's monthly inflation at 0.27%<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">BBVA</a>)</span>. Meanwhile, the government's proposed housing policy, which aims to de-link Social Interest Housing prices from minimum wage increases and cap prices at 135 minimum monthly legal wages, has sparked significant debate regarding its economic and financial impacts<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">VA</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>. Globally, gold and silver prices surged to record highs following an investigation into the US Federal Reserve, leading to market volatility and concerns about central bank independence<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Tiempo</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Republica</a>)</span>.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Key Findings -->
+                    
+                    <tr>
+                        <td style="padding: 0 40px 32px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #EFF6FF; border-left: 4px solid #FFCC00;">
+                                <tr>
+                                    <td style="padding: 20px 24px;">
+                                        <p style="margin: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 11px; font-weight: 700; color: #004494; letter-spacing: 0.08em; text-transform: uppercase;">Key Findings</p>
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                            
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                Colombia's annual inflation remained stable at 5.10% by year-end 2025<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">BBVA</a>)</span>.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                Government housing policy proposes de-linking prices from minimum wage increases<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">VA</a>)</span>.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                Gold and silver prices reached record highs amid US Federal Reserve investigation<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Tiempo</a>)</span>.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                New regulations aim to cap Social Interest Housing prices at approximately US$236 million<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                Diplomatic dialogue between Colombia and the US improved, potentially easing steel tariffs<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">VA</a>)</span>.
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    
+                    <!-- Main Content -->
+                    <tr>
+                        <td class="content-wrapper" style="padding: 0 40px 32px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                
+                                    
+    <tr>
+        <td style="padding: 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 24px 0 12px 0;">
+                        
+                            <h2 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 24px; font-weight: 700; color: #0E47CB; line-height: 1.3; padding-bottom: 8px; border-bottom: 2px solid #F3F4F6;">Inflationary Trends and Housing Policy</h2>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">
+                        Colombia's annual inflation rate concluded 2025 at 5.10%, showing minimal change from the previous year, with monthly inflation in December recorded at 0.27%<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">BBVA</a>)</span>. This stability in general inflation contrasts with specific sector discussions, particularly concerning housing policy. The government has introduced a draft decree that seeks to de-link the pricing of Social Interest Housing (VIS) from minimum wage increases, aiming instead to set a maximum price in Colombian pesos<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">VA</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Tiempo</a>)</span>. This proposed regulation would cap VIS prices at the equivalent of 135 minimum monthly legal wages, or approximately $236.3 million Colombian pesos, and aims to prevent automatic price adjustments tied to minimum wage hikes, thereby protecting buyers<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Republica</a>)</span>. The initiative has generated significant debate within the construction and political sectors regarding its potential impact on housing supply and financial viability<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-luis-felipe-henao-tras-cuestionamientos-por-la-politica-de-vivienda-el-problema-se-llama-tasa-de-interes/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>.
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </td>
+    </tr>
+
+                                
+                                    
+    <tr>
+        <td style="padding: 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 24px 0 12px 0;">
+                        
+                            <h2 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 24px; font-weight: 700; color: #0E47CB; line-height: 1.3; padding-bottom: 8px; border-bottom: 2px solid #F3F4F6;">Market Reactions to US Federal Reserve Investigation</h2>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">
+                        Global financial markets experienced volatility as gold and silver prices surged to record highs following news of an investigation into the US Federal Reserve<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Tiempo</a>)</span>. The investigation, concerning the Federal Reserve chairman, raised concerns about the central bank's autonomy and potential political interference<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Republica</a>)</span>. Wall Street saw declines as intensified attacks on the Federal Reserve by President Trump created uncertainty<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Republica</a>)</span>. These developments occurred against a backdrop of geopolitical instability and expectations of potential interest rate cuts in the United States<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Republica</a>)</span>. In parallel, diplomatic exchanges between Colombia and the United States have improved, potentially paving the way for the elimination of tariffs on key products such as steel and aluminum<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">VA</a>)</span>.
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </td>
+    </tr>
+
+                                
+                                    
+    <tr>
+        <td style="padding: 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 24px 0 12px 0;">
+                        
+                            <h2 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 24px; font-weight: 700; color: #0E47CB; line-height: 1.3; padding-bottom: 8px; border-bottom: 2px solid #F3F4F6;">Economic and Political Developments</h2>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">
+                        Amidst broader economic trends, discussions around the minimum wage and its impact continue. The price of daily meals, known as 'corrientazo', is anticipated to rise by 23% due to the minimum wage increase, prompting businesses to adjust costs,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>. The government has also clarified that administration fee increases for residential complexes are not directly tied to the minimum wage but rather to inflation and owner assembly decisions, with President Petro urging cost control<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.portafolio.co/mis-finanzas/vivienda/pueden-subir-las-cuotas-de-administracion-un-23-gobierno-aclara-que-no-depende-del-salario-minimo-486083" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">PF</a>)</span>. In political developments, former President Uribe and Congresswoman Katherine Miranda have called for an investigation into a controversial 10 billion peso contract signed by the presidency for President Petro's defense, questioning the transparency of state spending<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">Tiempo</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>,<span style="vertical-align: super; font-size: 0.7em; color: #64748b; font-weight: 600; margin-left: 2px;">(<a href="https://www.infobae.com/colombia/2026/01/11/la-presidencia-de-colombia-adjudico-un-contrato-de-10000-millones-para-defender-a-gustavo-petro-ante-sanciones-estadounidenses/" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 500;">IB</a>)</span>.
+                    </td>
+                </tr>
+                
+                
+            </table>
+        </td>
+    </tr>
+
+                                
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- References -->
+                    <tr>
+                        <td style="padding: 32px 40px 40px 40px; border-top: 3px solid #0E47CB;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                <tr>
+                                    <td>
+                                        <h3 style="margin: 0 0 20px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 20px; font-weight: 700; color: #0E47CB;">References</h3>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[1]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Colombia | Inflation ended 2025 at 5.10%, virtually unchanged from the previous year</p>
+                                                    <a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[2]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">New proposal by the Petro government to de-link housing prices from salary would have significant risk</p>
+                                                    <a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[3]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Carolina Arbeláez denies the Petro Government after controversy with Social Interest Housing projects: “Don't be fooled”</p>
+                                                    <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[4]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Gold and silver prices break records after US Federal Reserve investigation</p>
+                                                    <a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[5]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Political pressures denounced against RTVC contractors for job continuity</p>
+                                                    <a href="https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[6]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Gold and silver start the second week of 2026 with new historic prices: investigation against the Fed sent them soaring</p>
+                                                    <a href="https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[7]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Gold exceeds US$4,600 per ounce for the first time due to investigation into Powell</p>
+                                                    <a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[8]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Social Interest Housing (VIS) will not be able to cost more than $236.3 million: this is established by the draft decree</p>
+                                                    <a href="https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.portafolio.co/mis-finanzas/vivienda/la-vivienda-de-interes-social-no-podra-costar-mas-de-236-3-millones-asi-lo-establece-borrador-de-decreto-486088</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[9]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Dialogue between Colombia and the US to boost steel tariff elimination?: These are the opportunities</p>
+                                                    <a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[10]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Government proposes selling Social Interest Housing (VIS) in pesos and not in minimum wages</p>
+                                                    <a href="https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.eltiempo.com/economia/sectores/el-gobierno-propone-vender-la-vivienda-de-interes-social-vis-en-pesos-y-no-en-salarios-minimos-3523528</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[11]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">MinVivienda published draft decree so that VIS are not indexed to the minimum wage</p>
+                                                    <a href="https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.larepublica.co/economia/minvivienda-publico-borrador-de-decreto-para-que-vis-no-esten-indexadas-al-minimo-4304001</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[12]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Petro responded to Luis Felipe Henao after questioning housing policy: “The problem is called interest rate”</p>
+                                                    <a href="https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-luis-felipe-henao-tras-cuestionamientos-por-la-politica-de-vivienda-el-problema-se-llama-tasa-de-interes/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-luis-felipe-henao-tras-cuestionamientos-por-la-politica-de-vivienda-el-problema-se-llama-tasa-de-interes/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[13]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Wall Street falls as Donald Trump attacks Fed and safe-haven demand grows</p>
+                                                    <a href="https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[14]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">The 'corrientazo', lunch that "drives crazy" millions of Colombians, could go up in price starting January 2026: "Today we negotiate"</p>
+                                                    <a href="https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.infobae.com/colombia/2026/01/11/el-corrientazo-almuerzo-que-desvara-a-millones-de-colombianos-subiria-de-precio-desde-enero-de-2026-hoy-negociamos/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[15]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Can administration fees rise 23%? Government clarifies it doesn't depend on the minimum wage</p>
+                                                    <a href="https://www.portafolio.co/mis-finanzas/vivienda/pueden-subir-las-cuotas-de-administracion-un-23-gobierno-aclara-que-no-depende-del-salario-minimo-486083" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.portafolio.co/mis-finanzas/vivienda/pueden-subir-las-cuotas-de-administracion-un-23-gobierno-aclara-que-no-depende-del-salario-minimo-486083</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[16]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Criticism continues over 10 billion contract for international defense of the Government: Álvaro Uribe and Katherine Miranda ask to investigate it</p>
+                                                    <a href="https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[17]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Katherine Miranda requested an investigation into the millionaire contract for Petro's personal defense due to his inclusion on the Clinton list</p>
+                                                    <a href="https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.infobae.com/colombia/2026/01/11/katherine-miranda-pidio-una-investigacion-al-millonario-contrato-para-la-defensa-personal-de-petro-ante-su-inclusion-en-la-lista-clinton/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 0 0 16px 0;">
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; padding: 12px;">
+                                            <tr>
+                                                <td width="40" valign="top" style="padding: 12px 0 12px 12px;">
+                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; font-weight: 700; color: #0E47CB;">[18]</span>
+                                                </td>
+                                                <td style="padding: 12px 12px 12px 0;">
+                                                    <p style="margin: 0 0 4px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">Colombia's Presidency awarded a $10 billion contract to defend Gustavo Petro against US sanctions</p>
+                                                    <a href="https://www.infobae.com/colombia/2026/01/11/la-presidencia-de-colombia-adjudico-un-contrato-de-10000-millones-para-defender-a-gustavo-petro-ante-sanciones-estadounidenses/" style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 13px; color: #0E47CB; text-decoration: none; word-break: break-all; line-height: 1.4;">https://www.infobae.com/colombia/2026/01/11/la-presidencia-de-colombia-adjudico-un-contrato-de-10000-millones-para-defender-a-gustavo-petro-ante-sanciones-estadounidenses/</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+            </body>
+            </html>
+            

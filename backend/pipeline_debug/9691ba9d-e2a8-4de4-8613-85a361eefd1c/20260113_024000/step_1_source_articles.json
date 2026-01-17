@@ -1,0 +1,560 @@
+[
+  {
+    "id": "af42e6d9-a1e8-40a5-aedc-c62d233c1ab8",
+    "title": "Alcalde de Cartagena lanzó llamativa propuesta tras polémica por regreso a cárceles de Barranquilla de capos de Los Costeños y Los Pepes",
+    "translated_title": "Mayor of Cartagena launches striking proposal after controversy over the return of Los Costeños and Los Pepes leaders to Barranquilla prisons",
+    "url": "https://www.infobae.com/colombia/2026/01/12/alcalde-de-cartagena-lanzo-llamativa-propuesta-tras-polemica-por-regreso-a-carceles-de-barranquilla-de-capos-de-los-costenos-y-los-pepes/",
+    "content": "Dumek Turbay, mandatario de la Heroica, expresó su intención de interceder en esta controversia y puso sobre la mesa la necesidad de establecer una cumbre regional para analizar el impacto de esta determinación del Gobierno",
+    "ai_summary": "The mayor of Cartagena, Dumek Turbay, proposed a regional summit to address the controversy surrounding the return of gang leaders to Barranquilla prisons.",
+    "published_at": "2026-01-13T02:11:59.880613+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 70,
+    "tags": [
+      "POLITICS",
+      "CRIME",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "CARTAGENA",
+      "DUMEK_TURBAY",
+      "LOS_PEPES",
+      "LOS_COSTENOS",
+      "BARRANQUILLA"
+    ]
+  },
+  {
+    "id": "b099a7a8-0b1f-4bb7-96ed-4725bc442c8b",
+    "title": "Donald Trump anunció un arancel del 25% a socios de Irán: la relación de Colombia con ese país y qué le podría esperar",
+    "translated_title": "Donald Trump announced a 25% tariff on Iran's partners: Colombia's relationship with that country and what could await it",
+    "url": "https://www.infobae.com/colombia/2026/01/12/donald-trump-anuncio-un-arancel-del-25-a-socios-de-iran-la-relacion-de-colombia-con-ese-pais-y-que-le-podria-esperar/",
+    "content": "Las restricciones recientes obligan a gobiernos latinoamericanos a revaluar sus rutas y asociaciones de exportación tradicionales",
+    "ai_summary": "Donald Trump imposed tariffs on Iran's partners, prompting Latin American governments, including Colombia, to reassess their export strategies.",
+    "published_at": "2026-01-13T02:11:57.150327+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "TARIFFS",
+      "IRAN",
+      "COLOMBIA",
+      "TRADE",
+      "POLITICS"
+    ],
+    "entities": [
+      "DONALD_TRUMP",
+      "COLOMBIA",
+      "IRAN"
+    ]
+  },
+  {
+    "id": "79edf6bf-c48f-4d93-8dff-cb641361151d",
+    "title": "Ministerio de Transporte solicitó una explicación técnica sobre el aumento del 10,9% en el pasaje del TransMilenio: qué pidió",
+    "translated_title": "Ministry of Transportation requested a technical explanation for the 10.9% increase in the TransMilenio fare: what was requested",
+    "url": "https://www.infobae.com/colombia/2026/01/13/ministerio-de-transporte-solicito-una-explicacion-tecnica-sobre-el-aumento-del-109-en-el-pasaje-del-transmilenio-que-pidio/",
+    "content": "La cartera no estuvo de acuerdo con el incremento en la tarifa de transporte público en Bogotá, que subirá de 3.200 a 3.550 pesos; en un comunicado, cuestionó que el incremento se basa solo en el alza del salario mínimo sin un análisis integral de todos los costos del sistema",
+    "ai_summary": "The Ministry of Transportation in Bogota is questioning the 10.9% fare increase for TransMilenio, citing concerns about its justification based solely on the minimum wage increase.",
+    "published_at": "2026-01-13T02:11:53.182766+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "FARE_INCREASE",
+      "ECONOMICS",
+      "TRANSPORTATION",
+      "PUBLIC_TRANSPORT"
+    ],
+    "entities": [
+      "MINISTRY_OF_TRANSPORTATION",
+      "BOGOTA",
+      "TRANSMILENIO"
+    ]
+  },
+  {
+    "id": "004a5bc9-a2c5-4460-b3d9-5fbaa59fa6d1",
+    "title": "Gustavo Petro acusó a Álvaro Uribe de aumentar tarifas de energía y aprovechó para lanzar dardos a Iván Duque: “Hizo algo fatal”",
+    "translated_title": "Gustavo Petro accused Álvaro Uribe of increasing energy rates and took the opportunity to criticize Iván Duque: “He did something fatal”",
+    "url": "https://www.infobae.com/colombia/2026/01/13/gustavo-petro-acuso-a-alvaro-uribe-de-aumentar-tarifas-de-energia-y-aprovecho-para-lanzar-dardos-a-ivan-duque-hizo-algo-fatal/",
+    "content": "El jefe de Estado salió en defensa de decisión de establecer un recargo transitorio para cubrir obligaciones financieras de empresas intervenidas y preservar la estabilidad del sistema, con criterios diferenciados según condición socioeconómica",
+    "ai_summary": "President Gustavo Petro criticized former President Álvaro Uribe over energy rates and attacked former president Iván Duque regarding a recent decision.",
+    "published_at": "2026-01-13T02:11:47.662568+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "ENERGY_RATES",
+      "POLITICS",
+      "FINANCE"
+    ],
+    "entities": [
+      "IVAN_DUQUE",
+      "GUSTAVO_PETRO",
+      "ALVARO_URIBE"
+    ]
+  },
+  {
+    "id": "91f75218-2d5b-4b23-8397-ed4fb08b6a2f",
+    "title": "Gustavo Petro convocó a Comisión Asesora de Relaciones Exteriores, pero un expresidente ya se ‘bajó’ de la reunión: este es el motivo",
+    "translated_title": "Gustavo Petro convened the Advisory Commission on Foreign Relations, but a former president has already 'backed out' of the meeting: this is the reason",
+    "url": "https://www.infobae.com/colombia/2026/01/13/gustavo-petro-convoco-a-comision-asesora-de-relaciones-exteriores-pero-un-expresidente-ya-se-bajo-de-la-reunion-este-es-el-motivo/",
+    "content": "La cita, con la presencia de los exmandatarios de la República y los congresistas que hacen parte de las comisiones internacionales, pondrá sobre la mesa puntos claves en torno a seguridad fronteriza y la cooperación internacional",
+    "ai_summary": "Gustavo Petro convened a meeting on foreign relations, focusing on border security and international cooperation.",
+    "published_at": "2026-01-13T02:11:42.749910+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "INTERNATIONAL_RELATIONS",
+      "POLITICS",
+      "BORDER_SECURITY"
+    ],
+    "entities": [
+      "GUSTAVO_PETRO"
+    ]
+  },
+  {
+    "id": "c0ca46c7-f938-4e34-9317-bff972c5d3fa",
+    "title": "Pago de los intereses de cesantías a millones de trabajadores colombianos tiene cambio en 2026 con la Reforma Laboral",
+    "translated_title": "Payment of severance interest to millions of Colombian workers changes in 2026 with the Labor Reform",
+    "url": "https://www.infobae.com/colombia/2026/01/13/pago-de-los-intereses-de-cesantias-a-millones-de-trabajadores-colombianos-tiene-cambio-en-2026-con-la-reforma-laboral/",
+    "content": "El nuevo sistema permite a empleados y empresas pactar una modalidad que facilita la gestión de ingresos periódicos y mejora la planificación financiera",
+    "ai_summary": "The Labor Reform in Colombia introduces changes in 2026 regarding the payment of severance interest, facilitating financial planning for employees and companies.",
+    "published_at": "2026-01-13T02:11:40.499130+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 80,
+    "tags": [
+      "FINANCIAL_PLANNING",
+      "LABOR_REFORM"
+    ],
+    "entities": [
+      "COLOMBIAN_WORKERS"
+    ]
+  },
+  {
+    "id": "f1cd3c56-20d2-4973-b71d-fd6638f88236",
+    "title": "Qué pensionados en Colombia no tendrán que pagar impuesto de renta en 2026, debido a la nueva UVT de la Dian",
+    "translated_title": "Which pensioners in Colombia will not have to pay income tax in 2026, due to the new UVT of the Dian",
+    "url": "https://www.infobae.com/colombia/2026/01/13/que-pensionados-en-colombia-no-tendran-que-pagar-impuesto-de-renta-en-2026-debido-a-la-nueva-uvt-de-la-dian/",
+    "content": "Las nuevas reglas normativas cambiaron el cálculo de exenciones y ajustes automáticos en los pagos mensuales de jubilación y riesgos profesionales para este año",
+    "ai_summary": "New regulations in Colombia will affect how pensions are taxed.",
+    "published_at": "2026-01-13T02:11:35.704906+00:00",
+    "source": "InfoBae",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "TAXES",
+      "PENSIONS",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "DIAN",
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "7a1f8f0b-f396-4b03-ac44-29073f698376",
+    "title": "Este es el rostro de alias Yosa, por el que ofrecen una millonada tras ser señalado de instalar banderas del ELN en el Suroeste antioqueño",
+    "translated_title": "This is the face of alias Yosa, for whom a fortune is offered after being accused of installing ELN flags in southwestern Antioquia",
+    "url": "https://www.infobae.com/colombia/2026/01/13/este-es-el-rostro-de-alias-yosa-por-el-que-ofrecen-una-millonada-tras-ser-senalado-de-instalar-banderas-del-eln-en-el-suroeste-antioqueno/",
+    "content": "Las autoridades de Antioquia divulgaron la imagen del presunto subversivo acusado de sembrar terror en Jardín y Andes, en medio de dudas sobre su verdadera filiación criminal",
+    "ai_summary": "Authorities in Antioquia have released the image of a suspect accused of terrorism and involvement with the ELN, amidst questions about his criminal ties.",
+    "published_at": "2026-01-13T02:11:32.013910+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 60,
+    "tags": [
+      "SECURITY",
+      "POLITICS",
+      "COLOMBIA",
+      "ELN"
+    ],
+    "entities": [
+      "ANDES",
+      "ANTIOQUIA",
+      "ELN",
+      "JARDIN"
+    ]
+  },
+  {
+    "id": "370895e7-1af9-42f4-844d-b52dac4bdf91",
+    "title": "Ministro de Justicia le salió al paso a Álex Char y dijo que “por ahora” traslado de capos de Bandas criminales a Barranquilla está suspendido",
+    "translated_title": "Minister of Justice responds to Álex Char and says that the transfer of criminal gang leaders to Barranquilla is \"for now\" suspended",
+    "url": "https://www.infobae.com/colombia/2026/01/13/ministro-de-justicia-le-salio-al-paso-a-alex-char-y-dijo-que-por-ahora-traslado-de-capos-de-bandas-criminales-a-barranquilla-esta-suspendido/",
+    "content": "El cruce de declaraciones por el uso de recursos y la falta de coordinación sitúa a las autoridades frente a la presión social, debido al regreso de poderosos cabecillas a la capital del Atlántico, como alias Castor, Digno Palomino y alias El Negro Ober, entre otros",
+    "ai_summary": "The Justice Minister has suspended the transfer of criminal gang leaders to Barranquilla due to social pressure and conflicting statements.",
+    "published_at": "2026-01-13T02:11:29.139294+00:00",
+    "source": "InfoBae",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "JUSTICE",
+      "POLITICS",
+      "CRIME",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "MINISTER_OF_JUSTICE",
+      "BARRANQUILLA",
+      "ALEX_CHAR"
+    ]
+  },
+  {
+    "id": "624d95c5-12c4-4917-a36b-c79ccf14d9b8",
+    "title": "El Gobierno no ve justificada el alza de $350 en TM, en Bogotá, y pidió análisis técnico que sustentó esa decisión",
+    "translated_title": "The Government does not see justified the $350 increase in TM, in Bogotá, and requested a technical analysis that supported that decision",
+    "url": "https://www.portafolio.co/economia/regiones/el-gobierno-no-ve-justificada-el-alza-de-350-en-tm-en-bogota-y-pidio-analisis-tecnico-que-sustento-esa-decision-486131",
+    "content": "A partir de este miércoles 14 de enero de 2026, TransMilenio, en Bogotá, empezará a cobrar $3.550 por pasaje. Ante esto, el Gobierno Nacional, en cabeza del Ministerio de Transporte, se pronunció y señaló que el ajuste no está justificado, después de que el sistema argumentara que se subió un 10,9% por el incremento del salario mínimo que se hizo para este año de 23%.\n\"El incremento del salario mínimo vital decretado no constituye una justificación para trasladar a los usuarios un aumento de $350 en la tarifa de TransMilenio\", dijeron desde la cartera, al tiempo que explicaron que ese increment...",
+    "ai_summary": "The Colombian government disputes a fare increase for TransMilenio in Bogota, citing lack of justification despite the system's claims related to minimum wage increases.",
+    "published_at": "2026-01-13T01:06:47+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "TRANSPORTATION",
+      "GOVERNMENT",
+      "ECONOMICS",
+      "TARIFF",
+      "SALARY"
+    ],
+    "entities": [
+      "MINISTRY_OF_TRANSPORTATION",
+      "BOGOTA",
+      "TRANSMILENIO",
+      "NATIONAL_GOVERNMENT"
+    ]
+  },
+  {
+    "id": "47372fbd-370a-4c07-9043-b62ff5e25bda",
+    "title": "Gobierno convoca a la Comisión Asesora de Relaciones Exteriores para hablar de Venezuela y Estados Unidos",
+    "translated_title": "Government convenes the Advisory Commission on Foreign Relations to discuss Venezuela and the United States",
+    "url": "https://www.eltiempo.com/politica/gobierno/gobierno-convoca-a-la-comision-asesora-de-relaciones-exteriores-para-hablar-de-venezuela-y-estados-unidos-3523686",
+    "content": "Gobierno convoca a la Comisión Asesora de Relaciones Exteriores para hablar de Venezuela y Estados Unidos",
+    "ai_summary": "The government is calling the Advisory Commission on Foreign Relations to discuss Venezuela and the United States.",
+    "published_at": "2026-01-13T00:45:23+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 75,
+    "tags": [
+      "POLITICS",
+      "FOREIGN_RELATIONS"
+    ],
+    "entities": [
+      "UNITED_STATES",
+      "VENEZUELA"
+    ]
+  },
+  {
+    "id": "ad721b43-7f12-47c6-afc5-9771ceafaa53",
+    "title": "El aviso del presidente Petro al ELN: o se une a la paz y sale de Venezuela o será blanco de operaciones conjuntas",
+    "translated_title": "President Petro's warning to the ELN: Join peace and leave Venezuela or be the target of joint operations",
+    "url": "https://www.portafolio.co/economia/gobierno/el-aviso-del-presidente-petro-al-eln-o-se-une-a-la-paz-y-sale-de-venezuela-o-sera-blanco-de-operaciones-conjuntas-486130",
+    "content": "El presidente Gustavo Petro advirtió, este lunes 12 de enero de 2026, que su gobierno avanzará en acciones conjuntas de tipo militar con Venezuela si la guerrilla del Ejército de Liberación Nacional (ELN) no se suma a la paz y no abandona territorio venezolano. \"Si el ELN no se une a la paz, abandonando Venezuela, habrá acciones conjuntas con Venezuela de tipo militar\", afirmó el mandatario en un largo mensaje publicado en X, en el que insistió en que su gobierno no negociará mientras esa guerrilla mantenga las economías ilícitas y el reclutamiento de menores. Petro responsabilizó al ELN de hab...",
+    "ai_summary": "President Petro warned the ELN that if they do not join the peace process and leave Venezuela, they will face joint military actions with Venezuela.",
+    "published_at": "2026-01-13T00:21:30+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "MILITARY",
+      "GOVERNMENT",
+      "CONFLICT",
+      "COLOMBIA",
+      "POLITICS"
+    ],
+    "entities": [
+      "VENEZUELA",
+      "COLOMBIA",
+      "GUSTAVO_PETRO",
+      "ELN"
+    ]
+  },
+  {
+    "id": "2a637c03-7833-42dd-98a4-a312ebaa8211",
+    "title": "Compresión salarial y ajustes internos, el efecto dominó del salario mínimo que llegará al mercado laboral",
+    "translated_title": "Wage compression and internal adjustments, the domino effect of the minimum wage that will reach the labor market",
+    "url": "https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043",
+    "content": "El mercado laboral colombiano inició el 2026 con un choque de magnitud poco común, luego de que el aumento del salario mínimo en 23% reconfigurara los costos de nómina, y activó un proceso de ajustes internos que, según expertos, se sentirá a lo largo de toda la estructura salarial.\nLo anterior porque más allá del alivio para quienes devengan el mínimo, el alza elevó el umbral de sostenibilidad del empleo formal y abrió una etapa de decisiones difíciles para empresas y trabajadores.\nCon el nuevo salario y el auxilio de transporte, el ingreso mensual base alcanza los $2 millones, pero el costo t...",
+    "ai_summary": "The Colombian labor market faces challenges in 2026 due to the minimum wage increase, leading to internal adjustments and potential difficulties for businesses and workers.",
+    "published_at": "2026-01-12T22:51:03+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "MINIMUM_WAGE",
+      "LABOR_MARKET",
+      "ECONOMY",
+      "SALARY_ADJUSTMENTS"
+    ],
+    "entities": [
+      "COLOMBIAN_LABOR_MARKET"
+    ]
+  },
+  {
+    "id": "9f058851-0697-49db-abde-a581e9bb6ecd",
+    "title": "El tarot empresarial para 2026: ¿qué le depara a la economía del país y a los diferentes sectores que la componen?",
+    "translated_title": "Business Tarot for 2026: What does the country's economy and its different sectors hold?",
+    "url": "https://www.portafolio.co/economia/crecimiento/el-tarot-empresarial-para-2026-que-le-depara-a-la-economia-del-pais-y-a-los-diferentes-sectores-que-la-componen-486115",
+    "content": "En medio de la incertidumbre económica en el país, el sector productivo se moverá al ritmo que impongan unas elecciones parlamentarias y presidenciales de futuro incierto, pero con esperanzas puestas en el cambio de Gobierno.\nIndustria y comercio, con más dudas que certezas\nLa más reciente Encuesta Mensual Manufacturera con Enfoque Territorial (EMMET) de septiembre del 2025, publicada por el DANE, registra para este mes un crecimiento en producción de 5,2% y en ventas de 5,3% frente al mismo mes del 2024. Hace un año, estos indicadores registraron tasas negativas de -4,2% y -3,8%, respectivamen...",
+    "ai_summary": "The article discusses the economic outlook for the country in 2026, considering the impact of upcoming elections and focusing on the industry and commerce sectors.",
+    "published_at": "2026-01-12T21:56:47+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "ECONOMY",
+      "ELECTIONS",
+      "INDUSTRY"
+    ],
+    "entities": [
+      "DANE"
+    ]
+  },
+  {
+    "id": "5ce1bdd9-7fab-4575-a234-c58dd7916f77",
+    "title": "Presidente Gustavo Petro reacciona a la propuesta del Eln de un 'acuerdo nacional' y pone condiciones para evitar una ofensiva militar",
+    "translated_title": "President Gustavo Petro reacts to the ELN's proposal for a 'national agreement' and sets conditions to avoid a military offensive",
+    "url": "https://www.eltiempo.com/politica/gobierno/presidente-gustavo-petro-reacciona-a-la-propuesta-del-eln-de-un-acuerdo-nacional-y-pone-condiciones-para-evitar-una-ofensiva-militar-3523656",
+    "content": "En este portal utilizamos datos de navegación / cookies propias y de terceros para gestionar el portal, elaborar información estadística, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a través del análisis de la navegación. Si continúa navegando, usted estará aceptando esta utilización. Puede conocer cómo deshabilitarlas u obtener más información\nYa tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesión con ella y no te pierdas de todos los beneficios que tenemos para tí. Iniciar sesión\n¡Hola! Parece que has alcanzado tu límite diario de 3 búsquedas en nuestro chat bot como usuario registrado.\n¿Quieres seguir disfrutando de este y otros beneficios exclusivos?\nAdquiere el plan de suscripción que se adapte a tus preferencias y accede a ¡contenido ilimitado! No te\npierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. 🌟\n¡Hola! Haz excedido el máximo de peticiones mensuales.\nPara más información continua nave...",
+    "ai_summary": "President Gustavo Petro responds to the ELN's proposition for a national agreement, establishing conditions to avert a military offensive.",
+    "published_at": "2026-01-12T21:49:21+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 70,
+    "tags": [
+      "POLITICS",
+      "AGREEMENT",
+      "MILITARY"
+    ],
+    "entities": [
+      "ELN",
+      "GUSTAVO_PETRO"
+    ]
+  },
+  {
+    "id": "ddb3d334-af5b-40e3-9c84-03943028b8cd",
+    "title": "Sergio Fajardo rechaza comunicado del ELN en apoyo a Acuerdo Nacional y constituyente: 'Manipular elecciones'",
+    "translated_title": "Sergio Fajardo rejects ELN statement supporting National Agreement and constituent assembly: 'Manipulate elections'",
+    "url": "https://www.eltiempo.com/politica/elecciones-colombia-2026/sergio-fajardo-rechaza-comunicado-del-eln-en-apoyo-a-acuerdo-nacional-y-constituyente-manipular-elecciones-3523649",
+    "content": "Sergio Fajardo rechaza comunicado del ELN en apoyo a Acuerdo Nacional y constituyente: 'Manipular elecciones'\nCuestionó el pronunciamiento del grupo armado en plena campaña presidencial y señaló riesgos para la democracia colombiana.\nSíguenos y léenos en Google DiscoverPERIODISTAActualizado:\nLEA TAMBIÉN\nEl ELN plantea una 'propuesta' política para el país\nLEA TAMBIÉN\nAcuerdo Nacional, que tendría como propósitos esenciales: consensuar una verdadera política de soberanía nacional y popular; erradicar la pobreza, la persecución política, la corrupción y el paramilitarismo; construir un nuevo diseño económico, superar el narcotráfico...",
+    "ai_summary": "Sergio Fajardo criticized the ELN's statement supporting the National Agreement and constituent assembly, claiming it aims to manipulate the elections.",
+    "published_at": "2026-01-12T20:31:58+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "POLITICS",
+      "COLOMBIA",
+      "ELECTIONS",
+      "DEMOCRACY",
+      "ELN"
+    ],
+    "entities": [
+      "SERGIO_FAJARDO",
+      "ELN",
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "a22acaff-7aa1-4a3d-a2fe-e9e544f10452",
+    "title": "Denuncian presiones políticas a contratistas de 'RTVC' para continuidad laboral",
+    "translated_title": "Political pressure on RTVC contractors denounced for job continuity",
+    "url": "https://www.portafolio.co/economia/gobierno/denuncian-presiones-politicas-a-contratistas-de-rtvc-por-continuidad-laboral-486107",
+    "content": "Un video difundido en redes sociales y citado en X por el concejal Daniel F. Briceño revelan presuntas presiones políticas ejercidas sobre contratistas de RTVC, en las que se condicionaría la continuidad laboral al apoyo político y a la participación activa en procesos electorales y de medición de audiencias, según lo expresado en la grabación citada por el funcionario.\nDaniel F. Briceño publicó el contenido en su cuenta de X con el mensaje: “Escuchen esto: Así extorsionan y presionan a los contratistas de RTVC. ‘Si no ayudan políticamente no hay trabajo’. Es una canallada la forma en como el canal de propaganda presiona a los contratistas”. El trino acompaña un video en el que se escucha una intervención dirigida a personas vinculadas contractualmente al sistema de medios públicos.\nEl contenido del video citado\nEn la grabación se escucha a una mujer que se dirige a los contratistas y hace referencia directa a la situación laboral y a la duración de los contratos. “Y hoy leía esta maña...",
+    "ai_summary": "A video reveals alleged political pressure on RTVC contractors, conditioning job security on political support and participation.",
+    "published_at": "2026-01-12T18:47:34+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "RTVC",
+      "POLITICAL_PRESSURE",
+      "CONTRACTORS",
+      "POLITICS",
+      "CORRUPTION"
+    ],
+    "entities": [
+      "DANIEL_F_BRICENO",
+      "RTVC"
+    ]
+  },
+  {
+    "id": "8ee9047a-339c-4222-b65a-d14ad5ccfeff",
+    "title": "Archivada la investigación del apagón en España y Portugal al no ver indicios de sabotaje",
+    "translated_title": "Investigation into blackout in Spain and Portugal closed after no evidence of sabotage found",
+    "url": "https://www.portafolio.co/economia/infraestructura/archivada-la-investigacion-del-apagon-en-espana-y-portugal-al-no-ver-indicios-de-sabotaje-486112",
+    "content": "La investigación abierta por el apagón eléctrico ocurrido en la península ibérica el 28 de abril de 2025 fue archivada este lunes por el juez de la Audiencia Nacional española José Luis Calama tras determinar que no existe \"un mínimo indicio\" de que se tratase de un \"sabotaje terrorista\" Un día después del apagón que sorprendió a la España peninsular y Portugal y que dejó sin suministro eléctrico, durante horas, a millones de ciudadanos, el magistrado Calama -que esa semana estaba de guardia- acordó abrir una investigación por si pudiese tratarse de ciberterrorismo. Pero tras meses de investiga...",
+    "ai_summary": "The investigation into the 2025 blackout in Spain and Portugal was closed due to lack of evidence of sabotage.",
+    "published_at": "2026-01-12T18:31:27+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 60,
+    "tags": [
+      "BLACKOUT",
+      "ELECTRICITY",
+      "SPAIN",
+      "INVESTIGATION",
+      "PORTUGAL"
+    ],
+    "entities": [
+      "JOSE_LUIS_CALAMA",
+      "SPAIN",
+      "PORTUGAL"
+    ]
+  },
+  {
+    "id": "2249a758-ae7c-4a77-9fb8-58ebd86a3534",
+    "title": "Petro responde a Char por traslado de cabecillas de ‘Los Pepes’ y ‘Los Costeños’: 'Mi gobierno ha logrado bajar la tasa de homicidios de Barranquilla'",
+    "translated_title": "Petro responds to Char for the transfer of leaders of 'Los Pepes' and 'Los Costeños': 'My government has managed to lower the homicide rate in Barranquilla'",
+    "url": "https://www.eltiempo.com/politica/gobierno/petro-responde-a-char-por-traslado-de-cabecillas-de-los-pepes-y-los-costenos-mi-gobierno-ha-logrado-bajar-la-tasa-de-homicidios-de-barranquilla-3523624",
+    "content": "En este portal utilizamos datos de navegación / cookies propias y de terceros para gestionar el portal, elaborar información estadística, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a través del análisis de la navegación. Si continúa navegando, usted estará aceptando esta utilización. Puede conocer cómo deshabilitarlas u obtener más información aquí Ya tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesión con ella y no te pierdas de todos los beneficios que tenemos para tí. Iniciar sesión ¡Hola! Parece que has alcanzado tu límite diario de 3 búsquedas en nuestro chat bot como usuario registrado. ¿Quieres seguir disfrutando de este y otros beneficios exclusivos? Adquiere el plan de suscripción que se adapte a tus preferencias y accede a ¡contenido ilimitado! No te pierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. 🌟 ¡Hola! Haz excedido el máximo de peticiones mensuales. Para más información continua nave...",
+    "ai_summary": "Petro responds to criticism regarding the transfer of gang leaders and highlights his government's success in reducing the homicide rate in Barranquilla.",
+    "published_at": "2026-01-12T17:14:29+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 60,
+    "tags": [
+      "POLITICS",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "PETRO",
+      "LOS_COSTENOS",
+      "BARRANQUILLA",
+      "LOS_PEPES"
+    ]
+  },
+  {
+    "id": "5b6421ce-5129-49fb-a4ff-6d60407f595e",
+    "title": "Cómo está la inflación en Colombia en comparación con otros países de la Ocde, con corte a noviembre",
+    "translated_title": "How is inflation in Colombia compared to other OECD countries, as of November",
+    "url": "https://www.portafolio.co/economia/finanzas/como-esta-la-inflacion-en-colombia-en-comparacion-con-otros-paises-de-la-ocde-con-corte-a-noviembre-486108",
+    "content": "La inflación interanual en el conjunto de la Organización para la Cooperación y el Desarrollo Económico (Ocde) se quedó en el 3,9 % en noviembre, lo que supone un claro descenso desde septiembre, el último mes para el que hay datos completos comparables, y eso esencialmente gracias a los alimentos.\nEn concreto, la inflación interanual de los alimentos bajó al 4% en noviembre, un punto porcentual menos que en septiembre, destacó este lunes la Ocde.\nPor el contrario, los precios de la energía se encarecieron más, concretamente un 3,5% en doce meses en noviembre, frente al 3,1% en septiembre.\nLa inflación general entre octubre y noviembre se mantuvo estable en 17 de los 37 países miembros para los que hay cifras disponibles de los dos meses, mientras que bajó en 13 y únicamente se incrementó en 7.\nCosta Rica fue en noviembre (una vez más) el único miembro de la Ocde con una inflación negativa (-0,4%), al mismo nivel que en octubre.\nEntre los otros países latinoamericanos, se mantuvo sin c...",
+    "ai_summary": "OECD inflation decreased to 3.9% in November, with food prices lowering inflation while energy prices increased, and Costa Rica having negative inflation.",
+    "published_at": "2026-01-12T16:40:45+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "neutral",
+    "relevance": 90,
+    "tags": [
+      "ENERGY_PRICES",
+      "INFLATION",
+      "OECD",
+      "ECONOMY",
+      "FOOD_PRICES"
+    ],
+    "entities": [
+      "COSTA_RICA",
+      "OECD",
+      "COLOMBIA"
+    ]
+  },
+  {
+    "id": "a4d13076-a52d-4e41-8a01-46275a15dc5d",
+    "title": "Estos son los alimentos (que consumen día a día) que más subieron de precio durante el 2025",
+    "translated_title": "These are the foods (that are consumed daily) that rose the most in price during 2025",
+    "url": "https://www.portafolio.co/economia/finanzas/estos-son-los-alimentos-que-consumen-dia-a-dia-que-mas-subieron-de-precio-durante-el-486105",
+    "content": "El café, el té, el cacao, los dulces y la carne son los alimentos que más se encarecieron en 2025 debido en parte al cambio climático, y han llegado a contabilizar más del 50% de la tasa de inflación anual de los alimentos los últimos meses, según el Banco Central Europeo (BCE).\nLa fuerte subida de los precios de materias primas alimenticias es una causa importante del encarecimiento de los alimentos y refleja el clima extremo y el cambio climático, así como otros factores estructurales, dicen los economistas del BCE en un artículo del próximo boletín económico, publicado este lunes.",
+    "ai_summary": "In 2025, coffee, tea, cocoa, sweets, and meat prices surged due to climate change, significantly contributing to the annual food inflation rate, as reported by the European Central Bank.",
+    "published_at": "2026-01-12T16:24:10+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 90,
+    "tags": [
+      "EUROPEAN_CENTRAL_BANK",
+      "ECONOMICS",
+      "INFLATION",
+      "CLIMATE_CHANGE",
+      "FOOD_PRICES"
+    ],
+    "entities": [
+      "EUROPEAN_CENTRAL_BANK"
+    ]
+  },
+  {
+    "id": "5cde12f8-1aee-4992-9ecd-4e5a5baf6c5c",
+    "title": "Siguen las críticas por contrato de 10.000 millones para la defensa internacional del Gobierno: Álvaro Uribe y Katherine Miranda piden investigarlo",
+    "translated_title": "Criticism continues over $10 billion contract for the government's international defense: Álvaro Uribe and Katherine Miranda call for investigation",
+    "url": "https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608",
+    "content": "En este portal utilizamos datos de navegación / cookies propias y de terceros para gestionar el portal, elaborar información estadística, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a través del análisis de la navegación. Si continúa navegando, usted estará aceptando esta utilización. Puede conocer cómo deshabilitarlas u obtener más información aquí",
+    "ai_summary": "Criticism arises concerning a $10 billion contract for government defense, with Álvaro Uribe and Katherine Miranda demanding an investigation.",
+    "published_at": "2026-01-12T16:05:34+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "negative",
+    "relevance": 70,
+    "tags": [
+      "POLITICS",
+      "CONTRACT",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "ALVARO_URIBE",
+      "KATHERINE_MIRANDA"
+    ]
+  },
+  {
+    "id": "2c3d6a6d-d7d3-46f5-ae01-b2bcee87f23e",
+    "title": "Carlos Carrillo, director de la UNGRD, dice que Angie Rodríguez nombró 'amigos y hasta primos' en el Fondo de Adaptación",
+    "translated_title": "Carlos Carrillo, director of UNGRD, says Angie Rodriguez appointed 'friends and even cousins' to the Adaptation Fund",
+    "url": "https://www.eltiempo.com/politica/gobierno/carlos-carrillo-director-de-la-ungrd-dice-que-angie-rodriguez-del-dapre-nombro-amigos-y-hasta-primos-en-fondo-de-adaptacion-3523597",
+    "content": "Carlos Carrillo, director de la UNGRD, dice que Angie Rodríguez nombró 'amigos y hasta primos' en el Fondo de Adaptación",
+    "ai_summary": "Carlos Carrillo, director of UNGRD, accuses Angie Rodriguez of nepotism by appointing friends and relatives to the Adaptation Fund.",
+    "published_at": "2026-01-12T15:20:24+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "negative",
+    "relevance": 70,
+    "tags": [
+      "POLITICS",
+      "CORRUPTION",
+      "GOVERNMENT"
+    ],
+    "entities": [
+      "ADAPTATION_FUND",
+      "UNGRD",
+      "CARLOS_CARRILLO",
+      "ANGIE_RODRIGUEZ"
+    ]
+  },
+  {
+    "id": "e18ec143-d191-4047-ab4b-acda923ac265",
+    "title": "Ministerio de Salud proyecta aumento de nómina por $59.403 millones en medio de la crisis del sistema",
+    "translated_title": "Ministry of Health projects increase in payroll by $59.403 million amid system crisis",
+    "url": "https://www.portafolio.co/economia/gobierno/ministerio-de-salud-proyecta-aumento-de-nomina-por-59-403-millones-en-medio-de-la-crisis-del-sistema-486096",
+    "content": "En medio de la crisis que atraviesa el sistema de salud, el Ministerio de Salud y Protección Social confirmó que avanza en un proceso de reorganización institucional que contempla la creación de 442 nuevos cargos por formalización laboral, con un costo anual proyectado de $59.403 millones para 2026. La información fue entregada en respuesta a un derecho de petición elevado por el representante a la Cámara Andrés Forero, del Partido Centro Democrático. De acuerdo con el documento, el Ministerio señaló que “el análisis de carga laboral determinó la necesidad de llevar a cabo un ejercicio de prior...",
+    "ai_summary": "The Ministry of Health plans to increase its payroll by $59.403 million by 2026 amid a crisis in the health system, involving the creation of 442 new jobs.",
+    "published_at": "2026-01-12T15:05:51+00:00",
+    "source": "Portafolio Economia",
+    "sentiment": "negative",
+    "relevance": 75,
+    "tags": [
+      "GOVERNMENT_SPENDING",
+      "ECONOMY",
+      "HEALTHCARE"
+    ],
+    "entities": [
+      "MINISTRY_OF_HEALTH",
+      "ANDRES_FORERO"
+    ]
+  },
+  {
+    "id": "a30943d0-d70d-4226-a3db-24f3a6b0957b",
+    "title": "Ante posibles acciones conjuntas de EE.UU. y Colombia para combatirlo, Eln rompe silencio proponiendo un 'acuerdo nacional'",
+    "translated_title": "Faced with possible joint actions by the US and Colombia to combat it, the ELN breaks silence proposing a 'national agreement'",
+    "url": "https://www.eltiempo.com/politica/proceso-de-paz/ante-posibles-acciones-conjuntas-de-ee-uu-y-colombia-para-combatirlo-eln-rompe-silencio-proponiendo-un-acuerdo-nacional-3523592",
+    "content": "En este portal utilizamos datos de navegación / cookies propias y de terceros para gestionar el portal, elaborar información estadística, optimizar la funcionalidad del sitio y mostrar publicidad relacionada con sus preferencias a través del análisis de la navegación. Si continúa navegando, usted estará aceptando esta utilización. Puede conocer cómo deshabilitarlas u obtener más información aquí Ya tienes una cuenta vinculada a EL TIEMPO, por favor inicia sesión con ella y no te pierdas de todos los beneficios que tenemos para tí. Iniciar sesión ¡Hola! Parece que has alcanzado tu límite diario de 3 búsquedas en nuestro chat bot como usuario registrado. ¿Quieres seguir disfrutando de este y otros beneficios exclusivos? Adquiere el plan de suscripción que se adapte a tus preferencias y accede a ¡contenido ilimitado! No te pierdas la oportunidad de disfrutar todas las funcionalidades que ofrecemos. 🌟 ¡Hola! Haz excedido el máximo de peticiones mensuales. Para más información continua nave...",
+    "ai_summary": "The ELN rebels are proposing a national agreement amidst potential joint actions from the US and Colombia.",
+    "published_at": "2026-01-12T14:27:34+00:00",
+    "source": "El Tiempo Politica",
+    "sentiment": "neutral",
+    "relevance": 60,
+    "tags": [
+      "POLITICS",
+      "ELN",
+      "COLOMBIA"
+    ],
+    "entities": [
+      "ELN",
+      "US",
+      "COLOMBIA"
+    ]
+  }
+]

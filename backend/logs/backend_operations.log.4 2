@@ -1,0 +1,38 @@
+2026-01-08 08:32:50,691 | crawler | INFO | Starting Dynamic PDF Crawl: https://tradingeconomics.com/colombia/news
+2026-01-08 08:33:02,334 | crawler | INFO | PDF Snapshot captured: debug_capture.pdf
+2026-01-08 08:33:23,437 | crawler | INFO | AI Extracted 17 items from PDF
+2026-01-08 08:33:23,470 | crawler | INFO | Rejection: Article date 2026-01-07 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,470 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Exports Contract in November
+2026-01-08 08:33:23,471 | crawler | INFO | Rejection: Article date 2025-12-30 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,471 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Manufacturing PMI Remains in Expansion
+2026-01-08 08:33:23,471 | crawler | INFO | Rejection: Article date 2025-12-28 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,471 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Unemployment Hits Record Low
+2026-01-08 08:33:23,472 | crawler | INFO | Rejection: Article date 2025-12-22 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,472 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombian Business Sentiment Drops to 18-Month Low
+2026-01-08 08:33:23,473 | crawler | INFO | Rejection: Article date 2025-12-20 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,473 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Imports Jump Nearly 15% in October
+2026-01-08 08:33:23,473 | crawler | INFO | Rejection: Article date 2025-12-20 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,473 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Trade Deficit Widens Sharply in October
+2026-01-08 08:33:23,474 | crawler | INFO | Rejection: Article date 2025-12-16 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,474 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Central Bank Holds Interest Rate at 9.25%
+2026-01-08 08:33:23,475 | crawler | INFO | Rejection: Article date 2025-12-15 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,475 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Economic Activity Growth Moderates in October
+2026-01-08 08:33:23,475 | crawler | INFO | Rejection: Article date 2025-12-12 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,475 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Consumer Confidence Hits 2015 High
+2026-01-08 08:33:23,476 | crawler | INFO | Rejection: Article date 2025-12-10 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,476 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Industrial Output Eases in October
+2026-01-08 08:33:23,477 | crawler | INFO | Rejection: Article date 2025-12-10 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,477 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Retail Growth Slows in October
+2026-01-08 08:33:23,478 | crawler | INFO | Rejection: Article date 2025-12-05 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,478 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Inflation Rate Below Forecasts
+2026-01-08 08:33:23,478 | crawler | INFO | Rejection: Article date 2025-12-04 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,478 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Export Growth Stalls in October
+2026-01-08 08:33:23,479 | crawler | INFO | Rejection: Article date 2025-12-01 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,479 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Factory Activity Remains Strong
+2026-01-08 08:33:23,479 | crawler | INFO | Rejection: Article date 2025-11-28 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,479 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Jobless Rate at 8.2% in October
+2026-01-08 08:33:23,480 | crawler | INFO | Rejection: Article date 2025-11-26 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,480 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombian Business Sentiment Weakens to 4-Month Low
+2026-01-08 08:33:23,480 | crawler | INFO | Rejection: Article date 2025-11-19 13:33:02.373638+00:00 is older than last crawl 2026-01-08 06:23:31.726141+00:00
+2026-01-08 08:33:23,480 | crawler | INFO |  - [SKIP] Invalid (Date/Length): Colombia Trade Gap Widens in September
+2026-01-08 08:33:23,481 | crawler | INFO | Saved 0 new articles from PDF scan.

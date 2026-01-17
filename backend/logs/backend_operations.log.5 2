@@ -1,0 +1,64 @@
+2026-01-08 08:03:00,098 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-08 08:03:00,111 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-08 08:03:00,111 | clustering | INFO | Configuring Gemini API...
+2026-01-08 08:03:00,128 | clustering | INFO | Found 95 active stories for context (last 7 days).
+2026-01-08 08:03:00,173 | clustering | INFO | Found 18 ungrouped articles to process (last 24 hours).
+2026-01-08 08:03:00,177 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-08 08:03:00,180 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-08 08:03:00,181 | clustering | DEBUG | Articles to cluster: 18
+2026-01-08 08:03:46,623 | clustering | INFO | Received response from Gemini.
+2026-01-08 08:03:46,628 | clustering | INFO | Gemini proposed 18 assignments to existing stories.
+2026-01-08 08:03:46,693 | clustering | INFO | Gemini proposed 5 new stories.
+2026-01-08 08:03:46,706 | clustering | INFO | Created story: Trump Extends US Oversight of Venezuela to Years, Escalating International Tensions with 3 articles.
+2026-01-08 08:03:46,707 | clustering | INFO | Created story: Petro and Trump Agree to White House Meeting Amidst Diplomatic Re-engagement and Regional Scrutiny with 4 articles.
+2026-01-08 08:03:46,708 | clustering | INFO | Skipping proposed story 'Colombian Economy Navigates Minimum Wage Hike and Inflationary Pressures in Early 2026' - only 0 valid input articles (threshold: 2).
+2026-01-08 08:03:46,709 | clustering | INFO | Created story: Colombian Politics React to Petro-Trump Call; Opposition Criticizes Spending Amidst Sovereignty Concerns with 2 articles.
+2026-01-08 08:03:46,709 | clustering | INFO | Skipping proposed story 'Spanish Authorities Dismantle Human Trafficking Network, Rescuing Colombian and Venezuelan Victims' - only 1 valid input articles (threshold: 2).
+2026-01-08 08:03:46,710 | clustering | INFO | Clustering complete. Assigned: 18, Created: 3
+2026-01-08 10:12:00,043 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-08 10:12:00,056 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-08 10:12:00,058 | clustering | INFO | Configuring Gemini API...
+2026-01-08 10:12:00,070 | clustering | INFO | Found 111 active stories for context (last 7 days).
+2026-01-08 10:12:00,105 | clustering | INFO | Found 28 ungrouped articles to process (last 24 hours).
+2026-01-08 10:12:00,108 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-08 10:12:00,109 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-08 10:12:00,110 | clustering | DEBUG | Articles to cluster: 28
+2026-01-08 10:13:13,567 | clustering | INFO | Received response from Gemini.
+2026-01-08 10:13:13,573 | clustering | ERROR | Clustering Error during execution: Invalid \escape: line 120 column 46 (char 4456)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Invalid \escape: line 120 column 46 (char 4456)
+2026-01-08 11:16:00,041 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-08 11:16:00,044 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-08 11:16:00,045 | clustering | INFO | Configuring Gemini API...
+2026-01-08 11:16:00,054 | clustering | INFO | Found 117 active stories for context (last 7 days).
+2026-01-08 11:16:00,072 | clustering | INFO | Found 36 ungrouped articles to process (last 24 hours).
+2026-01-08 11:16:00,074 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-08 11:16:00,074 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-08 11:16:00,075 | clustering | DEBUG | Articles to cluster: 36
+2026-01-08 11:20:42,196 | clustering | INFO | Received response from Gemini.
+2026-01-08 11:20:42,203 | clustering | ERROR | Clustering Error during execution: Expecting value: line 2903 column 1 (char 94247)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2903 column 1 (char 94247)

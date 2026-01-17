@@ -1,0 +1,126 @@
+2026-01-08 20:38:11,057 | clustering | INFO | Starting analyze_clusters for user_id: 947bf528-14dc-4475-b5a3-79aa56b17c9e
+2026-01-08 20:38:11,117 | clustering | INFO | Clustering Config: Story Context=14 days, Article Scan=48 hours
+2026-01-08 20:38:11,119 | clustering | INFO | Configuring Gemini API...
+2026-01-08 20:38:11,190 | clustering | INFO | Found 5 active stories for context (last 14 days).
+2026-01-08 20:38:11,255 | clustering | INFO | Found 0 ungrouped articles to process (last 48 hours).
+2026-01-08 20:38:11,257 | clustering | INFO | No new articles to cluster. Exiting.
+2026-01-09 08:09:00,112 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-09 08:09:00,191 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-09 08:09:00,191 | clustering | INFO | Configuring Gemini API...
+2026-01-09 08:09:00,262 | clustering | INFO | Found 151 active stories for context (last 7 days).
+2026-01-09 08:09:00,321 | clustering | INFO | Found 35 ungrouped articles to process (last 24 hours).
+2026-01-09 08:09:00,349 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-09 08:09:00,355 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-09 08:09:00,355 | clustering | DEBUG | Articles to cluster: 35
+2026-01-09 08:13:41,167 | clustering | INFO | Received response from Gemini.
+2026-01-09 08:13:41,175 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2917 column 19 (char 94745)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2917 column 19 (char 94745)
+2026-01-09 10:17:00,029 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-09 10:17:00,049 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-09 10:17:00,050 | clustering | INFO | Configuring Gemini API...
+2026-01-09 10:17:00,104 | clustering | INFO | Found 155 active stories for context (last 7 days).
+2026-01-09 10:17:00,160 | clustering | INFO | Found 28 ungrouped articles to process (last 24 hours).
+2026-01-09 10:17:00,168 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-09 10:17:00,176 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-09 10:17:00,177 | clustering | DEBUG | Articles to cluster: 28
+2026-01-09 10:21:55,045 | clustering | INFO | Received response from Gemini.
+2026-01-09 10:21:55,051 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2809 column 19 (char 91236)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2809 column 19 (char 91236)
+2026-01-10 09:06:00,080 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-10 09:06:00,089 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-10 09:06:00,090 | clustering | INFO | Configuring Gemini API...
+2026-01-10 09:06:00,156 | clustering | INFO | Found 190 active stories for context (last 7 days).
+2026-01-10 09:06:00,203 | clustering | INFO | Found 21 ungrouped articles to process (last 24 hours).
+2026-01-10 09:06:00,213 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-10 09:06:00,214 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-10 09:06:00,215 | clustering | DEBUG | Articles to cluster: 21
+2026-01-10 09:10:09,127 | clustering | INFO | Received response from Gemini.
+2026-01-10 09:10:09,140 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2889 column 19 (char 93835)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2889 column 19 (char 93835)
+2026-01-10 09:11:00,078 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-10 09:11:00,086 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-10 09:11:00,086 | clustering | INFO | Configuring Gemini API...
+2026-01-10 09:11:00,101 | clustering | INFO | Found 190 active stories for context (last 7 days).
+2026-01-10 09:11:00,130 | clustering | INFO | Found 21 ungrouped articles to process (last 24 hours).
+2026-01-10 09:11:00,133 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-10 09:11:00,135 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-10 09:11:00,135 | clustering | DEBUG | Articles to cluster: 21
+2026-01-10 09:15:17,481 | clustering | INFO | Received response from Gemini.
+2026-01-10 09:15:17,488 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2917 column 7 (char 94733)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2917 column 7 (char 94733)
+2026-01-10 10:23:00,075 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-10 10:23:00,081 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-10 10:23:00,081 | clustering | INFO | Configuring Gemini API...
+2026-01-10 10:23:00,118 | clustering | INFO | Found 190 active stories for context (last 7 days).
+2026-01-10 10:23:00,148 | clustering | INFO | Found 17 ungrouped articles to process (last 24 hours).
+2026-01-10 10:23:00,152 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-10 10:23:00,153 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-10 10:23:00,153 | clustering | DEBUG | Articles to cluster: 17
+2026-01-10 10:26:50,144 | clustering | INFO | Received response from Gemini.
+2026-01-10 10:26:50,171 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2893 column 7 (char 93917)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2893 column 7 (char 93917)

@@ -1,0 +1,567 @@
+
+            <html>
+            <head>
+                <style>
+                    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+                    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.report-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 2rem;
+}
+
+.report-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.main-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #4b5563;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.summary-box {
+    background: #f9fafb;
+    border-left: 4px solid #2563eb;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.summary-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.summary-box p {
+    margin: 0;
+    color: #374151;
+    font-size: 1.05rem;
+}
+
+.findings-section {
+    background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+    border-left: 4px solid #3b82f6;
+    padding: 1.75rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.findings-section h2 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e40af;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+}
+
+.findings-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.findings-section li {
+    color: #1e40af;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 1.75rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.findings-section li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3b82f6;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+
+.section-title {
+    color: #111827;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+h1.section-title { font-size: 1.875rem; color: #1e40af; border-bottom: 1px solid #f3f4f6; padding-bottom: 0.5rem; }
+h2.section-title { font-size: 1.5rem; color: #1e3a8a; }
+h3.section-title { font-size: 1.25rem; color: #1e3a8a; }
+h4.section-title { font-size: 1.125rem; color: #1e3a8a; }
+
+.section-body {
+    margin-bottom: 1.5rem;
+    color: #374151;
+}
+
+.subsections {
+    margin-left: 1.5rem;
+    border-left: 1px solid #f3f4f6;
+    padding-left: 1.5rem;
+}
+
+.references-section {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 2px solid #111827;
+}
+
+.refs-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2rem;
+}
+
+.ref-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ref-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+    background: #ffffff;
+}
+
+.ref-item:hover {
+    background: #f8fafc;
+}
+
+.ref-number {
+    font-weight: 700;
+    color: #2563eb;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.ref-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ref-article-title {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.ref-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 0.85rem;
+    word-break: break-all;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+}
+
+/* Citations in text are rendered as links in superscript */
+sup a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+sup a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+                </style>
+            </head>
+            <body>
+                
+
+<div class="report-container">
+    <header class="report-header">
+        <h1 class="main-title"><p>Minimum Wage Hike Sparks Inflation Concerns and Political Debate</p></h1>
+        
+        <div class="summary-box">
+            <span class="summary-label">EXECUTIVE SUMMARY</span>
+            <p><p>Colombia's economy is navigating challenges stemming from a significant 23% minimum wage increase, which is driving inflation concerns and impacting payroll costs for businesses<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043" target="_blank" style="text-decoration: none; color: #2563eb;">1</a>]</span>. President Petro is investigating companies for price gouging attributed to the wage hike, while experts warn of inflationary pressures<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/petro-anuncio-investigacion-a-las-empresas-que-suban-los-precios-a-los-clientes-con-el-aumento-del-salario-minimo-es-chavez/" target="_blank" style="text-decoration: none; color: #2563eb;">2</a>]</span>. Simultaneously, political discourse intensifies over government decrees impacting housing policy and security transfers<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/economia/sectores/los-riesgos-que-generaria-el-decreto-que-busca-desindexar-la-vivienda-vis-del-salario-minimo-3523657" target="_blank" style="text-decoration: none; color: #2563eb;">3</a>, <a href="https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-las-criticas-de-alejandro-char-por-el-traslado-de-cabecillas-criminales-a-barranquilla-no-se-le-olvide-senor/" target="_blank" style="text-decoration: none; color: #2563eb;">4</a>]</span>. International relations are also in focus, with the Defense Minister's US visit and global AI resource competition shaping diplomatic and economic agendas<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/ministro-de-defensa-inicia-gira-por-estados-unidos-previo-visita-de-gustavo-petro-se-reunira-con-altos-funcionarios-de-donald-trump/" target="_blank" style="text-decoration: none; color: #2563eb;">5</a>]</span>, .</p></p>
+        </div>
+
+    </header>
+    
+    <div class="report-content">
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title"><p>Economic Impact of Minimum Wage Increase</p></h1>
+        <div class="section-body">
+            <p>The recent 23% increase in Colombia's minimum wage is creating significant ripple effects across the labor market and the broader economy<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043" target="_blank" style="text-decoration: none; color: #2563eb;">1</a>]</span>. This adjustment is reportedly leading to wage compression and internal adjustments for businesses, altering payroll costs and forcing difficult decisions for both companies and employees<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043" target="_blank" style="text-decoration: none; color: #2563eb;">1</a>]</span>. In response to observed price increases, President Gustavo Petro has announced that the government, in conjunction with the Superintendency of Industry and Commerce (SIC), will investigate companies suspected of irrationally raising prices to protect consumer rights and ensure fair market conditions<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/petro-anuncio-investigacion-a-las-empresas-que-suban-los-precios-a-los-clientes-con-el-aumento-del-salario-minimo-es-chavez/" target="_blank" style="text-decoration: none; color: #2563eb;">2</a>, <a href="https://www.larepublica.co/economia/petro-y-la-sic-investigaran-toda-empresa-que-suba-irracionalmente-sus-precios-a-clientes-4304131" target="_blank" style="text-decoration: none; color: #2563eb;">6</a>]</span>. Experts and political figures have also warned about the potential inflationary consequences of the wage hike, with some highlighting that even daily meals ("corrientazos") may see price increases of up to 23%<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/economia/finanzas-personales/prepare-el-bolsillo-el-corrientazo-subira-por-aumento-del-23-del-minimo-segun-juan-daniel-oviedo-3523596" target="_blank" style="text-decoration: none; color: #2563eb;">7</a>]</span>. The impact extends to government finances, with concerns raised about the increased costs for pensions, health services, and subsidies<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/salario-minimo-de-2026-le-generara-otro-gasto-al-gobierno-y-complicara-el-pago-de-pensiones-salud-y-subsidios-no-hay-forma/" target="_blank" style="text-decoration: none; color: #2563eb;">8</a>]</span>.</p>
+        </div>
+        
+        
+            <div class="subsections">
+                
+                    
+    <div class="report-section level-2">
+        <h2 class="section-title"><p>Government Housing Policy and Economic Risks</p></h2>
+        <div class="section-body">
+            <p>New government decrees concerning Social Interest Housing (VIS) are generating considerable debate. One decree proposes to de-link housing prices from the minimum wage, establishing a maximum value for VIS properties equivalent to 135 minimum monthly legal wages<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" style="text-decoration: none; color: #2563eb;">9</a>]</span>. While intended to increase transparency, critics like former Minister of Finance José Manuel Restrepo and Representative Carolina Arbeláez warn that this could lead to reduced supply, higher prices, and diminished legal certainty, disproportionately affecting lower-income families<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/economia/sectores/los-riesgos-que-generaria-el-decreto-que-busca-desindexar-la-vivienda-vis-del-salario-minimo-3523657" target="_blank" style="text-decoration: none; color: #2563eb;">3</a>, <a href="https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104" target="_blank" style="text-decoration: none; color: #2563eb;">10</a>, <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" style="text-decoration: none; color: #2563eb;">11</a>]</span>. President Petro, however, has denied that the VIS regulations are a direct consequence of the minimum wage increase, labeling such a connection an "economic aberration" and emphasizing the unfairness of citizens relying on the "vital salary" for housing costs<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/11/petro-desmintio-que-las-nuevas-reglas-de-las-viviendas-vis-fueran-resultado-del-aumento-del-salario-minimo-aberracion-economica/" target="_blank" style="text-decoration: none; color: #2563eb;">12</a>]</span>. Minister of Labor Antonio Sanguino has publicly supported the new policy, advocating for pricing in Colombian pesos and increased transparency to prevent abuses against the poor<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/" target="_blank" style="text-decoration: none; color: #2563eb;">13</a>]</span>.</p>
+        </div>
+        
+        
+    </div>
+
+                
+            </div>
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title"><p>International Relations and Economic Trends</p></h1>
+        <div class="section-body">
+            <p>Colombian Minister of Defense Pedro Sánchez has begun a three-day tour of the United States to discuss advancements in the fight against drugs and to bolster bilateral alliances<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/ministro-de-defensa-inicia-gira-por-estados-unidos-previo-visita-de-gustavo-petro-se-reunira-con-altos-funcionarios-de-donald-trump/" target="_blank" style="text-decoration: none; color: #2563eb;">5</a>]</span>. The diplomatic dialogue between Colombia and the US has improved following recent phone calls, opening avenues for more cordial relations and potentially leading to the elimination of tariffs on key products like steel and aluminum<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" target="_blank" style="text-decoration: none; color: #2563eb;">14</a>]</span>. In the global economic arena, the escalating race for Artificial Intelligence (AI) is driving a significant demand for energy, semiconductors, and minerals, reshaping geopolitical priorities and resource competition . This technological race involves major players like Google and Apple, who have formalized a multi-year agreement to integrate Google's Gemini AI models into Apple's features, including Siri, while maintaining Apple's privacy standards<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/tecnosfera/apple-hace-alianza-con-google-para-integrar-los-modelos-gemini-en-sus-funciones-de-ia-y-actualizar-siri-3523636" target="_blank" style="text-decoration: none; color: #2563eb;">15</a>, <a href="https://www.larepublica.co/globoeconomia/google-y-apple-sellaron-acuerdo-multianual-para-integrar-inteligencia-artificial-en-siri-4304123" target="_blank" style="text-decoration: none; color: #2563eb;">16</a>]</span>. The price of gold and silver have reached historic highs, influenced by an investigation into the US Federal Reserve and its chairman, Jerome Powell, raising concerns about central bank autonomy and contributing to market volatility on Wall Street<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" target="_blank" style="text-decoration: none; color: #2563eb;">17</a>, <a href="https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101" target="_blank" style="text-decoration: none; color: #2563eb;">18</a>, <a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" target="_blank" style="text-decoration: none; color: #2563eb;">19</a>, <a href="https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075" target="_blank" style="text-decoration: none; color: #2563eb;">20</a>]</span>.</p>
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title"><p>Political Landscape and Security Concerns</p></h1>
+        <div class="section-body">
+            <p>The political scene is marked by ongoing debates and criticisms surrounding government actions. Presidential candidate Alejandro Char has strongly criticized President Petro's decision to transfer criminal leaders to Barranquilla, warning of increased insecurity, particularly during the upcoming carnivals<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-las-criticas-de-alejandro-char-por-el-traslado-de-cabecillas-criminales-a-barranquilla-no-se-le-olvide-senor/" target="_blank" style="text-decoration: none; color: #2563eb;">4</a>, <a href="https://www.infobae.com/colombia/2026/01/12/alejandro-char-se-fue-contra-gustavo-petro-por-traslado-de-cabecillas-criminales-a-barranquilla-advirtio-aumento-de-inseguridad-en-carnavales/" target="_blank" style="text-decoration: none; color: #2563eb;">21</a>]</span>. Senator Mauricio Gómez Amín echoed these concerns, stating the move shows "zero empathy" and could negatively impact citizen security<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/" target="_blank" style="text-decoration: none; color: #2563eb;">22</a>]</span>. The transfer of alias 'Negro Ober' to Barranquilla has intensified local security concerns, prompting calls for better coordination with the national government<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/justicia/delitos/traslado-de-alias-negro-ober-a-barranquilla-genera-incertidumbre-en-la-seguridad-local-3523629" target="_blank" style="text-decoration: none; color: #2563eb;">23</a>, <a href="https://www.infobae.com/colombia/2026/01/12/gobierno-ordeno-el-traslado-de-alias-el-negro-ober-a-barranquilla-crece-la-preocupacion-por-seguridad/" target="_blank" style="text-decoration: none; color: #2563eb;">24</a>]</span>. In separate political developments, opposition leaders are calling for an investigation into a significant defense contract signed by the Presidency for President Petro's legal defense, with former President Álvaro Uribe emphasizing the public's right to know<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608" target="_blank" style="text-decoration: none; color: #2563eb;">25</a>, <a href="https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/" target="_blank" style="text-decoration: none; color: #2563eb;">26</a>]</span>. The electoral body is set to decide on an initiative to convene a constituent assembly, a move that has drawn criticism regarding President Petro's past statements<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/registraduria-tomara-decision-sobre-la-iniciativa-para-convocar-a-una-asamblea-constituyente-como-lo-quiere-gustavo-petro-semana-crucial/" target="_blank" style="text-decoration: none; color: #2563eb;">27</a>]</span>. The ELN has proposed a "national agreement" focused on combating poverty and corruption, which political leaders like Sergio Fajardo have rejected as an attempt to manipulate elections<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.eltiempo.com/politica/proceso-de-paz/ante-posibles-acciones-conjuntas-de-ee-uu-y-colombia-para-combatirlo-eln-rompe-silencio-proponiendo-un-acuerdo-nacional-3523592" target="_blank" style="text-decoration: none; color: #2563eb;">28</a>, <a href="https://www.infobae.com/colombia/2026/01/12/lideres-politicos-rechazaron-la-propuesta-de-un-acuerdo-nacional-del-eln-no-vamos-a-negociar-con-narcos-las-elecciones/" target="_blank" style="text-decoration: none; color: #2563eb;">29</a>, <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/sergio-fajardo-rechaza-comunicado-del-eln-en-apoyo-a-acuerdo-nacional-y-constituyente-manipular-elecciones-3523649" target="_blank" style="text-decoration: none; color: #2563eb;">30</a>]</span>. The Attorney General's Office is also implementing an "electoral peace" strategy to ensure the integrity of upcoming elections through coordinated efforts at toll booths nationwide<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.infobae.com/colombia/2026/01/12/procuraduria-aprovecho-el-puente-de-reyes-para-hablar-de-las-elecciones-en-todos-los-peajes-del-pais-buscan-proteger-los-comicios/" target="_blank" style="text-decoration: none; color: #2563eb;">31</a>, <a href="https://www.eltiempo.com/justicia/investigacion/procuraduria-socializo-en-distintos-peajes-del-pais-su-estrategia-de-paz-electoral-3523647" target="_blank" style="text-decoration: none; color: #2563eb;">32</a>]</span>.</p>
+        </div>
+        
+        
+    </div>
+
+        
+            
+    <div class="report-section level-1">
+        <h1 class="section-title"><p>Inflation and Trade Perspectives</p></h1>
+        <div class="section-body">
+            <p>Inflationary pressures remain a key concern, with Colombia's annual inflation ending 2025 at 5.10%, largely unchanged from the previous year, and December's monthly inflation recorded at 0.27%<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" target="_blank" style="text-decoration: none; color: #2563eb;">33</a>]</span>. This follows a trend where food prices, particularly coffee, tea, cocoa, sweets, and meat, saw significant increases in 2025, contributing substantially to food inflation due to factors including climate change . The economic outlook for 2026 remains subject to uncertainty, influenced by upcoming elections and shifts in government, although manufacturing sector data for September 2025 indicated growth compared to the prior year<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.portafolio.co/economia/crecimiento/el-tarot-empresarial-para-2026-que-le-depara-a-la-economia-del-pais-y-a-los-diferentes-sectores-que-la-componen-486115" target="_blank" style="text-decoration: none; color: #2563eb;">34</a>]</span>. In trade, improved diplomatic dialogue between Colombia and the US may pave the way for eliminating tariffs on products like steel and aluminum<span style="vertical-align: super; font-size: 0.75rem; font-weight: 600; color: #2563eb;">[<a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" target="_blank" style="text-decoration: none; color: #2563eb;">14</a>]</span>.</p>
+        </div>
+        
+        
+    </div>
+
+        
+    </div>
+
+    <footer class="references-section">
+        <h3 class="refs-title">References</h3>
+        <ul class="ref-list">
+        
+            <li id="ref-0b7f9f47-320c-4295-8469-6e13a722f1ae" class="ref-item">
+                <span class="ref-number">[1]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Wage compression and internal adjustments, the domino effect of the minimum wage that will reach the labor market</span>
+                    <a href="https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043" target="_blank" class="ref-link">https://www.portafolio.co/economia/empleo/compresion-salarial-y-ajustes-internos-el-efecto-domino-del-salario-minimo-que-llegara-al-mercado-laboral-486043</a>
+                </div>
+            </li>
+        
+            <li id="ref-0016357a-1808-4053-84bb-159427b6d012" class="ref-item">
+                <span class="ref-number">[2]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro announces investigation into companies that raise prices for customers with the minimum wage increase: "It's Chávez"</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/petro-anuncio-investigacion-a-las-empresas-que-suban-los-precios-a-los-clientes-con-el-aumento-del-salario-minimo-es-chavez/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/petro-anuncio-investigacion-a-las-empresas-que-suban-los-precios-a-los-clientes-con-el-aumento-del-salario-minimo-es-chavez/</a>
+                </div>
+            </li>
+        
+            <li id="ref-345a3d34-2d49-43b8-9a7c-f39be61df9d8" class="ref-item">
+                <span class="ref-number">[3]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">The risks that the decree seeking to de-index VIS housing from the minimum wage would generate</span>
+                    <a href="https://www.eltiempo.com/economia/sectores/los-riesgos-que-generaria-el-decreto-que-busca-desindexar-la-vivienda-vis-del-salario-minimo-3523657" target="_blank" class="ref-link">https://www.eltiempo.com/economia/sectores/los-riesgos-que-generaria-el-decreto-que-busca-desindexar-la-vivienda-vis-del-salario-minimo-3523657</a>
+                </div>
+            </li>
+        
+            <li id="ref-05a715be-a914-40a1-ab77-5488bed125a4" class="ref-item">
+                <span class="ref-number">[4]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro responded to Alejandro Char's criticism about the transfer of criminal leaders to Barranquilla: “Don't forget, sir”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-las-criticas-de-alejandro-char-por-el-traslado-de-cabecillas-criminales-a-barranquilla-no-se-le-olvide-senor/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/petro-respondio-a-las-criticas-de-alejandro-char-por-el-traslado-de-cabecillas-criminales-a-barranquilla-no-se-le-olvide-senor/</a>
+                </div>
+            </li>
+        
+            <li id="ref-0424c8c0-a5f7-4a46-9331-738ef87ecb6d" class="ref-item">
+                <span class="ref-number">[5]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Defense Minister begins tour of the United States, prior to Gustavo Petro's visit: will meet with high-ranking officials of Donald Trump</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/ministro-de-defensa-inicia-gira-por-estados-unidos-previo-visita-de-gustavo-petro-se-reunira-con-altos-funcionarios-de-donald-trump/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/ministro-de-defensa-inicia-gira-por-estados-unidos-previo-visita-de-gustavo-petro-se-reunira-con-altos-funcionarios-de-donald-trump/</a>
+                </div>
+            </li>
+        
+            <li id="ref-6f18be2d-f143-4f7c-8caf-9feb53052269" class="ref-item">
+                <span class="ref-number">[6]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro and SIC to investigate any company that irrationally raises prices to customers</span>
+                    <a href="https://www.larepublica.co/economia/petro-y-la-sic-investigaran-toda-empresa-que-suba-irracionalmente-sus-precios-a-clientes-4304131" target="_blank" class="ref-link">https://www.larepublica.co/economia/petro-y-la-sic-investigaran-toda-empresa-que-suba-irracionalmente-sus-precios-a-clientes-4304131</a>
+                </div>
+            </li>
+        
+            <li id="ref-6ee5696f-4a85-480e-baa5-69fc706d22cf" class="ref-item">
+                <span class="ref-number">[7]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Prepare your wallet: the 'corrientazo' will rise due to a 23% increase in the minimum wage, according to Juan Daniel Oviedo</span>
+                    <a href="https://www.eltiempo.com/economia/finanzas-personales/prepare-el-bolsillo-el-corrientazo-subira-por-aumento-del-23-del-minimo-segun-juan-daniel-oviedo-3523596" target="_blank" class="ref-link">https://www.eltiempo.com/economia/finanzas-personales/prepare-el-bolsillo-el-corrientazo-subira-por-aumento-del-23-del-minimo-segun-juan-daniel-oviedo-3523596</a>
+                </div>
+            </li>
+        
+            <li id="ref-9c67f87e-326a-47c5-81de-a013108c8c89" class="ref-item">
+                <span class="ref-number">[8]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">2026 minimum wage will generate another expense for the Government and complicate the payment of pensions, health, and subsidies: 'There is no way'</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/salario-minimo-de-2026-le-generara-otro-gasto-al-gobierno-y-complicara-el-pago-de-pensiones-salud-y-subsidios-no-hay-forma/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/salario-minimo-de-2026-le-generara-otro-gasto-al-gobierno-y-complicara-el-pago-de-pensiones-salud-y-subsidios-no-hay-forma/</a>
+                </div>
+            </li>
+        
+            <li id="ref-b3fadacf-c514-4773-b34b-edbbdf66f72c" class="ref-item">
+                <span class="ref-number">[9]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">New proposal by the Petro government to de-link housing prices from salary would have significant risk</span>
+                    <a href="https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/" target="_blank" class="ref-link">https://www.valoraanalitik.com/nueva-propuesta-del-gobierno-petro-de-desindexar-precios-de-vivienda-del-salario-tendria-importante-riesgo/</a>
+                </div>
+            </li>
+        
+            <li id="ref-8be28d58-f18d-4b68-bd67-8b0cd601a4e6" class="ref-item">
+                <span class="ref-number">[10]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Decree on Social Interest Housing 'seems to make prices more transparent', but would generate risks</span>
+                    <a href="https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104" target="_blank" class="ref-link">https://www.portafolio.co/mis-finanzas/vivienda/decreto-sobre-vis-parece-hacer-mas-transparente-los-precios-pero-generaria-riesgos-jose-manuel-restrepo-486104</a>
+                </div>
+            </li>
+        
+            <li id="ref-c569526c-d5df-4dfe-afb7-03bd5d869f11" class="ref-item">
+                <span class="ref-number">[11]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Carolina Arbeláez denies the Petro Government after controversy with Social Interest Housing projects: “Don't be fooled”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/carolina-arbelaez-desmiente-al-gobierno-petro-tras-polemica-con-los-proyectos-de-vivienda-de-interes-social-no-se-dejen-enganar/</a>
+                </div>
+            </li>
+        
+            <li id="ref-aa66e08c-b7b9-4b5e-8441-323d9b5962c1" class="ref-item">
+                <span class="ref-number">[12]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Petro denied that the new rules for VIS housing were the result of the minimum wage increase: “Economic aberration”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/11/petro-desmintio-que-las-nuevas-reglas-de-las-viviendas-vis-fueran-resultado-del-aumento-del-salario-minimo-aberracion-economica/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/11/petro-desmintio-que-las-nuevas-reglas-de-las-viviendas-vis-fueran-resultado-del-aumento-del-salario-minimo-aberracion-economica/</a>
+                </div>
+            </li>
+        
+            <li id="ref-ca5da616-ecf4-4f90-b4cf-8ad23b7cfd0a" class="ref-item">
+                <span class="ref-number">[13]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Antonio Sanguino Praised the Petro Government and Defended the Living Wage: “No More Abuses with the Housing of the Poorest”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/antonio-sanguino-saco-pecho-por-el-gobierno-petro-y-defendio-el-salario-vital-no-mas-abusos-con-la-vivienda-de-los-mas-pobres/</a>
+                </div>
+            </li>
+        
+            <li id="ref-7debef88-93e8-4ef1-80d7-fd488831d5b6" class="ref-item">
+                <span class="ref-number">[14]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Dialogue between Colombia and the US to boost steel tariff elimination?: These are the opportunities</span>
+                    <a href="https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/" target="_blank" class="ref-link">https://www.valoraanalitik.com/arancel-al-acero-en-estados-unidos/</a>
+                </div>
+            </li>
+        
+            <li id="ref-0a7a37c8-cbfc-42fa-b429-eac0edbc9d97" class="ref-item">
+                <span class="ref-number">[15]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Apple allies with Google to integrate Gemini models into its AI functions and update Siri</span>
+                    <a href="https://www.eltiempo.com/tecnosfera/apple-hace-alianza-con-google-para-integrar-los-modelos-gemini-en-sus-funciones-de-ia-y-actualizar-siri-3523636" target="_blank" class="ref-link">https://www.eltiempo.com/tecnosfera/apple-hace-alianza-con-google-para-integrar-los-modelos-gemini-en-sus-funciones-de-ia-y-actualizar-siri-3523636</a>
+                </div>
+            </li>
+        
+            <li id="ref-54451d27-3ac5-4554-9da3-49690aa5f233" class="ref-item">
+                <span class="ref-number">[16]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Google and Apple sealed a multi-year agreement to integrate artificial intelligence into Siri</span>
+                    <a href="https://www.larepublica.co/globoeconomia/google-y-apple-sellaron-acuerdo-multianual-para-integrar-inteligencia-artificial-en-siri-4304123" target="_blank" class="ref-link">https://www.larepublica.co/globoeconomia/google-y-apple-sellaron-acuerdo-multianual-para-integrar-inteligencia-artificial-en-siri-4304123</a>
+                </div>
+            </li>
+        
+            <li id="ref-0ead46f4-dd82-4b14-a9a5-9510d2948110" class="ref-item">
+                <span class="ref-number">[17]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Gold exceeds US$4,600 per ounce for the first time due to investigation into Powell</span>
+                    <a href="https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058" target="_blank" class="ref-link">https://www.larepublica.co/finanzas/el-oro-supera-por-primera-vez-el-valor-de-us-4-600-con-la-investigacion-a-powell-4304058</a>
+                </div>
+            </li>
+        
+            <li id="ref-50fa9426-c0f5-49b9-a7bf-adb624ec30a8" class="ref-item">
+                <span class="ref-number">[18]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Gold and silver start the second week of 2026 with new historic prices: investigation against the Fed sent them soaring</span>
+                    <a href="https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101" target="_blank" class="ref-link">https://www.portafolio.co/negocios/industrias/oro-y-plata-empiezan-segunda-semana-del-2026-con-nuevos-precios-historicos-investigacion-contra-la-fed-los-disparo-486101</a>
+                </div>
+            </li>
+        
+            <li id="ref-f902db3f-a27a-41b3-8220-168163ddf2be" class="ref-item">
+                <span class="ref-number">[19]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Gold and silver prices break records after US Federal Reserve investigation</span>
+                    <a href="https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622" target="_blank" class="ref-link">https://www.eltiempo.com/economia/sectores/precios-del-oro-y-la-plata-baten-records-tras-investigacion-de-reserva-federal-de-estados-unidos-3523622</a>
+                </div>
+            </li>
+        
+            <li id="ref-8dfff6c1-48d9-47aa-a9c5-e7f1d6385dff" class="ref-item">
+                <span class="ref-number">[20]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Wall Street falls as Donald Trump attacks Fed and safe-haven demand grows</span>
+                    <a href="https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075" target="_blank" class="ref-link">https://www.larepublica.co/globoeconomia/wall-street-cae-mientras-trump-intensifica-ataques-a-la-fed-y-crece-la-busqueda-de-refugio-4304075</a>
+                </div>
+            </li>
+        
+            <li id="ref-ed8e47e0-ea61-4551-ac96-d4d7c1f5cb4c" class="ref-item">
+                <span class="ref-number">[21]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Alejandro Char goes against Gustavo Petro for the transfer of criminal leaders to Barranquilla: warned of an increase in insecurity during carnivals</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/alejandro-char-se-fue-contra-gustavo-petro-por-traslado-de-cabecillas-criminales-a-barranquilla-advirtio-aumento-de-inseguridad-en-carnavales/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/alejandro-char-se-fue-contra-gustavo-petro-por-traslado-de-cabecillas-criminales-a-barranquilla-advirtio-aumento-de-inseguridad-en-carnavales/</a>
+                </div>
+            </li>
+        
+            <li id="ref-ad62d74d-c08c-4d74-b42c-195cb08592f5" class="ref-item">
+                <span class="ref-number">[22]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Mauricio Gómez Amín lashes out at Petro over possible transfer of criminal structures to Barranquilla: "Zero empathy"</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/mauricio-gomez-amin-se-despacho-contra-petro-por-posible-traslado-de-estructuras-criminales-a-barranquilla-cero-empatia/</a>
+                </div>
+            </li>
+        
+            <li id="ref-026be592-2919-4122-a864-e136666d9d1c" class="ref-item">
+                <span class="ref-number">[23]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Transfer of alias 'Negro Ober' to Barranquilla generates uncertainty in local security, experts warn</span>
+                    <a href="https://www.eltiempo.com/justicia/delitos/traslado-de-alias-negro-ober-a-barranquilla-genera-incertidumbre-en-la-seguridad-local-3523629" target="_blank" class="ref-link">https://www.eltiempo.com/justicia/delitos/traslado-de-alias-negro-ober-a-barranquilla-genera-incertidumbre-en-la-seguridad-local-3523629</a>
+                </div>
+            </li>
+        
+            <li id="ref-b35626ce-af46-445f-b1f7-fccc68139b33" class="ref-item">
+                <span class="ref-number">[24]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Government ordered the transfer of alias El Negro Ober to Barranquilla: security concerns grow</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/gobierno-ordeno-el-traslado-de-alias-el-negro-ober-a-barranquilla-crece-la-preocupacion-por-seguridad/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/gobierno-ordeno-el-traslado-de-alias-el-negro-ober-a-barranquilla-crece-la-preocupacion-por-seguridad/</a>
+                </div>
+            </li>
+        
+            <li id="ref-34ecc796-116b-49a5-8a9d-92cbf39df528" class="ref-item">
+                <span class="ref-number">[25]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Criticism continues over 10 billion contract for international defense of the Government: Álvaro Uribe and Katherine Miranda ask to investigate it</span>
+                    <a href="https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608" target="_blank" class="ref-link">https://www.eltiempo.com/politica/partidos-politicos/siguen-las-criticas-por-contrato-de-10-000-millones-para-la-defensa-internacional-del-gobierno-alvaro-uribe-y-katherine-miranda-piden-investigarlo-3523608</a>
+                </div>
+            </li>
+        
+            <li id="ref-b660d68d-a2e3-4ada-8695-2e986d94f93c" class="ref-item">
+                <span class="ref-number">[26]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Álvaro Uribe referred to the contract for $10 billion that the Presidency signed for Petro's defense: “They have the right to know”</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/alvaro-uribe-se-refirio-al-contrato-por-10000-millones-que-firmo-presidencia-para-la-defensa-de-petro-tienen-derecho-a-saber/</a>
+                </div>
+            </li>
+        
+            <li id="ref-48f9d7ce-5486-417c-a478-b56c7a1519d7" class="ref-item">
+                <span class="ref-number">[27]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Registraduría will make a decision on the initiative to convene a constituent assembly, as Gustavo Petro wants</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/registraduria-tomara-decision-sobre-la-iniciativa-para-convocar-a-una-asamblea-constituyente-como-lo-quiere-gustavo-petro-semana-crucial/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/registraduria-tomara-decision-sobre-la-iniciativa-para-convocar-a-una-asamblea-constituyente-como-lo-quiere-gustavo-petro-semana-crucial/</a>
+                </div>
+            </li>
+        
+            <li id="ref-1da207ca-a952-408f-8f66-0a3d3bd05f75" class="ref-item">
+                <span class="ref-number">[28]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Faced with possible joint actions by the US and Colombia to combat it, ELN breaks its silence proposing a 'national agreement'</span>
+                    <a href="https://www.eltiempo.com/politica/proceso-de-paz/ante-posibles-acciones-conjuntas-de-ee-uu-y-colombia-para-combatirlo-eln-rompe-silencio-proponiendo-un-acuerdo-nacional-3523592" target="_blank" class="ref-link">https://www.eltiempo.com/politica/proceso-de-paz/ante-posibles-acciones-conjuntas-de-ee-uu-y-colombia-para-combatirlo-eln-rompe-silencio-proponiendo-un-acuerdo-nacional-3523592</a>
+                </div>
+            </li>
+        
+            <li id="ref-5c8b1bb7-5008-4e11-b54f-5ebae58553dd" class="ref-item">
+                <span class="ref-number">[29]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Political leaders rejected the ELN's 'national agreement' proposal: 'We are not going to negotiate elections with narcos'</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/lideres-politicos-rechazaron-la-propuesta-de-un-acuerdo-nacional-del-eln-no-vamos-a-negociar-con-narcos-las-elecciones/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/lideres-politicos-rechazaron-la-propuesta-de-un-acuerdo-nacional-del-eln-no-vamos-a-negociar-con-narcos-las-elecciones/</a>
+                </div>
+            </li>
+        
+            <li id="ref-c089608d-d93b-493d-ac57-5b57b14b503b" class="ref-item">
+                <span class="ref-number">[30]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Sergio Fajardo rejects ELN statement in support of National Agreement and constituent assembly: 'Manipulate elections'</span>
+                    <a href="https://www.eltiempo.com/politica/elecciones-colombia-2026/sergio-fajardo-rechaza-comunicado-del-eln-en-apoyo-a-acuerdo-nacional-y-constituyente-manipular-elecciones-3523649" target="_blank" class="ref-link">https://www.eltiempo.com/politica/elecciones-colombia-2026/sergio-fajardo-rechaza-comunicado-del-eln-en-apoyo-a-acuerdo-nacional-y-constituyente-manipular-elecciones-3523649</a>
+                </div>
+            </li>
+        
+            <li id="ref-acd4f8c3-0cf8-47a3-9776-0738e6476452" class="ref-item">
+                <span class="ref-number">[31]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Attorney General's Office took advantage of the Three Kings' Day holiday to talk about elections at all toll booths in the country: they seek to protect the elections</span>
+                    <a href="https://www.infobae.com/colombia/2026/01/12/procuraduria-aprovecho-el-puente-de-reyes-para-hablar-de-las-elecciones-en-todos-los-peajes-del-pais-buscan-proteger-los-comicios/" target="_blank" class="ref-link">https://www.infobae.com/colombia/2026/01/12/procuraduria-aprovecho-el-puente-de-reyes-para-hablar-de-las-elecciones-en-todos-los-peajes-del-pais-buscan-proteger-los-comicios/</a>
+                </div>
+            </li>
+        
+            <li id="ref-b02eab8d-26ce-4118-b79c-46041b6ca0d2" class="ref-item">
+                <span class="ref-number">[32]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Prosecutor's Office socialized its 'electoral peace' strategy at various toll booths in the country</span>
+                    <a href="https://www.eltiempo.com/justicia/investigacion/procuraduria-socializo-en-distintos-peajes-del-pais-su-estrategia-de-paz-electoral-3523647" target="_blank" class="ref-link">https://www.eltiempo.com/justicia/investigacion/procuraduria-socializo-en-distintos-peajes-del-pais-su-estrategia-de-paz-electoral-3523647</a>
+                </div>
+            </li>
+        
+            <li id="ref-eff8f5dc-16c2-4401-ba5e-17ecfc21d163" class="ref-item">
+                <span class="ref-number">[33]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">Colombia | Inflation ended 2025 at 5.10%, virtually unchanged from the previous year</span>
+                    <a href="https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/" target="_blank" class="ref-link">https://www.bbvaresearch.com/en/publicaciones/colombia-inflation-ended-2025-at-510-virtually-unchanged-from-the-previous-year/</a>
+                </div>
+            </li>
+        
+            <li id="ref-9edcdd64-84a6-4169-a15e-21a99cd093ae" class="ref-item">
+                <span class="ref-number">[34]</span>
+                <div class="ref-content">
+                    <span class="ref-article-title">The business tarot for 2026: what awaits the country's economy and its various sectors?</span>
+                    <a href="https://www.portafolio.co/economia/crecimiento/el-tarot-empresarial-para-2026-que-le-depara-a-la-economia-del-pais-y-a-los-diferentes-sectores-que-la-componen-486115" target="_blank" class="ref-link">https://www.portafolio.co/economia/crecimiento/el-tarot-empresarial-para-2026-que-le-depara-a-la-economia-del-pais-y-a-los-diferentes-sectores-que-la-componen-486115</a>
+                </div>
+            </li>
+        
+        </ul>
+    </footer>
+</div>
+            </body>
+            </html>
+            

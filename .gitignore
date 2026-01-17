@@ -1,0 +1,19 @@
+# Python Virtual Envs
+backend/venv/
+.venv/
+__pycache__/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+
+# Logs and DB
+*.log
+*.db
+
+# Other
+frontend.log
+backend.log
+celery.log

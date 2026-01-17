@@ -1,0 +1,24 @@
+2026-01-08 09:06:00,112 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-08 09:06:00,183 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-08 09:06:00,184 | clustering | INFO | Configuring Gemini API...
+2026-01-08 09:06:00,220 | clustering | INFO | Found 98 active stories for context (last 7 days).
+2026-01-08 09:06:00,277 | clustering | INFO | Found 50 ungrouped articles to process (last 24 hours).
+2026-01-08 09:06:00,282 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-08 09:06:00,290 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-08 09:06:00,290 | clustering | DEBUG | Articles to cluster: 50
+2026-01-08 09:10:13,082 | clustering | INFO | Received response from Gemini.
+2026-01-08 09:10:13,096 | clustering | ERROR | Clustering Error during execution: Unterminated string starting at: line 2937 column 19 (char 95395)
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 196, in analyze_clusters
+    logger.info("Preparing prompt for Gemini...")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2937 column 19 (char 95395)

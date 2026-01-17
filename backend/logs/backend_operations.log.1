@@ -1,0 +1,118 @@
+2026-01-08 22:55:54,492 | clustering | INFO | Starting analyze_clusters for user_id: 9c4cfb1a-8cce-436c-9f3b-faed167461ff
+2026-01-08 22:55:54,632 | clustering | INFO | Clustering Config: Story Context=7 days, Article Scan=24 hours
+2026-01-08 22:55:54,634 | clustering | INFO | Configuring Gemini API...
+2026-01-08 22:55:54,868 | clustering | INFO | Found 144 active stories for context (last 7 days).
+2026-01-08 22:55:55,045 | clustering | INFO | Found 36 ungrouped articles to process (last 24 hours).
+2026-01-08 22:55:55,082 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-08 22:55:55,102 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-08 22:55:55,108 | clustering | DEBUG | Articles to cluster: 36
+2026-01-08 23:12:21,090 | clustering | ERROR | Clustering Error during execution: 504 Deadline Exceeded
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 194, in analyze_clusters
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.DeadlineExceeded: 504 Deadline Exceeded
+2026-01-09 04:56:10,729 | clustering | INFO | Starting analyze_clusters for user_id: 947bf528-14dc-4475-b5a3-79aa56b17c9e
+2026-01-09 04:56:10,774 | clustering | INFO | Clustering Config: Story Context=14 days, Article Scan=48 hours
+2026-01-09 04:56:10,776 | clustering | INFO | Configuring Gemini API...
+2026-01-09 04:56:10,797 | clustering | INFO | Found 5 active stories for context (last 14 days).
+2026-01-09 04:56:10,844 | clustering | INFO | Found 1 ungrouped articles to process (last 48 hours).
+2026-01-09 04:56:10,845 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-09 04:56:10,846 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-09 04:56:10,847 | clustering | DEBUG | Articles to cluster: 1
+2026-01-09 05:12:37,780 | clustering | ERROR | Clustering Error during execution: 504 Deadline Exceeded
+Traceback (most recent call last):
+  File "/Users/amfmateus/Documents/Development/Newstracker/backend/clustering.py", line 194, in analyze_clusters
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Users/amfmateus/Documents/Development/Newstracker/.venv/lib/python3.14/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.DeadlineExceeded: 504 Deadline Exceeded
+2026-01-09 21:43:01,590 | clustering | INFO | Starting analyze_clusters for user_id: 947bf528-14dc-4475-b5a3-79aa56b17c9e
+2026-01-09 21:43:01,606 | clustering | INFO | Clustering Config: Story Context=14 days, Article Scan=48 hours
+2026-01-09 21:43:01,609 | clustering | INFO | Configuring Gemini API...
+2026-01-09 21:43:01,652 | clustering | INFO | Found 11 active stories for context (last 14 days).
+2026-01-09 21:43:01,838 | clustering | INFO | Found 3 ungrouped articles to process (last 48 hours).
+2026-01-09 21:43:01,887 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-09 21:43:01,895 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-09 21:43:01,897 | clustering | DEBUG | Articles to cluster: 3
+2026-01-09 21:43:10,210 | clustering | INFO | Received response from Gemini.
+2026-01-09 21:43:10,223 | clustering | INFO | Gemini proposed 1 assignments to existing stories.
+2026-01-09 21:43:10,276 | clustering | INFO | Gemini proposed 2 new stories.
+2026-01-09 21:43:10,278 | clustering | INFO | Skipping proposed story 'US Faces Domestic Crisis Amidst ICE Agent Shooting Video and Continued Border Tensions' - only 1 valid input articles (threshold: 2).
+2026-01-09 21:43:10,278 | clustering | INFO | Skipping proposed story 'Manchester City Secures Antoine Semenyo Amidst Performance Slump' - only 1 valid input articles (threshold: 2).
+2026-01-09 21:43:10,303 | clustering | INFO | Clustering complete. Assigned: 1, Created: 0
+2026-01-10 07:52:01,693 | clustering | INFO | Starting analyze_clusters for user_id: 947bf528-14dc-4475-b5a3-79aa56b17c9e
+2026-01-10 07:52:01,695 | clustering | INFO | Clustering Config: Story Context=14 days, Article Scan=48 hours
+2026-01-10 07:52:01,696 | clustering | INFO | Configuring Gemini API...
+2026-01-10 07:52:01,715 | clustering | INFO | Found 18 active stories for context (last 14 days).
+2026-01-10 07:52:01,733 | clustering | INFO | Found 3 ungrouped articles to process (last 48 hours).
+2026-01-10 07:52:01,738 | clustering | INFO | Preparing prompt for Gemini...
+2026-01-10 07:52:01,739 | clustering | INFO | Sending request to Gemini API (Model: models/gemini-2.5-flash-lite)...
+2026-01-10 07:52:01,740 | clustering | DEBUG | Articles to cluster: 3
+2026-01-10 07:52:07,311 | clustering | INFO | Received response from Gemini.
+2026-01-10 07:52:07,316 | clustering | INFO | Gemini proposed 1 assignments to existing stories.
+2026-01-10 07:52:07,348 | clustering | INFO | Gemini proposed 2 new stories.
+2026-01-10 07:52:07,348 | clustering | INFO | Skipping proposed story 'Wagner Moura Earns Golden Globe Nomination Amidst Career Highlights' - only 1 valid input articles (threshold: 2).
+2026-01-10 07:52:07,349 | clustering | INFO | Skipping proposed story 'US Revises Nutritional Guidelines Amidst Industry Influence Concerns' - only 1 valid input articles (threshold: 2).
+2026-01-10 07:52:07,353 | clustering | INFO | Clustering complete. Assigned: 1, Created: 0

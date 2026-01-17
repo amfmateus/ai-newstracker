@@ -1,0 +1,130 @@
+.card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.context {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #3b82f6;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.headline {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.badge {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.dateRange {
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.dot {
+    color: #d1d5db;
+}
+
+.summary {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+}
+
+.sources {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.sourceTag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.sourceMore {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+
+/* Sentiment Accents */
+.footerPositive {
+    border-color: #10b981;
+}
+
+.footerNegative {
+    border-color: #ef4444;
+}
+
+.footerNeutral {
+    border-color: #f59e0b;
+}

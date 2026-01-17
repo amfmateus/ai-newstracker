@@ -1,0 +1,954 @@
+Found User: Alexandre Mateus (ID: 9c4cfb1a-8cce-436c-9f3b-faed167461ff)
+
+Found 1 Pipelines:
+==================================================
+PIPELINE: Colombia Daily Digest
+ID: aa6b7cb5-2293-4002-880d-ff4ff9d6b6e2
+Description: None
+--------------------
+STEP 1: SOURCE CONFIG
+{
+  "filter_date": "24h",
+  "source_ids": [
+    "81a770ac-6c3d-4f23-8bde-989e6570ace9",
+    "bf346b83-634a-4573-83fc-dea600755d8c",
+    "34abe6c1-02ec-4afe-a4e8-409e25a3a834",
+    "b864b142-2358-4706-b25c-e866af78f37c",
+    "329a2786-4a69-4cf8-8a5f-f6424ee42c20",
+    "d4de426d-d07d-4a6b-a479-87f53e3ee162",
+    "5c59c11a-cca7-4df4-8c66-5851b3da094b",
+    "47524c0a-df11-48d6-977d-822d4b565b01",
+    "0b9146ec-aef7-4640-a480-9caaf8d6068e",
+    "a77b29b9-ae1a-4711-969e-84ad10f1a5e2",
+    "d53c7fb4-ca73-48e4-a147-87c7cbec1976",
+    "cbd43fbd-3f38-4f5d-b107-d1db8228a2d1"
+  ],
+  "min_relevance": 50,
+  "sort": "published_at",
+  "template_id": "6e81d5d0-0e37-4e9e-873f-9c9716c358ca"
+}
+--------------------
+STEP 2: PROCESSING (Prompt Library: Thematic News Clustering Engine)
+Model: gemini-2.5-flash-lite
+Prompt Text:
+# ROLE AND CONSTRAINTS
+
+You are a specialized news analysis agent that processes pre-retrieved news articles and generates analytical reports. You operate under strict constraints:
+
+- NO internet access or external searches
+- NO information generation or fabrication  
+- ONLY process and analyze provided input data
+- Output strictly valid JSON (no markdown, no code blocks)
+
+---
+
+# INPUT PROCESSING PIPELINE
+
+## Phase 1: Relevance Filtering
+
+Apply ALL three filters sequentially. An article must pass ALL criteria to be included:
+
+### Geographic Filter
+
+Include articles relevant to:
+- Colombia domestic affairs
+- EU-Colombia bilateral relations
+- Colombian participation in regional initiatives affecting EU relations
+
+### Thematic Filter
+
+Include ONLY these categories:
+- **Economic:** GDP data, inflation rates, monetary policy, central bank actions, economic forecasts, business climate, sectoral performance
+- **Political:** Government composition, legislative changes, elections, institutional reforms, regulatory frameworks, governance issues
+- **Trade:** Trade agreements, tariffs, customs procedures, trade volumes, export/import data, trade policy developments, market access
+- **Investment:** Foreign direct investment, infrastructure projects, public-private partnerships, mergers and acquisitions, business establishment, investment climate
+
+### Exclusion Filter
+
+Hard exclude: Sports, entertainment, lifestyle, tourism (unless investment-related), routine crime, celebrity news, cultural events
+
+---
+
+## Phase 2: Thematic Clustering
+
+Instead of deduplication, identify **thematic gravity points** — major developments or topics around which multiple articles converge. Process as follows:
+
+### Clustering Logic
+
+1. Identify core themes based on:
+   - Shared policy areas (e.g., "monetary policy adjustments")
+   - Common entities (government actors, institutions, companies)
+   - Related events in causal chains
+   - Temporal proximity suggesting connected developments
+
+2. For each thematic cluster:
+   - Synthesize information from all related articles into cohesive narrative
+   - Highlight how different sources provide complementary perspectives
+   - Identify trends, patterns, or implications across the cluster
+   - Track ArticleIDs used for downstream processing
+
+3. Single-article themes:
+   - Include if sufficiently significant
+   - Integrate naturally without forcing connections
+
+### Citation Protocol
+
+- **CRITICAL**: Cite ALL sources contributing to each synthesized point using `[[REF:ArticleID]]`
+- Multiple sources strengthen analysis: `[[REF:Article1]][[REF:Article2]][[REF:Article3]]`
+- **CRITICAL**: Use the COMPLETE ArticleID exactly as provided in the input data - do NOT truncate, abbreviate, or modify the ID in any way
+- ArticleIDs may be long strings with numbers, hyphens, underscores, or other characters - copy them EXACTLY
+- These inline citations are the ONLY way to track source attribution - no separate references list is needed
+
+---
+
+## Phase 3: Report Structure and Content Generation
+
+### Title Requirements
+
+- Maximum 15 words
+- Capture the single most significant development or overarching theme of the day
+- Factual and specific — not generic (avoid "Daily Update" or "News Summary")
+- Do NOT mention Colombia (geographic context is implicit)
+- **CRITICAL**: The title must directly reflect a development that appears in EITHER the executive summary OR the key findings
+- The title should be derivable from reading the summary or key findings - do not introduce new information in the title
+- Think of the title as a headline for the most important point already covered in the summary/findings
+- Example: "Central Bank Cuts Interest Rates Amid Trade Agreement Progress"
+
+### Key Findings Requirements
+
+- 3-5 bullet points maximum (never fewer than 3, never more than 5)
+- Each finding limited to 15 words maximum
+- Must be complete, declarative sentences with subject and verb
+- Highlight the most significant, actionable developments across all themes
+- **CRITICAL**: Each key finding MUST include citations using complete ArticleIDs in the format `[[REF:complete_article_id]]`
+- Place citations at the end of each finding sentence
+- Order by importance/significance
+- **Example**: "Central bank reduced interest rates by 50 basis points to stimulate growth [[REF:article_id_here]]."
+
+### Content Writing Principles
+
+- **NO meta-statements**: Never write "This report covers...", "The following sections analyze...", "In summary, we have discussed..."
+- Begin directly with substantive content
+- Every sentence must convey information about the actual news and developments
+- Write as if each section stands alone as analysis
+
+### Section Structure Logic
+
+- **Create multiple top-level sections** as needed to cover all major thematic areas emerging from the news (typically 3-6 sections, but can be more if content warrants)
+- Top-level sections should align with major thematic areas, not mechanically replicate input categories
+- **Maximum nesting depth: 4 levels total** — avoid deeper hierarchies that reduce readability (this refers to hierarchy depth, NOT number of sections)
+- **Only create subsections when:**
+  - A sub-theme has 3+ articles or substantial depth warranting detailed treatment
+  - The main section text would exceed 250 words without subsection breakdown
+  - The sub-theme represents a distinct development requiring focused analysis
+  - You have not reached the 4-level depth limit
+- Avoid over-fragmentation: prefer cohesive paragraphs over excessive subsections
+
+### Writing Style
+
+- Authoritative and analytical tone drawing directly from source material
+- Create narrative flow: use transitions between paragraphs and logical sequencing of information
+- Present tense for current/ongoing developments; past tense for completed events
+- Connect related points across articles to show bigger picture
+- Lead with most significant information in each section
+- Professional diplomatic register appropriate for EU institutional reporting
+
+### Citation Discipline
+
+- **CRITICAL**: Every factual claim, statistic, quote, or development requires immediate inline citation with complete ArticleID
+- **This includes key findings AND all body text** - each claim must be cited with complete ArticleIDs
+- **CRITICAL**: Use ArticleID EXACTLY as provided in the input data - never truncate or modify
+- Copy the full ArticleID string character-by-character, including all numbers, letters, hyphens, underscores, or special characters
+- Format: `[[REF:complete_article_id_as_provided]]`
+- Place citations immediately after the specific claim they support
+- **Example**: If input provides ArticleID "article_2024_12_15_inflation_report_colombia_12345", use exactly `[[REF:article_2024_12_15_inflation_report_colombia_12345]]` - NOT `[[REF:article_2024]]` or `[[REF:article_12345]]`
+- Inline citations are tracked by upstream/downstream processing - no separate reference list is needed
+
+---
+
+# OUTPUT SCHEMA
+
+Return ONLY valid JSON (no markdown wrapping):
+
+```json
+{
+  "title": "Maximum 15-word summary reflecting content from the executive summary or key findings below (do not mention Colombia)",
+  "subtitle": "Report automatically generated on {{ current_date }} by the Trade Section, EU Delegation to Colombia",
+  "summary": "100-150 word synthesis with inline citations [[REF:complete_article_id]] of the most significant cross-cutting developments and their implications. Focus on what happened, not what the report contains.",
+  "key_findings": [
+    "First key finding as complete sentence with citation [[REF:complete_article_id_1]] (maximum 15 words)",
+    "Second key finding as complete sentence with citation [[REF:complete_article_id_2]] (maximum 15 words)",
+    "Third key finding as complete sentence with citation [[REF:complete_article_id_3]] (maximum 15 words)"
+  ],
+  "sections": [
+    {
+      "title": "First Thematic Section Title (e.g., 'Monetary Policy Adjustments')",
+      "body": "Analytical narrative synthesizing developments around this theme. Cite sources inline using COMPLETE ArticleIDs [[REF:full_article_id_exactly_as_provided]] after every factual claim. Show connections between articles and extract implications. Minimum 150 words for main sections.",
+      "subsections": [
+        {
+          "title": "Subsection Title (only if justified by content volume/depth)",
+          "body": "Focused analysis of sub-theme with inline citations [[REF:complete_article_id]] using COMPLETE ArticleIDs after every claim...",
+          "subsections": []
+        }
+      ]
+    },
+    {
+      "title": "Second Thematic Section Title (e.g., 'Trade Policy Developments')",
+      "body": "Another major theme with detailed analysis and inline citations [[REF:article_id]] after each factual statement...",
+      "subsections": []
+    },
+    {
+      "title": "Third Thematic Section Title (e.g., 'Investment Climate Updates')",
+      "body": "Additional thematic analysis with inline citations [[REF:article_id]] as warranted by the content...",
+      "subsections": []
+    }
+  ]
+}
+```
+
+**Note on sections array**: The example above shows three sections for illustration. Generate as many top-level sections as needed to cover all major thematic areas identified in the input articles (typically 3-6, but can be more if warranted).
+
+**Note on citations**: All citations are embedded inline within the text using `[[REF:ArticleID]]` format. No separate references list is included in the output as upstream/downstream processing handles reference resolution.
+
+## Critical Requirements
+
+1. **Title must not exceed 15 words, must directly reflect content from the executive summary or key findings, summarize the day's most significant development, and NOT mention Colombia**
+2. Subtitle must be exactly: "Report automatically generated on {{ current_date }} by the Trade Section, EU Delegation to Colombia"
+3. **Summary must include inline citations [[REF:complete_article_id]] for all factual claims**
+4. **Key findings must be 3-5 bullet points, each maximum 15 words INCLUDING citations, highlighting the most important developments**
+5. **CRITICAL: Every key finding must include at least one inline citation using complete ArticleIDs in [[REF:id]] format**
+6. **Generate multiple top-level sections (typically 3-6, or more if needed) to cover all major thematic areas**
+7. Maximum nesting depth: 4 levels (section → subsection → sub-subsection → sub-sub-subsection) - this is depth, not count
+8. All body text focuses exclusively on substantive developments — zero meta-commentary
+9. Subsections only appear when content depth justifies separate treatment
+10. **CRITICAL**: Every ArticleID must be used EXACTLY as provided in input - copy the complete string without any truncation, abbreviation, or modification
+11. **CRITICAL**: Every factual claim in summary, key findings, and section body text must have inline citations with complete ArticleIDs
+12. **NO separate references list is needed** - all attribution is handled through inline citations
+13. Maintain narrative flow with clear transitions between related points
+
+---
+
+# CONTENT GENERATION WORKFLOW
+
+Follow this sequence to ensure coherence:
+
+1. **Analyze input articles** and identify thematic clusters
+2. **Build detailed sections** with full analysis and inline citations using complete ArticleIDs - create as many top-level sections as needed to cover all major themes
+3. **Draft key findings** (3-5 most significant developments with inline citations) by extracting the most important points from the sections
+4. **Draft executive summary** (synthesizing the key findings and major themes from the sections with inline citations)
+5. **Create title** from the most important element in the summary or top key finding
+6. **Verify consistency**: 
+   - Ensure the title reflects content actually present in summary/key findings
+   - Verify all factual claims have inline citations with complete ArticleIDs
+   - Confirm no ArticleIDs are truncated or modified
+
+---
+
+# ARTICLE ID HANDLING - CRITICAL INSTRUCTIONS
+
+**The most common error is truncating ArticleIDs. Follow these rules strictly:**
+
+1. **Locate the ArticleID** in the input data exactly as provided
+2. **Copy the ENTIRE string** - do not shorten, summarize, or abbreviate
+3. **Preserve all characters** including numbers, letters, hyphens, underscores, dots, and special characters
+4. **Use consistently in ALL inline citations**:
+   - Inline citations in summary: `[[REF:complete_article_id]]`
+   - Inline citations in key findings: `[[REF:complete_article_id]]`
+   - Inline citations in section body text: `[[REF:complete_article_id]]`
+   - Inline citations in subsection body text: `[[REF:complete_article_id]]`
+
+5. **Every inline citation is tracked** by upstream/downstream processing for reference resolution - accuracy is critical
+
+**Examples of CORRECT usage:**
+- Input ID: `infobae_2026_01_11_banco_republica_tasa_interes_47829`
+- Key finding: `"Central bank reduced rates by 50 basis points [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Body text: `"Inflation declined to 3.2% in December [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+- Summary: `"The central bank announced significant policy changes [[REF:infobae_2026_01_11_banco_republica_tasa_interes_47829]]."`
+
+**Examples of INCORRECT usage (DO NOT DO THIS):**
+- ❌ Truncated: `[[REF:infobae_2026]]`
+- ❌ Abbreviated: `[[REF:infobae...47829]]`
+- ❌ Modified: `[[REF:infobae-jan-11]]`
+- ❌ Shortened: `[[REF:article_47829]]`
+- ❌ Missing citation: `"Central bank reduced rates by 50 basis points."` (no citation)
+
+**Verification step:** Before outputting JSON, verify that:
+1. Every factual claim in summary, key findings, and all section bodies includes inline citations with complete ArticleIDs
+2. Every ArticleID used in inline citations is EXACTLY as provided in input - no truncation or modification
+3. The title reflects a development that is mentioned in either the executive summary or key findings
+4. You have created enough top-level sections to cover all major thematic areas (not limited to just one or two)
+
+---
+
+# EDGE CASES
+
+- **Empty input:** Return `{}`
+- **No qualifying articles:** Return `{}`  
+- **Insufficient content for subsections:** Keep flat structure with main sections only
+- **Single thematic cluster:** Create minimal structure without forcing artificial divisions
+
+---
+
+# AUDIENCE AND CONTEXT
+
+**Primary Users:** EU Delegation Colombia trade section, DG Trade Brussels officers  
+
+**Use Cases:** FTA monitoring, policy briefing preparation, investment climate assessment, bilateral dialogue preparation  
+
+**Tone Requirements:** Authoritative, analytical, action-oriented. Suitable for diplomatic reporting cables.
+
+---
+
+# INPUT DATA
+
+{{ articles_json }}
+--------------------
+STEP 3: FORMATTING (Library: EC Professional Report)
+Type: user_defined
+Structure Definition (Jinja2):
+{% macro render_section(section, level) %}
+    <tr>
+        <td style="padding: 0;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                <tr>
+                    <td style="padding: {{ 24 if level == 1 else 16 }}px 0 {{ 12 if level == 1 else 8 }}px 0;">
+                        {% if level == 1 %}
+                            <h2 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 24px; font-weight: 700; color: #0E47CB; line-height: 1.3; padding-bottom: 8px; border-bottom: 2px solid #F3F4F6;">{{ section.title }}</h2>
+                        {% elif level == 2 %}
+                            <h3 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 20px; font-weight: 700; color: #004494; line-height: 1.3;">{{ section.title }}</h3>
+                        {% elif level == 3 %}
+                            <h4 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 18px; font-weight: 700; color: #004494; line-height: 1.3;">{{ section.title }}</h4>
+                        {% else %}
+                            <h5 style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #004494; line-height: 1.3;">{{ section.title }}</h5>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">
+                        {{ section.body | replace('<span class="cite"><a href=', '<span style="display: inline-block; background-color: #0E47CB; border-radius: 3px; padding: 2px 5px; margin: 0 2px; vertical-align: super;"><a style="color: #FFFFFF; text-decoration: none; font-size: 10px; font-weight: 700; font-family: Arial, Verdana, sans-serif; line-height: 1.2;" href=') | safe }}
+                    </td>
+                </tr>
+
+                {% if section.subsections %}
+                    <tr>
+                        <td style="padding: 0 0 0 24px; border-left: 2px solid #F3F4F6;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                {% for sub in section.subsections %}
+                                    {{ render_section(sub, level + 1 if level < 4 else 4) }}
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                {% endif %}
+            </table>
+        </td>
+    </tr>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>{{ title }}</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        body { margin: 0; padding: 0; width: 100% !important; }
+        a { color: #0E47CB; text-decoration: underline; }
+        a:hover { color: #004494; }
+
+        @media only screen and (max-width: 600px) {
+            .main-title { font-size: 28px !important; line-height: 1.2 !important; }
+            .subtitle { font-size: 16px !important; }
+            .content-wrapper { padding: 16px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F9FAFB; font-family: 'Arial', 'Verdana', sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; background-color: #F9FAFB;">
+        <tr>
+            <td align="center" style="padding: 32px 16px;">
+                <table role="presentation" width="650" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; max-width: 650px; width: 100%; background-color: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+
+                    <!-- Header Section -->
+                    <tr>
+                        <td style="padding: 40px 40px 24px 40px; border-bottom: 3px solid #0E47CB;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                <tr>
+                                    <td>
+                                        <h1 class="main-title" style="margin: 0 0 8px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 32px; font-weight: 700; color: #0E47CB; line-height: 1.2;">{{ title }}</h1>
+                                        {% if subtitle %}
+                                        <p class="subtitle" style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 18px; color: #666666; font-style: italic; line-height: 1.4;">{{ subtitle }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Executive Summary -->
+                    <tr>
+                        <td style="padding: 24px 40px 24px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #F0F4FA; border-left: 4px solid #0E47CB;">
+                                <tr>
+                                    <td style="padding: 20px 24px;">
+                                        <p style="margin: 0 0 8px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 11px; font-weight: 700; color: #0E47CB; letter-spacing: 0.08em; text-transform: uppercase;">Executive Summary</p>
+                                        <p style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #333333;">{{ summary | replace('<span class="cite"><a href=', '<span style="display: inline-block; background-color: #0E47CB; border-radius: 3px; padding: 2px 5px; margin: 0 2px; vertical-align: super;"><a style="color: #FFFFFF; text-decoration: none; font-size: 10px; font-weight: 700; font-family: Arial, Verdana, sans-serif; line-height: 1.2;" href=') | safe }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Key Findings -->
+                    {% if key_findings %}
+                    <tr>
+                        <td style="padding: 0 40px 32px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #EFF6FF; border-left: 4px solid #FFCC00;">
+                                <tr>
+                                    <td style="padding: 20px 24px;">
+                                        <p style="margin: 0 0 16px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 11px; font-weight: 700; color: #004494; letter-spacing: 0.08em; text-transform: uppercase;">Key Findings</p>
+                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                            {% for finding in key_findings %}
+                                            <tr>
+                                                <td style="padding: 0 0 12px 0;">
+                                                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                        <tr>
+                                                            <td width="20" valign="top" style="padding-top: 2px;">
+                                                                <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 16px; font-weight: 700; color: #0E47CB;">▸</span>
+                                                            </td>
+                                                            <td style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 15px; line-height: 1.6; color: #004494; font-weight: 500;">
+                                                                {{ finding | replace('<span class="cite"><a href=', '<span style="display: inline-block; background-color: #0E47CB; border-radius: 3px; padding: 2px 5px; margin: 0 2px; vertical-align: super;"><a style="color: #FFFFFF; text-decoration: none; font-size: 10px; font-weight: 700; font-family: Arial, Verdana, sans-serif; line-height: 1.2;" href=') | safe }}
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td class="content-wrapper" style="padding: 0 40px 32px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                {% for section in sections %}
+                                    {{ render_section(section, 1) }}
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- References - Clickable Boxes (Rounded Squares) -->
+                    <tr>
+                        <td style="padding: 32px 40px 40px 40px; border-top: 3px solid #0E47CB;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                <tr>
+                                    <td>
+                                        <h3 style="margin: 0 0 20px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 20px; font-weight: 700; color: #0E47CB;">References</h3>
+                                    </td>
+                                </tr>
+                                {% for ref in references %}
+                                <tr>
+                                    <td style="padding: 0 0 14px 0;" id="ref{{ ref.citation }}">
+                                        <a href="{{ ref.url }}" style="display: block; text-decoration: none;" target="_blank" rel="noopener">
+                                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color: #FAFBFC; border-left: 3px solid #F3F4F6;">
+                                                <tr>
+                                                    <td width="36" valign="top" style="padding: 10px 0 10px 12px;">
+                                                        <table role="presentation" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                                            <tr>
+                                                                <td style="width: 24px; height: 20px; background-color: #0E47CB; border-radius: 3px; text-align: center; vertical-align: middle;">
+                                                                    <span style="font-family: 'Arial', 'Verdana', sans-serif; font-size: 12px; font-weight: 700; color: #FFFFFF; line-height: 20px;">{{ ref.citation }}</span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td style="padding: 10px 12px 10px 10px;">
+                                                        <p style="margin: 0 0 2px 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 14px; font-weight: 600; color: #1F2937; line-height: 1.4;">{{ ref.title }}</p>
+                                                        <p style="margin: 0; font-family: 'Arial', 'Verdana', sans-serif; font-size: 12px; color: #666666; font-style: italic; line-height: 1.3;">{{ ref.source_name }}</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+CSS:
+/* Web-only CSS - DO NOT use for email */
+/* This file enhances the template when viewed in browsers */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F9FAFB;
+    font-family: 'Inter', 'Arial', 'Verdana', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Container - Enhanced for Web */
+.report-container {
+    max-width: 650px;
+    margin: 32px auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* EC-Compliant Header */
+.report-header {
+    padding: 40px 40px 24px 40px;
+    border-bottom: 3px solid #0E47CB;
+    background-color: #FFFFFF;
+}
+
+.main-title {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0E47CB;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 18px;
+    color: #666666;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Executive Summary Box */
+.summary-box {
+    background-color: #F0F4FA;
+    border-left: 4px solid #0E47CB;
+    padding: 20px 24px;
+    margin: 24px 40px;
+}
+
+.summary-label {
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0E47CB;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.summary-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Key Findings Section */
+.findings-section {
+    background-color: #EFF6FF;
+    border-left: 4px solid #FFCC00;
+    padding: 20px 24px;
+    margin: 0 40px 32px 40px;
+}
+
+.findings-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #004494;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.findings-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.findings-section li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #004494;
+    font-weight: 500;
+}
+
+.findings-section li:last-child {
+    margin-bottom: 0;
+}
+
+.findings-section li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0E47CB;
+}
+
+/* Content Sections */
+.report-content {
+    padding: 0 40px 32px 40px;
+}
+
+.report-section {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    margin: 24px 0 12px 0;
+    font-weight: 700;
+    color: #0E47CB;
+    line-height: 1.3;
+}
+
+/* Hierarchical Section Titles */
+.level-1 > .section-title {
+    font-size: 24px;
+    color: #0E47CB;
+    border-bottom: 2px solid #F3F4F6;
+    padding-bottom: 8px;
+}
+
+.level-2 > .section-title {
+    font-size: 20px;
+    color: #004494;
+}
+
+.level-3 > .section-title {
+    font-size: 18px;
+    color: #004494;
+}
+
+.level-4 > .section-title {
+    font-size: 16px;
+    color: #004494;
+}
+
+/* Section Body */
+.section-body {
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.section-body p {
+    margin: 0 0 12px 0;
+}
+
+.section-body p:last-child {
+    margin-bottom: 0;
+}
+
+.section-body ul,
+.section-body ol {
+    margin: 0 0 12px 0;
+    padding-left: 24px;
+}
+
+.section-body li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+/* Subsections */
+.subsections {
+    padding-left: 24px;
+    border-left: 2px solid #F3F4F6;
+}
+
+/* NOTE: Citation styling is handled inline via Jinja2 replace filter */
+/* Converts <span class="cite"> to inline-styled rounded squares */
+
+/* References Section */
+.references-section {
+    padding: 32px 40px 40px 40px;
+    border-top: 3px solid #0E47CB;
+}
+
+.refs-title {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0E47CB;
+}
+
+.ref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Clickable Reference Box - No URL displayed */
+.ref-box {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background-color: #FAFBFC;
+    border-radius: 4px;
+    border-left: 3px solid #F3F4F6;
+    transition: all 0.2s ease;
+    scroll-margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ref-box:hover {
+    background-color: #F0F4FA;
+    border-left-color: #0E47CB;
+}
+
+.ref-box:target {
+    background-color: #EFF6FF;
+    border-left-color: #FFCC00;
+    animation: highlight-fade 2s ease;
+}
+
+@keyframes highlight-fade {
+    0% {
+        background-color: #FFCC00;
+        border-left-color: #FFCC00;
+    }
+    100% {
+        background-color: #EFF6FF;
+        border-left-color: #FFCC00;
+    }
+}
+
+/* Reference Number Badge - Rounded Square */
+.ref-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 20px;
+    min-width: 24px;
+    border-radius: 3px;
+    background-color: #0E47CB;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Arial', 'Verdana', sans-serif;
+    margin-top: 2px;
+}
+
+.ref-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.ref-article-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.ref-source {
+    font-size: 12px;
+    color: #666666;
+    font-style: italic;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Links in Body Text */
+a {
+    color: #0E47CB;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #004494;
+}
+
+a:focus {
+    outline: 2px solid #FFCC00;
+    outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 700px) {
+    .report-container {
+        margin: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .report-header {
+        padding: 40px 24px 24px 24px;
+    }
+
+    .report-content,
+    .references-section {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .summary-box,
+    .findings-section {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .level-1 > .section-title {
+        font-size: 22px;
+    }
+
+    .level-2 > .section-title {
+        font-size: 18px;
+    }
+
+    .level-3 > .section-title {
+        font-size: 16px;
+    }
+
+    .subsections {
+        padding-left: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .report-container {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .main-title {
+        font-size: 24px;
+    }
+
+    .ref-number {
+        width: 20px;
+        height: 18px;
+        min-width: 20px;
+        font-size: 11px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #FFFFFF;
+    }
+
+    .report-container {
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .ref-box {
+        page-break-inside: avoid;
+    }
+
+    .report-section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .summary-box,
+    .findings-section {
+        border-left-width: 6px;
+    }
+
+    a:focus {
+        outline-width: 3px;
+    }
+
+    .ref-box {
+        border-left-width: 4px;
+    }
+}
+
+--------------------
+STEP 4: OUTPUT (Library: Simple HTML config)
+Converter: HTML
+Parameters:
+{
+  "filename_template": "{{pipeline}} from {{date}} - {{title}}"
+}
+--------------------
+STEP 5: DELIVERY (Library: Email to Trade Section)
+Type: EMAIL
+Parameters:
+{
+  "recipients": [
+    "alexandre.mateus@eeas.europa.eu"
+  ],
+  "subject": "{{pipeline}} from {{date}} - {{title}}",
+  "cc": [
+    "amfmateus.co@gmail.com"
+  ],
+  "bcc": [
+    "amfmateus@gmail.com"
+  ]
+}
+==================================================
+
