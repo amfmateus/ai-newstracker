@@ -9,23 +9,20 @@ if DATABASE_URL.startswith("postgres://"):
 
 def migrate():
     engine = create_engine(DATABASE_URL)
-    # Use explicit transaction for DDL
-    with engine.begin() as connection:
-        try:
-            # Check if column exists
-            print("Checking for 'resend_api_key' in system_config...")
-            try:
-                connection.execute(text("SELECT resend_api_key FROM system_config LIMIT 1"))
-                print("Column 'resend_api_key' already exists. Skipping.")
-            except Exception:
-                print("Adding 'resend_api_key' column to system_config...")
-                connection.execute(text("ALTER TABLE system_config ADD COLUMN resend_api_key VARCHAR"))
-                print("✅ Migration successful: Added 'resend_api_key' column.")
-                
-        except Exception as e:
-            print(f"❌ Migration failed: {e}")
-            # Reraise so the app startup logs catch it
-            raise e
+    # Use generic inspection first to avoid transaction aborts on Postgres
+    from sqlalchemy import inspect
+    
+    inspector = inspect(engine)
+    columns = [c["name"] for c in inspector.get_columns("system_config")]
+    
+    if "resend_api_key" in columns:
+        print("Column 'resend_api_key' already exists. Skipping.")
+    else:
+        print("Adding 'resend_api_key' column to system_config...")
+        # Add column in a transaction
+        with engine.begin() as connection:
+             connection.execute(text("ALTER TABLE system_config ADD COLUMN resend_api_key VARCHAR"))
+        print("✅ Migration successful: Added 'resend_api_key' column.")
 
 if __name__ == "__main__":
     migrate()
