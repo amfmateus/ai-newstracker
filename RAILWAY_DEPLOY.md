@@ -70,6 +70,22 @@ git push -u origin main
     - Go to **Settings** > **Networking**.
     - Click **Generate Domain**. Note this URL (e.g., `backend-production.up.railway.app`).
 
+## Step 3.5: Deploy Background Worker (Essential for Schedulers)
+This service runs the "Celery Worker" which handles scheduled crawling and email reports. **If you skip this, no automatic updates will happen.**
+
+1.  Click **"Add New Service"** > **GitHub Repo** > Select your repo (again).
+2.  Open **Settings** for this service.
+3.  **General Settings:**
+    - **Root Directory:** `/backend`
+    - **Service Name:** Rename to `worker`.
+    - **Start Command:** `./run_celery.sh` (This runs both the worker and the scheduler).
+4.  **Environment Variables:**
+    - `DATABASE_URL`: `${Postgres.DATABASE_URL}`
+    - `REDIS_URL`: `${Redis.REDIS_URL}`
+    - `GOOGLE_API_KEY`: *[Same as backend]*
+    - `SMTP_FROM`, etc.: *[Same as backend]*
+5.  Wait for it to build. Once green, your schedulers are active!
+
 ## Step 4: Deploy Frontend
 1.  Click **"Add New Service"** > **GitHub Repo** > Select your repo (again).
 2.  Open **Settings** for this service.
