@@ -2,27 +2,30 @@ from sqlalchemy import create_engine, text
 import os
 
 # Database URL
+# Database URL
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./news_aggregator.db")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 def migrate():
     engine = create_engine(DATABASE_URL)
-    connection = engine.connect()
-
-    try:
-        # Check if column exists
-        print("Checking for 'resend_api_key' in system_config...")
+    # Use explicit transaction for DDL
+    with engine.begin() as connection:
         try:
-            connection.execute(text("SELECT resend_api_key FROM system_config LIMIT 1"))
-            print("Column 'resend_api_key' already exists. Skipping.")
-        except Exception:
-            print("Adding 'resend_api_key' column to system_config...")
-            connection.execute(text("ALTER TABLE system_config ADD COLUMN resend_api_key VARCHAR"))
-            print("✅ Migration successful: Added 'resend_api_key' column.")
-            
-    except Exception as e:
-        print(f"❌ Migration failed: {e}")
-    finally:
-        connection.close()
+            # Check if column exists
+            print("Checking for 'resend_api_key' in system_config...")
+            try:
+                connection.execute(text("SELECT resend_api_key FROM system_config LIMIT 1"))
+                print("Column 'resend_api_key' already exists. Skipping.")
+            except Exception:
+                print("Adding 'resend_api_key' column to system_config...")
+                connection.execute(text("ALTER TABLE system_config ADD COLUMN resend_api_key VARCHAR"))
+                print("✅ Migration successful: Added 'resend_api_key' column.")
+                
+        except Exception as e:
+            print(f"❌ Migration failed: {e}")
+            # Reraise so the app startup logs catch it
+            raise e
 
 if __name__ == "__main__":
     migrate()
