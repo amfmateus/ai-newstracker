@@ -202,7 +202,8 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
 
     if host and user:
         try:
-            with smtplib.SMTP(host, port) as server:
+            # Add timeout to prevent hanging indefinitely (default 30s)
+            with smtplib.SMTP(host, port, timeout=30) as server:
                 server.starttls()
                 server.login(user, password)
                 # Combine all recipients for the envelope
