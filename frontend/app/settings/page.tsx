@@ -34,7 +34,11 @@ export default function SettingsPage() {
                     fetchAIModels(),
                     fetchAIDefaults()
                 ]);
-                setAvailableModels(models.map((m: any) => m.id));
+                // Robust parsing for both object {id, name} and string formats
+                setAvailableModels(models.map((m: any) => {
+                    if (typeof m === 'string') return m;
+                    return m.id || m.name || 'unknown-model';
+                }));
                 setAiDefaults(defaults);
             } catch (err) {
                 console.error(err);

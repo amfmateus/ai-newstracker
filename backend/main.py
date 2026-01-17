@@ -765,13 +765,17 @@ def list_ai_models(current_user: User = Depends(get_current_user)):
                      "name": m.display_name or mid
                  })
                  
-        # Sort by name
         return sorted(supported_models, key=lambda x: x['name'])
     except Exception as e:
         import logging
         logger = logging.getLogger(__name__)
         logger.error(f"Failed to list models: {e}")
-        return ["gemini-2.5-flash-lite", "gemini-1.5-flash", "gemini-1.5-pro"] # Fallback
+        # Fallback to known stable models in correct format
+        return [
+            {"id": "gemini-1.5-flash", "name": "Gemini 1.5 Flash (Fallback)"},
+            {"id": "gemini-1.5-pro", "name": "Gemini 1.5 Pro (Fallback)"},
+            {"id": "gemini-2.0-flash-lite", "name": "Gemini 2.0 Flash Lite (Fallback)"}
+        ]
 
 @app.get("/api/ai/defaults")
 def get_ai_defaults():
