@@ -200,6 +200,83 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
             # Let's log and continue
 
 
+
+    # PRIORITY: Check for Resend API Key first (System Preferred)
+    resend_api_key = (config or {}).get("resend_api_key") or os.getenv("RESEND_API_KEY")
+    
+    if resend_api_key:
+        try:
+            import resend
+            resend.api_key = resend_api_key
+            
+            # Prepare Recipients
+            # Resend requires a list of strings
+            to_list = [to_email] if isinstance(to_email, str) else to_email
+            
+            # Use Verified Sender or Default
+            # Note: For free Resend accounts, you can only send to your own email unless you verify domain
+            # We default to 'onboarding@resend.dev' if no custom FROM is provided, 
+            # but usually it's better to force the user to provide one if they verified a domain.
+            # Fallback for testing:
+            sender = from_email if from_email and "@" in from_email else "onboarding@resend.dev"
+            
+            # Construct Sender String "Name <email>"
+            sender_str = sender
+            if sender_name:
+                 # Simple sanitization
+                 clean_name = sender_name.replace('"', '').replace('<', '').replace('>', '')
+                 if "<" not in sender:
+                     sender_str = f"{clean_name} <{sender}>"
+
+            email_params = {
+                "from": sender_str,
+                "to": to_list,
+                "subject": subject or f"Report: {report.title}",
+                "html": html_content
+            }
+            
+            if cc_list:
+                email_params["cc"] = cc_list
+            if bcc_list:
+                email_params["bcc"] = bcc_list
+            if reply_to:
+                email_params["reply_to"] = reply_to
+            
+            # Attachments
+            # Resend SDK handles attachments via: "attachments": [{"filename": "...", "content": buffer or list of bytes}]
+            # Reading file as bytes
+            if attachment_path and os.path.isfile(attachment_path):
+                try:
+                    with open(attachment_path, "rb") as f:
+                        file_bytes = f.read()
+                        # Convert bytes to list of integers for JSON serialization if SDK requires it?
+                        # Actually the python SDK handles 'content' as bytes or list of ints.
+                        # Ideally verifying SDK docs: content: list[int] | str (base64 could work too)
+                        # Let's simple use read() and let library handle or convert to list of ints if needed
+                        # Quick fix: manually list-ify to be safe for JSON serialization internally
+                        byte_list = list(file_bytes)
+                        
+                        email_params["attachments"] = [{
+                            "filename": os.path.basename(attachment_path),
+                            "content": byte_list
+                        }]
+                except Exception as att_err:
+                    logger.error(f"Failed to read attachment for Resend: {att_err}")
+
+            response = resend.Emails.send(email_params)
+            logger.info(f"Sent via Resend: {response}")
+            return {"status": "sent", "provider": "resend", "id": response.get("id")}
+            
+        except ImportError:
+            logger.error("Resend library not installed but API key found.")
+        except Exception as e:
+             logger.error(f"Resend Method Failed: {e}")
+             # Fallback to SMTP? Or fail? 
+             # Let's try to proceed to SMTP as fallback if configured, otherwise raise
+             if not (host and user):
+                 raise e
+    
+    # FALLBACK: SMTP
     if host and user:
         try:
             # Add timeout to prevent hanging indefinitely (default 30s)
@@ -209,7 +286,7 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
                 # Combine all recipients for the envelope
                 all_recipients = [to_email] + cc_list + bcc_list
                 server.sendmail(from_email, all_recipients, msg.as_string())
-            return {"status": "sent"}
+            return {"status": "sent", "provider": "smtp"}
         except Exception as e:
             print(f"[Email Error] {e}")
             raise e
@@ -218,3 +295,4 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
         print(f"[MOCK EMAIL] To: {to_email} | CC: {cc_list} | Subject: {msg['Subject']}")
         # print(html_content) # Too verbose
         return {"status": "mock_sent"}
+
