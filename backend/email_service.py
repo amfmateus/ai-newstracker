@@ -274,19 +274,12 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
              raise e
     
     # FALLBACK: SMTP
+    # SMTP DISABLED BY CONFIGURATION
     if host and user:
-        try:
-            # Add timeout to prevent hanging indefinitely (default 30s)
-            with smtplib.SMTP(host, port, timeout=30) as server:
-                server.starttls()
-                server.login(user, password)
-                # Combine all recipients for the envelope
-                all_recipients = [to_email] + cc_list + bcc_list
-                server.sendmail(from_email, all_recipients, msg.as_string())
-            return {"status": "sent", "provider": "smtp"}
-        except Exception as e:
-            print(f"[Email Error] {e}")
-            raise e
+        logger.error("SMTP Configuration found but SMTP is disabled. Please configure Resend API Key.")
+        if not resend_api_key:
+             raise ValueError("Resend API Key is missing and SMTP is disabled.")
+             
     else:
         # Mock
         print(f"[MOCK EMAIL] To: {to_email} | CC: {cc_list} | Subject: {msg['Subject']}")
