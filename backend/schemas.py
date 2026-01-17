@@ -43,7 +43,9 @@ class SystemConfigUpdate(BaseModel):
     smtp_password: Optional[str] = None
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
+    smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
+    resend_api_key: Optional[str] = None
 
     class Config:
         extra = "ignore"
@@ -179,7 +181,9 @@ class SettingsSchema(BaseModel):
     smtp_password: Optional[str] = None
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
+    smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
+    resend_api_key: Optional[str] = None
 
     id: str
     user_id: str

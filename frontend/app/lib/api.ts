@@ -281,6 +281,7 @@ export interface SystemSettings {
     smtp_from_email?: string;
     smtp_sender_name?: string;
     smtp_reply_to?: string;
+    resend_api_key?: string;
 
     analysis_model: string;
     analysis_prompt: string | null;

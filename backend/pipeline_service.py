@@ -1029,7 +1029,8 @@ class PipelineExecutor:
                         "smtp_password": sys_config.smtp_password,
                         "smtp_from_email": sys_config.smtp_from_email,
                         "smtp_sender_name": sys_config.smtp_sender_name,
-                        "smtp_reply_to": sys_config.smtp_reply_to
+                        "smtp_reply_to": sys_config.smtp_reply_to,
+                        "resend_api_key": sys_config.resend_api_key
                     }
 
                 final_config = sys_config_map.copy()
