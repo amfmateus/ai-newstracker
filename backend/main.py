@@ -772,6 +772,24 @@ def list_ai_models(current_user: User = Depends(get_current_user)):
         logger.error(f"Failed to list models: {e}")
         return []
 
+from pydantic import BaseModel
+
+class ValidateKeyRequest(BaseModel):
+    api_key: str
+
+@app.post("/api/ai/validate")
+def validate_ai_key(req: ValidateKeyRequest):
+    try:
+        from google import genai
+        # Test the key by initializing client and listing models (lightweight)
+        client = genai.Client(api_key=req.api_key)
+        # Try a lightweight call, e.g., list models with limit 1
+        # The list() iterator triggers the API call
+        list(client.models.list(page_size=1))
+        return {"status": "valid"}
+    except Exception as e:
+        return {"status": "invalid", "message":str(e)}
+
 @app.get("/api/ai/defaults")
 def get_ai_defaults():
     from ai_service import DEFAULT_ANALYSIS_PROMPT
