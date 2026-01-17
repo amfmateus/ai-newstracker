@@ -726,6 +726,27 @@ def get_settings(db: Session = Depends(get_db), current_user: User = Depends(get
              f.write(f"\n[get_settings] ERROR: {str(e)}\n{trace}\n")
         raise HTTPException(status_code=500, detail=f"Settings Load Error: {str(e)}")
 
+@app.get("/debug-schema")
+def debug_schema(db: Session = Depends(get_db)):
+    try:
+        from sqlalchemy import text
+        # Check columns in system_config
+        result = db.execute(text("SELECT column_name FROM information_schema.columns WHERE table_name = 'system_config'"))
+        columns = [row[0] for row in result.fetchall()]
+        
+        # Check DB URL scheme (safely)
+        from database import engine
+        url_scheme = engine.url.drivername
+        
+        return {
+            "status": "ok",
+            "db_scheme": url_scheme,
+            "columns": columns,
+            "has_resend_key": "resend_api_key" in columns
+        }
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
 import schemas
 
 @app.patch("/settings")
