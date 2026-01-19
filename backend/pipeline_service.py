@@ -660,7 +660,7 @@ class PipelineExecutor:
                 return None, None
             return citation_mapping[aid], aid
 
-        def process_text(text):
+        def process_text(text, skip_html=False):
             if not text or not isinstance(text, str): return text
             
             # 1. Flatten any existing CITE_GROUP tags back to individual REF tags to allow re-processing
@@ -692,8 +692,16 @@ class PipelineExecutor:
                 if leave_space:
                     processed = re.sub(pattern, replace_single, text)
                     processed = re.sub(r'([^\s\t\n])(\[\[CITE_GROUP:)', r'\1 \2', processed)
-                    return processed
-                return re.sub(pattern, replace_single, text)
+                    result = processed
+                else:
+                    result = re.sub(pattern, replace_single, text)
+                
+                if not skip_html:
+                    try:
+                        result = markdown.markdown(result, extensions=['extra', 'sane_lists'])
+                    except Exception as md_ex:
+                        logger.warning(f"Markdown conversion failed: {md_ex}")
+                return result
 
             def replace_group(match_full):
                 # match_full is a contiguous block of citations
@@ -717,7 +725,6 @@ class PipelineExecutor:
 
             # Match contiguous citation tags with potential leading whitespace and separators
             # cite_core_no_groups helper for the outer non-capturing group
-            cite_core_no_groups = cite_core.replace('([', '(?:').replace('([', '(?:') # Very hacky, let's just write it
             cite_core_non_cap = r'\[{1,2}(?:(?:REF|CITATION|CITE|CIT):?\s*(?:[a-zA-Z0-9\-\._\s]+)|(?:[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}))\s*\]{1,2}'
             
             contiguous_pattern = r'([ \t]*)((?:' + cite_core_non_cap + r'[,; \t]*)*' + cite_core_non_cap + r')'
@@ -742,30 +749,38 @@ class PipelineExecutor:
             processed = re.sub(r'(\[\[CITE_GROUP:[^\]]+\]\])\s+([.,;:!?])', r'\1\2', processed)
             
             # Convert Markdown to HTML to preserve paragraphs and formatting
-            # This ensures \n\n becomes <p> tags, which is more robust when wrapped in HTML templates
-            try:
-                processed = markdown.markdown(processed, extensions=['extra', 'sane_lists'])
-            except Exception as md_ex:
-                logger.warning(f"Markdown conversion failed: {md_ex}")
+            # skip_html is True for metadata fields like titles/subjects to prevent 
+            # tags like <p> from appearing in email subjects.
+            if not skip_html:
+                try:
+                    processed = markdown.markdown(processed, extensions=['extra', 'sane_lists'])
+                except Exception as md_ex:
+                    logger.warning(f"Markdown conversion failed: {md_ex}")
             
             return processed
 
-        def traverse(node):
+        def traverse(node, current_key=None):
             """
             Fully recursive traversal through dicts and lists.
             """
+            # List of keys that should remain plain text (no <p> tags)
+            metadata_keys = ["title", "subject", "name", "author", "source_name"]
+            
             if isinstance(node, dict):
                 for key, value in node.items():
                     if isinstance(value, str):
-                        node[key] = process_text(value)
+                        skip_html = key.lower() in metadata_keys
+                        node[key] = process_text(value, skip_html=skip_html)
                     else:
-                        traverse(value)
+                        traverse(value, current_key=key)
             elif isinstance(node, list):
                 for i in range(len(node)):
                     if isinstance(node[i], str):
-                        node[i] = process_text(node[i])
+                        # If inside a list, check the parent key
+                        skip_html = current_key.lower() in metadata_keys if current_key else False
+                        node[i] = process_text(node[i], skip_html=skip_html)
                     else:
-                        traverse(node[i])
+                        traverse(node[i], current_key=current_key)
 
         # Process the content recursively
         traverse(ai_content)
