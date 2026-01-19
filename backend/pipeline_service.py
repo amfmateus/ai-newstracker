@@ -729,6 +729,10 @@ class PipelineExecutor:
 
             processed = re.sub(contiguous_pattern, sub_handler, text)
             
+            # Cleanup: Remove space between citation and succeeding punctuation
+            # Example: "text [[CITE_GROUP:1]] ." -> "text [[CITE_GROUP:1]]."
+            processed = re.sub(r'(\[\[CITE_GROUP:[^\]]+\]\])\s+([.,;:!?])', r'\1\2', processed)
+            
             # Convert Markdown to HTML to preserve paragraphs and formatting
             # This ensures \n\n becomes <p> tags, which is more robust when wrapped in HTML templates
             try:
