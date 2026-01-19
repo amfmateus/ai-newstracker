@@ -671,48 +671,41 @@ class PipelineExecutor:
             
             text = re.sub(r'\[\[CITE_GROUP:([^\]]+)\]\]', flatten_cite_group, text)
 
-            # Find all citations: [[REF:ID]] or [[CITATION:ID]] or [REF:ID] or bare UUIDs [[UUID]]
-            # We now support bare UUIDs (typical AI failure mode) by adding a specific group for them.
+            # Define the core citation pattern as a string to reuse it
             # Group 1: Prefixed ID (REF:...)
             # Group 2: Bare UUID (8-4-4-4-12 hex format)
-            pattern = r'\[{1,2}(?:(?:REF|CITATION|CITE|CIT):?\s*([a-zA-Z0-9\-\._\s]+)|([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}))\s*\]{1,2}'
+            cite_core = r'\[{1,2}(?:(?:REF|CITATION|CITE|CIT):?\s*([a-zA-Z0-9\-\._\s]+)|([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}))\s*\]{1,2}'
+            pattern = cite_core
             
             def replace_single(match):
                 # Check which group matched
-                aid = match.group(1) if match.group(1) else match.group(2)
-                if not aid: return match.group(0) # Should not happen if regex matches
+                aid = match.group(1) or match.group(2)
+                if not aid: return match.group(0) 
                 
                 aid = aid.strip()
                 num, resolved_id = get_or_assign_number(aid)
                 if num:
                     return f"[[CITE_GROUP:{resolved_id}]]"
-                
-                # If it looked like a citation but didn't resolve:
-                # If it was a bare UUID that didn't match any article, we should probably hide it or leave it?
-                # The previous logic was to delete invalid citations (return "").
-                # But for bare UUIDs, maybe we should leave them if they are just random text? 
-                # A UUID is unlikely to be random text. Deleting it is consistent with "cleaning up AI artifacts".
                 return ""
 
             if not group_citations:
-                # If not grouping, just replace each tag one-by-one to preserve separators/spaces between them
-                # But we still need to handle leave_space if there's no space before them
                 if leave_space:
-                    # Look for [non-whitespace][[REF:ID]] and insert space
-                    # This is a bit tricky with re.sub, so we'll do it in two passes
                     processed = re.sub(pattern, replace_single, text)
-                    # Insert space between word and CITE_GROUP if missing
                     processed = re.sub(r'([^\s\t\n])(\[\[CITE_GROUP:)', r'\1 \2', processed)
                     return processed
                 return re.sub(pattern, replace_single, text)
 
             def replace_group(match_full):
                 # match_full is a contiguous block of citations
-                ids = re.findall(pattern, match_full)
+                matches = re.findall(pattern, match_full)
                 valid_ids = []
                 seen = set()
-                for aid in ids:
-                    num, res_id = get_or_assign_number(aid)
+                for m in matches:
+                    # re.findall returns tuples if there are multiple groups
+                    aid = (m[0] or m[1]) if isinstance(m, tuple) else m
+                    if not aid: continue
+                    
+                    num, res_id = get_or_assign_number(aid.strip())
                     if num and res_id not in seen:
                         valid_ids.append(res_id)
                         seen.add(res_id)
@@ -723,20 +716,23 @@ class PipelineExecutor:
                 return f"[[CITE_GROUP:{','.join(valid_ids)}]]"
 
             # Match contiguous citation tags with potential leading whitespace and separators
-            # This is ONLY used if group_citations is True
-            contiguous_pattern = r'([ \t]*)((?:\[{1,2}(?:REF|CITATION|CITE|CIT):?\s*[a-zA-Z0-9\-\._\s]+\s*\]{1,2}[,; \t]*)*(?:\[{1,2}(?:REF|CITATION|CITE|CIT):?\s*[a-zA-Z0-9\-\._\s]+\s*\]{1,2}))'
+            # cite_core_no_groups helper for the outer non-capturing group
+            cite_core_no_groups = cite_core.replace('([', '(?:').replace('([', '(?:') # Very hacky, let's just write it
+            cite_core_non_cap = r'\[{1,2}(?:(?:REF|CITATION|CITE|CIT):?\s*(?:[a-zA-Z0-9\-\._\s]+)|(?:[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}))\s*\]{1,2}'
+            
+            contiguous_pattern = r'([ \t]*)((?:' + cite_core_non_cap + r'[,; \t]*)*' + cite_core_non_cap + r')'
             
             def sub_handler(match):
                 leading_ws = match.group(1)
                 citation_block = match.group(2)
                 
-                # If there was any leading whitespace, preserve exactly one space if leave_space is True
-                prefix = " " if leave_space else ""
-                
                 group_tag = replace_group(citation_block)
                 if not group_tag:
                     return leading_ws if leave_space else ""
                 
+                # If leave_space is True, we force exactly one space
+                # Otherwise, we preserve the original leading whitespace
+                prefix = " " if leave_space else leading_ws
                 return prefix + group_tag
 
             processed = re.sub(contiguous_pattern, sub_handler, text)
