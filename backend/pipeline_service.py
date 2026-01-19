@@ -1051,8 +1051,10 @@ class PipelineExecutor:
                     except Exception as e:
                         logger.error(f"Failed to render subject template: {e}")
 
-                for email in recipients:
-                     send_report_email(email, report, articles, config=final_config, subject=custom_subject, attachment_path=file_path)
+                # Send to all recipients in one go to avoid rate limits
+                # email_service.send_report_email handles lists by batching or joining headers
+                if recipients:
+                    send_report_email(recipients, report, articles, config=final_config, subject=custom_subject, attachment_path=file_path)
             
             elif del_lib.delivery_type == 'TELEGRAM':
                 # Placeholder

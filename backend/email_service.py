@@ -103,7 +103,13 @@ def send_report_email(to_email, report, references, config=None, subject=None, a
     
     msg["Subject"] = subject
     msg["From"] = from_email
-    msg["To"] = to_email
+    msg["From"] = from_email
+    
+    # Handle list of recipients for the "To" header
+    if isinstance(to_email, list):
+        msg["To"] = ", ".join(to_email)
+    else:
+        msg["To"] = to_email
     
     # Handle CC and BCC
     cc_list = []
