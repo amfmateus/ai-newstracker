@@ -17,3 +17,7 @@ node_modules/
 frontend.log
 backend.log
 celery.log
+
+# Secrets (IMPORTANT)
+.env
+.env.local
