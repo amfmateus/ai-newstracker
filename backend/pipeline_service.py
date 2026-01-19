@@ -671,16 +671,28 @@ class PipelineExecutor:
             
             text = re.sub(r'\[\[CITE_GROUP:([^\]]+)\]\]', flatten_cite_group, text)
 
-            # Find all citations: [[REF:ID]] or [[CITATION:ID]] or [REF:ID]
-            # Permissive regex to catch IDs with underscores, dots, or spaces
-            pattern = r'\[{1,2}(?:REF|CITATION|CITE|CIT):?\s*([a-zA-Z0-9\-\._\s]+)\s*\]{1,2}'
+            # Find all citations: [[REF:ID]] or [[CITATION:ID]] or [REF:ID] or bare UUIDs [[UUID]]
+            # We now support bare UUIDs (typical AI failure mode) by adding a specific group for them.
+            # Group 1: Prefixed ID (REF:...)
+            # Group 2: Bare UUID (8-4-4-4-12 hex format)
+            pattern = r'\[{1,2}(?:(?:REF|CITATION|CITE|CIT):?\s*([a-zA-Z0-9\-\._\s]+)|([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}))\s*\]{1,2}'
             
             def replace_single(match):
-                aid = match.group(1).strip()
+                # Check which group matched
+                aid = match.group(1) if match.group(1) else match.group(2)
+                if not aid: return match.group(0) # Should not happen if regex matches
+                
+                aid = aid.strip()
                 num, resolved_id = get_or_assign_number(aid)
                 if num:
                     return f"[[CITE_GROUP:{resolved_id}]]"
-                return "" # Delete invalid citations
+                
+                # If it looked like a citation but didn't resolve:
+                # If it was a bare UUID that didn't match any article, we should probably hide it or leave it?
+                # The previous logic was to delete invalid citations (return "").
+                # But for bare UUIDs, maybe we should leave them if they are just random text? 
+                # A UUID is unlikely to be random text. Deleting it is consistent with "cleaning up AI artifacts".
+                return ""
 
             if not group_citations:
                 # If not grouping, just replace each tag one-by-one to preserve separators/spaces between them
