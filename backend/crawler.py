@@ -177,7 +177,9 @@ class CrawlerService:
         
         # Use httpx to fetch potential redirects/headers
         async with httpx.AsyncClient(follow_redirects=True) as client:
-            resp = await client.get(source.url, headers={"User-Agent": "Mozilla/5.0"})
+            resp = await client.get(source.url, headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            })
             resp.raise_for_status()
             content = resp.content
             
