@@ -112,7 +112,7 @@ class CrawlerService:
                 stats = await self._crawl_html_async(source, on_progress=on_progress)
             
             # Success
-            source.last_crawled_at = datetime.now()
+            source.last_crawled_at = datetime.now(timezone.utc)
             source.status = 'active'
             
             # Log Event
@@ -128,7 +128,7 @@ class CrawlerService:
         except Exception as e:
             logger.error(f"Crawl failed for {source.url}: {e}")
             source.status = 'error'
-            source.last_crawled_at = datetime.now() # Update time to prevent immediate retry loop
+            source.last_crawled_at = datetime.now(timezone.utc) # Update time to prevent immediate retry loop
             
             # Log Failure
             log = CrawlEvent(
