@@ -62,7 +62,44 @@ app.include_router(pipeline_endpoints.router)
 import template_endpoints
 app.include_router(template_endpoints.router)
 
-# --- Helper to get references for a report ---
+# --- Helper to get references
+@app.get("/api/health/scheduler")
+def health_scheduler(db: Session = Depends(get_db)):
+    """Diagnostic endpoint to check scheduler state."""
+    from datetime import datetime, timezone, timedelta
+    now = datetime.now(timezone.utc)
+    sources = db.query(Source).all()
+    
+    report = {
+        "current_time_utc": now,
+        "total_sources": len(sources),
+        "sources": []
+    }
+    
+    for s in sources:
+        last = s.last_crawled_at
+        if last and last.tzinfo is None:
+            last = last.replace(tzinfo=timezone.utc)
+        
+        due = False
+        if not last:
+            due = True
+        else:
+            next_crawl = last + timedelta(minutes=s.crawl_interval or 15)
+            due = next_crawl <= now
+            
+        report["sources"].append({
+            "id": s.id,
+            "name": s.name or s.url,
+            "status": s.status,
+            "last_crawled_at": last,
+            "interval_mins": s.crawl_interval,
+            "is_due": due
+        })
+        
+    return report
+
+# --- Main entry point ---
 def get_report_references(report: Report, db: Session):
     # Extract IDs
     ids = set()
