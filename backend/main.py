@@ -163,7 +163,7 @@ async def cors_middleware(request: Request, call_next):
         response = JSONResponse(content={"detail": str(e), "type": type(e).__name__}, status_code=500)
         
     origin = request.headers.get("origin")
-    allowed_origin = os.getenv("FRONTEND_URL", "*") 
+    allowed_origin = os.getenv("FRONTEND_URL") or "*" 
     
     # If FRONTEND_URL is set, strict check. If *, allow all (dev mode fallback)
     if allowed_origin == "*" or origin == allowed_origin:

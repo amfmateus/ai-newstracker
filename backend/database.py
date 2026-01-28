@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Default to SQLite for local development, switch to Postgres via ENV in production
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./news_aggregator.db")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL") or "sqlite:///./news_aggregator.db"
 
 # Fix for Railway/Heroku: SQLAlchemy requires 'postgresql://', but environment sometimes provides 'postgres://'
 if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):

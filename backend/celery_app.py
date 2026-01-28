@@ -3,7 +3,7 @@ from celery import Celery
 from celery.schedules import crontab
 
 # Default Redis URL
-REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+REDIS_URL = os.getenv("REDIS_URL") or "redis://localhost:6379/0"
 
 celery_app = Celery(
     "news_aggregator",

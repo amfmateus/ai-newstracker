@@ -124,17 +124,13 @@ def check_scheduled_crawls():
                 # We should prefer using UTC or consistently aware datetimes.
                 
                 last = source.last_crawled_at
-                if last.tzinfo:
-                   # Convert 'now' to aware if 'last' is aware
-                   now_aware = now.astimezone(last.tzinfo)
-                   next_crawl = last + timedelta(minutes=interval_mins)
-                   if next_crawl <= now_aware:
-                       should_crawl = True
-                else:
-                    # 'last' is naive (legacy data?), compare with naive 'now'
-                    next_crawl = last + timedelta(minutes=interval_mins)
-                    if next_crawl <= now:
-                        should_crawl = True
+                # Ensure last is aware for comparison with aware 'now'
+                if last.tzinfo is None:
+                    last = last.replace(tzinfo=timezone.utc)
+                
+                next_crawl = last + timedelta(minutes=interval_mins)
+                if next_crawl <= now:
+                    should_crawl = True
             
             if should_crawl:
                 # Double check we aren't already crawling? 
