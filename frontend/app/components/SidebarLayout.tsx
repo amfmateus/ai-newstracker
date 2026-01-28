@@ -15,7 +15,7 @@ interface SidebarLayoutProps {
 }
 
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
-    const { data: session } = useSession(); // Access session to know if we should check profile
+    const { data: session, status } = useSession(); // Access session to know if we should check profile
 
     // Default open on desktop
     const [isPinned, setIsPinned] = useState(true);
