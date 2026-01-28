@@ -65,13 +65,40 @@ app.include_router(template_endpoints.router)
 # --- Helper to get references
 @app.get("/api/health/scheduler")
 def health_scheduler(db: Session = Depends(get_db)):
-    """Diagnostic endpoint to check scheduler state."""
+    """Diagnostic endpoint to check scheduler and infrastructure state."""
     from datetime import datetime, timezone, timedelta
+    import os
+    from celery_app import REDIS_URL
+    from database import SQLALCHEMY_DATABASE_URL
+    
     now = datetime.now(timezone.utc)
     sources = db.query(Source).all()
     
+    # Mask connection strings for security
+    def mask_url(url):
+        if not url: return "Not Set"
+        if "@" in url:
+            parts = url.split("@")
+            return parts[0].split("//")[0] + "//***@" + parts[1]
+        return url[:15] + "..."
+
+    # Test Redis Connection
+    redis_status = "Unknown"
+    try:
+        from celery_app import celery_app
+        with celery_app.connection() as conn:
+            conn.ensure_connection(max_retries=1)
+            redis_status = "Connected"
+    except Exception as e:
+        redis_status = f"Failed: {str(e)}"
+
     report = {
         "current_time_utc": now,
+        "infrastructure": {
+            "database": mask_url(SQLALCHEMY_DATABASE_URL),
+            "redis_broker": mask_url(REDIS_URL),
+            "redis_status": redis_status
+        },
         "total_sources": len(sources),
         "sources": []
     }
@@ -93,7 +120,6 @@ def health_scheduler(db: Session = Depends(get_db)):
             "name": s.name or s.url,
             "status": s.status,
             "last_crawled_at": last,
-            "interval_mins": s.crawl_interval,
             "is_due": due
         })
         
