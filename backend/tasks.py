@@ -110,39 +110,38 @@ def check_scheduled_crawls():
         triggered_count = 0
         for source in sources:
             # 1. Reset Stuck Crawlers
-            # If a source has been 'crawling' for more than 60 minutes, it likely crashed.
-            # Reset it to 'error' so it can be picked up again normally.
             if source.status == 'crawling':
                 last = source.last_crawled_at
+                # If it has a timestamp, check if it's older than 60 mins
                 if last:
                     if last.tzinfo is None: last = last.replace(tzinfo=timezone.utc)
                     if (now - last).total_seconds() > 3600:
                         logger.warning(f"Source {source.id} ({source.name}) appears stuck in 'crawling'. Resetting to 'error'.")
                         source.status = 'error'
                         db.commit()
-                # If it's crawling but within the hour, skip it (wait for it to finish)
-                continue
+                        # Fall through to allowed statuses check
+                    else:
+                        continue # Still within the hour, wait
+                else:
+                    # No timestamp but in 'crawling'? That's definitely stuck/invalid.
+                    logger.warning(f"Source {source.id} ({source.name}) is 'crawling' but has no timestamp. Resetting.")
+                    source.status = 'error'
+                    db.commit()
 
-            # 2. Filter for active/error only (ignore paused/disabled if we had those)
+            # 2. Filter for active/error only
             if source.status not in ['active', 'error']:
                 continue
-
-            # Default to 15 mins if not set
-            interval_mins = source.crawl_interval if source.crawl_interval else 15
             
+            # ... (rest of the logic remains same)
+            interval_mins = source.crawl_interval if source.crawl_interval else 15
             should_crawl = False
             
             if not source.last_crawled_at:
-                # Never crawled -> Crawl now
                 should_crawl = True
             else:
                 last = source.last_crawled_at
-                # Ensure last is aware for comparison with aware 'now'
-                if last.tzinfo is None:
-                    last = last.replace(tzinfo=timezone.utc)
-                
-                next_crawl = last + timedelta(minutes=interval_mins)
-                if next_crawl <= now:
+                if last.tzinfo is None: last = last.replace(tzinfo=timezone.utc)
+                if last + timedelta(minutes=interval_mins) <= now:
                     should_crawl = True
             
             if should_crawl:
@@ -150,6 +149,7 @@ def check_scheduled_crawls():
                 crawl_source_task.delay(source.id)
                 triggered_count += 1
                 
+        logger.info(f"Schedule check complete. Triggered {triggered_count} crawls.")
         return f"Triggered {triggered_count} crawls"
     
     except Exception as e:
