@@ -21,6 +21,17 @@ celery_app.conf.update(
     broker_connection_retry_on_startup=True,
 )
 
+# Fix for Railway rediss:// URLs (SSL)
+if REDIS_URL.startswith("rediss://"):
+    celery_app.conf.update(
+        broker_use_ssl={
+            'ssl_cert_reqs': None 
+        },
+        redis_backend_use_ssl={
+            'ssl_cert_reqs': None
+        }
+    )
+
 # Beat Schedule
 celery_app.conf.beat_schedule = {
     "check-scheduled-crawls-every-minute": {
