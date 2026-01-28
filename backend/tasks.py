@@ -104,12 +104,30 @@ def check_scheduled_crawls():
         logger.info("Checking scheduled crawls...")
         now = datetime.now(timezone.utc)
         
-        # Get all active or error sources (retry errors at normal interval)
-        sources = db.query(Source).filter(Source.status.in_(['active', 'error'])).all()
+        # Get all sources (we filter below for status and timing)
+        sources = db.query(Source).all()
         
         triggered_count = 0
         for source in sources:
-            # Default to 15 mins if not set (though we plan to verify this is always set)
+            # 1. Reset Stuck Crawlers
+            # If a source has been 'crawling' for more than 60 minutes, it likely crashed.
+            # Reset it to 'error' so it can be picked up again normally.
+            if source.status == 'crawling':
+                last = source.last_crawled_at
+                if last:
+                    if last.tzinfo is None: last = last.replace(tzinfo=timezone.utc)
+                    if (now - last).total_seconds() > 3600:
+                        logger.warning(f"Source {source.id} ({source.name}) appears stuck in 'crawling'. Resetting to 'error'.")
+                        source.status = 'error'
+                        db.commit()
+                # If it's crawling but within the hour, skip it (wait for it to finish)
+                continue
+
+            # 2. Filter for active/error only (ignore paused/disabled if we had those)
+            if source.status not in ['active', 'error']:
+                continue
+
+            # Default to 15 mins if not set
             interval_mins = source.crawl_interval if source.crawl_interval else 15
             
             should_crawl = False
@@ -118,11 +136,6 @@ def check_scheduled_crawls():
                 # Never crawled -> Crawl now
                 should_crawl = True
             else:
-                # Check interval
-                # Ensure last_crawled_at is offset-naive or aware matching 'now'
-                # In models.py we use DateTime(timezone=True), so we get aware datetimes.
-                # We should prefer using UTC or consistently aware datetimes.
-                
                 last = source.last_crawled_at
                 # Ensure last is aware for comparison with aware 'now'
                 if last.tzinfo is None:
@@ -133,13 +146,6 @@ def check_scheduled_crawls():
                     should_crawl = True
             
             if should_crawl:
-                # Double check we aren't already crawling? 
-                # Ideally we shouldn't trigger if it's already 'crawling', but state might get stuck.
-                # For now, let's just trigger. Celery usually handles queueing.
-                
-                # Check if already queued to avoid storm? 
-                # (Simple version: Just trigger)
-                
                 logger.info(f"Triggering scheduled crawl for {source.name or source.url} (ID: {source.id})")
                 crawl_source_task.delay(source.id)
                 triggered_count += 1
