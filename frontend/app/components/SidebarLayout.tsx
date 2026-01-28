@@ -132,7 +132,14 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         },
     ];
 
-    // Sidebar width
+    if (status === 'loading') {
+        return <div style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f9fafb' }}>Loading...</div>;
+    }
+
+    if (!session) {
+        return <main style={{ minHeight: '100vh', width: '100vw' }}>{children}</main>;
+    }
+
     const sidebarWidth = '240px';
 
     return (

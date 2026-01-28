@@ -33,22 +33,33 @@ export default function LoginPage() {
             minHeight: '100vh',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#f9fafb',
+            background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         }}>
             <div style={{
                 background: 'white',
-                padding: '3rem',
-                borderRadius: '12px',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                padding: '3.5rem 3rem',
+                borderRadius: '24px',
+                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
+                border: '1px solid #f1f5f9',
                 width: '100%',
-                maxWidth: '400px',
+                maxWidth: '440px',
                 textAlign: 'center'
             }}>
-                <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🌍</div>
-                    <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827' }}>Welcome Back</h1>
-                    <p style={{ color: '#6b7280', marginTop: '0.5rem' }}>Sign in to your News Aggregator</p>
+                <div style={{ marginBottom: '2.5rem' }}>
+                    <div style={{ marginBottom: '1.5rem' }}>
+                        <img
+                            src="/logo_small.png"
+                            alt="Alex's Newscrawler"
+                            style={{ width: '80px', height: '80px', objectFit: 'contain' }}
+                        />
+                    </div>
+                    <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.025em' }}>
+                        Alex's Newscrawler
+                    </h1>
+                    <p style={{ color: '#6b7280', marginTop: '0.75rem', fontSize: '1.1rem', fontWeight: 450 }}>
+                        Your AI-Powered Intelligence Briefing
+                    </p>
                 </div>
 
                 {error && (
