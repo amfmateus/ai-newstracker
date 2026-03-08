@@ -21,3 +21,11 @@ celery.log
 # Secrets (IMPORTANT)
 .env
 .env.local
+
+# Debug / Diagnostic files
+backend/pipeline_debug/
+backend/diagnose_*.py
+backend/debug_log*.txt
+backend/check_db.py
+backend/debug_models.py
+backend/inspect_*.py
