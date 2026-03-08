@@ -380,16 +380,7 @@ def read_articles(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    with open("debug_log_2.txt", "a") as f:
-        f.write(f"\n[read_articles] User: {current_user.email} ({current_user.id})\n")
-        f.write(f"  Source IDs: {source_ids}\n")
-        f.write(f"  Min Relevance: {min_relevance}\n")
-    
-    # Check if user has sources
-    user_sources = db.query(Source).filter(Source.user_id == current_user.id).all()
-    source_count = len(user_sources)
-    with open("debug_log_2.txt", "a") as f:
-        f.write(f"  User has {source_count} sources: {[s.name for s in user_sources]}\n")
+    logger.info(f"[read_articles] User: {current_user.email}, min_relevance={min_relevance}, sources={source_ids}")
     
     # Base Query: Join Source to ensure user ownership
     query = db.query(Article).join(Source).options(joinedload(Article.source)).filter(Source.user_id == current_user.id)
@@ -422,12 +413,11 @@ def read_articles(
         
     if tags:
         for tag in tags:
-            # Use GLOB for strict case-sensitive matching
-            query = query.filter(Article.tags.op('GLOB')(f"*{tag}*"))
+            query = query.filter(Article.tags.ilike(f"%{tag}%"))
             
     if entities:
         for ent in entities:
-            query = query.filter(Article.entities.op('GLOB')(f"*{ent}*"))
+            query = query.filter(Article.entities.ilike(f"%{ent}%"))
         
     # Filter by Date
     date_column = Article.published_at if date_type == 'published' else Article.scraped_at
@@ -444,8 +434,6 @@ def read_articles(
         
     # Count Total (Before Pagination)
     total_count = query.count()
-    with open("debug_log_2.txt", "a") as f:
-        f.write(f"  Found {total_count} articles matching filters\n")
 
     # Sorting
     if sort_by == 'source':
@@ -570,8 +558,7 @@ from typing import List, Optional, Dict
 
 @app.get("/sources", response_model=List[SourceResponse])
 def read_sources(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    with open("debug_log_2.txt", "a") as f:
-        f.write(f"\n[read_sources] User: {current_user.email} ({current_user.id})\n")
+    logger.info(f"[read_sources] User: {current_user.email}")
     # Filter by user_id to ensure isolation
     sources = db.query(Source).filter(Source.user_id == current_user.id).all()
     
@@ -778,15 +765,9 @@ def get_settings(db: Session = Depends(get_db), current_user: User = Depends(get
             db.commit()
             db.refresh(config)
         
-        # Legacy SMTP Env Var injection removed.
-        # We only return what is in the DB.
-        
         return schemas.SettingsSchema.model_validate(config)
     except Exception as e:
-        import traceback
-        trace = traceback.format_exc()
-        with open("debug_log_2.txt", "a") as f:
-             f.write(f"\n[get_settings] ERROR: {str(e)}\n{trace}\n")
+        logger.error(f"[get_settings] ERROR: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Settings Load Error: {str(e)}")
 
 @app.get("/debug-schema")
@@ -821,27 +802,19 @@ async def update_settings(settings: schemas.SettingsUpdate, db: Session = Depend
             db.add(config)
         
         data = settings.dict(exclude_unset=True)
-        with open("debug_log_2.txt", "a") as f:
-            f.write(f"\n[update_settings] Updating with data: {data}\n")
-            if "resend_api_key" in data:
-                 masked_key = data['resend_api_key'][:4] + "..." if data['resend_api_key'] else "None"
-                 f.write(f"  -> Found resend_api_key: {masked_key}\n")
+        logger.info(f"[update_settings] Updating {len(data)} fields for user {current_user.email}")
             
         for key, value in data.items():
             if hasattr(config, key):
                 setattr(config, key, value)
             else:
-                with open("debug_log_2.txt", "a") as f:
-                    f.write(f"  WARNING: Field {key} not found on SystemConfig model\n")
+                logger.warning(f"[update_settings] Field {key} not found on SystemConfig model")
             
         db.commit()
         db.refresh(config)
         return schemas.SettingsSchema.model_validate(config)
     except Exception as e:
-        import traceback
-        error_trace = traceback.format_exc()
-        with open("debug_log_2.txt", "a") as f:
-            f.write(f"  ERROR updated_settings: {str(e)}\n{error_trace}\n")
+        logger.error(f"[update_settings] ERROR: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/ai/models")
