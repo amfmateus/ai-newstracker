@@ -724,25 +724,32 @@ def delete_source(source_id: str, delete_articles: bool = True, db: Session = De
 
 @app.patch("/sources/{source_id}")
 def update_source(source_id: str, source_update: SourceUpdate, db: Session = Depends(get_db)):
+    from sqlalchemy.orm.attributes import flag_modified
     db_source = db.query(Source).filter(Source.id == source_id).first()
     if not db_source:
         raise HTTPException(status_code=404, detail="Source not found")
     
     if source_update.name is not None:
         db_source.name = source_update.name
+        flag_modified(db_source, 'name')
     if source_update.status is not None:
         db_source.status = source_update.status
+        flag_modified(db_source, 'status')
     if source_update.crawl_interval is not None:
         db_source.crawl_interval = source_update.crawl_interval
+        flag_modified(db_source, 'crawl_interval')
     if source_update.crawl_config is not None:
-        # Merge or replace? Let's replace for simplicity
         db_source.config = source_update.crawl_config
-        
+        flag_modified(db_source, 'config')  # JSON column — must be explicitly flagged
+    if source_update.crawl_method is not None:
+        db_source.crawl_method = source_update.crawl_method
+        flag_modified(db_source, 'crawl_method')
     if source_update.reference_name is not None:
         db_source.reference_name = source_update.reference_name
+        flag_modified(db_source, 'reference_name')
         
     db.commit()
-    db.refresh(db_source) # Ensure we return fresh data
+    db.refresh(db_source)
     return db_source
 
 from models import SystemConfig
