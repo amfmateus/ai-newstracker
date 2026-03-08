@@ -146,39 +146,38 @@ class PaginatedStoryResponse(BaseModel):
     total: int
 
 class SettingsSchema(BaseModel):
-    first_crawl_lookback_hours: int
-    min_text_length: int
-    default_crawl_interval_mins: int
-    max_rss_entries: int
-    max_articles_to_scrape: int
-    page_load_timeout_seconds: int
-    min_relevance_score: int
-    content_topic_focus: str
-    story_generation_interval_mins: int
-    clustering_article_window_hours: int
-    clustering_story_context_days: int
-    min_story_strength: int
+    first_crawl_lookback_hours: Optional[int] = 24
+    min_text_length: Optional[int] = 200
+    default_crawl_interval_mins: Optional[int] = 15
+    max_rss_entries: Optional[int] = 50
+    max_articles_to_scrape: Optional[int] = 10
+    page_load_timeout_seconds: Optional[int] = 30
+    min_relevance_score: Optional[int] = 0
+    content_topic_focus: Optional[str] = None
+    story_generation_interval_mins: Optional[int] = 60
+    clustering_article_window_hours: Optional[int] = 48
+    clustering_story_context_days: Optional[int] = 7
+    min_story_strength: Optional[int] = 2
     last_clustering_at: Optional[datetime] = None
-    enable_stories: bool = True
+    enable_stories: bool = False
     
-    analysis_model: str
+    analysis_model: Optional[str] = None
     analysis_prompt: Optional[str] = None
-    clustering_model: str
+    clustering_model: Optional[str] = None
     clustering_prompt: Optional[str] = None
-    report_model: str
+    report_model: Optional[str] = None
     report_prompt: Optional[str] = None
-    pdf_crawl_model: str
+    pdf_crawl_model: Optional[str] = None
     pdf_crawl_prompt: Optional[str] = None
 
     # SMTP (Identity only)
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
-    smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
     resend_api_key: Optional[str] = None
 
-    id: str
-    user_id: str
+    id: Optional[str] = None
+    user_id: Optional[str] = None
 
     class Config:
         from_attributes = True

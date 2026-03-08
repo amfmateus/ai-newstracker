@@ -25,7 +25,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
     // Profile & Warning State
     const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
     const [showMissingKeyWarning, setShowMissingKeyWarning] = useState(false);
-    const [enableStories, setEnableStories] = useState(true);
+    const [enableStories, setEnableStories] = useState(false);
 
     // Check screen size on mount
     useEffect(() => {
