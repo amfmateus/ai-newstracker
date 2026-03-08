@@ -804,9 +804,11 @@ async def update_settings(settings: schemas.SettingsUpdate, db: Session = Depend
         data = settings.dict(exclude_unset=True)
         logger.info(f"[update_settings] Updating {len(data)} fields for user {current_user.email}")
             
+        from sqlalchemy.orm.attributes import flag_modified
         for key, value in data.items():
             if hasattr(config, key):
                 setattr(config, key, value)
+                flag_modified(config, key)
             else:
                 logger.warning(f"[update_settings] Field {key} not found on SystemConfig model")
             
