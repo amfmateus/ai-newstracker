@@ -18,11 +18,11 @@ export default function SourceConfigModal({ source, onClose, onUpdate }: SourceC
     const [crawlMethod, setCrawlMethod] = useState(source.crawl_method);
 
     // Advanced Config
-    const [maxArticles, setMaxArticles] = useState(source.config?.max_articles || 100);
-    const [minRelevance, setMinRelevance] = useState(source.config?.min_relevance || 50);
-    const [minLength, setMinLength] = useState(source.config?.min_length || 200);
-    const [timeout, setTimeoutVal] = useState(source.config?.timeout || 30);
-    const [lookback, setLookback] = useState(source.config?.lookback || 24);
+    const [maxArticles, setMaxArticles] = useState(source.crawl_config?.max_articles || 100);
+    const [minRelevance, setMinRelevance] = useState(source.crawl_config?.min_relevance || 50);
+    const [minLength, setMinLength] = useState(source.crawl_config?.min_length || 200);
+    const [timeout, setTimeoutVal] = useState(source.crawl_config?.timeout || 30);
+    const [lookback, setLookback] = useState(source.crawl_config?.lookback || 24);
 
     const [processing, setProcessing] = useState(false);
     const [alertState, setAlertState] = useState<{ isOpen: boolean; message: string; type: AlertType }>({

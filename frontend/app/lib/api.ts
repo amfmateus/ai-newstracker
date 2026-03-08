@@ -135,7 +135,7 @@ export interface Source {
     type: 'rss' | 'html';
     crawl_interval: number;
     crawl_method: 'auto' | 'pdf' | 'rss' | 'html';
-    config?: {
+    crawl_config?: {
         max_articles?: number;
         min_relevance?: number;
         min_length?: number;
