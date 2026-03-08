@@ -42,13 +42,30 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         async jwt({ token, account, user }) {
+            // --- Email Allowlist ---
+            // Read comma-separated emails from env, e.g. "alice@gmail.com,bob@gmail.com"
+            const allowedRaw = process.env.ALLOWED_EMAILS || '';
+            const allowedEmails = allowedRaw
+                .split(',')
+                .map(e => e.trim().toLowerCase())
+                .filter(Boolean);
+
+            // If a list is configured and the email is not on it, block the login.
+            if (allowedEmails.length > 0 && token.email) {
+                if (!allowedEmails.includes(token.email.toLowerCase())) {
+                    // Returning null rejects the token and blocks the session.
+                    return null as any;
+                }
+            }
+            // --- End Allowlist ---
+
             // Persist the OAuth access_token to the token right after signin
             if (account && account.id_token) {
-                token.id_token = account.id_token; // We use ID Token for backend verification usually
+                token.id_token = account.id_token;
             }
             if (token.email?.endsWith('@example.com')) {
                 token.is_mock = true;
-                token.id_token = "mock-token-dev"; // Set magic token for backend
+                token.id_token = "mock-token-dev";
             }
             return token;
         },
