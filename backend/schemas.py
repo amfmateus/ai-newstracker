@@ -1,5 +1,5 @@
-from pydantic import BaseModel, field_validator
-from typing import Optional, List, Dict, Any
+from pydantic import BaseModel, field_validator, model_validator
+from typing import Optional, List, Dict, Any, Self
 from datetime import datetime, timezone
 
 class SourceCreate(BaseModel):
@@ -61,6 +61,26 @@ class SourceResponse(BaseModel):
     last_crawl_count: Optional[int] = None
     is_active: Optional[bool] = True
     
+    @model_validator(mode='before')
+    @classmethod
+    def map_config_field(cls, data: Any) -> Any:
+        # DB model column is `config`, but UI/API uses `crawl_config`.
+        # Handle both dict (from JSON) and ORM object cases.
+        if isinstance(data, dict):
+            if 'crawl_config' not in data and 'config' in data:
+                data = dict(data)
+                data['crawl_config'] = data.get('config')
+        else:
+            # ORM object: read .config attribute into a temp dict
+            try:
+                config_val = getattr(data, 'config', None)
+                if config_val is not None and not getattr(data, 'crawl_config', None):
+                    # Inject into __dict__ so pydantic can pick it up
+                    data.__dict__['crawl_config'] = config_val
+            except Exception:
+                pass
+        return data
+
     class Config:
         from_attributes = True
 
