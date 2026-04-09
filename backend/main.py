@@ -312,6 +312,8 @@ class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
     anthropic_api_key: Optional[str] = None
     full_name: Optional[str] = None
+    google_api_key_enabled: Optional[bool] = None
+    anthropic_api_key_enabled: Optional[bool] = None
 
 @app.patch("/users/me")
 def update_user_me(user_update: UserUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
