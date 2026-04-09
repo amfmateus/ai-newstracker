@@ -515,9 +515,12 @@ export default function PipelineBuilder({ params }: PageProps) {
             await deleteDeliveryConfig(id);
             const updated = await fetchDeliveryConfigs();
             setDeliveries(updated);
-            if (pipeline.delivery_config_id === id) {
-                setPipeline({ ...pipeline, delivery_config_id: undefined });
-            }
+            const updatedIds = (pipeline.delivery_config_ids || []).filter(cid => cid !== id);
+            setPipeline({
+                ...pipeline,
+                delivery_config_id: pipeline.delivery_config_id === id ? undefined : pipeline.delivery_config_id,
+                delivery_config_ids: updatedIds
+            });
         } catch (e) {
             console.error("Failed to delete delivery config", e);
             alert("Failed to delete delivery config");
@@ -1222,7 +1225,18 @@ export default function PipelineBuilder({ params }: PageProps) {
 
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
                                         {deliveries.map(d => {
-                                            const isSelected = pipeline.delivery_config_id === d.id;
+                                            const selectedIds: string[] = pipeline.delivery_config_ids || (pipeline.delivery_config_id ? [pipeline.delivery_config_id] : []);
+                                            const isSelected = selectedIds.includes(d.id);
+                                            const toggleDelivery = () => {
+                                                const next = isSelected
+                                                    ? selectedIds.filter(id => id !== d.id)
+                                                    : [...selectedIds, d.id];
+                                                setPipeline({ ...pipeline, delivery_config_ids: next, delivery_config_id: next[0] });
+                                            };
+                                            const deliveryIcon = d.delivery_type === 'NOTION' ? '📝' : d.delivery_type === 'EMAIL' ? '✉️' : '🔗';
+                                            const deliveryDetail = d.delivery_type === 'NOTION'
+                                                ? (d.parameters?.database_id ? `DB: ${d.parameters.database_id.slice(0, 8)}…` : 'No DB ID')
+                                                : (d.parameters?.recipients?.length > 0 ? `${d.parameters.recipients.length} Recipient(s)` : 'No Recipients');
                                             return (
                                                 <div
                                                     key={d.id}
@@ -1238,7 +1252,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                         flexDirection: 'column',
                                                         gap: '12px'
                                                     }}
-                                                    onClick={() => setPipeline({ ...pipeline, delivery_config_id: d.id })}
+                                                    onClick={toggleDelivery}
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                                         <div style={{ fontWeight: 600, color: '#0f172a', fontSize: '1rem' }}>{d.name}</div>
@@ -1260,6 +1274,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                         </div>
                                                     </div>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                        <span style={{ fontSize: '1rem' }}>{deliveryIcon}</span>
                                                         <span style={{
                                                             padding: '2px 6px',
                                                             borderRadius: '4px',
@@ -1271,7 +1286,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                             {d.delivery_type}
                                                         </span>
                                                         <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                                                            {d.parameters?.recipients?.length > 0 ? `${d.parameters.recipients.length} Recipient(s)` : 'No Recipients'}
+                                                            {deliveryDetail}
                                                         </span>
                                                     </div>
                                                     {isSelected && (

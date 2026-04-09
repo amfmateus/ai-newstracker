@@ -30,6 +30,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
     const [smtpSenderName, setSmtpSenderName] = useState('');
     const [smtpReplyTo, setSmtpReplyTo] = useState('');
     const [resendApiKey, setResendApiKey] = useState('');
+    const [notionToken, setNotionToken] = useState('');
 
     const [enableStories, setEnableStories] = useState(false);
 
@@ -96,6 +97,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                 setSmtpSenderName(settingsData.smtp_sender_name || '');
                 setSmtpReplyTo(settingsData.smtp_reply_to || '');
                 setResendApiKey(settingsData.resend_api_key || '');
+                setNotionToken(settingsData.notion_token || '');
 
                 // Story Toggle
                 setEnableStories(settingsData.enable_stories === true);
@@ -133,7 +135,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                 smtp_sender_name: smtpSenderName,
                 smtp_reply_to: smtpReplyTo,
                 enable_stories: enableStories,
-                resend_api_key: resendApiKey
+                resend_api_key: resendApiKey,
+                notion_token: notionToken || undefined
             };
 
             await updateSettings(settingsUpdate);
@@ -457,6 +460,26 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                             />
                         </div>
                     </div>
+
+                        {/* Notion Integration */}
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111827', marginBottom: '1rem', marginTop: '1.5rem' }}>
+                            Notion Integration
+                        </h3>
+                        <div style={{ marginBottom: '1.5rem', background: '#f5f3ff', padding: '1rem', borderRadius: '8px', border: '1px solid #ddd6fe' }}>
+                            <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem', fontWeight: 600, color: '#7c3aed' }}>Integration Token</label>
+                            <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                                Required to deliver reports to Notion. Create an internal integration at{' '}
+                                <a href="https://www.notion.so/my-integrations" target="_blank" rel="noreferrer" style={{ color: '#7c3aed' }}>notion.so/my-integrations</a>{' '}
+                                and share your target database with it.
+                            </div>
+                            <input
+                                type="password"
+                                placeholder={notionToken ? '••••••••••••••••••••••••' : 'secret_...'}
+                                value={notionToken}
+                                onChange={(e) => setNotionToken(e.target.value)}
+                                style={{ width: '100%', padding: '0.5rem', borderRadius: '6px', border: '1px solid #ddd6fe', fontFamily: 'monospace' }}
+                            />
+                        </div>
 
                     {error && (
                         <div style={{ color: '#dc2626', fontSize: '0.875rem', background: '#fef2f2', padding: '0.5rem', borderRadius: '4px' }}>

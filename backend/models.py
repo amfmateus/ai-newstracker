@@ -219,6 +219,7 @@ class SystemConfig(Base):
     smtp_sender_name = Column(String, nullable=True)
     smtp_reply_to = Column(String, nullable=True)
     resend_api_key = Column(String, nullable=True)
+    notion_token = Column(String, nullable=True)
 
     # 1. General Crawling
     first_crawl_lookback_hours = Column(Integer, default=24)
@@ -394,8 +395,9 @@ class ReportPipeline(Base):
     # Step 4: Output
     output_config_id = Column(String, ForeignKey("output_config_library.id"), nullable=True)
     
-    # Step 5: Delivery
+    # Step 5: Delivery (single FK kept for backwards compat; delivery_config_ids is the authoritative list)
     delivery_config_id = Column(String, ForeignKey("delivery_config_library.id"), nullable=True)
+    delivery_config_ids = Column(JSON, nullable=True, default=None)  # List of delivery config IDs
     
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

@@ -133,11 +133,14 @@ class PipelineExecutor:
         # 2.6 Post-Processing (Reconciliation & Citation Formatting)
         if ai_content and articles:
             ai_content = self._post_process_report_content(
-                ai_content, articles, context, 
-                citation_type=citation_type, 
+                ai_content, articles, context,
+                citation_type=citation_type,
                 formatting_params=formatting_params
             )
-        
+
+        # Store post-processed content for Notion delivery (needs citations + reference URLs)
+        context.update("step_3_formatting", {"processed_content": ai_content})
+
         # 3. Formatting
         html_output = ""
         if fmt_lib:
@@ -170,11 +173,14 @@ class PipelineExecutor:
                 # Pass report and articles
                 final_file_path = await self._execute_output(out_lib, report, articles, context)
         
-        # 5. Delivery
-        if pipeline.delivery_config_id:
-            del_lib = db.query(DeliveryConfigLibrary).get(pipeline.delivery_config_id)
+        # 5. Delivery — supports multiple delivery configs
+        # Use delivery_config_ids (JSON array) if set; fall back to single delivery_config_id
+        config_ids = pipeline.delivery_config_ids or []
+        if not config_ids and pipeline.delivery_config_id:
+            config_ids = [pipeline.delivery_config_id]
+        for config_id in config_ids:
+            del_lib = db.query(DeliveryConfigLibrary).get(config_id)
             if del_lib:
-                # Pass report and articles
                 await self._execute_delivery(del_lib, report, articles, final_file_path, context)
         
         # Update Report Status
@@ -1090,7 +1096,31 @@ class PipelineExecutor:
             elif del_lib.delivery_type == 'TELEGRAM':
                 # Placeholder
                 pass
-                
+
+            elif del_lib.delivery_type == 'NOTION':
+                database_id = params.get("database_id")
+                if not database_id:
+                    raise ValueError("Notion delivery config is missing 'database_id'")
+
+                sys_config = self.db.query(SystemConfig).filter(SystemConfig.user_id == report.user_id).first()
+                notion_token = getattr(sys_config, 'notion_token', None)
+                if not notion_token:
+                    raise ValueError("Notion integration token not configured in Settings")
+
+                # Use post-processed content stored during Step 3 (has citation markers + reference URLs)
+                processed_content = context.get("step_3_formatting").get("processed_content") \
+                                    or context.get("step_2_processing").get("ai_response") \
+                                    or {}
+
+                report_date = report.created_at.strftime("%Y-%m-%d") if report.created_at else datetime.now().strftime("%Y-%m-%d")
+
+                from notion_delivery import deliver_to_notion
+                page_url = deliver_to_notion(
+                    notion_token, database_id, report.title or "Untitled Report",
+                    report_date, processed_content
+                )
+                result = {"page_url": page_url}
+
         except Exception as e:
             status = "failed"
             error_msg = str(e)

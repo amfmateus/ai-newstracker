@@ -282,6 +282,7 @@ export interface SystemSettings {
     smtp_sender_name?: string;
     smtp_reply_to?: string;
     resend_api_key?: string;
+    notion_token?: string;
 
     analysis_model: string;
     analysis_prompt: string | null;
@@ -682,6 +683,7 @@ export interface ReportPipeline {
     formatting_id?: string;
     output_config_id?: string;
     delivery_config_id?: string;
+    delivery_config_ids?: string[];
 
     schedule_enabled?: boolean;
     schedule_cron?: string;

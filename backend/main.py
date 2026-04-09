@@ -65,6 +65,13 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Migration (key toggles) failed: {e}")
 
+    try:
+        from update_schema_notion import migrate as migrate_notion
+        logger.info("Running schema migration (notion)...")
+        migrate_notion()
+    except Exception as e:
+        logger.error(f"Migration (notion) failed: {e}")
+
     Base.metadata.create_all(bind=engine)
     # scheduler_service.start() # No longer used, moved to Celery
     yield

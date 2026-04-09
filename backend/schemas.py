@@ -39,9 +39,11 @@ class SystemConfigUpdate(BaseModel):
     # SMTP (Identity only)
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
-    smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
     resend_api_key: Optional[str] = None
+
+    # Notion Integration
+    notion_token: Optional[str] = None
 
     class Config:
         extra = "ignore"
@@ -195,6 +197,9 @@ class SettingsSchema(BaseModel):
     smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
     resend_api_key: Optional[str] = None
+
+    # Notion Integration
+    notion_token: Optional[str] = None
 
     id: Optional[str] = None
     user_id: Optional[str] = None
@@ -450,7 +455,8 @@ class ReportPipelineBase(BaseModel):
     formatting_id: Optional[str] = None
     output_config_id: Optional[str] = None
     delivery_config_id: Optional[str] = None
-    
+    delivery_config_ids: Optional[List[str]] = None
+
     schedule_enabled: bool = False
     schedule_cron: Optional[str] = None
 
@@ -465,6 +471,7 @@ class ReportPipelineUpdate(BaseModel):
     formatting_id: Optional[str] = None
     output_config_id: Optional[str] = None
     delivery_config_id: Optional[str] = None
+    delivery_config_ids: Optional[List[str]] = None
     schedule_enabled: Optional[bool] = None
     schedule_cron: Optional[str] = None
 

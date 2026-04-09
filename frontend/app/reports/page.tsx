@@ -581,7 +581,7 @@ export default function ReportsPage() {
                                             <div className={styles.deliveryContainer}>
                                                 {r.delivery_log.map((log: any, idx: number) => (
                                                     <span key={idx} title={`${log.channel}: ${log.status}`} className={`${styles.deliveryBadge} ${log.status === 'success' ? styles.deliverySuccess : styles.deliveryError}`}>
-                                                        {log.channel === 'EMAIL' ? '✉️' : '🚀'}
+                                                        {log.channel === 'EMAIL' ? '✉️' : log.channel === 'NOTION' ? '📝' : '🚀'}
                                                     </span>
                                                 ))}
                                             </div>
