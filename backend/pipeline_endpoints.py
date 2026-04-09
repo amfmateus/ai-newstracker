@@ -168,8 +168,8 @@ def get_available_models(current_user: User = Depends(get_current_user)):
     """Returns list of available AI models for selection."""
     try:
         # Use user-specific keys if available, otherwise system defaults
-        api_key = current_user.google_api_key
-        anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+        api_key = current_user.google_api_key if getattr(current_user, 'google_api_key_enabled', True) else None
+        anthropic_key = getattr(current_user, 'anthropic_api_key', None) if getattr(current_user, 'anthropic_api_key_enabled', True) else None
         service = AIService(api_key=api_key, anthropic_api_key=anthropic_key)
         
         models = service.list_models()

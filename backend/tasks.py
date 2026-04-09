@@ -85,7 +85,9 @@ def check_scheduled_clustering():
             
             if should_cluster:
                 logger.info(f"Triggering scheduled clustering for user {user.email} (ID: {user.id})")
-                clustering_task.delay(user.id, user.google_api_key, getattr(user, 'anthropic_api_key', None))
+                google_key = user.google_api_key if getattr(user, 'google_api_key_enabled', True) else None
+                anthropic_key = getattr(user, 'anthropic_api_key', None) if getattr(user, 'anthropic_api_key_enabled', True) else None
+                clustering_task.delay(user.id, google_key, anthropic_key)
                 triggered_count += 1
                 
         return f"Triggered {triggered_count} clustering tasks"

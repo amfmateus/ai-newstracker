@@ -58,6 +58,13 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Migration (anthropic) failed: {e}")
 
+    try:
+        from update_schema_key_toggles import migrate as migrate_key_toggles
+        logger.info("Running schema migration (key toggles)...")
+        migrate_key_toggles()
+    except Exception as e:
+        logger.error(f"Migration (key toggles) failed: {e}")
+
     Base.metadata.create_all(bind=engine)
     # scheduler_service.start() # No longer used, moved to Celery
     yield
@@ -268,7 +275,9 @@ def read_users_me(current_user: User = Depends(get_current_user)):
         "email": current_user.email,
         "full_name": current_user.full_name,
         "has_api_key": bool(current_user.google_api_key),
-        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None))
+        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None)),
+        "google_api_key_enabled": getattr(current_user, 'google_api_key_enabled', True),
+        "anthropic_api_key_enabled": getattr(current_user, 'anthropic_api_key_enabled', True),
     }
 
 from pydantic import BaseModel
@@ -315,11 +324,19 @@ def update_user_me(user_update: UserUpdate, db: Session = Depends(get_db), curre
     if user_update.full_name is not None:
         current_user.full_name = user_update.full_name
 
+    if user_update.google_api_key_enabled is not None:
+        current_user.google_api_key_enabled = user_update.google_api_key_enabled
+
+    if user_update.anthropic_api_key_enabled is not None:
+        current_user.anthropic_api_key_enabled = user_update.anthropic_api_key_enabled
+
     db.commit()
     return {
         "status": "success",
         "has_api_key": bool(current_user.google_api_key),
-        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None))
+        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None)),
+        "google_api_key_enabled": getattr(current_user, 'google_api_key_enabled', True),
+        "anthropic_api_key_enabled": getattr(current_user, 'anthropic_api_key_enabled', True),
     }
 
 from fastapi import BackgroundTasks
@@ -849,11 +866,18 @@ async def update_settings(settings: schemas.SettingsUpdate, db: Session = Depend
         logger.error(f"[update_settings] ERROR: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
+def _ai_service_for_user(user) -> "AIService":
+    """Construct AIService respecting each key's enabled flag."""
+    from ai_service import AIService
+    google_key = user.google_api_key if getattr(user, 'google_api_key_enabled', True) else None
+    anthropic_key = getattr(user, 'anthropic_api_key', None)
+    if not getattr(user, 'anthropic_api_key_enabled', True):
+        anthropic_key = None
+    return AIService(api_key=google_key, anthropic_api_key=anthropic_key)
+
 @app.get("/api/ai/models")
 def list_ai_models(current_user: User = Depends(get_current_user)):
-    from ai_service import AIService, CLAUDE_MODELS
-    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
-    service = AIService(api_key=current_user.google_api_key, anthropic_api_key=anthropic_key)
+    service = _ai_service_for_user(current_user)
     models = service.list_models()
 
     if not models:
@@ -935,8 +959,12 @@ def generate_stories(
     Trigger AI analysis to group recent articles into stories.
     Runs in background to avoid timeout.
     """
-    if not current_user.google_api_key:
-        raise HTTPException(status_code=400, detail="Google API Key required for clustering.")
+    google_key = current_user.google_api_key if getattr(current_user, 'google_api_key_enabled', True) else None
+    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+    if not getattr(current_user, 'anthropic_api_key_enabled', True):
+        anthropic_key = None
+    if not google_key and not anthropic_key:
+        raise HTTPException(status_code=400, detail="An enabled AI API Key is required for clustering.")
         
     from clustering import analyze_clusters
     from models import ClusteringEvent
@@ -953,8 +981,7 @@ def generate_stories(
     logger.info(f"Manual clustering triggered. Event ID: {event.id}")
     
     # Run in BACKGROUND
-    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
-    background_tasks.add_task(run_clustering_background, event.id, current_user.id, current_user.google_api_key, anthropic_key)
+    background_tasks.add_task(run_clustering_background, event.id, current_user.id, google_key, anthropic_key)
 
     return {"status": "queued", "event_id": event.id}
 
@@ -1125,8 +1152,10 @@ def generate_report(
 
     start_time = time.time()
 
-    google_key = current_user.google_api_key
+    google_key = current_user.google_api_key if getattr(current_user, 'google_api_key_enabled', True) else None
     anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+    if not getattr(current_user, 'anthropic_api_key_enabled', True):
+        anthropic_key = None
     if not google_key and not anthropic_key:
         raise HTTPException(status_code=400, detail="An AI API Key is required. Configure Gemini or Claude in Profile Settings.")
     

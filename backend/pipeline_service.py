@@ -531,8 +531,8 @@ class PipelineExecutor:
         try:
             # Fetch user for their specific API keys
             user = self.db.query(User).get(context.user_id)
-            user_api_key = user.google_api_key if user else None
-            user_anthropic_key = getattr(user, 'anthropic_api_key', None) if user else None
+            user_api_key = (user.google_api_key if getattr(user, 'google_api_key_enabled', True) else None) if user else None
+            user_anthropic_key = (getattr(user, 'anthropic_api_key', None) if getattr(user, 'anthropic_api_key_enabled', True) else None) if user else None
 
             ai_service = AIService(api_key=user_api_key, anthropic_api_key=user_anthropic_key)
             

@@ -12,6 +12,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
     const [profile, setProfile] = useState<UserProfile | null>(null);
     const [apiKey, setApiKey] = useState('');
     const [anthropicKey, setAnthropicKey] = useState('');
+    const [googleKeyEnabled, setGoogleKeyEnabled] = useState(true);
+    const [anthropicKeyEnabled, setAnthropicKeyEnabled] = useState(true);
 
     // Key Validation State
     const [checkingKey, setCheckingKey] = useState(false);
@@ -83,6 +85,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
             const profileData = await fetchUserProfile();
             setProfile(profileData);
             setFullName(profileData.full_name || '');
+            setGoogleKeyEnabled(profileData.google_api_key_enabled ?? true);
+            setAnthropicKeyEnabled(profileData.anthropic_api_key_enabled ?? true);
 
             // Load System Settings (SMTP)
             const settingsData = await fetchSettings();
@@ -113,6 +117,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
             if (apiKey) updateData.google_api_key = apiKey;
             if (anthropicKey) updateData.anthropic_api_key = anthropicKey;
             if (fullName !== profile?.full_name) updateData.full_name = fullName;
+            if (googleKeyEnabled !== (profile?.google_api_key_enabled ?? true)) updateData.google_api_key_enabled = googleKeyEnabled;
+            if (anthropicKeyEnabled !== (profile?.anthropic_api_key_enabled ?? true)) updateData.anthropic_api_key_enabled = anthropicKeyEnabled;
 
             // Save User Profile
             let updatedProfile = profile;
@@ -240,9 +246,22 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                             />
                         </div>
 
-                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem' }}>
-                            Google Gemini API Key
-                        </label>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                            <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#374151' }}>
+                                Google Gemini API Key
+                            </label>
+                            {profile?.has_api_key && (
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontSize: '0.8rem', color: googleKeyEnabled ? '#16a34a' : '#6b7280' }}>
+                                    <input
+                                        type="checkbox"
+                                        checked={googleKeyEnabled}
+                                        onChange={e => setGoogleKeyEnabled(e.target.checked)}
+                                        style={{ accentColor: '#16a34a', width: '1rem', height: '1rem' }}
+                                    />
+                                    {googleKeyEnabled ? 'Enabled' : 'Disabled'}
+                                </label>
+                            )}
+                        </div>
                         <div style={{ position: 'relative' }}>
                             <input
                                 type="password"
@@ -280,9 +299,22 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                         </p>
 
                         {/* Anthropic / Claude API Key */}
-                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem', marginTop: '0.5rem' }}>
-                            Anthropic Claude API Key
-                        </label>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem', marginTop: '0.5rem' }}>
+                            <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#374151' }}>
+                                Anthropic Claude API Key
+                            </label>
+                            {profile?.has_anthropic_key && (
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontSize: '0.8rem', color: anthropicKeyEnabled ? '#16a34a' : '#6b7280' }}>
+                                    <input
+                                        type="checkbox"
+                                        checked={anthropicKeyEnabled}
+                                        onChange={e => setAnthropicKeyEnabled(e.target.checked)}
+                                        style={{ accentColor: '#16a34a', width: '1rem', height: '1rem' }}
+                                    />
+                                    {anthropicKeyEnabled ? 'Enabled' : 'Disabled'}
+                                </label>
+                            )}
+                        </div>
                         <div style={{ position: 'relative' }}>
                             <input
                                 type="password"

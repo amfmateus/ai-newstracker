@@ -212,6 +212,8 @@ class UserProfile(BaseModel):
     full_name: Optional[str] = None
     has_api_key: bool
     has_anthropic_key: bool = False
+    google_api_key_enabled: bool = True
+    anthropic_api_key_enabled: bool = True
 
     class Config:
         from_attributes = True
@@ -220,6 +222,8 @@ class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
     anthropic_api_key: Optional[str] = None
     full_name: Optional[str] = None
+    google_api_key_enabled: Optional[bool] = None
+    anthropic_api_key_enabled: Optional[bool] = None
 
 # --- Report Template Schemas (Legacy) ---
 class ReportTemplateBase(BaseModel):
