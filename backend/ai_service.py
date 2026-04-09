@@ -75,15 +75,17 @@ DEFAULT_ANALYSIS_PROMPT = """
         }}
         """
 
-# Hardcoded list of available Claude models.
-# Models with the ":thinking" suffix enable extended thinking mode.
-CLAUDE_MODELS = [
+# Fallback Claude models used when the Anthropic API is unreachable.
+CLAUDE_MODELS_FALLBACK = [
     {"id": "claude-opus-4-6", "name": "Claude Opus 4.6"},
     {"id": "claude-opus-4-6:thinking", "name": "Claude Opus 4.6 (Thinking)"},
     {"id": "claude-sonnet-4-6", "name": "Claude Sonnet 4.6"},
     {"id": "claude-sonnet-4-6:thinking", "name": "Claude Sonnet 4.6 (Thinking)"},
     {"id": "claude-haiku-4-5-20251001", "name": "Claude Haiku 4.5"},
 ]
+
+# Tiers that support extended thinking (haiku does not).
+THINKING_SUPPORTED_TIERS = {"opus", "sonnet"}
 
 # Default thinking budget in tokens (can be tuned)
 THINKING_BUDGET_TOKENS = 10000
@@ -97,6 +99,14 @@ def _is_thinking_model(model_name: str) -> bool:
 def _base_model_name(model_name: str) -> str:
     """Strip the :thinking suffix to get the real API model ID."""
     return model_name.replace(":thinking", "")
+
+def _claude_tier(model_id: str) -> Optional[str]:
+    """Return 'haiku', 'sonnet', or 'opus' from a Claude model ID, or None."""
+    base = _base_model_name(model_id).lower()
+    for tier in ("haiku", "sonnet", "opus"):
+        if tier in base:
+            return tier
+    return None
 
 def _strip_json_fences(text: str) -> str:
     """Remove markdown code fences that some models wrap JSON in."""
@@ -135,6 +145,72 @@ class AIService:
         self.enabled = bool(self.gemini_client or self.anthropic_client)
         if not self.enabled:
             logger.warning("No AI API keys found. AI features will be disabled.")
+
+        # Cache for Claude model list (populated lazily, lives for this instance)
+        self._claude_models_cache: Optional[list] = None
+
+    def _fetch_claude_models_sync(self) -> list:
+        """Fetch available Claude models from the Anthropic API and add :thinking variants."""
+        try:
+            import anthropic as _anthropic
+            client = _anthropic.Anthropic(api_key=self.anthropic_api_key)
+            page = client.models.list(limit=100)
+            base_models = []
+            for m in page.data:
+                if m.id.startswith("claude-"):
+                    base_models.append({"id": m.id, "name": m.display_name})
+            # Sort newest first (IDs contain version strings)
+            base_models.sort(key=lambda m: m["id"], reverse=True)
+
+            # Add :thinking variants for supported tiers
+            result = []
+            for m in base_models:
+                result.append({"id": m["id"], "name": m["name"]})
+                tier = _claude_tier(m["id"])
+                if tier in THINKING_SUPPORTED_TIERS:
+                    result.append({"id": f"{m['id']}:thinking", "name": f"{m['name']} (Thinking)"})
+            return result
+        except Exception as e:
+            logger.warning(f"Could not fetch Anthropic models, using fallback list: {e}")
+            return CLAUDE_MODELS_FALLBACK
+
+    def _get_claude_models(self) -> list:
+        """Return Claude models, using instance-level cache."""
+        if self._claude_models_cache is None:
+            self._claude_models_cache = self._fetch_claude_models_sync()
+        return self._claude_models_cache
+
+    def _resolve_claude_model(self, model_name: str) -> str:
+        """
+        Ensure the model ID is still valid. If not, fall back to the newest
+        available model of the same tier (haiku→haiku, sonnet→sonnet, opus→opus).
+        Preserves the :thinking suffix when applicable.
+        """
+        is_thinking = _is_thinking_model(model_name)
+        base = _base_model_name(model_name)
+
+        available = self._get_claude_models()
+        available_base_ids = {_base_model_name(m["id"]) for m in available}
+
+        if base in available_base_ids:
+            return model_name  # exact match — nothing to do
+
+        tier = _claude_tier(base)
+        if not tier:
+            logger.warning(f"Cannot determine tier for '{base}'; using as-is")
+            return model_name
+
+        # Find the newest model of the same tier
+        same_tier = [m for m in available if _claude_tier(m["id"]) == tier and not _is_thinking_model(m["id"])]
+        if not same_tier:
+            logger.warning(f"No '{tier}' models available; using original '{base}' as-is")
+            return model_name
+
+        same_tier.sort(key=lambda m: m["id"], reverse=True)
+        fallback_id = same_tier[0]["id"]
+        logger.warning(f"Model '{base}' no longer exists. Falling back to '{fallback_id}'.")
+
+        return f"{fallback_id}:thinking" if (is_thinking and tier in THINKING_SUPPORTED_TIERS) else fallback_id
 
     def _gemini_enabled(self) -> bool:
         return self.gemini_client is not None
@@ -301,6 +377,7 @@ class AIService:
         if not self._anthropic_enabled():
             raise RuntimeError("Anthropic client not initialized")
 
+        model_name = self._resolve_claude_model(model_name)
         thinking = _is_thinking_model(model_name)
         base_model = _base_model_name(model_name)
 
@@ -328,6 +405,7 @@ class AIService:
             if _is_claude_model(model_name):
                 if not self._anthropic_enabled():
                     raise RuntimeError("Anthropic client not initialized")
+                model_name = self._resolve_claude_model(model_name)
                 import anthropic as _anthropic
                 client = _anthropic.Anthropic(api_key=self.anthropic_api_key)
                 thinking = _is_thinking_model(model_name)
@@ -369,8 +447,8 @@ class AIService:
             except Exception as e:
                 logger.error(f"Failed to list Gemini models: {e}")
 
-        # Claude models (hardcoded — Anthropic SDK model list requires an extra API call)
+        # Claude models — fetched dynamically, falls back to hardcoded list if unavailable
         if self._anthropic_enabled():
-            models.extend(CLAUDE_MODELS)
+            models.extend(self._get_claude_models())
 
         return models
