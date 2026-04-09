@@ -421,16 +421,10 @@ def delete_pipeline(item_id: str, db: Session = Depends(get_db), current_user: U
 
 @router.post("/pipelines/{pipeline_id}/run")
 async def run_pipeline_endpoint(pipeline_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    """Executes the pipeline immediately"""
-    try:
-        from pipeline_service import PipelineExecutor
-        executor = PipelineExecutor(db)
-        result = await executor.run_pipeline(pipeline_id, current_user.id)
-        return result
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
-        raise HTTPException(status_code=500, detail=str(e))
+    """Dispatches the pipeline to Celery and returns immediately to avoid HTTP timeouts."""
+    from tasks import execute_pipeline_task
+    execute_pipeline_task.delay(pipeline_id, current_user.id, run_type="manual")
+    return {"status": "queued", "pipeline_id": pipeline_id}
 
 @router.get("/{pipeline_id}/export")
 async def export_pipeline(
