@@ -14,7 +14,7 @@ export default function SettingsPage() {
 
     // Success/Error feedback
     const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
-    const [availableModels, setAvailableModels] = useState<string[]>([]);
+    const [availableModels, setAvailableModels] = useState<Array<{ id: string, name: string }>>([]);
     const [aiDefaults, setAiDefaults] = useState<any>(null);
 
     useEffect(() => {
@@ -34,11 +34,10 @@ export default function SettingsPage() {
                     fetchAIModels(),
                     fetchAIDefaults()
                 ]);
-                // Robust parsing for both object {id, name} and string formats
-                setAvailableModels(models.map((m: any) => {
-                    if (typeof m === 'string') return m;
-                    return m.id || m.name || 'unknown-model';
-                }));
+                setAvailableModels(models.map((m: any) => ({
+                    id: typeof m === 'string' ? m : (m.id || m.name || 'unknown-model'),
+                    name: typeof m === 'string' ? m : (m.name || m.id || 'unknown-model'),
+                })));
                 setAiDefaults(defaults);
             } catch (err) {
                 console.error(err);
@@ -261,7 +260,7 @@ export default function SettingsPage() {
                                                     onChange={e => handleChange('analysis_model', e.target.value)}
                                                     className={styles.select}
                                                 >
-                                                    {availableModels.map(m => <option key={m} value={m}>{m}</option>)}
+                                                    {availableModels.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
                                                 </select>
                                             ) : (
                                                 <div className="text-sm text-red-500 mt-1 border border-red-200 bg-red-50 p-2 rounded">
@@ -316,7 +315,7 @@ export default function SettingsPage() {
                                             onChange={e => handleChange('pdf_crawl_model', e.target.value)}
                                             className={styles.select}
                                         >
-                                            {availableModels.map(m => <option key={m} value={m}>{m}</option>)}
+                                            {availableModels.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
                                         </select>
                                     </div>
                                 </div>
@@ -354,7 +353,7 @@ export default function SettingsPage() {
                                                 onChange={e => handleChange('clustering_model', e.target.value)}
                                                 className={styles.select}
                                             >
-                                                {availableModels.map(m => <option key={m} value={m}>{m}</option>)}
+                                                {availableModels.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
                                             </select>
                                         </div>
                                     </div>
