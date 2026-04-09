@@ -211,12 +211,14 @@ class UserProfile(BaseModel):
     email: str
     full_name: Optional[str] = None
     has_api_key: bool
-    
+    has_anthropic_key: bool = False
+
     class Config:
         from_attributes = True
 
 class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
+    anthropic_api_key: Optional[str] = None
     full_name: Optional[str] = None
 
 # --- Report Template Schemas (Legacy) ---

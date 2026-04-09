@@ -11,11 +11,15 @@ interface ProfileSettingsModalProps {
 export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSettingsModalProps) {
     const [profile, setProfile] = useState<UserProfile | null>(null);
     const [apiKey, setApiKey] = useState('');
+    const [anthropicKey, setAnthropicKey] = useState('');
 
     // Key Validation State
     const [checkingKey, setCheckingKey] = useState(false);
     const [keyStatus, setKeyStatus] = useState<'valid' | 'invalid' | 'unchecked'>('unchecked');
     const [keyMessage, setKeyMessage] = useState('');
+    const [checkingAnthropicKey, setCheckingAnthropicKey] = useState(false);
+    const [anthropicKeyStatus, setAnthropicKeyStatus] = useState<'valid' | 'invalid' | 'unchecked'>('unchecked');
+    const [anthropicKeyMessage, setAnthropicKeyMessage] = useState('');
 
     const [fullName, setFullName] = useState('');
 
@@ -47,12 +51,28 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
         }
     };
 
+    const validateAnthropicKey = async (key: string) => {
+        setCheckingAnthropicKey(true);
+        setAnthropicKeyStatus('unchecked');
+        try {
+            const res = await validateAIKey(key);
+            setAnthropicKeyStatus(res.status);
+            if (res.status === 'invalid') setAnthropicKeyMessage(res.message || 'Unknown error');
+        } catch (e) {
+            setAnthropicKeyStatus('invalid');
+            setAnthropicKeyMessage('Validation check failed');
+        } finally {
+            setCheckingAnthropicKey(false);
+        }
+    };
+
     useEffect(() => {
         if (isOpen) {
             loadProfile();
             setSuccess('');
             setError('');
-            setApiKey(''); // Always start blank for security (we don't show the existing key)
+            setApiKey('');
+            setAnthropicKey('');
         }
     }, [isOpen]);
 
@@ -91,6 +111,7 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
         try {
             const updateData: any = {};
             if (apiKey) updateData.google_api_key = apiKey;
+            if (anthropicKey) updateData.anthropic_api_key = anthropicKey;
             if (fullName !== profile?.full_name) updateData.full_name = fullName;
 
             // Save User Profile
@@ -112,7 +133,8 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
             await updateSettings(settingsUpdate);
 
             setSuccess('Settings saved successfully');
-            setApiKey(''); // Clear input after save
+            setApiKey('');
+            setAnthropicKey('');
 
             // Dispatch event so other components (SettingsPage) know to reload
             if (typeof window !== 'undefined') {
@@ -159,21 +181,25 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                         <div style={{
                             padding: '1rem',
                             borderRadius: '8px',
-                            background: profile?.has_api_key ? '#f0fdf4' : '#fef2f2',
-                            border: `1px solid ${profile?.has_api_key ? '#bbf7d0' : '#fecaca'}`,
+                            background: (profile?.has_api_key || profile?.has_anthropic_key) ? '#f0fdf4' : '#fef2f2',
+                            border: `1px solid ${(profile?.has_api_key || profile?.has_anthropic_key) ? '#bbf7d0' : '#fecaca'}`,
                             display: 'flex', gap: '0.75rem'
                         }}>
                             <div style={{ fontSize: '1.25rem' }}>
-                                {profile?.has_api_key ? '✅' : '⚠️'}
+                                {(profile?.has_api_key || profile?.has_anthropic_key) ? '✅' : '⚠️'}
                             </div>
                             <div>
-                                <div style={{ fontWeight: 600, color: profile?.has_api_key ? '#166534' : '#991b1b' }}>
-                                    {profile?.has_api_key ? 'AI Features Active' : 'AI Features Disabled'}
+                                <div style={{ fontWeight: 600, color: (profile?.has_api_key || profile?.has_anthropic_key) ? '#166534' : '#991b1b' }}>
+                                    {(profile?.has_api_key || profile?.has_anthropic_key) ? 'AI Features Active' : 'AI Features Disabled'}
                                 </div>
-                                <div style={{ fontSize: '0.875rem', color: profile?.has_api_key ? '#15803d' : '#b91c1c' }}>
-                                    {profile?.has_api_key
-                                        ? 'Your Gemini API Key is configured.'
-                                        : 'You must add a Google Gemini API Key to enable summarization and sentiment analysis.'}
+                                <div style={{ fontSize: '0.875rem', color: (profile?.has_api_key || profile?.has_anthropic_key) ? '#15803d' : '#b91c1c' }}>
+                                    {profile?.has_api_key && profile?.has_anthropic_key
+                                        ? 'Both Gemini and Claude API keys are configured.'
+                                        : profile?.has_api_key
+                                        ? 'Gemini API Key is configured.'
+                                        : profile?.has_anthropic_key
+                                        ? 'Claude API Key is configured.'
+                                        : 'Add a Gemini or Claude API Key to enable AI features.'}
                                 </div>
                             </div>
                         </div>
@@ -251,6 +277,45 @@ export default function ProfileSettingsModal({ isOpen, onClose }: ProfileSetting
                         )}
                         <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#6b7280' }}>
                             Your key is stored securely and used only for your account. You can generate one at <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'underline' }}>Google AI Studio</a>.
+                        </p>
+
+                        {/* Anthropic / Claude API Key */}
+                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#374151', marginBottom: '0.5rem', marginTop: '0.5rem' }}>
+                            Anthropic Claude API Key
+                        </label>
+                        <div style={{ position: 'relative' }}>
+                            <input
+                                type="password"
+                                placeholder={profile?.has_anthropic_key ? "••••••••••••••••••••••••" : "Paste your sk-ant-... key here"}
+                                value={anthropicKey}
+                                onChange={(e) => {
+                                    setAnthropicKey(e.target.value);
+                                    if (anthropicKeyStatus !== 'unchecked') setAnthropicKeyStatus('unchecked');
+                                }}
+                                onBlur={() => {
+                                    if (anthropicKey.length > 10) validateAnthropicKey(anthropicKey);
+                                }}
+                                style={{
+                                    width: '100%', padding: '0.625rem', borderRadius: '6px',
+                                    border: `1px solid ${anthropicKeyStatus === 'valid' ? '#22c55e' : anthropicKeyStatus === 'invalid' ? '#ef4444' : '#d1d5db'}`,
+                                    fontSize: '0.9rem',
+                                    fontFamily: 'monospace',
+                                    paddingRight: '2.5rem'
+                                }}
+                            />
+                            <div style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
+                                {checkingAnthropicKey && <div className="animate-spin h-4 w-4 border-2 border-blue-500 rounded-full border-t-transparent"></div>}
+                                {!checkingAnthropicKey && anthropicKeyStatus === 'valid' && <span title="Valid API Key">✅</span>}
+                                {!checkingAnthropicKey && anthropicKeyStatus === 'invalid' && <span title={anthropicKeyMessage}>❌</span>}
+                            </div>
+                        </div>
+                        {anthropicKeyStatus === 'invalid' && (
+                            <p style={{ marginTop: '0.25rem', fontSize: '0.75rem', color: '#dc2626' }}>
+                                Error: {anthropicKeyMessage}
+                            </p>
+                        )}
+                        <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#6b7280' }}>
+                            Enables Claude models (Opus, Sonnet, Haiku). Get a key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'underline' }}>console.anthropic.com</a>.
                         </p>
 
                     </div>

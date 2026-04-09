@@ -318,6 +318,7 @@ export interface UserProfile {
     email: string;
     full_name: string;
     has_api_key: boolean;
+    has_anthropic_key: boolean;
 }
 
 export async function fetchUserProfile(): Promise<UserProfile> {
@@ -327,7 +328,7 @@ export async function fetchUserProfile(): Promise<UserProfile> {
     return res.json();
 }
 
-export async function updateUserProfile(data: { google_api_key?: string; full_name?: string }): Promise<UserProfile> {
+export async function updateUserProfile(data: { google_api_key?: string; anthropic_api_key?: string; full_name?: string }): Promise<UserProfile> {
     const headers = await getAuthHeaders();
     const res = await fetchWithAuth(`${API_URL}/users/me`, {
         method: 'PATCH',

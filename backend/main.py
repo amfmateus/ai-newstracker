@@ -46,10 +46,17 @@ async def lifespan(app: FastAPI):
     # Startup
     try:
         from update_schema_resend import migrate
-        logger.info("Running schema migration...")
+        logger.info("Running schema migration (resend)...")
         migrate()
     except Exception as e:
-        logger.error(f"Migration failed: {e}")
+        logger.error(f"Migration (resend) failed: {e}")
+
+    try:
+        from update_schema_anthropic import migrate as migrate_anthropic
+        logger.info("Running schema migration (anthropic)...")
+        migrate_anthropic()
+    except Exception as e:
+        logger.error(f"Migration (anthropic) failed: {e}")
 
     Base.metadata.create_all(bind=engine)
     # scheduler_service.start() # No longer used, moved to Celery
@@ -258,9 +265,10 @@ def read_root():
 def read_users_me(current_user: User = Depends(get_current_user)):
     return {
         "id": current_user.id,
-        "email": current_user.email, 
+        "email": current_user.email,
         "full_name": current_user.full_name,
-        "has_api_key": bool(current_user.google_api_key)
+        "has_api_key": bool(current_user.google_api_key),
+        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None))
     }
 
 from pydantic import BaseModel
@@ -270,34 +278,49 @@ class KeyValidationRequest(BaseModel):
 @app.post("/users/validate-key")
 async def validate_user_key(request: KeyValidationRequest, current_user: User = Depends(get_current_user)):
     """
-    Validates a Gemini API Key by attempting to list models with it.
+    Validates a Gemini or Anthropic API key.
+    Detects provider by key prefix: 'sk-ant-' for Anthropic, otherwise Gemini.
     """
+    key = request.key.strip()
     try:
-        # We don't need to actually use the key for anything other than checking if it works
-        # So we just instantiate the service with it and try to list models.
-        service = AIService(api_key=request.key)
-        # Verify it works by making a lightweight call
-        service.list_models()
-        return {"status": "valid"}
+        if key.startswith("sk-ant-"):
+            # Validate Anthropic key
+            import anthropic
+            client = anthropic.Anthropic(api_key=key)
+            # Lightweight call to verify the key works
+            client.models.list(limit=1)
+            return {"status": "valid", "provider": "anthropic"}
+        else:
+            # Validate Google/Gemini key
+            from google import genai as _genai
+            client = _genai.Client(api_key=key)
+            list(client.models.list(page_size=1))
+            return {"status": "valid", "provider": "google"}
     except Exception as e:
-        # In a real app we might want to log the specific error
         return {"status": "invalid", "message": str(e)}
 
 class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
+    anthropic_api_key: Optional[str] = None
     full_name: Optional[str] = None
 
 @app.patch("/users/me")
 def update_user_me(user_update: UserUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     if user_update.google_api_key is not None:
-        # Allow clearing or setting key
         current_user.google_api_key = user_update.google_api_key if user_update.google_api_key else None
-        
+
+    if user_update.anthropic_api_key is not None:
+        current_user.anthropic_api_key = user_update.anthropic_api_key if user_update.anthropic_api_key else None
+
     if user_update.full_name is not None:
         current_user.full_name = user_update.full_name
-        
+
     db.commit()
-    return {"status": "success", "has_api_key": bool(current_user.google_api_key)}
+    return {
+        "status": "success",
+        "has_api_key": bool(current_user.google_api_key),
+        "has_anthropic_key": bool(getattr(current_user, 'anthropic_api_key', None))
+    }
 
 from fastapi import BackgroundTasks
 from crawler import run_crawler
@@ -828,35 +851,15 @@ async def update_settings(settings: schemas.SettingsUpdate, db: Session = Depend
 
 @app.get("/api/ai/models")
 def list_ai_models(current_user: User = Depends(get_current_user)):
-    if not current_user.google_api_key:
+    from ai_service import AIService, CLAUDE_MODELS
+    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+    service = AIService(api_key=current_user.google_api_key, anthropic_api_key=anthropic_key)
+    models = service.list_models()
+
+    if not models:
         return []
-    
-    try:
-        from google import genai
-        client = genai.Client(api_key=current_user.google_api_key)
-        # Assuming list_models returns a pager or list of models
-        # We need to check the attributes of the new model object
-        models = client.models.list()
-        
-        supported_models = []
-        for m in models:
-             # The new SDK model object has different attributes. 
-             # We look for models that support 'generateContent'.
-             # Note: logic might differ slightly, but usually filter by capability.
-             # For now, let's just grab gemini models.
-             if "gemini" in m.name.lower() or "flash" in m.name.lower():
-                 mid = m.name.replace("models/", "")
-                 supported_models.append({
-                     "id": mid,
-                     "name": m.display_name or mid
-                 })
-                 
-        return sorted(supported_models, key=lambda x: x['name'])
-    except Exception as e:
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.error(f"Failed to list models: {e}")
-        return []
+
+    return sorted(models, key=lambda x: x['name'])
 
 from pydantic import BaseModel
 
@@ -865,16 +868,20 @@ class ValidateKeyRequest(BaseModel):
 
 @app.post("/api/ai/validate")
 def validate_ai_key(req: ValidateKeyRequest):
+    key = req.api_key.strip()
     try:
-        from google import genai
-        # Test the key by initializing client and listing models (lightweight)
-        client = genai.Client(api_key=req.api_key)
-        # Try a lightweight call, e.g., list models with limit 1
-        # The list() iterator triggers the API call
-        list(client.models.list(page_size=1))
-        return {"status": "valid"}
+        if key.startswith("sk-ant-"):
+            import anthropic
+            client = anthropic.Anthropic(api_key=key)
+            client.models.list(limit=1)
+            return {"status": "valid", "provider": "anthropic"}
+        else:
+            from google import genai
+            client = genai.Client(api_key=key)
+            list(client.models.list(page_size=1))
+            return {"status": "valid", "provider": "google"}
     except Exception as e:
-        return {"status": "invalid", "message":str(e)}
+        return {"status": "invalid", "message": str(e)}
 
 @app.get("/api/ai/defaults")
 def get_ai_defaults():
@@ -946,21 +953,22 @@ def generate_stories(
     logger.info(f"Manual clustering triggered. Event ID: {event.id}")
     
     # Run in BACKGROUND
-    background_tasks.add_task(run_clustering_background, event.id, current_user.id, current_user.google_api_key)
-    
+    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+    background_tasks.add_task(run_clustering_background, event.id, current_user.id, current_user.google_api_key, anthropic_key)
+
     return {"status": "queued", "event_id": event.id}
 
-def run_clustering_background(event_id: str, user_id: str, api_key: str):
+def run_clustering_background(event_id: str, user_id: str, api_key: str, anthropic_api_key: str = None):
     """
     Wrapper to run clustering in background with its own DB session.
     """
     from database import SessionLocal
     from clustering import analyze_clusters
     from models import SystemConfig
-    
+
     db = SessionLocal()
     try:
-        analyze_clusters(db, user_id, api_key, event_id=event_id)
+        analyze_clusters(db, user_id, api_key, event_id=event_id, anthropic_api_key=anthropic_api_key)
         
         # Update last_clustering_at
         config = db.query(SystemConfig).filter(SystemConfig.user_id == user_id).first()
@@ -1112,15 +1120,15 @@ def generate_report(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    import google.generativeai as genai
     import time
-    
+    from ai_service import AIService as _AIService
+
     start_time = time.time()
-    
-    if not current_user.google_api_key:
-        raise HTTPException(status_code=400, detail="Google API Key required. Please configure it in settings.")
-        
-    genai.configure(api_key=current_user.google_api_key)
+
+    google_key = current_user.google_api_key
+    anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+    if not google_key and not anthropic_key:
+        raise HTTPException(status_code=400, detail="An AI API Key is required. Configure Gemini or Claude in Profile Settings.")
     
     # DEBUG LOGGING (Temporary)
     try:
@@ -1208,7 +1216,7 @@ def generate_report(
             f.write(f"Using model: {selected_model}\n")
     except: pass
         
-    model = genai.GenerativeModel(selected_model) 
+    ai_report_service = _AIService(api_key=google_key, anthropic_api_key=anthropic_key)
 
     # Prepare Context Variables for Interpolation
     prompt_variables = {
@@ -1262,35 +1270,21 @@ def generate_report(
     {context}
     """
     try:
-        response = model.generate_content(prompt)
-        content = response.text
-        
-        # Capture Diagnostics
-        try:
-            usage = getattr(response, 'usage_metadata', None)
-            tokens_in = usage.prompt_token_count if usage else 0
-            tokens_out = usage.candidates_token_count if usage else 0
-        except Exception as meta_ex:
-            print(f"Meta error: {meta_ex}")
-            tokens_in = 0
-            tokens_out = 0
+        content = ai_report_service.call_sync(
+            prompt=prompt,
+            model_name=selected_model,
+            response_mime_type="text/plain"
+        )
+        if not content:
+            raise ValueError("AI returned an empty response")
 
+        tokens_in = 0
+        tokens_out = 0
         duration_ms = int((time.time() - start_time) * 1000)
         model_name = selected_model
-        
-        # DEBUG LOGGING
-        try:
-            with open("backend_debug_log.txt", "a") as f:
-                f.write(f"Success! Dur: {duration_ms}ms, Tok: {tokens_in}/{tokens_out}\n")
-        except: pass
-        
+
     except Exception as e:
-        # DEBUG LOGGING
-        try:
-            with open("backend_debug_log.txt", "a") as f:
-                f.write(f"ERROR: {str(e)}\n")
-        except: pass
-        print(f"GenAI Error: {e}")
+        print(f"AI Generation Error: {e}")
         raise HTTPException(status_code=500, detail=f"AI Generation Failed: {str(e)}")
         
     # 3. Post-Processing & Formatting (New Pipeline Logic)

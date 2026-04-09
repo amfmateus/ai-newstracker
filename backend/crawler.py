@@ -82,12 +82,13 @@ class CrawlerService:
         if user_config:
             self.sys_config = user_config
             
-        # 2. Get User's API Key
+        # 2. Get User's API Keys
         user = self.db.query(User).filter(User.id == source.user_id).first()
         user_api_key = user.google_api_key if user else None
-        
-        # 3. Initialize AI Service with User's Key
-        self.ai = AIService(api_key=user_api_key)
+        user_anthropic_key = getattr(user, 'anthropic_api_key', None) if user else None
+
+        # 3. Initialize AI Service with User's Keys
+        self.ai = AIService(api_key=user_api_key, anthropic_api_key=user_anthropic_key)
         # ----------------------------------------
         
         # Store source for use in helper methods

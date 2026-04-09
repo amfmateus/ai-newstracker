@@ -39,7 +39,8 @@ class User(Base):
     id = Column(String, primary_key=True, index=True, default=generate_uuid)
     email = Column(String, unique=True, index=True)
     full_name = Column(String, nullable=True)
-    google_api_key = Column(String, nullable=True) # User-specific API Token
+    google_api_key = Column(String, nullable=True) # User-specific Google/Gemini API token
+    anthropic_api_key = Column(String, nullable=True) # User-specific Anthropic/Claude API token
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
     persona = relationship("UserPersona", back_populates="user", uselist=False)

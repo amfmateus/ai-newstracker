@@ -167,9 +167,10 @@ def delete_asset(asset_id: str, db: Session = Depends(get_db), current_user: Use
 def get_available_models(current_user: User = Depends(get_current_user)):
     """Returns list of available AI models for selection."""
     try:
-        # Use user-specific key if available, otherwise system default
+        # Use user-specific keys if available, otherwise system defaults
         api_key = current_user.google_api_key
-        service = AIService(api_key=api_key)
+        anthropic_key = getattr(current_user, 'anthropic_api_key', None)
+        service = AIService(api_key=api_key, anthropic_api_key=anthropic_key)
         
         models = service.list_models()
         

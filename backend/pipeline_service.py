@@ -529,11 +529,12 @@ class PipelineExecutor:
             combined_prompt += f"\n\nHere is the data context for your analysis (JSON Format):\n{articles_json}"
 
         try:
-            # Fetch user for their specific API key
+            # Fetch user for their specific API keys
             user = self.db.query(User).get(context.user_id)
             user_api_key = user.google_api_key if user else None
-            
-            ai_service = AIService(api_key=user_api_key)
+            user_anthropic_key = getattr(user, 'anthropic_api_key', None) if user else None
+
+            ai_service = AIService(api_key=user_api_key, anthropic_api_key=user_anthropic_key)
             
             # STORE DEBUG INFO
             context.update("step_2_processing", { "debug_prompt": combined_prompt })

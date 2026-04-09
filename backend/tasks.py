@@ -23,11 +23,11 @@ def crawl_source_task(source_id: str):
         raise e
 
 @shared_task(name="tasks.clustering_task")
-def clustering_task(user_id: str, api_key: str):
+def clustering_task(user_id: str, api_key: str, anthropic_api_key: str = None):
     logger.info(f"Starting clustering task for user {user_id}")
     db: Session = SessionLocal()
     try:
-        result = analyze_clusters(db, user_id, api_key)
+        result = analyze_clusters(db, user_id, api_key, anthropic_api_key=anthropic_api_key)
         
         # Update last_clustering_at
         config = db.query(SystemConfig).filter(SystemConfig.user_id == user_id).first()
@@ -54,8 +54,10 @@ def check_scheduled_clustering():
         logger.info("Checking scheduled clustering...")
         now = datetime.now(timezone.utc)
         
-        # Get all users with an API Key (clustering needs it)
-        users = db.query(User).filter(User.google_api_key != None).all()
+        # Get all users with at least one AI API Key (clustering needs it)
+        users = db.query(User).filter(
+            or_(User.google_api_key != None, User.anthropic_api_key != None)
+        ).all()
         
         triggered_count = 0
         for user in users:
@@ -83,7 +85,7 @@ def check_scheduled_clustering():
             
             if should_cluster:
                 logger.info(f"Triggering scheduled clustering for user {user.email} (ID: {user.id})")
-                clustering_task.delay(user.id, user.google_api_key)
+                clustering_task.delay(user.id, user.google_api_key, getattr(user, 'anthropic_api_key', None))
                 triggered_count += 1
                 
         return f"Triggered {triggered_count} clustering tasks"
