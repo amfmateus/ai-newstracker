@@ -1,6 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, UploadFile, File, Form
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
+import logging
+logger = logging.getLogger(__name__)
 from datetime import datetime, timezone
 from croniter import croniter
 from typing import List, Optional
@@ -420,10 +422,36 @@ def delete_pipeline(item_id: str, db: Session = Depends(get_db), current_user: U
     return {"ok": True}
 
 @router.post("/pipelines/{pipeline_id}/run")
-async def run_pipeline_endpoint(pipeline_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    """Dispatches the pipeline to Celery and returns immediately to avoid HTTP timeouts."""
-    from tasks import execute_pipeline_task
-    execute_pipeline_task.delay(pipeline_id, current_user.id, run_type="manual")
+async def run_pipeline_endpoint(
+    pipeline_id: str,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """Dispatches the pipeline as a background task to avoid HTTP timeouts.
+    Tries Celery first; falls back to FastAPI BackgroundTasks if Redis is unavailable."""
+    try:
+        from tasks import execute_pipeline_task
+        execute_pipeline_task.delay(pipeline_id, current_user.id, run_type="manual")
+        return {"status": "queued", "pipeline_id": pipeline_id}
+    except Exception as celery_err:
+        logger.warning(f"Celery unavailable ({celery_err}), falling back to background task")
+
+    # Fallback: run in-process background task (no timeout risk since response already returned)
+    def _run():
+        import asyncio
+        from database import SessionLocal
+        bg_db = SessionLocal()
+        try:
+            from pipeline_service import PipelineExecutor
+            executor = PipelineExecutor(bg_db)
+            asyncio.run(executor.execute_pipeline(bg_db, pipeline_id, current_user.id, run_type="manual"))
+        except Exception as e:
+            logger.error(f"Background pipeline run failed: {e}")
+        finally:
+            bg_db.close()
+
+    background_tasks.add_task(_run)
     return {"status": "queued", "pipeline_id": pipeline_id}
 
 @router.get("/{pipeline_id}/export")
