@@ -121,7 +121,7 @@ def _finding_colour(text: str) -> str:
 # Main block builder
 # ---------------------------------------------------------------------------
 
-def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]:
+def build_notion_blocks(processed_content: Dict, report_date: str, report_title: str = "") -> List[dict]:
     """
     Convert post-processed pipeline AI content into a list of Notion blocks
     matching the Import Daily Digest SOP format.
@@ -129,8 +129,10 @@ def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]
     refs_by_id = {r["id"]: r for r in processed_content.get("references", [])}
     blocks = []
 
-    # 1. Blue header callout
-    header_text = f"Trade Section Daily Brief · {report_date}"
+    logger.info(f"build_notion_blocks: keys={list(processed_content.keys())}, refs={len(refs_by_id)}")
+
+    # 1. Blue header callout — use report title + date
+    header_text = f"{report_title} · {report_date}" if report_title else report_date
     blocks.append(_callout("blue_background", _plain_rich_text(header_text), "📋"))
     blocks.append(_divider())
 
@@ -141,6 +143,7 @@ def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]
         or ""
     )
     if summary:
+        logger.info(f"build_notion_blocks: summary length={len(summary)}")
         blocks.append(_heading2("Executive Summary"))
         blocks.append(_paragraph(_cite_group_to_rich_text(summary, refs_by_id)))
         blocks.append(_divider())
@@ -148,6 +151,7 @@ def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]
     # 3. Key Findings
     key_findings = processed_content.get("key_findings", [])
     if key_findings:
+        logger.info(f"build_notion_blocks: key_findings count={len(key_findings)}")
         blocks.append(_heading2("Key Findings"))
         for finding in key_findings:
             text = finding if isinstance(finding, str) else finding.get("text", str(finding))
@@ -158,6 +162,7 @@ def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]
     # 4. Thematic sections
     sections = processed_content.get("sections", [])
     if sections:
+        logger.info(f"build_notion_blocks: sections count={len(sections)}")
         for section in sections:
             heading = section.get("heading") or section.get("title", "")
             content = section.get("content") or section.get("body", "")
@@ -165,40 +170,43 @@ def build_notion_blocks(processed_content: Dict, report_date: str) -> List[dict]
                 blocks.append(_heading2(heading))
             if content:
                 blocks.append(_paragraph(_cite_group_to_rich_text(content, refs_by_id)))
+            # Handle subsections if present
+            for sub in section.get("subsections", []):
+                sub_heading = sub.get("heading") or sub.get("title", "")
+                sub_content = sub.get("content") or sub.get("body", "")
+                if sub_heading:
+                    blocks.append({
+                        "type": "heading_3",
+                        "heading_3": {"rich_text": _plain_rich_text(sub_heading)}
+                    })
+                if sub_content:
+                    blocks.append(_paragraph(_cite_group_to_rich_text(sub_content, refs_by_id)))
         blocks.append(_divider())
 
-    # 5. References table
+    # 5. References — bulleted list with clickable links (avoids table API issues)
     refs = processed_content.get("references", [])
     if refs:
+        logger.info(f"build_notion_blocks: references count={len(refs)}")
         blocks.append(_heading2("References"))
-        # Header row
-        table_rows = [{
-            "type": "table_row",
-            "table_row": {"cells": [
-                [{"type": "text", "text": {"content": "Source"}}],
-                [{"type": "text", "text": {"content": "Title"}}],
-            ]}
-        }]
         for ref in refs:
-            url = ref.get("url") or "#"
+            url = ref.get("url", "").strip()
             title = ref.get("title") or ref.get("source_name") or "Unknown"
             source = ref.get("source_name") or ""
-            table_rows.append({
-                "type": "table_row",
-                "table_row": {"cells": [
-                    [{"type": "text", "text": {"content": source}}],
-                    [{"type": "text", "text": {"content": title, "link": {"url": url}}}],
-                ]}
+            number = ref.get("number", "")
+            label = f"[{number}] {source} — " if source else f"[{number}] "
+            ref_rt = [{"type": "text", "text": {"content": label}}]
+            if url and url.startswith("http"):
+                ref_rt.append({
+                    "type": "text",
+                    "text": {"content": title, "link": {"url": url}},
+                    "annotations": {"color": "blue"}
+                })
+            else:
+                ref_rt.append({"type": "text", "text": {"content": title}})
+            blocks.append({
+                "type": "bulleted_list_item",
+                "bulleted_list_item": {"rich_text": ref_rt}
             })
-        blocks.append({
-            "type": "table",
-            "table": {
-                "table_width": 2,
-                "has_column_header": True,
-                "has_row_header": False,
-                "children": table_rows
-            }
-        })
 
     return blocks
 
@@ -221,25 +229,35 @@ def deliver_to_notion(
     from notion_client import Client
 
     notion = Client(auth=token)
-    blocks = build_notion_blocks(processed_content, report_date)
+    blocks = build_notion_blocks(processed_content, report_date, report_title=title)
 
     logger.info(f"Creating Notion page '{title}' in database {database_id} ({len(blocks)} blocks)")
 
-    page = notion.pages.create(
-        parent={"database_id": database_id},
-        icon={"type": "emoji", "emoji": "📰"},
-        properties={
-            "Name": {"title": [{"type": "text", "text": {"content": title}}]},
-            "date": {"date": {"start": report_date}},
-        },
-        children=blocks[:100],  # Notion API limit per request
-    )
+    try:
+        page = notion.pages.create(
+            parent={"database_id": database_id},
+            icon={"type": "emoji", "emoji": "📰"},
+            properties={
+                "Name": {"title": [{"type": "text", "text": {"content": title}}]},
+                "date": {"date": {"start": report_date}},
+            },
+            children=blocks[:100],  # Notion API limit per request
+        )
+    except Exception as e:
+        logger.error(f"Notion page creation failed: {e}")
+        raise
+
     page_id = page["id"]
+    page_url = page.get("url", "")
+    logger.info(f"Notion page created: {page_url}")
 
     # Append remaining blocks in batches of 100
     for i in range(100, len(blocks), 100):
-        notion.blocks.children.append(page_id, children=blocks[i:i + 100])
+        batch = blocks[i:i + 100]
+        try:
+            notion.blocks.children.append(page_id, children=batch)
+        except Exception as e:
+            logger.error(f"Notion append batch {i}-{i+100} failed: {e}")
+            raise
 
-    page_url = page.get("url", "")
-    logger.info(f"Notion page created: {page_url}")
     return page_url

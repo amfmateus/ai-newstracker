@@ -1108,15 +1108,29 @@ class PipelineExecutor:
                     raise ValueError("Notion integration token not configured in Settings")
 
                 # Use post-processed content stored during Step 3 (has citation markers + reference URLs)
-                processed_content = context.get("step_3_formatting").get("processed_content") \
-                                    or context.get("step_2_processing").get("ai_response") \
-                                    or {}
+                processed_content = context.get("step_3_formatting").get("processed_content") or {}
+                logger.info(f"Notion delivery: processed_content keys={list(processed_content.keys())}")
 
                 report_date = report.created_at.strftime("%Y-%m-%d") if report.created_at else datetime.now().strftime("%Y-%m-%d")
 
+                # Allow optional page_title_template in delivery config params (same syntax as email subject)
+                page_title = report.title or "Untitled Report"
+                title_template = params.get("page_title_template")
+                if title_template:
+                    try:
+                        from jinja2 import Template
+                        page_title = Template(title_template).render(
+                            date=report_date,
+                            title=report.title or "",
+                            pipeline=getattr(context, 'pipeline_name', '') or "",
+                            pipeline_name=getattr(context, 'pipeline_name', '') or ""
+                        )
+                    except Exception as tpl_err:
+                        logger.warning(f"Failed to render Notion page_title_template: {tpl_err}")
+
                 from notion_delivery import deliver_to_notion
                 page_url = deliver_to_notion(
-                    notion_token, database_id, report.title or "Untitled Report",
+                    notion_token, database_id, page_title,
                     report_date, processed_content
                 )
                 result = {"page_url": page_url}
