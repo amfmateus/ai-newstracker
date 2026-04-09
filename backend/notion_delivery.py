@@ -244,7 +244,7 @@ def build_notion_blocks(processed_content: Dict, report_date: str, report_title:
             raw = finding if isinstance(finding, str) else finding.get("text", str(finding))
             converted = c(raw)
             colour = _finding_colour(raw)
-            blocks.append(_callout(colour, _parse_inline(converted), "•"))
+            blocks.append(_callout(colour, _parse_inline(converted), "💡"))
         blocks.append(_divider())
 
     # 4. Thematic sections
