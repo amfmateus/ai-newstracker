@@ -133,8 +133,10 @@ def _citations_to_links(text: str, refs_by_id: Dict) -> str:
     """
     if not text:
         return ""
-    # Strip HTML
+    # Strip HTML tags then decode entities (&amp; → &, &lt; → <, etc.)
+    import html as _html
     text = re.sub(r'<[^>]+>', '', text)
+    text = _html.unescape(text)
 
     def replace(m):
         ids = [i.strip() for i in m.group(1).split(',')]
