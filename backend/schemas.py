@@ -480,12 +480,23 @@ class ReportPipelineResponse(ReportPipelineBase):
     created_at: datetime
     updated_at: datetime
     next_run_at: Optional[datetime] = None
-    
+
     # Expanded objects (Optional, often useful for UI to have names)
     prompt: Optional[PromptLibraryResponse] = None
     formatting: Optional[FormattingLibraryResponse] = None
     output_config: Optional[OutputConfigLibraryResponse] = None
     delivery_config: Optional[DeliveryConfigLibraryResponse] = None
+
+    @field_validator('delivery_config_ids', mode='before')
+    @classmethod
+    def coerce_delivery_config_ids(cls, v):
+        if isinstance(v, str):
+            import json
+            try:
+                return json.loads(v)
+            except Exception:
+                return []
+        return v
 
     class Config:
         from_attributes = True
