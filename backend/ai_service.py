@@ -377,6 +377,9 @@ class AIService:
         if not self._anthropic_enabled():
             raise RuntimeError("Anthropic client not initialized")
 
+        import anthropic as _anthropic
+        import asyncio
+
         model_name = self._resolve_claude_model(model_name)
         thinking = _is_thinking_model(model_name)
         base_model = _base_model_name(model_name)
@@ -389,7 +392,16 @@ class AIService:
         if thinking:
             kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
 
-        message = await self.anthropic_client.messages.create(**kwargs)
+        for attempt in range(3):
+            try:
+                message = await self.anthropic_client.messages.create(**kwargs)
+                break
+            except _anthropic.RateLimitError as e:
+                if attempt == 2:
+                    raise
+                wait = 60 * (attempt + 1)
+                logger.warning(f"Anthropic rate limit hit, retrying in {wait}s (attempt {attempt + 1}/3): {e}")
+                await asyncio.sleep(wait)
 
         # Return only text blocks (thinking blocks are separate)
         text = "\n".join(block.text for block in message.content if block.type == "text")
@@ -417,7 +429,16 @@ class AIService:
                 )
                 if thinking:
                     kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
-                message = client.messages.create(**kwargs)
+                for attempt in range(3):
+                    try:
+                        message = client.messages.create(**kwargs)
+                        break
+                    except _anthropic.RateLimitError as e:
+                        if attempt == 2:
+                            raise
+                        wait = 60 * (attempt + 1)
+                        logger.warning(f"Anthropic rate limit hit, retrying in {wait}s (attempt {attempt + 1}/3): {e}")
+                        time.sleep(wait)
                 return "\n".join(block.text for block in message.content if block.type == "text")
             else:
                 if not self._gemini_enabled():
