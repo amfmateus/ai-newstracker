@@ -543,14 +543,17 @@ class PipelineExecutor:
             # Use model from library if available, otherwise default
             model_to_use = prompt_lib.model if prompt_lib.model else "gemini-2.0-flash-lite-preview-02-05"
 
-            response_text = await ai_service.call(
-                model_name=model_to_use, 
-                prompt=combined_prompt,
-                debug_logger=debug_logger
-            )
-            
+            try:
+                response_text = await ai_service.call(
+                    model_name=model_to_use,
+                    prompt=combined_prompt,
+                    debug_logger=debug_logger
+                )
+            except Exception as ai_err:
+                raise ValueError(str(ai_err)) from ai_err
+
             context.update("step_2_processing", { "debug_raw_response": response_text })
-            
+
             # AI response might be empty
             if not response_text:
                 raise ValueError("AI returned an empty response")

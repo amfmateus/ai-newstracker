@@ -272,7 +272,7 @@ class AIService:
             logger.error(f"AI Call failed: {e}")
             if debug_logger:
                 debug_logger.log_step("step_2_ai_error", str(e))
-            return ""
+            raise
 
     async def _call_gemini_raw(self, prompt: str, model_name: str, response_mime_type: str = "application/json") -> str:
         if not self._gemini_enabled():
