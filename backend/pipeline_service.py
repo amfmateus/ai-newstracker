@@ -480,14 +480,17 @@ class PipelineExecutor:
         })
         return articles
 
-    def _serialize_article(self, article: Article) -> Dict[str, Any]:
-        """Helper to serialize article for AI context"""
+    def _serialize_article(self, article: Article, max_content_chars: int = 500) -> Dict[str, Any]:
+        """Helper to serialize article for AI context. Content is truncated to reduce token usage."""
+        content = article.content_snippet or ""
+        if len(content) > max_content_chars:
+            content = content[:max_content_chars] + "…"
         return {
             "id": article.id,
             "title": article.raw_title,
             "translated_title": article.translated_title,
             "url": article.url,
-            "content": article.content_snippet,
+            "content": content,
             "ai_summary": article.ai_summary,
             "published_at": article.published_at.isoformat() if article.published_at else None,
             "source": article.source.name if article.source else "Unknown",
