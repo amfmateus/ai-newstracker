@@ -259,14 +259,26 @@ export default function PipelineBuilder({ params }: PageProps) {
             configId = pipeline.output_config_id;
         }
         else if (step === 5) {
-            // Delivery depends on many things, but let's pass a mock context or IDs
             context = {
                 report_title: currentStepResults[2]?.title || "Test Report",
                 html: currentStepResults[3] || "",
                 pipeline_id: pipeline.id,
-                pipeline_name: pipeline.name
+                pipeline_name: pipeline.name,
+                processed_content: currentStepResults[2] || {}
             };
-            configId = pipeline.delivery_config_id;
+            // Run delivery test for every selected config ID
+            const configIds: string[] = pipeline.delivery_config_ids?.length
+                ? pipeline.delivery_config_ids
+                : pipeline.delivery_config_id ? [pipeline.delivery_config_id] : [];
+
+            const stepNames2 = ['Source', 'Processing', 'Formatting', 'Output', 'Delivery', 'Schedule'];
+            setTestStatus(`Step ${step}: ${stepNames2[step - 1]}...`);
+            const forceRefresh2 = step === activeStep;
+
+            const allResults = await Promise.all(
+                configIds.map(id => testPipelineStep(step, context, id, forceRefresh2))
+            );
+            return allResults.length === 1 ? allResults[0] : allResults;
         }
 
         const stepNames = ['Source', 'Processing', 'Formatting', 'Output', 'Delivery', 'Schedule'];
@@ -515,9 +527,12 @@ export default function PipelineBuilder({ params }: PageProps) {
             await deleteDeliveryConfig(id);
             const updated = await fetchDeliveryConfigs();
             setDeliveries(updated);
-            if (pipeline.delivery_config_id === id) {
-                setPipeline({ ...pipeline, delivery_config_id: undefined });
-            }
+            const updatedIds = (pipeline.delivery_config_ids || []).filter(cid => cid !== id);
+            setPipeline({
+                ...pipeline,
+                delivery_config_id: pipeline.delivery_config_id === id ? undefined : pipeline.delivery_config_id,
+                delivery_config_ids: updatedIds
+            });
         } catch (e) {
             console.error("Failed to delete delivery config", e);
             alert("Failed to delete delivery config");
@@ -1222,7 +1237,18 @@ export default function PipelineBuilder({ params }: PageProps) {
 
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
                                         {deliveries.map(d => {
-                                            const isSelected = pipeline.delivery_config_id === d.id;
+                                            const selectedIds: string[] = pipeline.delivery_config_ids || (pipeline.delivery_config_id ? [pipeline.delivery_config_id] : []);
+                                            const isSelected = selectedIds.includes(d.id);
+                                            const toggleDelivery = () => {
+                                                const next = isSelected
+                                                    ? selectedIds.filter(id => id !== d.id)
+                                                    : [...selectedIds, d.id];
+                                                setPipeline({ ...pipeline, delivery_config_ids: next, delivery_config_id: next[0] });
+                                            };
+                                            const deliveryIcon = d.delivery_type === 'NOTION' ? '📝' : d.delivery_type === 'EMAIL' ? '✉️' : '🔗';
+                                            const deliveryDetail = d.delivery_type === 'NOTION'
+                                                ? (d.parameters?.database_id ? `DB: ${d.parameters.database_id.slice(0, 8)}…` : 'No DB ID')
+                                                : (d.parameters?.recipients?.length > 0 ? `${d.parameters.recipients.length} Recipient(s)` : 'No Recipients');
                                             return (
                                                 <div
                                                     key={d.id}
@@ -1238,7 +1264,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                         flexDirection: 'column',
                                                         gap: '12px'
                                                     }}
-                                                    onClick={() => setPipeline({ ...pipeline, delivery_config_id: d.id })}
+                                                    onClick={toggleDelivery}
                                                 >
                                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                                         <div style={{ fontWeight: 600, color: '#0f172a', fontSize: '1rem' }}>{d.name}</div>
@@ -1260,6 +1286,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                         </div>
                                                     </div>
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                        <span style={{ fontSize: '1rem' }}>{deliveryIcon}</span>
                                                         <span style={{
                                                             padding: '2px 6px',
                                                             borderRadius: '4px',
@@ -1271,7 +1298,7 @@ export default function PipelineBuilder({ params }: PageProps) {
                                                             {d.delivery_type}
                                                         </span>
                                                         <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                                                            {d.parameters?.recipients?.length > 0 ? `${d.parameters.recipients.length} Recipient(s)` : 'No Recipients'}
+                                                            {deliveryDetail}
                                                         </span>
                                                     </div>
                                                     {isSelected && (
@@ -1756,7 +1783,9 @@ export default function PipelineBuilder({ params }: PageProps) {
 
                             {activeStep === 5 && (
                                 <div style={{ padding: '24px', maxWidth: '800px', margin: '0 auto' }}>
-                                    {testResult.status === 'success' ? (
+                                    {(Array.isArray(testResult)
+                                        ? testResult.every((r: any) => r.status === 'success')
+                                        : testResult.status === 'success') ? (
                                         <div style={{
                                             backgroundColor: '#f0fdf4',
                                             border: '1px solid #bbf7d0',
@@ -1777,66 +1806,40 @@ export default function PipelineBuilder({ params }: PageProps) {
                                             <h3 style={{ margin: '0 0 8px 0', color: '#166534', fontSize: '1.25rem' }}>Delivery Successful!</h3>
                                             <p style={{ margin: '0 0 24px 0', color: '#15803d' }}>Your report has been sent successfully.</p>
 
-                                            <div style={{
+                                            {(Array.isArray(testResult) ? testResult : [testResult]).map((r: any, i: number) => (
+                                            <div key={i} style={{
                                                 backgroundColor: 'white',
                                                 borderRadius: '8px',
                                                 padding: '16px',
                                                 textAlign: 'left',
                                                 border: '1px solid #bbf7d0',
-                                                boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+                                                boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                                                marginBottom: '12px'
                                             }}>
+                                                <div style={{ marginBottom: '8px', fontWeight: 700, fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase' }}>{r.log?.channel || 'Delivery'}</div>
                                                 <div style={{ marginBottom: '12px' }}>
-                                                    <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>Subject</label>
-                                                    <div style={{ fontSize: '1rem', color: '#0f172a', fontWeight: 600 }}>{testResult.log?.subject || testResult.log?.config?.subject || 'N/A'}</div>
+                                                    <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>Subject / Page</label>
+                                                    <div style={{ fontSize: '1rem', color: '#0f172a', fontWeight: 600 }}>{r.log?.subject || r.log?.config?.subject || r.log?.config?.database_id || 'N/A'}</div>
                                                 </div>
+                                                {(r.log?.recipients?.length > 0) && (
                                                 <div style={{ marginBottom: '12px' }}>
                                                     <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>Recipients</label>
                                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '4px' }}>
-                                                        {(testResult.log?.recipients || testResult.log?.config?.recipients || []).map((email: string) => (
+                                                        {r.log.recipients.map((email: string) => (
                                                             <span key={email} style={{
                                                                 backgroundColor: '#eff6ff', color: '#1e40af', borderRadius: '4px',
                                                                 padding: '2px 8px', fontSize: '0.85rem', fontWeight: 500, border: '1px solid #dbeafe'
-                                                            }}>
-                                                                {email}
-                                                            </span>
+                                                            }}>{email}</span>
                                                         ))}
                                                     </div>
                                                 </div>
-                                                {(testResult.log?.cc && testResult.log.cc.length > 0) && (
-                                                    <div style={{ marginBottom: '12px' }}>
-                                                        <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>CC</label>
-                                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '4px' }}>
-                                                            {testResult.log.cc.map((email: string) => (
-                                                                <span key={email} style={{
-                                                                    backgroundColor: '#f1f5f9', color: '#475569', borderRadius: '4px',
-                                                                    padding: '2px 8px', fontSize: '0.85rem', fontWeight: 500, border: '1px solid #e2e8f0'
-                                                                }}>
-                                                                    {email}
-                                                                </span>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                                {(testResult.log?.bcc && testResult.log.bcc.length > 0) && (
-                                                    <div style={{ marginBottom: '12px' }}>
-                                                        <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>BCC</label>
-                                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '4px' }}>
-                                                            {testResult.log.bcc.map((email: string) => (
-                                                                <span key={email} style={{
-                                                                    backgroundColor: '#f1f5f9', color: '#475569', borderRadius: '4px',
-                                                                    padding: '2px 8px', fontSize: '0.85rem', fontWeight: 500, border: '1px solid #e2e8f0'
-                                                                }}>
-                                                                    {email}
-                                                                </span>
-                                                            ))}
-                                                        </div>
-                                                    </div>
                                                 )}
                                                 <div>
                                                     <label style={{ display: 'block', textTransform: 'uppercase', fontSize: '0.7rem', color: '#64748b', fontWeight: 700, letterSpacing: '0.05em' }}>Timestamp</label>
-                                                    <div style={{ fontSize: '0.9rem', color: '#64748b', fontFamily: 'monospace' }}>{testResult.log?.timestamp ? new Date(testResult.log.timestamp).toLocaleString() : 'N/A'}</div>
+                                                    <div style={{ fontSize: '0.9rem', color: '#64748b', fontFamily: 'monospace' }}>{r.log?.timestamp ? new Date(r.log.timestamp).toLocaleString() : 'N/A'}</div>
                                                 </div>
                                             </div>
+                                            ))}
                                         </div>
                                     ) : (
                                         <div style={{

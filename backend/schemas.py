@@ -39,9 +39,11 @@ class SystemConfigUpdate(BaseModel):
     # SMTP (Identity only)
     smtp_from_email: Optional[str] = None
     smtp_sender_name: Optional[str] = None
-    smtp_sender_name: Optional[str] = None
     smtp_reply_to: Optional[str] = None
     resend_api_key: Optional[str] = None
+
+    # Notion Integration
+    notion_token: Optional[str] = None
 
     class Config:
         extra = "ignore"
@@ -196,6 +198,9 @@ class SettingsSchema(BaseModel):
     smtp_reply_to: Optional[str] = None
     resend_api_key: Optional[str] = None
 
+    # Notion Integration
+    notion_token: Optional[str] = None
+
     id: Optional[str] = None
     user_id: Optional[str] = None
 
@@ -211,13 +216,19 @@ class UserProfile(BaseModel):
     email: str
     full_name: Optional[str] = None
     has_api_key: bool
-    
+    has_anthropic_key: bool = False
+    google_api_key_enabled: bool = True
+    anthropic_api_key_enabled: bool = True
+
     class Config:
         from_attributes = True
 
 class UserUpdate(BaseModel):
     google_api_key: Optional[str] = None
+    anthropic_api_key: Optional[str] = None
     full_name: Optional[str] = None
+    google_api_key_enabled: Optional[bool] = None
+    anthropic_api_key_enabled: Optional[bool] = None
 
 # --- Report Template Schemas (Legacy) ---
 class ReportTemplateBase(BaseModel):
@@ -444,7 +455,8 @@ class ReportPipelineBase(BaseModel):
     formatting_id: Optional[str] = None
     output_config_id: Optional[str] = None
     delivery_config_id: Optional[str] = None
-    
+    delivery_config_ids: Optional[List[str]] = None
+
     schedule_enabled: bool = False
     schedule_cron: Optional[str] = None
 
@@ -459,6 +471,7 @@ class ReportPipelineUpdate(BaseModel):
     formatting_id: Optional[str] = None
     output_config_id: Optional[str] = None
     delivery_config_id: Optional[str] = None
+    delivery_config_ids: Optional[List[str]] = None
     schedule_enabled: Optional[bool] = None
     schedule_cron: Optional[str] = None
 
@@ -467,12 +480,23 @@ class ReportPipelineResponse(ReportPipelineBase):
     created_at: datetime
     updated_at: datetime
     next_run_at: Optional[datetime] = None
-    
+
     # Expanded objects (Optional, often useful for UI to have names)
     prompt: Optional[PromptLibraryResponse] = None
     formatting: Optional[FormattingLibraryResponse] = None
     output_config: Optional[OutputConfigLibraryResponse] = None
     delivery_config: Optional[DeliveryConfigLibraryResponse] = None
+
+    @field_validator('delivery_config_ids', mode='before')
+    @classmethod
+    def coerce_delivery_config_ids(cls, v):
+        if isinstance(v, str):
+            import json
+            try:
+                return json.loads(v)
+            except Exception:
+                return []
+        return v
 
     class Config:
         from_attributes = True

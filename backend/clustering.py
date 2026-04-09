@@ -4,8 +4,8 @@ from models import Story, Article, User, ClusteringEvent
 from datetime import datetime, timedelta, timezone
 import json
 import logging
-from google import genai
 from logger_config import setup_logger
+from ai_service import AIService, _strip_json_fences
 
 logger = setup_logger(__name__)
 
@@ -81,7 +81,7 @@ DEFAULT_CLUSTERING_PROMPT = """
         }}
         """
 
-def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = None):
+def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = None, anthropic_api_key: str = None):
     """
     Core logic to group ungrouped articles into Stories (Themes).
     1. Fetches "Active Stories" (recent) for CONTEXT.
@@ -128,12 +128,11 @@ def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = No
         
         logger.info(f"Clustering Config: Story Context={context_days} days, Article Scan={article_hours} hours | Model: {model_name}")
 
-        if not api_key:
+        if not api_key and not anthropic_api_key:
             logger.error(f"No API Key provided for user {user_id}")
             return {"status": "error", "message": "No API Key"}
 
-        logger.info("Configuring Gemini API...")
-        client = genai.Client(api_key=api_key)
+        ai_service = AIService(api_key=api_key, anthropic_api_key=anthropic_api_key)
         
         # 2. Fetch Active Stories (Configurable Context)
         since_date = datetime.now(timezone.utc) - timedelta(days=context_days)
@@ -190,7 +189,7 @@ def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = No
         ]
         
         # 4. Prompt Engineering
-        logger.info("Preparing prompt for Gemini...")
+        logger.info("Preparing clustering prompt...")
         raw_prompt = custom_prompt if custom_prompt else DEFAULT_CLUSTERING_PROMPT
         
         prompt = raw_prompt.format(
@@ -199,17 +198,12 @@ def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = No
             min_story_strength=min_story_strength
         )
         
-        logger.info(f"Sending request to Gemini API (Model: {model_name})...")
-        # Log a snippet of the articles list for debugging
+        logger.info(f"Sending clustering request (Model: {model_name})...")
         logger.debug(f"Articles to cluster: {len(articles_json)}")
-        
-        response = client.models.generate_content(
-            model=model_name,
-            contents=prompt,
-            config={"response_mime_type": "application/json"}
-        )
-        logger.info("Received response from Gemini.")
-        result = json.loads(response.text)
+
+        response_text = ai_service.call_sync(prompt=prompt, model_name=model_name, response_mime_type="application/json")
+        logger.info("Received clustering response.")
+        result = json.loads(_strip_json_fences(response_text))
         
         input_article_ids = {a.id for a in new_articles}
         updates_count = 0
@@ -218,11 +212,11 @@ def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = No
         
         # 5. Process Assignments (Existing Stories)
         assignments = result.get("assignments", [])
-        logger.info(f"Gemini proposed {len(assignments)} assignments to existing stories.")
+        logger.info(f"AI proposed {len(assignments)} assignments to existing stories.")
         for assignment in assignments:
             article_id = assignment["article_id"]
             if article_id not in input_article_ids:
-                logger.warning(f"Gemini tried to assign article {article_id} which was not in input. Ignoring.")
+                logger.warning(f"AI tried to assign article {article_id} which was not in input. Ignoring.")
                 continue
 
             assigned_article_ids.add(article_id)
@@ -237,7 +231,7 @@ def analyze_clusters(db: Session, user_id: str, api_key: str, event_id: str = No
 
         # 6. Process New Stories
         new_stories = result.get("new_stories", [])
-        logger.info(f"Gemini proposed {len(new_stories)} new stories.")
+        logger.info(f"AI proposed {len(new_stories)} new stories.")
         for ns in new_stories:
             article_ids = ns.get("article_ids", [])
             # Filter IDs to only those in our input

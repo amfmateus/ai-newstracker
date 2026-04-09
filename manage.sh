@@ -6,8 +6,7 @@ BACKEND_PORT=8000
 PROJECT_ROOT=$(pwd)
 BACKEND_DIR="$PROJECT_ROOT/backend"
 FRONTEND_DIR="$PROJECT_ROOT/frontend"
-VENV_DIR="$PROJECT_ROOT/.venv" # Based on previous search, the main venv seems to be at root
-BACKEND_VENV="$BACKEND_DIR/venv" # There is also one in backend
+VENV_DIR="$PROJECT_ROOT/.venv"
 
 # Colors
 GREEN='\033[0;32m'

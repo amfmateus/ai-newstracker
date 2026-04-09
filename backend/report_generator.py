@@ -5,7 +5,7 @@ from schemas import ReportCreate
 from datetime import datetime
 import json
 import logging
-from google import genai
+from ai_service import AIService, _strip_json_fences
 import time
 
 logger = logging.getLogger(__name__)
@@ -43,21 +43,26 @@ class ReportGenerator:
         """
         logger.info(f"Generating report for user {user_id}")
         
-        # 1. Fetch User & API Key & Config
+        # 1. Fetch User & API Keys & Config
         user = self.db.query(User).filter(User.id == user_id).first()
-        if not user or not user.google_api_key:
-             raise ValueError("User not found or missing API Key")
-        
+        if not user:
+            raise ValueError("User not found")
+
+        google_key = user.google_api_key
+        anthropic_key = getattr(user, 'anthropic_api_key', None)
+        if not google_key and not anthropic_key:
+            raise ValueError("No AI API key configured")
+
         from models import SystemConfig
         sys_config = self.db.query(SystemConfig).filter(SystemConfig.user_id == user_id).first()
-        
+
         model_name = "gemini-2.5-flash-lite"
         custom_prompt = None
         if sys_config:
             model_name = sys_config.report_model or "gemini-2.5-flash-lite"
             custom_prompt = sys_config.report_prompt
 
-        client = genai.Client(api_key=user.google_api_key) # Fast model for long context
+        ai_service = AIService(api_key=google_key, anthropic_api_key=anthropic_key)
 
         # 2. Fetch Context Articles
         # Filter by Date Range
@@ -111,14 +116,13 @@ class ReportGenerator:
             # 5. Call LLM
             logger.info(f"Sending prompt to LLM (Model: {model_name})...")
             start_time = time.time()
-            response = client.models.generate_content(
-                model=model_name,
-                contents=prompt
+            report_content = ai_service.call_sync(
+                prompt=prompt,
+                model_name=model_name,
+                response_mime_type="text/plain"
             )
             elapsed = time.time() - start_time
             logger.info(f"Report generated in {elapsed:.2f}s")
-            
-            report_content = response.text
             
             # 6. Save Report
             report = Report(

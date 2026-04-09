@@ -137,6 +137,8 @@ export default function DeliveryConfigEditorModal({
     const [cc, setCc] = useState<string[]>([]);
     const [bcc, setBcc] = useState<string[]>([]);
 
+    const [notionDatabaseId, setNotionDatabaseId] = useState('');
+
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -150,7 +152,7 @@ export default function DeliveryConfigEditorModal({
             setSubject(p.subject || '');
             setCc(p.cc || []);
             setBcc(p.bcc || []);
-            setBcc(p.bcc || []);
+            setNotionDatabaseId(p.database_id || '');
         } else {
             setName('');
             setDeliveryType('EMAIL');
@@ -158,6 +160,7 @@ export default function DeliveryConfigEditorModal({
             setSubject('');
             setCc([]);
             setBcc([]);
+            setNotionDatabaseId('');
         }
     }, [initialData, isOpen]);
 
@@ -172,18 +175,22 @@ export default function DeliveryConfigEditorModal({
             setError('Please add at least one recipient email.');
             return;
         }
+        if (deliveryType === 'NOTION' && !notionDatabaseId.trim()) {
+            setError('Please enter a Notion Database ID.');
+            return;
+        }
 
         setSaving(true);
         setError(null);
         try {
-            const parameters: any = {
-                recipients,
-                subject
-            };
-
-            // Only add optional fields if they have values to keep JSON clean
-            if (cc.length > 0) parameters.cc = cc;
-            if (bcc.length > 0) parameters.bcc = bcc;
+            let parameters: any = {};
+            if (deliveryType === 'EMAIL') {
+                parameters = { recipients, subject };
+                if (cc.length > 0) parameters.cc = cc;
+                if (bcc.length > 0) parameters.bcc = bcc;
+            } else if (deliveryType === 'NOTION') {
+                parameters = { database_id: notionDatabaseId.trim() };
+            }
 
             await onSave({
                 id: initialData?.id,
@@ -307,9 +314,10 @@ export default function DeliveryConfigEditorModal({
                             <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#334155', marginBottom: '8px' }}>
                                 Delivery Method
                             </label>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
                                 {[
                                     { id: 'EMAIL', label: 'Email', icon: '✉️' },
+                                    { id: 'NOTION', label: 'Notion', icon: '📝' },
                                     { id: 'TELEGRAM', label: 'Telegram', icon: '📱' },
                                     { id: 'WEBHOOK', label: 'Webhook', icon: '🔗' }
                                 ].map(type => (
@@ -383,7 +391,33 @@ export default function DeliveryConfigEditorModal({
                             </>
                         )}
 
-                        {deliveryType !== 'EMAIL' && (
+                        {deliveryType === 'NOTION' && (
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#334155', marginBottom: '8px' }}>
+                                    Notion Database ID
+                                </label>
+                                <input
+                                    type="text"
+                                    value={notionDatabaseId}
+                                    onChange={(e) => setNotionDatabaseId(e.target.value)}
+                                    placeholder="e.g., 2eb489513340811fa91fdc0066193947"
+                                    style={{
+                                        width: '100%',
+                                        padding: '10px 14px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #e2e8f0',
+                                        fontSize: '0.95rem',
+                                        outline: 'none',
+                                        fontFamily: 'monospace'
+                                    }}
+                                />
+                                <p style={{ margin: '8px 0 0 0', fontSize: '0.8rem', color: '#64748b' }}>
+                                    Find this in the Notion database URL after the last slash and before the question mark. The Notion Integration Token must be set in Settings.
+                                </p>
+                            </div>
+                        )}
+
+                        {(deliveryType === 'TELEGRAM' || deliveryType === 'WEBHOOK') && (
                             <div style={{
                                 padding: '24px',
                                 textAlign: 'center',

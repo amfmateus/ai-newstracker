@@ -40,3 +40,4 @@ markdown
 croniter
 APScheduler
 resend
+anthropic

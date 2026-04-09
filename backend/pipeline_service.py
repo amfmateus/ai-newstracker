@@ -133,11 +133,14 @@ class PipelineExecutor:
         # 2.6 Post-Processing (Reconciliation & Citation Formatting)
         if ai_content and articles:
             ai_content = self._post_process_report_content(
-                ai_content, articles, context, 
-                citation_type=citation_type, 
+                ai_content, articles, context,
+                citation_type=citation_type,
                 formatting_params=formatting_params
             )
-        
+
+        # Store post-processed content for Notion delivery (needs citations + reference URLs)
+        context.update("step_3_formatting", {"processed_content": ai_content})
+
         # 3. Formatting
         html_output = ""
         if fmt_lib:
@@ -170,11 +173,23 @@ class PipelineExecutor:
                 # Pass report and articles
                 final_file_path = await self._execute_output(out_lib, report, articles, context)
         
-        # 5. Delivery
-        if pipeline.delivery_config_id:
-            del_lib = db.query(DeliveryConfigLibrary).get(pipeline.delivery_config_id)
+        # 5. Delivery — supports multiple delivery configs
+        # Use delivery_config_ids (JSON array) if set; fall back to single delivery_config_id
+        raw_ids = pipeline.delivery_config_ids
+        # Defensive: TEXT column on PostgreSQL may return a JSON string instead of a parsed list
+        if isinstance(raw_ids, str):
+            import json as _json
+            try:
+                raw_ids = _json.loads(raw_ids)
+            except Exception:
+                raw_ids = []
+        config_ids = raw_ids or []
+        if not config_ids and pipeline.delivery_config_id:
+            config_ids = [pipeline.delivery_config_id]
+        logger.info(f"Pipeline delivery: delivery_config_ids={pipeline.delivery_config_ids!r} → resolved config_ids={config_ids}")
+        for config_id in config_ids:
+            del_lib = db.query(DeliveryConfigLibrary).get(config_id)
             if del_lib:
-                # Pass report and articles
                 await self._execute_delivery(del_lib, report, articles, final_file_path, context)
         
         # Update Report Status
@@ -465,14 +480,20 @@ class PipelineExecutor:
         })
         return articles
 
-    def _serialize_article(self, article: Article) -> Dict[str, Any]:
-        """Helper to serialize article for AI context"""
-        return {
+    def _serialize_article(self, article: Article, max_content_chars: int = 500) -> Dict[str, Any]:
+        """Helper to serialize article for AI context.
+        Uses ai_summary when available; falls back to truncated content_snippet."""
+        if article.ai_summary:
+            content = None  # omit raw content when summary exists — saves tokens
+        else:
+            content = article.content_snippet or ""
+            if len(content) > max_content_chars:
+                content = content[:max_content_chars] + "…"
+        result = {
             "id": article.id,
             "title": article.raw_title,
             "translated_title": article.translated_title,
             "url": article.url,
-            "content": article.content_snippet,
             "ai_summary": article.ai_summary,
             "published_at": article.published_at.isoformat() if article.published_at else None,
             "source": article.source.name if article.source else "Unknown",
@@ -481,6 +502,9 @@ class PipelineExecutor:
             "tags": article.tags,
             "entities": article.entities
         }
+        if content is not None:
+            result["content"] = content
+        return result
 
     async def _execute_processing(self, prompt_lib: PromptLibrary, articles: List[Article], context: PipelineContext, debug_logger: Any = None) -> Dict[str, Any]:
         """
@@ -529,11 +553,12 @@ class PipelineExecutor:
             combined_prompt += f"\n\nHere is the data context for your analysis (JSON Format):\n{articles_json}"
 
         try:
-            # Fetch user for their specific API key
+            # Fetch user for their specific API keys
             user = self.db.query(User).get(context.user_id)
-            user_api_key = user.google_api_key if user else None
-            
-            ai_service = AIService(api_key=user_api_key)
+            user_api_key = (user.google_api_key if getattr(user, 'google_api_key_enabled', True) else None) if user else None
+            user_anthropic_key = (getattr(user, 'anthropic_api_key', None) if getattr(user, 'anthropic_api_key_enabled', True) else None) if user else None
+
+            ai_service = AIService(api_key=user_api_key, anthropic_api_key=user_anthropic_key)
             
             # STORE DEBUG INFO
             context.update("step_2_processing", { "debug_prompt": combined_prompt })
@@ -542,14 +567,17 @@ class PipelineExecutor:
             # Use model from library if available, otherwise default
             model_to_use = prompt_lib.model if prompt_lib.model else "gemini-2.0-flash-lite-preview-02-05"
 
-            response_text = await ai_service.call(
-                model_name=model_to_use, 
-                prompt=combined_prompt,
-                debug_logger=debug_logger
-            )
-            
+            try:
+                response_text = await ai_service.call(
+                    model_name=model_to_use,
+                    prompt=combined_prompt,
+                    debug_logger=debug_logger
+                )
+            except Exception as ai_err:
+                raise ValueError(str(ai_err)) from ai_err
+
             context.update("step_2_processing", { "debug_raw_response": response_text })
-            
+
             # AI response might be empty
             if not response_text:
                 raise ValueError("AI returned an empty response")
@@ -1086,7 +1114,45 @@ class PipelineExecutor:
             elif del_lib.delivery_type == 'TELEGRAM':
                 # Placeholder
                 pass
-                
+
+            elif del_lib.delivery_type == 'NOTION':
+                database_id = params.get("database_id")
+                if not database_id:
+                    raise ValueError("Notion delivery config is missing 'database_id'")
+
+                sys_config = self.db.query(SystemConfig).filter(SystemConfig.user_id == report.user_id).first()
+                notion_token = getattr(sys_config, 'notion_token', None)
+                if not notion_token:
+                    raise ValueError("Notion integration token not configured in Settings")
+
+                # Use post-processed content stored during Step 3 (has citation markers + reference URLs)
+                processed_content = context.get("step_3_formatting").get("processed_content") or {}
+                logger.info(f"Notion delivery: processed_content keys={list(processed_content.keys())}")
+
+                report_date = report.created_at.strftime("%Y-%m-%d") if report.created_at else datetime.now().strftime("%Y-%m-%d")
+
+                # Allow optional page_title_template in delivery config params (same syntax as email subject)
+                page_title = report.title or "Untitled Report"
+                title_template = params.get("page_title_template")
+                if title_template:
+                    try:
+                        from jinja2 import Template
+                        page_title = Template(title_template).render(
+                            date=report_date,
+                            title=report.title or "",
+                            pipeline=getattr(context, 'pipeline_name', '') or "",
+                            pipeline_name=getattr(context, 'pipeline_name', '') or ""
+                        )
+                    except Exception as tpl_err:
+                        logger.warning(f"Failed to render Notion page_title_template: {tpl_err}")
+
+                from notion_delivery import deliver_to_notion
+                page_url = deliver_to_notion(
+                    notion_token, database_id, page_title,
+                    report_date, processed_content
+                )
+                result = {"page_url": page_url}
+
         except Exception as e:
             status = "failed"
             error_msg = str(e)
@@ -1363,15 +1429,20 @@ class PipelineExecutor:
              del_lib = self.db.query(DeliveryConfigLibrary).get(step_config_id)
              mock_ctx = PipelineContext("TEST", user_id)
              mock_ctx.pipeline_name = input_context.get("pipeline_name", "Unknown Pipeline")
-             
+
+             # Inject processed_content from step 2/3 results so Notion delivery has content
+             processed_content = input_context.get("processed_content") or {}
+             if processed_content:
+                 mock_ctx.update("step_3_formatting", {"processed_content": processed_content})
+
              mock_report = Report(
-                id="TEST-REPORT", 
-                user_id=user_id, 
-                content=input_context.get("html", ""), 
-                title=input_context.get("report_title", "Test Report"), 
+                id="TEST-REPORT",
+                user_id=user_id,
+                content=input_context.get("html", ""),
+                title=input_context.get("report_title", "Test Report"),
                 created_at=datetime.now(timezone.utc)
              )
              result = await self._execute_delivery(del_lib, mock_report, [], "mock_path", mock_ctx)
-             return result  
+             return result
             
         return {"error": "Step not implemented"}
