@@ -264,7 +264,9 @@ export default function PipelineBuilder({ params }: PageProps) {
                 report_title: currentStepResults[2]?.title || "Test Report",
                 html: currentStepResults[3] || "",
                 pipeline_id: pipeline.id,
-                pipeline_name: pipeline.name
+                pipeline_name: pipeline.name,
+                // Pass full AI output so Notion delivery has content to render
+                processed_content: currentStepResults[2] || {}
             };
             configId = pipeline.delivery_config_id;
         }

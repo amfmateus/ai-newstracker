@@ -1420,15 +1420,20 @@ class PipelineExecutor:
              del_lib = self.db.query(DeliveryConfigLibrary).get(step_config_id)
              mock_ctx = PipelineContext("TEST", user_id)
              mock_ctx.pipeline_name = input_context.get("pipeline_name", "Unknown Pipeline")
-             
+
+             # Inject processed_content from step 2/3 results so Notion delivery has content
+             processed_content = input_context.get("processed_content") or {}
+             if processed_content:
+                 mock_ctx.update("step_3_formatting", {"processed_content": processed_content})
+
              mock_report = Report(
-                id="TEST-REPORT", 
-                user_id=user_id, 
-                content=input_context.get("html", ""), 
-                title=input_context.get("report_title", "Test Report"), 
+                id="TEST-REPORT",
+                user_id=user_id,
+                content=input_context.get("html", ""),
+                title=input_context.get("report_title", "Test Report"),
                 created_at=datetime.now(timezone.utc)
              )
              result = await self._execute_delivery(del_lib, mock_report, [], "mock_path", mock_ctx)
-             return result  
+             return result
             
         return {"error": "Step not implemented"}
