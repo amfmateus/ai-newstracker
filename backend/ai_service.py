@@ -75,15 +75,28 @@ DEFAULT_ANALYSIS_PROMPT = """
         }}
         """
 
-# Hardcoded list of available Claude models
+# Hardcoded list of available Claude models.
+# Models with the ":thinking" suffix enable extended thinking mode.
 CLAUDE_MODELS = [
     {"id": "claude-opus-4-6", "name": "Claude Opus 4.6"},
+    {"id": "claude-opus-4-6:thinking", "name": "Claude Opus 4.6 (Thinking)"},
     {"id": "claude-sonnet-4-6", "name": "Claude Sonnet 4.6"},
+    {"id": "claude-sonnet-4-6:thinking", "name": "Claude Sonnet 4.6 (Thinking)"},
     {"id": "claude-haiku-4-5-20251001", "name": "Claude Haiku 4.5"},
 ]
 
+# Default thinking budget in tokens (can be tuned)
+THINKING_BUDGET_TOKENS = 10000
+
 def _is_claude_model(model_name: str) -> bool:
-    return model_name.startswith("claude-")
+    return _base_model_name(model_name).startswith("claude-")
+
+def _is_thinking_model(model_name: str) -> bool:
+    return model_name.endswith(":thinking")
+
+def _base_model_name(model_name: str) -> str:
+    """Strip the :thinking suffix to get the real API model ID."""
+    return model_name.replace(":thinking", "")
 
 def _strip_json_fences(text: str) -> str:
     """Remove markdown code fences that some models wrap JSON in."""
@@ -287,12 +300,23 @@ class AIService:
     async def _call_anthropic_raw(self, prompt: str, model_name: str) -> str:
         if not self._anthropic_enabled():
             raise RuntimeError("Anthropic client not initialized")
-        message = await self.anthropic_client.messages.create(
-            model=model_name,
-            max_tokens=8096,
+
+        thinking = _is_thinking_model(model_name)
+        base_model = _base_model_name(model_name)
+
+        kwargs = dict(
+            model=base_model,
+            max_tokens=16000 if thinking else 8096,
             messages=[{"role": "user", "content": prompt}]
         )
-        return message.content[0].text if message.content else ""
+        if thinking:
+            kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
+
+        message = await self.anthropic_client.messages.create(**kwargs)
+
+        # Return only text blocks (thinking blocks are separate)
+        text = "\n".join(block.text for block in message.content if block.type == "text")
+        return text
 
     def call_sync(self, prompt: str, model_name: str = "gemini-2.0-flash-lite", response_mime_type: str = "application/json") -> str:
         """Synchronous version of call() for use in non-async contexts (e.g. Celery tasks)."""
@@ -306,12 +330,17 @@ class AIService:
                     raise RuntimeError("Anthropic client not initialized")
                 import anthropic as _anthropic
                 client = _anthropic.Anthropic(api_key=self.anthropic_api_key)
-                message = client.messages.create(
-                    model=model_name,
-                    max_tokens=8096,
+                thinking = _is_thinking_model(model_name)
+                base_model = _base_model_name(model_name)
+                kwargs = dict(
+                    model=base_model,
+                    max_tokens=16000 if thinking else 8096,
                     messages=[{"role": "user", "content": prompt}]
                 )
-                return message.content[0].text if message.content else ""
+                if thinking:
+                    kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
+                message = client.messages.create(**kwargs)
+                return "\n".join(block.text for block in message.content if block.type == "text")
             else:
                 if not self._gemini_enabled():
                     raise RuntimeError("Gemini client not initialized")
