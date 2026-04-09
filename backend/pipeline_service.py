@@ -175,9 +175,18 @@ class PipelineExecutor:
         
         # 5. Delivery — supports multiple delivery configs
         # Use delivery_config_ids (JSON array) if set; fall back to single delivery_config_id
-        config_ids = pipeline.delivery_config_ids or []
+        raw_ids = pipeline.delivery_config_ids
+        # Defensive: TEXT column on PostgreSQL may return a JSON string instead of a parsed list
+        if isinstance(raw_ids, str):
+            import json as _json
+            try:
+                raw_ids = _json.loads(raw_ids)
+            except Exception:
+                raw_ids = []
+        config_ids = raw_ids or []
         if not config_ids and pipeline.delivery_config_id:
             config_ids = [pipeline.delivery_config_id]
+        logger.info(f"Pipeline delivery: delivery_config_ids={pipeline.delivery_config_ids!r} → resolved config_ids={config_ids}")
         for config_id in config_ids:
             del_lib = db.query(DeliveryConfigLibrary).get(config_id)
             if del_lib:

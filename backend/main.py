@@ -833,16 +833,42 @@ def debug_schema(db: Session = Depends(get_db)):
         # Check columns in system_config
         result = db.execute(text("SELECT column_name FROM information_schema.columns WHERE table_name = 'system_config'"))
         columns = [row[0] for row in result.fetchall()]
-        
+
+        # Check columns in report_pipelines
+        rp_result = db.execute(text("SELECT column_name FROM information_schema.columns WHERE table_name = 'report_pipelines'"))
+        rp_columns = [row[0] for row in rp_result.fetchall()]
+
         # Check DB URL scheme (safely)
         from database import engine
         url_scheme = engine.url.drivername
-        
+
         return {
             "status": "ok",
             "db_scheme": url_scheme,
-            "columns": columns,
-            "has_resend_key": "resend_api_key" in columns
+            "system_config_columns": columns,
+            "report_pipelines_columns": rp_columns,
+            "has_notion_token": "notion_token" in columns,
+            "has_delivery_config_ids": "delivery_config_ids" in rp_columns,
+        }
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
+@app.get("/debug-pipeline/{pipeline_id}")
+def debug_pipeline(pipeline_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    """Inspect raw pipeline delivery config values stored in DB."""
+    from sqlalchemy import text
+    try:
+        row = db.execute(
+            text("SELECT id, delivery_config_id, delivery_config_ids FROM report_pipelines WHERE id = :pid AND user_id = :uid"),
+            {"pid": pipeline_id, "uid": current_user.id}
+        ).fetchone()
+        if not row:
+            return {"status": "not_found"}
+        return {
+            "id": row[0],
+            "delivery_config_id": row[1],
+            "delivery_config_ids_raw": row[2],
+            "delivery_config_ids_type": type(row[2]).__name__,
         }
     except Exception as e:
         return {"status": "error", "detail": str(e)}
