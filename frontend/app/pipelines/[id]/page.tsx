@@ -259,16 +259,26 @@ export default function PipelineBuilder({ params }: PageProps) {
             configId = pipeline.output_config_id;
         }
         else if (step === 5) {
-            // Delivery depends on many things, but let's pass a mock context or IDs
             context = {
                 report_title: currentStepResults[2]?.title || "Test Report",
                 html: currentStepResults[3] || "",
                 pipeline_id: pipeline.id,
                 pipeline_name: pipeline.name,
-                // Pass full AI output so Notion delivery has content to render
                 processed_content: currentStepResults[2] || {}
             };
-            configId = pipeline.delivery_config_id;
+            // Run delivery test for every selected config ID
+            const configIds: string[] = pipeline.delivery_config_ids?.length
+                ? pipeline.delivery_config_ids
+                : pipeline.delivery_config_id ? [pipeline.delivery_config_id] : [];
+
+            const stepNames2 = ['Source', 'Processing', 'Formatting', 'Output', 'Delivery', 'Schedule'];
+            setTestStatus(`Step ${step}: ${stepNames2[step - 1]}...`);
+            const forceRefresh2 = step === activeStep;
+
+            const allResults = await Promise.all(
+                configIds.map(id => testPipelineStep(step, context, id, forceRefresh2))
+            );
+            return allResults.length === 1 ? allResults[0] : allResults;
         }
 
         const stepNames = ['Source', 'Processing', 'Formatting', 'Output', 'Delivery', 'Schedule'];
