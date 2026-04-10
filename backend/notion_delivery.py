@@ -150,7 +150,7 @@ def _citations_to_links(text: str, refs_by_id: Dict) -> str:
                     parts.append(f"[{num}]({url})")
                 else:
                     parts.append(f"[{num}]")
-        return ''.join(parts)
+        return ', '.join(parts)
 
     return re.sub(r'\[\[CITE_GROUP:([^\]]+)\]\]', replace, text)
 
