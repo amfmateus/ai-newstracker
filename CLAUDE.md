@@ -82,6 +82,18 @@ Next.js 16 App Router (`frontend/app/`). Pages: `sources/`, `stories/`, `reports
 
 **Datetime handling:** All datetimes stored as UTC. Crawlers enforce UTC-aware datetimes to prevent scheduler drift.
 
+## Production Merge Checklist
+
+Before merging any branch to `main`, beyond structural checks (migrations, git divergence), audit all **new code paths** for these risks:
+
+**AI response normalization:** Any code that consumes AI output (`_execute_processing`, `ai_service.call`, clustering) must validate the type at the boundary. AI models can return JSON arrays, empty strings, or malformed JSON regardless of what the prompt asks for. Never assume `json.loads(ai_response)` returns a dict — always assert or normalize immediately after parsing.
+
+**Type assumptions on external data:** Functions that receive data from AI, external APIs, or JSON DB columns must not assume the type. A JSON column can return `None`, a list, or a dict depending on what was stored. Any function that does `obj["key"] = value` must verify `isinstance(obj, dict)` first.
+
+**Test coverage gap:** Dev/test pipelines with short prompts often return well-formed responses. Production pipelines with complex prompts, large article sets, or different language content can cause AI to return differently-structured output. A fix that works in dev is not proven safe for production until tested against real data.
+
+**Pre-merge code path audit:** For every new function or significantly modified function, ask: what happens if the input is `None`, an empty list, a non-empty list, or a dict with missing keys? If any of those cases would crash, add a guard.
+
 ## Environment Variables
 
 Key variables (see `.env` for full list):
