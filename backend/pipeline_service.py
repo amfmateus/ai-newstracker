@@ -607,6 +607,10 @@ class PipelineExecutor:
                         return json.loads(text, strict=False)
 
             result = robust_json_load(response_text)
+            # Normalize: if AI returned a JSON array, wrap it in a dict
+            if isinstance(result, list):
+                logger.warning(f"AI returned a JSON array (len={len(result)}); wrapping in dict")
+                result = {"sections": result, "title": "Generated Report", "summary": "", "key_findings": [], "references": []}
             context.update("step_2_processing", { "ai_response": result })
             return result
         except Exception as e:
@@ -624,6 +628,10 @@ class PipelineExecutor:
         Reconciles references with DB ground truth and reformats citations into structural groups.
         This version is FULLY recursive to catch citations in any list or nested dictionary.
         """
+        # Defensive: AI occasionally returns a JSON array instead of an object
+        if not isinstance(ai_content, dict):
+            logger.warning(f"_post_process_report_content received non-dict ai_content (type={type(ai_content).__name__}); wrapping")
+            ai_content = {"sections": ai_content if isinstance(ai_content, list) else [], "title": "Generated Report", "summary": "", "key_findings": [], "references": []}
         import re
         import markdown
         params = formatting_params or {}

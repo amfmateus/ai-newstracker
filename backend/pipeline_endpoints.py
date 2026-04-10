@@ -69,6 +69,8 @@ async def test_pipeline_step(
         result = await executor.test_step(step_number, input_context, step_config_id, current_user.id, force_refresh)
         return result
     except Exception as e:
+        import traceback
+        logger.error(f"test_step {step_number} failed: {e}\n{traceback.format_exc()}")
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/test-report/view")
