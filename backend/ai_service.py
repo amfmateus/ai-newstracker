@@ -404,9 +404,11 @@ class AIService:
         if thinking:
             kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
 
+        message = None
         for attempt in range(3):
             try:
-                message = await self.anthropic_client.messages.create(**kwargs)
+                async with self.anthropic_client.messages.stream(**kwargs) as stream:
+                    message = await stream.get_final_message()
                 break
             except _anthropic.RateLimitError as e:
                 if attempt == 2:
@@ -450,9 +452,11 @@ class AIService:
                 )
                 if thinking:
                     kwargs["thinking"] = {"type": "enabled", "budget_tokens": THINKING_BUDGET_TOKENS}
+                message = None
                 for attempt in range(3):
                     try:
-                        message = client.messages.create(**kwargs)
+                        with client.messages.stream(**kwargs) as stream:
+                            message = stream.get_final_message()
                         break
                     except _anthropic.RateLimitError as e:
                         if attempt == 2:
