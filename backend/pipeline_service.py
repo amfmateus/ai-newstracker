@@ -589,22 +589,51 @@ class PipelineExecutor:
                  response_text = response_text.split("```")[1].split("```")[0].strip()
                  
             # Robust JSON parsing
+            _TRUNCATION_MSGS = ("unterminated string", "unexpected end of data", "unexpected end-of-file")
+
+            def _looks_truncated(text: str, err: json.JSONDecodeError) -> bool:
+                """Return True if the parse error is consistent with a truncated response."""
+                err_lower = str(err).lower()
+                if any(m in err_lower for m in _TRUNCATION_MSGS):
+                    return True
+                # Heuristic: error position is within last 5% of the text — likely cut mid-token
+                if err.pos and err.pos >= len(text) * 0.95:
+                    return True
+                return False
+
             def robust_json_load(text):
                 try:
                     return json.loads(text)
-                except json.JSONDecodeError as e:
+                except json.JSONDecodeError as first_err:
                     import re
                     # 1. Handle invalid unicode escapes \uXXXX
-                    # If we have \u and NOT followed by 4 hex digits, escape the \
                     text = re.sub(r'\\u(?![0-9a-fA-F]{4})', r'\\\\u', text)
-                    
-                    # 2. Try again
+
+                    # 2. Try again with relaxed parsing
                     try:
                         return json.loads(text, strict=False)
                     except json.JSONDecodeError:
-                        # 3. Last ditch: try to fix common AI JSON artifacts (trailing commas, etc)
-                        text = re.sub(r',\s*([\]}])', r'\1', text) 
-                        return json.loads(text, strict=False)
+                        pass
+
+                    # 3. Last ditch: strip trailing commas and try again
+                    cleaned = re.sub(r',\s*([\]}])', r'\1', text)
+                    try:
+                        return json.loads(cleaned, strict=False)
+                    except json.JSONDecodeError as final_err:
+                        # Surface a clear, actionable error
+                        if _looks_truncated(text, first_err):
+                            raise ValueError(
+                                f"The AI response appears to have been cut off before it could finish "
+                                f"(truncated at char {first_err.pos:,} of {len(text):,}). "
+                                f"This usually means the output exceeded the model's token limit. "
+                                f"Try reducing the number of articles fed into this pipeline, or use a "
+                                f"model with a higher output token limit."
+                            ) from final_err
+                        raise ValueError(
+                            f"AI returned malformed JSON that could not be repaired "
+                            f"({final_err.msg} at line {final_err.lineno} col {final_err.colno}). "
+                            f"Raw response length: {len(text):,} chars."
+                        ) from final_err
 
             result = robust_json_load(response_text)
             # Normalize: if AI returned a JSON array, wrap it in a dict
@@ -614,13 +643,18 @@ class PipelineExecutor:
             context.update("step_2_processing", { "ai_response": result })
             return result
         except Exception as e:
-            logger.error(f"AI Processing failed: {e}")
-            # Return error structure
+            logger.error(f"AI Processing failed: {e}", exc_info=True)
+            error_msg = str(e)
             return {
                 "title": "Error Generating Report",
-                "summary": f"An error occurred: {str(e)}",
+                "summary": error_msg,
                 "sections": [],
-                "error": str(e)
+                "error": error_msg,
+                "references": [],
+                "id_to_citation": {},
+                "references_by_source": {},
+                "citation_mapping": {},
+                "source_mapping": {},
             }
 
     def _post_process_report_content(self, ai_content: Dict[str, Any], articles_db: List[Article], context: PipelineContext, citation_type: str = "numeric_superscript", formatting_params: Dict = None) -> Dict[str, Any]:

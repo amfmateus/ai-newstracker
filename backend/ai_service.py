@@ -369,9 +369,21 @@ class AIService:
         response = await self.gemini_client.aio.models.generate_content(
             model=model_name,
             contents=prompt,
-            config=types.GenerateContentConfig(response_mime_type=response_mime_type)
+            config=types.GenerateContentConfig(
+                response_mime_type=response_mime_type,
+                max_output_tokens=65536,
+            )
         )
-        return response.text or ""
+        text = response.text or ""
+        candidate = response.candidates[0] if response.candidates else None
+        if candidate and str(candidate.finish_reason) in ("FinishReason.MAX_TOKENS", "MAX_TOKENS", "2"):
+            raise RuntimeError(
+                f"Gemini response was truncated (finish_reason=MAX_TOKENS). "
+                f"The model hit the output token limit before finishing. "
+                f"The partial response ({len(text):,} chars) cannot be safely parsed. "
+                f"Try reducing the number of articles in the pipeline."
+            )
+        return text
 
     async def _call_anthropic_raw(self, prompt: str, model_name: str) -> str:
         if not self._anthropic_enabled():
@@ -386,7 +398,7 @@ class AIService:
 
         kwargs = dict(
             model=base_model,
-            max_tokens=16000 if thinking else 8096,
+            max_tokens=16000 if thinking else 32000,
             messages=[{"role": "user", "content": prompt}]
         )
         if thinking:
@@ -405,6 +417,15 @@ class AIService:
 
         # Return only text blocks (thinking blocks are separate)
         text = "\n".join(block.text for block in message.content if block.type == "text")
+
+        if message.stop_reason == "max_tokens":
+            raise RuntimeError(
+                f"Claude response was truncated (stop_reason=max_tokens). "
+                f"The model hit the {kwargs['max_tokens']:,}-token output limit before finishing. "
+                f"The partial response ({len(text):,} chars) cannot be safely parsed. "
+                f"Try reducing the number of articles in the pipeline or switching to a model with higher output limits."
+            )
+
         return text
 
     def call_sync(self, prompt: str, model_name: str = "gemini-2.0-flash-lite", response_mime_type: str = "application/json") -> str:
@@ -424,7 +445,7 @@ class AIService:
                 base_model = _base_model_name(model_name)
                 kwargs = dict(
                     model=base_model,
-                    max_tokens=16000 if thinking else 8096,
+                    max_tokens=16000 if thinking else 32000,
                     messages=[{"role": "user", "content": prompt}]
                 )
                 if thinking:
@@ -439,16 +460,36 @@ class AIService:
                         wait = 60 * (attempt + 1)
                         logger.warning(f"Anthropic rate limit hit, retrying in {wait}s (attempt {attempt + 1}/3): {e}")
                         time.sleep(wait)
-                return "\n".join(block.text for block in message.content if block.type == "text")
+                text = "\n".join(block.text for block in message.content if block.type == "text")
+                if message.stop_reason == "max_tokens":
+                    raise RuntimeError(
+                        f"Claude response was truncated (stop_reason=max_tokens). "
+                        f"The model hit the {kwargs['max_tokens']:,}-token output limit before finishing. "
+                        f"The partial response ({len(text):,} chars) cannot be safely parsed. "
+                        f"Try reducing the number of articles in the pipeline or switching to a model with higher output limits."
+                    )
+                return text
             else:
                 if not self._gemini_enabled():
                     raise RuntimeError("Gemini client not initialized")
                 response = self.gemini_client.models.generate_content(
                     model=model_name,
                     contents=prompt,
-                    config=types.GenerateContentConfig(response_mime_type=response_mime_type)
+                    config=types.GenerateContentConfig(
+                        response_mime_type=response_mime_type,
+                        max_output_tokens=65536,
+                    )
                 )
-                return response.text or ""
+                text = response.text or ""
+                candidate = response.candidates[0] if response.candidates else None
+                if candidate and str(candidate.finish_reason) in ("FinishReason.MAX_TOKENS", "MAX_TOKENS", "2"):
+                    raise RuntimeError(
+                        f"Gemini response was truncated (finish_reason=MAX_TOKENS). "
+                        f"The model hit the output token limit before finishing. "
+                        f"The partial response ({len(text):,} chars) cannot be safely parsed. "
+                        f"Try reducing the number of articles in the pipeline."
+                    )
+                return text
         except Exception as e:
             logger.error(f"AI call_sync failed: {e}")
             return ""
